@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+  <!--[if IE 7]><link rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
+  <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="css/prettify.css" type="text/css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/prettify.js"></script>
+  <title>PHPUnit &#x2013; The PHP Testing Framework</title>
+ </head>
+ <body onload="prettyPrint()">
+  <div class="container">
+   <div class="masthead">
+    <h3 class="muted">PHPUnit &#x2013; The PHP Testing Framework</h3>
+    <div class="navbar">
+     <div class="navbar-inner">
+      <div class="container">
+       <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="http://phpunit.de/manual/current/en/">Documentation</a></li>
+        <li><a href="https://github.com/sebastianbergmann/phpunit">GitHub</a></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="span12">
+     <h2>Download</h2>
+     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Simply download it from <a href="https://phar.phpunit.de/phpunit.phar">here</a>, make it executable, and put it into your <code>$PATH</code>, for instance:</p>
+     <pre><strong>➜ wget https://phar.phpunit.de/phpunit.phar
+
+➜ chmod +x phpunit.phar
+
+➜ mv phpunit.phar /usr/local/bin/phpunit
+
+➜ phpunit --version</strong>
+PHPUnit 3.7.28 by Sebastian Bergmann.</pre>
+     <p>You can also immediately use the PHAR after you have downloaded it, of course:</p>
+     <pre><strong>➜ wget https://phar.phpunit.de/phpunit.phar
+
+➜ php phpunit.phar --version</strong>
+PHPUnit 3.7.28 by Sebastian Bergmann</pre>
+     <p>Alternatively, you may use Composer or the PEAR Installer to download and install PHPUnit as well as its dependencies. Please refer to the <a href="http://phpunit.de/manual/current/en/">documentation</a> for details on how to do this.</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="span6">
+     <h2>Code</h2>
+     <p><strong>src/Money.php</strong></p>
+     <pre class="prettyprint">&lt;?php
+class Money
+{
+    private $amount;
+
+    // ...
+
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function negate()
+    {
+        return new Money(-1 * $this->amount);
+    }
+
+    // ...
+}</pre>
+     <p>You can find the complete sourcecode of the <code>Money</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/src/Money.php">here</a>.
+    </div>
+    <div class="span6">
+     <h2>Test Code</h2>
+     <p><strong>tests/MoneyTest.php</strong></p>
+     <pre class="prettyprint">&lt;?php
+class MoneyTest extends PHPUnit_Framework_TestCase
+{
+    // ...
+
+    public function testCanBeNegated()
+    {
+        // Arrange
+        $a = new Money(1);
+
+        // Act
+        $b = $a->negate();
+
+        // Assert
+        $this->assertEquals(-1, $b->getAmount());
+    }
+
+    // ...
+}</pre>
+     <p>You can find the complete sourcecode of the <code>MoneyTest</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/tests/MoneyTest.php">here</a>.
+    </div>
+   </div>
+   <div class="row">
+    <div class="span12">
+     <h2>Test Execution</h2>
+     <pre><strong>➜ phpunit --bootstrap src/autoload.php tests/MoneyTest</strong>
+PHPUnit 3.7.28 by Sebastian Bergmann.
+
+....................
+
+Time: 121 ms, Memory: 4.50Mb
+
+OK (20 tests, 39 assertions)</pre>
+    </div>
+   </div>
+   <div class="row">
+    <div class="span12">
+     <h2>Conclusion</h2>
+     <p>You have learned how to write simple unit tests as well as how to download and run PHPUnit. For more details please have a look at the <a href="http://phpunit.de/manual/current/en/">documentation</a>.</p>
+    </div>
+   </div>
+   <hr>
+   <div class="footer">
+    <p>Copyright &copy; 2001-2014 Sebastian Bergmann.</p>
+   </div>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+ </body>
+</html>
+
