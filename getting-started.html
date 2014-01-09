@@ -13,26 +13,30 @@
   <title>PHPUnit &#x2013; The PHP Testing Framework</title>
  </head>
  <body onload="prettyPrint()">
-  <div class="container">
-   <div class="masthead">
-    <h3 class="muted">PHPUnit &#x2013; The PHP Testing Framework</h3>
-    <div class="navbar">
-     <div class="navbar-inner">
-      <div class="container">
-       <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="getting-started.html">Getting Started</a></li>
-        <li><a href="documentation.html">Documentation</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="https://github.com/sebastianbergmann/phpunit">GitHub</a></li>
-       </ul>
-      </div>
-     </div>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+   <div class="container">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+    </div>
+    <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li class="active"><a href="getting-started.html">Getting Started</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="https://github.com/sebastianbergmann/phpunit">GitHub</a></li>
     </div>
    </div>
+  </div>
+  <div class="container">
    <div class="row">
-    <div class="span12">
-     <h1>Getting Started</h1>
+    <div class="col-md-12">
+     <h1>Getting Started with PHPUnit</h1>
      <h2>Download</h2>
      <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Simply download it from <a href="https://phar.phpunit.de/phpunit.phar">here</a>, make it executable, and put it into your <code>$PATH</code>, for instance:</p>
      <pre><strong>➜ wget https://phar.phpunit.de/phpunit.phar
@@ -52,7 +56,7 @@ PHPUnit 3.7.28 by Sebastian Bergmann</pre>
     </div>
    </div>
    <div class="row">
-    <div class="span6">
+    <div class="col-md-6">
      <h2>Code</h2>
      <p><strong>src/Money.php</strong></p>
      <pre class="prettyprint">&lt;?php
@@ -76,7 +80,7 @@ class Money
 }</pre>
      <p>You can find the complete sourcecode of the <code>Money</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/src/Money.php">here</a>.
     </div>
-    <div class="span6">
+    <div class="col-md-6">
      <h2>Test Code</h2>
      <p><strong>tests/MoneyTest.php</strong></p>
      <pre class="prettyprint">&lt;?php
@@ -102,7 +106,7 @@ class MoneyTest extends PHPUnit_Framework_TestCase
     </div>
    </div>
    <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
      <h2>Test Execution</h2>
      <pre><strong>➜ phpunit --bootstrap src/autoload.php tests/MoneyTest</strong>
 PHPUnit 3.7.28 by Sebastian Bergmann.
@@ -115,7 +119,7 @@ OK (20 tests, 39 assertions)</pre>
     </div>
    </div>
    <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
      <h2>Conclusion</h2>
      <p>You have learned how to write simple unit tests as well as how to download and run PHPUnit. For more details please have a look at the <a href="http://phpunit.de/manual/current/en/">documentation</a>.</p>
     </div>
