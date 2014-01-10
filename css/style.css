@@ -38,6 +38,12 @@ body {
   line-height: 1.25;
 }
 
+.navbar {
+	-webkit-box-shadow:	0px 2px 5px 0px rgba(0,0,0,0.32);
+	-moz-box-shadow:	0px 2px 5px 0px rgba(0,0,0,0.32);
+	box-shadow:			0px 2px 5px 0px rgba(0,0,0,0.32);
+}
+
 .navbar .navbar-inner {
   padding: 0;
 }
@@ -92,12 +98,27 @@ body {
   height: 100%;
 }
 
-.welcome-block p .btn {
+.welcome-block {
+	-webkit-box-shadow:	7px 7px 10px 0px rgba(0,0,0,0.32);
+	-moz-box-shadow:	7px 7px 10px 0px rgba(0,0,0,0.32);
+	box-shadow:			7px 7px 10px 0px rgba(0,0,0,0.32);
+}
+
+.welcome-block .btn {
 	margin: 0 5px;
+	-webkit-box-shadow:	1px 2px 3px 0px rgba(0,0,0,0.32);
+	-moz-box-shadow:	1px 2px 3px 0px rgba(0,0,0,0.32);
+	box-shadow:			1px 2px 3px 0px rgba(0,0,0,0.32);
 }
 
 iframe {
 	border: 0 none;
+}
+
+pre {
+	-webkit-box-shadow:	2px 2px 5px 0px rgba(0,0,0,0.32);
+	-moz-box-shadow:	2px 2px 5px 0px rgba(0,0,0,0.32);
+	box-shadow:			2px 2px 5px 0px rgba(0,0,0,0.32);
 }
 
 .docblock .panel-body ul {
@@ -110,6 +131,103 @@ iframe {
 .docblock .panel-body li span.glyphicon {
 	margin-right: 10px;
 }
+
+
+.btn-learn {
+  color: #ffffff;
+  background-color: #823BD0;
+  border-color: #70489C;
+}
+
+.btn-learn:hover,
+.btn-learn:focus,
+.btn-learn:active,
+.btn-learn.active,
+.open .dropdown-toggle.btn-learn {
+  color: #ffffff;
+  background-color: #6D27B8;
+  border-color: #60388A;
+}
+
+.btn-learn:active,
+.btn-learn.active,
+.open .dropdown-toggle.btn-learn {
+  background-image: none;
+}
+
+.btn-learn.disabled,
+.btn-learn[disabled],
+fieldset[disabled] .btn-learn,
+.btn-learn.disabled:hover,
+.btn-learn[disabled]:hover,
+fieldset[disabled] .btn-learn:hover,
+.btn-learn.disabled:focus,
+.btn-learn[disabled]:focus,
+fieldset[disabled] .btn-learn:focus,
+.btn-learn.disabled:active,
+.btn-learn[disabled]:active,
+fieldset[disabled] .btn-learn:active,
+.btn-learn.disabled.active,
+.btn-learn[disabled].active,
+fieldset[disabled] .btn-learn.active {
+  background-color: #823BD0;
+  border-color: #70489C;
+}
+
+.btn-learn .badge {
+  color: #823BD0;
+  background-color: #fff;
+}
+
+.btn-github {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #262626;
+}
+
+.btn-github:hover,
+.btn-github:focus,
+.btn-github:active,
+.btn-github.active,
+.open .dropdown-toggle.btn-github {
+  color: #ffffff;
+  background-color: #8fb6dc;
+  border-color: #AFCFEE;
+}
+
+.btn-github:active,
+.btn-github.active,
+.open .dropdown-toggle.btn-github {
+  background-image: none;
+}
+
+.btn-github.disabled,
+.btn-github[disabled],
+fieldset[disabled] .btn-github,
+.btn-github.disabled:hover,
+.btn-github[disabled]:hover,
+fieldset[disabled] .btn-github:hover,
+.btn-github.disabled:focus,
+.btn-github[disabled]:focus,
+fieldset[disabled] .btn-github:focus,
+.btn-github.disabled:active,
+.btn-github[disabled]:active,
+fieldset[disabled] .btn-github:active,
+.btn-github.disabled.active,
+.btn-github[disabled].active,
+fieldset[disabled] .btn-github.active {
+  background-color: #333333;
+  border-color: #262626;
+}
+
+.btn-github .badge {
+  color: #333333;
+  background-color: #fff;
+}
+
+
+
+
 
 @media (max-width: 767px) {
   .jumbotron h1 {
