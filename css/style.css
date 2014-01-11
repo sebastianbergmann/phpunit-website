@@ -3,140 +3,140 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 code, pre {
-  font-family: 'Source Code Pro', sans-serif;
+ font-family: 'Source Code Pro', sans-serif;
 }
 
 body {
-  padding-top: 70px;
+ padding-top: 70px;
 }
 
 .container {
-  margin: 0 auto;
+ margin: 0 auto;
 }
 
 .container > hr {
-  margin: 30px 0;
+ margin: 30px 0;
 }
 
 .jumbotron {
-  margin: 40px 0;
-  text-align: center;
+ margin: 40px 0;
+ text-align: center;
 }
 
 .jumbotron h1 {
-  font-size: 64px;
-  line-height: 1;
+ font-size: 64px;
+ line-height: 1;
 }
 
 .jumbotron h2 {
-  font-size: 48px;
-  line-height: 1;
+ font-size: 48px;
+ line-height: 1;
 }
 
 .jumbotron .lead {
-  font-size: 24px;
-  line-height: 1.25;
+ font-size: 24px;
+ line-height: 1.25;
 }
 
 .navbar {
-	-webkit-box-shadow:	0px 2px 5px 0px rgba(0,0,0,0.32);
-	-moz-box-shadow:	0px 2px 5px 0px rgba(0,0,0,0.32);
-	box-shadow:			0px 2px 5px 0px rgba(0,0,0,0.32);
+ -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.32);
+ -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.32);
+ box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.32);
 }
 
 .navbar .navbar-inner {
-  padding: 0;
+ padding: 0;
 }
 
 .navbar .nav {
-  float: none;
-  margin: 0;
+ float: none;
+ margin: 0;
 }
 
 .navbar .nav li {
-  width: 20%;
-  text-align: center;
+ width: 20%;
+ text-align: center;
 }
 
 .navbar .nav li a {
-  font-weight: bold;
-  text-align: center;
-  border: none;
+ font-weight: bold;
+ text-align: center;
+ border: none;
 }
 
 .center {
-  float: none;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+ float: none;
+ margin-left: auto;
+ margin-right: auto;
+ text-align: center;
 }
 
 .flex-video {
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 67.5%;
-  height: 0;
-  margin-bottom: 16px;
-  overflow: hidden;
+ position: relative;
+ padding-top: 25px;
+ padding-bottom: 67.5%;
+ height: 0;
+ margin-bottom: 16px;
+ overflow: hidden;
 }
 
 .flex-video.widescreen {
-  padding-bottom: 57.25%;
+ padding-bottom: 57.25%;
 }
 
 .flex-video.vimeo {
-  padding-top: 0;
+ padding-top: 0;
 }
 
 .flex-video iframe,
 .flex-video object,
 .flex-video embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
 }
 
 .welcome-block {
-	-webkit-box-shadow:	7px 7px 10px 0px rgba(0,0,0,0.32);
-	-moz-box-shadow:	7px 7px 10px 0px rgba(0,0,0,0.32);
-	box-shadow:			7px 7px 10px 0px rgba(0,0,0,0.32);
+ -webkit-box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.32);
+ -moz-box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.32);
+ box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.32);
 }
 
 .welcome-block .btn {
-	margin: 0 5px;
-	-webkit-box-shadow:	1px 2px 3px 0px rgba(0,0,0,0.32);
-	-moz-box-shadow:	1px 2px 3px 0px rgba(0,0,0,0.32);
-	box-shadow:			1px 2px 3px 0px rgba(0,0,0,0.32);
+ margin: 0 5px;
+ -webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.32);
+ -moz-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.32);
+ box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.32);
 }
 
 iframe {
-	border: 0 none;
+ border: 0 none;
 }
 
 pre {
-	-webkit-box-shadow:	2px 2px 5px 0px rgba(0,0,0,0.32);
-	-moz-box-shadow:	2px 2px 5px 0px rgba(0,0,0,0.32);
-	box-shadow:			2px 2px 5px 0px rgba(0,0,0,0.32);
+ -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+ -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
 }
 
 .docblock .panel-body ul {
-	padding-left: 8px;
+ padding-left: 8px;
 }
 .docblock .panel-body li {
-	list-style-type: none;
+ list-style-type: none;
 }
 
 .docblock .panel-body li span.glyphicon {
-	margin-right: 10px;
+ margin-right: 10px;
 }
 
 
 .btn-learn {
-  color: #ffffff;
-  background-color: #823BD0;
-  border-color: #70489C;
+ color: #ffffff;
+ background-color: #823BD0;
+ border-color: #70489C;
 }
 
 .btn-learn:hover,
@@ -144,15 +144,15 @@ pre {
 .btn-learn:active,
 .btn-learn.active,
 .open .dropdown-toggle.btn-learn {
-  color: #ffffff;
-  background-color: #6D27B8;
-  border-color: #60388A;
+ color: #ffffff;
+ background-color: #6D27B8;
+ border-color: #60388A;
 }
 
 .btn-learn:active,
 .btn-learn.active,
 .open .dropdown-toggle.btn-learn {
-  background-image: none;
+ background-image: none;
 }
 
 .btn-learn.disabled,
@@ -170,19 +170,19 @@ fieldset[disabled] .btn-learn:active,
 .btn-learn.disabled.active,
 .btn-learn[disabled].active,
 fieldset[disabled] .btn-learn.active {
-  background-color: #823BD0;
-  border-color: #70489C;
+ background-color: #823BD0;
+ border-color: #70489C;
 }
 
 .btn-learn .badge {
-  color: #823BD0;
-  background-color: #fff;
+ color: #823BD0;
+ background-color: #fff;
 }
 
 .btn-github {
-  color: #ffffff;
-  background-color: #333333;
-  border-color: #262626;
+ color: #ffffff;
+ background-color: #333333;
+ border-color: #262626;
 }
 
 .btn-github:hover,
@@ -190,15 +190,15 @@ fieldset[disabled] .btn-learn.active {
 .btn-github:active,
 .btn-github.active,
 .open .dropdown-toggle.btn-github {
-  color: #ffffff;
-  background-color: #8fb6dc;
-  border-color: #AFCFEE;
+ color: #ffffff;
+ background-color: #8fb6dc;
+ border-color: #AFCFEE;
 }
 
 .btn-github:active,
 .btn-github.active,
 .open .dropdown-toggle.btn-github {
-  background-image: none;
+ background-image: none;
 }
 
 .btn-github.disabled,
@@ -216,38 +216,34 @@ fieldset[disabled] .btn-github:active,
 .btn-github.disabled.active,
 .btn-github[disabled].active,
 fieldset[disabled] .btn-github.active {
-  background-color: #333333;
-  border-color: #262626;
+ background-color: #333333;
+ border-color: #262626;
 }
 
 .btn-github .badge {
-  color: #333333;
-  background-color: #fff;
+ color: #333333;
+ background-color: #fff;
 }
 
-
-
-
-
 @media (max-width: 767px) {
-  .jumbotron h1 {
-    font-size: 2.6em;
-  }
-  
-  .jumbotron .lead {
-    font-size: 1.4em;
-  }
+ .jumbotron h1 {
+  font-size: 2.6em;
+ }
+
+ .jumbotron .lead {
+  font-size: 1.4em;
+ }
 }
 
 @media (max-width: 979px) {
-  .navbar .nav li {
-    width: 100%;
-  }
+ .navbar .nav li {
+  width: 100%;
+ }
 }
 
 @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
-  .flex-video {
-    padding-top: 0;
-  }
+ .flex-video {
+  padding-top: 0;
+ }
 }
 
