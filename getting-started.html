@@ -4,14 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link href="css/prettify.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="js/prettify.js"></script>
   <title>PHPUnit &#x2013; The PHP Testing Framework</title>
  </head>
- <body onload="prettyPrint()">
+ <body>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
    <div class="container">
     <div class="navbar-header">
@@ -59,7 +58,7 @@ PHPUnit 3.7.28 by Sebastian Bergmann</pre>
     <div class="col-md-6">
      <h2>Code</h2>
      <p><strong>src/Money.php</strong></p>
-     <pre class="prettyprint">&lt;?php
+     <pre><code>&lt;?php
 class Money
 {
     private $amount;
@@ -77,13 +76,13 @@ class Money
     }
 
     // ...
-}</pre>
+}</code></pre>
      <p>You can find the complete sourcecode of the <code>Money</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/src/Money.php">here</a>.
     </div>
     <div class="col-md-6">
      <h2>Test Code</h2>
      <p><strong>tests/MoneyTest.php</strong></p>
-     <pre class="prettyprint">&lt;?php
+     <pre><code>&lt;?php
 class MoneyTest extends PHPUnit_Framework_TestCase
 {
     // ...
@@ -101,7 +100,7 @@ class MoneyTest extends PHPUnit_Framework_TestCase
     }
 
     // ...
-}</pre>
+}</code></pre>
      <p>You can find the complete sourcecode of the <code>MoneyTest</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/tests/MoneyTest.php">here</a>.
     </div>
    </div>
@@ -131,7 +130,10 @@ OK (20 tests, 39 assertions)</pre>
   </div>
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
   <script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+
   var _paq = _paq || [];
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
