@@ -121,16 +121,34 @@ pre {
  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
 }
 
-.docblock .panel-body ul {
+.documentation .panel-body ul,
+.documentation-outdated .panel-body ul {
  padding-left: 8px;
 }
 
-.docblock .panel-body li {
+.documentation .panel-body li,
+.documentation-outdated .panel-body li {
  list-style-type: none;
 }
 
-.docblock .panel-body li span.glyphicon {
+.documentation .panel-body li span.glyphicon,
+.documentation-outdated .panel-body li span.glyphicon {
  margin-right: 10px;
+}
+
+.documentation-outdated {
+ border-color: #999;
+}
+
+.documentation-outdated .panel-heading {
+ background-color: #999;
+ border-color: #999;
+}
+
+.documentation-outdated .panel-body a,
+.documentation-outdated .panel-body li
+ {
+ color: #999;
 }
 
 .btn-learn {
