@@ -124,6 +124,7 @@ pre {
 .docblock .panel-body ul {
  padding-left: 8px;
 }
+
 .docblock .panel-body li {
  list-style-type: none;
 }
@@ -131,7 +132,6 @@ pre {
 .docblock .panel-body li span.glyphicon {
  margin-right: 10px;
 }
-
 
 .btn-learn {
  color: #ffffff;
