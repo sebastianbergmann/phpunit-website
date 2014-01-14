@@ -243,6 +243,52 @@ fieldset[disabled] .btn-github.active {
  background-color: #fff;
 }
 
+.btn-training {
+ color: #ffffff;
+ background-color: #f19322;
+ border-color: #f19322;
+}
+
+.btn-training:hover,
+.btn-training:focus,
+.btn-training:active,
+.btn-training.active,
+.open .dropdown-toggle.btn-training {
+ color: #ffffff;
+ background-color: #f3ad22;
+ border-color: #f3ad22;
+}
+
+.btn-training:active,
+.btn-training.active,
+.open .dropdown-toggle.btn-training {
+ background-image: none;
+}
+
+.btn-training.disabled,
+.btn-training[disabled],
+fieldset[disabled] .btn-training,
+.btn-training.disabled:hover,
+.btn-training[disabled]:hover,
+fieldset[disabled] .btn-training:hover,
+.btn-training.disabled:focus,
+.btn-training[disabled]:focus,
+fieldset[disabled] .btn-training:focus,
+.btn-training.disabled:active,
+.btn-training[disabled]:active,
+fieldset[disabled] .btn-training:active,
+.btn-training.disabled.active,
+.btn-training[disabled].active,
+fieldset[disabled] .btn-training.active {
+ background-color: #f3ad22;
+ border-color: #f3ad22;
+}
+
+.btn-training .badge {
+ color: #f3ad22;
+ background-color: #fff;
+}
+
 .hljs {
   display: block; padding: 0.5em;
   background: #f5f5f5;
