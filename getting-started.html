@@ -63,7 +63,10 @@ class Money
 {
     private $amount;
 
-    // ...
+    public function __construct($amount)
+    {
+        $this->amount = $amount;
+    }
 
     public function getAmount()
     {
@@ -100,7 +103,11 @@ class MoneyTest extends PHPUnit_Framework_TestCase
     }
 
     // ...
-}</code></pre>
+}
+
+
+
+</code></pre>
      <p>You can find the complete sourcecode of the <code>MoneyTest</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/tests/MoneyTest.php">here</a>.
     </div>
    </div>
