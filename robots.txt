@@ -7,4 +7,3 @@ Disallow: /manual/3.3/
 Disallow: /manual/3.4/
 Disallow: /manual/3.5/
 Disallow: /manual/3.6/
-
