@@ -1,0 +1,29 @@
+{
+  "name": "phpunit-website",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sebastianbergmann/phpunit-website",
+  "authors": [
+    "Sebastian Bergmann"
+  ],
+  "description": "http://phpunit.de/",
+  "main": "Gruntfile.js",
+  "keywords": [
+    "phpunit",
+    "website"
+  ],
+  "license": "BSD-3-Clause",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.1.1",
+    "highlightjs": "~8.0.0",
+    "html5shiv": "~3.7.0",
+    "jquery": "~1.11.0"
+  }
+}
