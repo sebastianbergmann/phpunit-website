@@ -18,6 +18,10 @@ body {
  margin: 30px 0;
 }
 
+.popover {
+ max-width: none;
+}
+
 .jumbotron {
  margin: 40px 0;
  text-align: center;
