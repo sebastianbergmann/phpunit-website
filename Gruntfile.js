@@ -64,8 +64,8 @@ module.exports = function(grunt) {
         dest: 'public/js/jquery.min.js'
       },
       html5shiv: {
-        src: 'build/bower_components/html5shiv/dist/html5shiv.js',
-        dest: 'public/js/html5shiv.js'
+        src: 'build/bower_components/html5shiv/dist/html5shiv.min.js',
+        dest: 'public/js/html5shiv.min.js'
       }
     }
   });
