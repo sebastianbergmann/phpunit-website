@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentations>
+    <presentation presenter="Sebastian Bergmann"
+                  title="The Wrong End of the Stick"
+                  link="http://thephp.cc/dates/2013/international-php-conference-spring-edition/the-wrong-end-of-the-stick"
+                  image="http://talks.thephp.cc/assets/2013-international-php-conference-spring-edition-the-wrong-end-of-the-stick/slide-0.jpg" />
+
+    <presentation presenter="Sebastian Bergmann"
+                  title="PHPUnit Best Practices"
+                  link="http://thephp.cc/dates/2013/international-php-conference-spring-edition/phpunit-best-practices"
+                  image="http://talks.thephp.cc/assets/2013-international-php-conference-spring-edition-phpunit-best-practices/slide-0.jpg" />
+
+    <presentation presenter="Jeremy Lindblom"
+                  title="Unit Testing"
+                  link="https://speakerdeck.com/jeremeamia/unit-testing"
+                  image="https://speakerd.s3.amazonaws.com/presentations/1479e810855f01303f7e1231381a74fc/slide_0.jpg" />
+
+    <presentation presenter="Sebastian Bergmann"
+                  title="Testing on the Edge"
+                  link="http://thephp.cc/dates/2013/international-php-conference/testing-on-the-edge"
+                  image="http://talks.thephp.cc/assets/2013-international-php-conference-testing-on-the-edge/slide-0.jpg" />
+
+    <presentation presenter="Sebastian Bergmann"
+                  title="Test{able|ing} Zend Framework 2 Applications"
+                  link="http://thephp.cc/dates/2013/zendcon-europe/testable-zend-framework-2-applications"
+                  image="http://talks.thephp.cc/assets/2013-zendcon-europe-testable-zend-framework-2-applications/slide-0.jpg" />
+
+    <presentation presenter="Sebastian Bergmann"
+                  title="Test{able|ing} Symfony 2 Applications"
+                  link="http://thephp.cc/dates/2013/ez-publish-summer-camp/testable-symfony2-applications"
+                  image="http://talks.thephp.cc/assets/2013-ez-publish-summer-camp-testable-symfony2-applications/slide-0.jpg" />
+
+    <video type="youtube"
+           presenter="Harrie Verveer"
+           title="Writing Unit Tests using PHPUnit"
+           id="Jr8jAK86Uf0" />
+
+    <video type="youtube"
+           presenter="Jeffrey Way"
+           title="Better Workflow in PHP"
+           id="84j61_aI0q8" />
+
+    <video type="youtube"
+           presenter="Mark Story"
+           title="PHPUnit and You"
+           id="QF1NZM360Uc" />
+
+    <video type="youtube"
+           presenter="Mathias Verraes"
+           title="Extract Till You Drop"
+           id="S9pKJxOPmWM" />
+
+    <video type="youtube"
+           presenter="Sebastian Bergmann"
+           title="Leveraging 12 Years of PHPUnit"
+           id="AXZ1I5M6sHQ" />
+
+    <video type="youtube"
+           presenter="Volker Dusch"
+           title="The State of PHPUnit"
+           id="DrXnUe6NPJQ" />
+
+    <video type="vimeo"
+           presenter="Sebastian Bergmann"
+           title="PHPUnit Best Practices"
+           id="63492364" />
+
+    <video type="vimeo"
+           presenter="Robert Lemke and Karsten Dambekalns"
+           title="Delicious Test Recipes"
+           id="4188044" />
+
+    <video type="vimeo"
+           presenter="Joshua Silver"
+           title="Automated Browser Testing"
+           id="83601088" />
+</presentations>
+
