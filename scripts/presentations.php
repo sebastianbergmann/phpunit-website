@@ -56,21 +56,21 @@ for ($row = 1; $row <= $rows; $row++) {
     $right  = array_shift($videos);
 
     $buffer .= sprintf(
-        '   <div class="row"><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div></div>',
+        '   <div class="row"><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div></div>' . "\n",
         $left->getTitle(),
         $middle->getTitle(),
         $right->getTitle()
     );
 
     $buffer .= sprintf(
-        '   <div class="row"><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div></div>',
+        '   <div class="row"><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div></div>' . "\n",
         $left->getPresenter(),
         $middle->getPresenter(),
         $right->getPresenter()
     );
 
     $buffer .= sprintf(
-        '   <div class="row"><div class="col-md-4">%s</div><div class="col-md-4">%s</div><div class="col-md-4">%s</div></div>',
+        '   <div class="row"><div class="col-md-4">%s</div><div class="col-md-4">%s</div><div class="col-md-4">%s</div></div>' . "\n",
         $left->getIframe(),
         $middle->getIframe(),
         $right->getIframe()
@@ -86,21 +86,21 @@ for ($row = 1; $row <= $rows; $row++) {
     $right  = array_shift($presentations);
 
     $buffer .= sprintf(
-        '   <div class="row"><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div></div>',
+        '   <div class="row"><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div><div class="col-md-4"><h3>%s</h3></div></div>' . "\n",
         $left->getTitle(),
         $middle->getTitle(),
         $right->getTitle()
     );
 
     $buffer .= sprintf(
-        '   <div class="row"><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div></div>',
+        '   <div class="row"><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div><div class="col-md-4"><h4>by %s</h4></div></div>' . "\n",
         $left->getPresenter(),
         $middle->getPresenter(),
         $right->getPresenter()
     );
 
     $buffer .= sprintf(
-        '   <div class="row"><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div></div>',
+        '   <div class="row"><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div></div>' . "\n",
         $left->getLink(),
         $left->getPresenter(),
         $left->getTitle(),
