@@ -120,19 +120,15 @@ $buffer .= file_get_contents(__DIR__ . '/templates/presentations_footer.html');
 
 file_put_contents(__DIR__ . '/../public/presentations.html', $buffer);
 
-class Presentation
+abstract class Item
 {
     private $presenter;
     private $title;
-    private $link;
-    private $image;
 
-    public function __construct($presenter, $title, $link, $image)
+    public function __construct($presenter, $title)
     {
         $this->presenter = $presenter;
         $this->title     = $title;
-        $this->link      = $link;
-        $this->image     = $image;
     }
 
     public function getPresenter()
@@ -143,6 +139,20 @@ class Presentation
     public function getTitle()
     {
         return $this->title;
+    }
+}
+
+class Presentation extends Item
+{
+    private $link;
+    private $image;
+
+    public function __construct($presenter, $title, $link, $image)
+    {
+        parent::__construct($presenter, $title);
+
+        $this->link      = $link;
+        $this->image     = $image;
     }
 
     public function getLink()
@@ -156,27 +166,15 @@ class Presentation
     }
 }
 
-abstract class Video
+abstract class Video extends Item
 {
-    private $presenter;
-    private $title;
     private $id;
 
     public function __construct($presenter, $title, $id)
     {
-        $this->presenter = $presenter;
-        $this->title     = $title;
-        $this->id        = $id;
-    }
+        parent::__construct($presenter, $title);
 
-    public function getPresenter()
-    {
-        return $this->presenter;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
+        $this->id = $id;
     }
 
     public function getId()
