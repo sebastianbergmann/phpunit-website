@@ -103,15 +103,15 @@ for ($row = 1; $row <= $rows; $row++) {
         '   <div class="row"><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div><div class="col-md-4"><p><a href="%s"><img class="img-responsive img-rounded" alt="%s: %s" src="%s" /></a></p></div></div>' . "\n",
         $left->getLink(),
         $left->getPresenter(),
-        $left->getTitle(),
+        $left->getTitle(false),
         $left->getImage(),
         $middle->getLink(),
         $middle->getPresenter(),
-        $middle->getTitle(),
+        $middle->getTitle(false),
         $middle->getImage(),
         $right->getLink(),
         $right->getPresenter(),
-        $right->getTitle(),
+        $right->getTitle(false),
         $right->getImage()
     );
 }
@@ -136,9 +136,13 @@ abstract class Item
         return $this->presenter;
     }
 
-    public function getTitle()
+    public function getTitle($breakAfterDoubleColon = true)
     {
-        return $this->title;
+        if ($breakAfterDoubleColon) {
+            return str_replace(':', ':<br/>', $this->title);
+        } else {
+            return $this->title;
+        }
     }
 }
 
