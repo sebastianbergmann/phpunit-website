@@ -7,7 +7,7 @@ code, pre {
 }
 
 body {
- padding-top: 70px;
+ padding-top: 60px;
 }
 
 .container {
@@ -25,6 +25,7 @@ body {
 .jumbotron {
  margin: 40px 0;
  text-align: center;
+ padding-bottom: 36px;
 }
 
 .jumbotron h1 {
@@ -40,6 +41,10 @@ body {
 .jumbotron .lead {
  font-size: 24px;
  line-height: 1.25;
+}
+
+.jumbotron .subnav {
+ line-height: 2.25;
 }
 
 .navbar {
@@ -213,8 +218,8 @@ fieldset[disabled] .btn-learn.active {
 .btn-github.active,
 .open .dropdown-toggle.btn-github {
  color: #ffffff;
- background-color: #8fb6dc;
- border-color: #AFCFEE;
+ background-color: #4c4c4c;
+ border-color: #333333;
 }
 
 .btn-github:active,
