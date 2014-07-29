@@ -298,47 +298,6 @@ fieldset[disabled] .btn-training.active {
  background-color: #fff;
 }
 
-
-.btn-plugins {
- color: #ffffff;
- background-color: #e6ca3e;
- border-color: #e6ca3e;
-}
-.btn-plugins:hover,
-.btn-plugins:focus,
-.btn-plugins:active,
-.btn-plugins.active {
- color: #ffffff;
- background-color: #e3c427;
- border-color: #d5b61c;
-}
-.btn-plugins:active,
-.btn-plugins.active,
-.open .dropdown-toggle.btn-plugins {
- background-image: none;
-}
-.btn-plugins.disabled:hover,
-.btn-plugins.disabled:focus,
-.btn-plugins.disabled:active,
-.btn-plugins.disabled.active,
-.btn-plugins[disabled]:hover,
-.btn-plugins[disabled]:focus,
-.btn-plugins[disabled]:active,
-.btn-plugins[disabled].active,
-fieldset[disabled] .btn-plugins:hover,
-fieldset[disabled] .btn-plugins:focus,
-fieldset[disabled] .btn-plugins:active,
-fieldset[disabled] .btn-plugins.active {
-  background-color: #e6ca3e;
-  border-color: #e6ca3e;
-}
-
-.btn-plugins .badge {
- color: #e6ca3e;
- background-color: #ffffff;
-}
-
-
 .hljs {
   display: block; padding: 0.5em;
   background: #f5f5f5;
