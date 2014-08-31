@@ -3,7 +3,7 @@
     <presentation presenter="Sebastian Bergmann"
                   title="The Wrong End of the Stick"
                   link="http://thephp.cc/dates/2013/international-php-conference-spring-edition/the-wrong-end-of-the-stick"
-                  image="http://talks.thephp.cc/assets/2013-international-php-conference-spring-edition-the-wrong-end-of-the-stick/slide-0.jpg" />
+                  image="images/the-wrong-end-of-the-stick.jpg" />
 
     <presentation presenter="John Norton"
                   title="Be Nice to Future You: Write Unit Tests With PHPUnit"
@@ -18,17 +18,17 @@
     <presentation presenter="Sebastian Bergmann"
                   title="Why, What, and How: Testing in 2014"
                   link="http://thephp.cc/dates/2014/international-php-conference-spring-edition/why-what-and-how-testing-in-2014"
-                  image="http://talks.thephp.cc/assets/2014-international-php-conference-spring-edition-why-what-and-how-testing-in-2014/slide-0.jpg" />
+                  image="images/why-what-and-how-testing-in-2014.jpg" />
 
     <presentation presenter="Sebastian Bergmann"
                   title="Code Coverage: Covered in Depth"
                   link="http://thephp.cc/dates/2014/international-php-conference-spring-edition/code-coverage-covered-in-depth"
-                  image="http://talks.thephp.cc/assets/2014-international-php-conference-spring-edition-code-coverage-covered-in-depth/slide-0.jpg" />
+                  image="images/code-coverage-covered-in-depth.jpg" />
 
     <presentation presenter="Sebastian Bergmann"
                   title="Test{able|ing} Symfony 2 Applications"
                   link="http://thephp.cc/dates/2013/ez-publish-summer-camp/testable-symfony2-applications"
-                  image="http://talks.thephp.cc/assets/2013-ez-publish-summer-camp-testable-symfony2-applications/slide-0.jpg" />
+                  image="images/testable-symfony2-applications.jpg" />
 
     <video type="youtube"
            presenter="Harrie Verveer"
