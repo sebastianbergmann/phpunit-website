@@ -5,7 +5,7 @@
   "authors": [
     "Sebastian Bergmann"
   ],
-  "description": "http://phpunit.de/",
+  "description": "https://phpunit.de/",
   "main": "Gruntfile.js",
   "keywords": [
     "phpunit",
