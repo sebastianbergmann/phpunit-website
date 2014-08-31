@@ -194,7 +194,7 @@ class VimeoVideo extends Video
     public function getIframe()
     {
         return sprintf(
-            '<div class="flex-video vimeo"><iframe src="http://player.vimeo.com/video/%s?title=0&amp;byline=0&amp;portrait=0"></iframe></div>',
+            '<div class="flex-video vimeo"><iframe src="https://player.vimeo.com/video/%s?title=0&amp;byline=0&amp;portrait=0"></iframe></div>',
             $this->getId()
         );
     }
@@ -205,7 +205,7 @@ class YouTubeVideo extends Video
     public function getIframe()
     {
         return sprintf(
-            '<div class="flex-video widescreen"><iframe src="http://www.youtube-nocookie.com/embed/%s?rel=0&amp;wmode=opaque&amp;showinfo=0&amp;rel=0&amp;theme=light"></iframe></div>',
+            '<div class="flex-video widescreen"><iframe src="https://www.youtube-nocookie.com/embed/%s?rel=0&amp;wmode=opaque&amp;showinfo=0&amp;rel=0&amp;theme=light"></iframe></div>',
             $this->getId()
         );
     }
