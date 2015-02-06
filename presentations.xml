@@ -46,14 +46,19 @@
            id="QF1NZM360Uc" />
 
     <video type="youtube"
+           presenter="Konstantin Kudryashov"
+           title="Design how your objects talk to each other through mocking"
+           id="AHizK2kpukk" />
+
+    <video type="youtube"
            presenter="Mathias Verraes"
            title="Extract Till You Drop"
            id="1_dpOZmKXBw" />
 
     <video type="youtube"
            presenter="Sebastian Bergmann"
-           title="Leveraging 12 Years of PHPUnit"
-           id="AXZ1I5M6sHQ" />
+           title="PHPUnit Best Practices"
+           id="C6cQUlbJLKY" />
 
     <video type="youtube"
            presenter="Volker Dusch"
@@ -62,17 +67,13 @@
 
     <video type="youtube"
            presenter="Sebastian Bergmann"
-           title="PHPUnit Best Practices"
-           id="C6cQUlbJLKY" />
+           title="Leveraging 12 Years of PHPUnit"
+           id="AXZ1I5M6sHQ" />
 
     <video type="vimeo"
            presenter="Robert Lemke and Karsten Dambekalns"
            title="Delicious Test Recipes"
            id="4188044" />
 
-    <video type="vimeo"
-           presenter="Joshua Silver"
-           title="Automated Browser Testing"
-           id="83601088" />
 </presentations>
 
