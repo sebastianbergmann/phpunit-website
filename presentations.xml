@@ -60,10 +60,10 @@
            title="PHPUnit Best Practices"
            id="C6cQUlbJLKY" />
 
-    <video type="youtube"
-           presenter="Volker Dusch"
+    <video type="vimeo"
+           presenter="Sebastian Bergmann"
            title="The State of PHPUnit"
-           id="DrXnUe6NPJQ" />
+           id="130405526" />
 
     <video type="youtube"
            presenter="Sebastian Bergmann"
