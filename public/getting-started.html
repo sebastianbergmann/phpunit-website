@@ -129,7 +129,7 @@ OK (20 tests, 39 assertions)</pre>
        <p><code>phpunit</code> invokes the PHPUnit command-line test runner. We assume that you have downloaded <code>phpunit.phar</code> (see above) and put it into your <code>$PATH</code> as <code>phpunit</code>.</p>
       </li>
       <li>
-       <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the test execution. Such a bootstrap script is commonly used to set up <a href="http://php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested.</p>
+       <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> (which can be found <a href="https://github.com/sebastianbergmann/money/blob/master/src/autoload.php">here</a>) before the test execution. Such a bootstrap script is commonly used to set up <a href="http://php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested.</p>
       </li>
       <li>
        <p><code>tests/MoneyTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>MoneyTest</code> class that is declared in <code>tests/MoneyTest.php</code>.</p>
