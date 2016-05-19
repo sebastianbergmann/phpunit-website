@@ -206,48 +206,48 @@ fieldset[disabled] .btn-learn.active {
  background-color: #ffffff;
 }
 
-.btn-github {
+.btn-donate {
  color: #ffffff;
  background-color: #333333;
  border-color: #262626;
 }
 
-.btn-github:hover,
-.btn-github:focus,
-.btn-github:active,
-.btn-github.active,
-.open .dropdown-toggle.btn-github {
+.btn-donate:hover,
+.btn-donate:focus,
+.btn-donate:active,
+.btn-donate.active,
+.open .dropdown-toggle.btn-donate {
  color: #ffffff;
  background-color: #4c4c4c;
  border-color: #333333;
 }
 
-.btn-github:active,
-.btn-github.active,
-.open .dropdown-toggle.btn-github {
+.btn-donate:active,
+.btn-donate.active,
+.open .dropdown-toggle.btn-donate {
  background-image: none;
 }
 
-.btn-github.disabled,
-.btn-github[disabled],
-fieldset[disabled] .btn-github,
-.btn-github.disabled:hover,
-.btn-github[disabled]:hover,
-fieldset[disabled] .btn-github:hover,
-.btn-github.disabled:focus,
-.btn-github[disabled]:focus,
-fieldset[disabled] .btn-github:focus,
-.btn-github.disabled:active,
-.btn-github[disabled]:active,
-fieldset[disabled] .btn-github:active,
-.btn-github.disabled.active,
-.btn-github[disabled].active,
-fieldset[disabled] .btn-github.active {
+.btn-donate.disabled,
+.btn-donate[disabled],
+fieldset[disabled] .btn-donate,
+.btn-donate.disabled:hover,
+.btn-donate[disabled]:hover,
+fieldset[disabled] .btn-donate:hover,
+.btn-donate.disabled:focus,
+.btn-donate[disabled]:focus,
+fieldset[disabled] .btn-donate:focus,
+.btn-donate.disabled:active,
+.btn-donate[disabled]:active,
+fieldset[disabled] .btn-donate:active,
+.btn-donate.disabled.active,
+.btn-donate[disabled].active,
+fieldset[disabled] .btn-donate.active {
  background-color: #333333;
  border-color: #262626;
 }
 
-.btn-github .badge {
+.btn-donate .badge {
  color: #333333;
  background-color: #fff;
 }
