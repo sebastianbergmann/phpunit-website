@@ -23,3 +23,8 @@ We can now install Bower and Grunt:
 
     grunt
 
+## Check the edited website (Docker)
+
+    docker run --name phpunit-website -p 8080:80 -v $(pwd)/public:/usr/share/nginx/html:ro -d nginx
+
+Then access to http://localhost:8080/.
