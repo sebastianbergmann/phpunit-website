@@ -9,4 +9,17 @@ Disallow: /manual/3.5/
 Disallow: /manual/3.6/
 Disallow: /manual/3.7/
 Disallow: /manual/4.0/
+Disallow: /manual/4.1/
+Disallow: /manual/4.2/
+Disallow: /manual/4.3/
+Disallow: /manual/4.4/
+Disallow: /manual/4.5/
+Disallow: /manual/4.6/
+Disallow: /manual/4.7/
+Disallow: /manual/5.0/
+Disallow: /manual/5.1/
+Disallow: /manual/5.2/
+Disallow: /manual/5.3/
+Disallow: /manual/5.4/
+Disallow: /manual/5.5/
 
