@@ -13,7 +13,7 @@
     <presentation presenter="Jeremy Lindblom"
                   title="Unit Testing"
                   link="https://speakerdeck.com/jeremeamia/unit-testing"
-                  image="https://speakerd.s3.amazonaws.com/presentations/1479e810855f01303f7e1231381a74fc/slide_0.jpg" />
+                  image="images/jeremy-lindblom-unit-testing.jpg" />
 
     <presentation presenter="Sebastian Bergmann"
                   title="The Three Dimensions of Testing"
