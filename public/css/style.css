@@ -12,6 +12,7 @@ body {
 
 .container {
  margin: 0 auto;
+ width: 75%;
 }
 
 .container > hr {

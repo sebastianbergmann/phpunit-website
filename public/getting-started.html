@@ -58,84 +58,120 @@ PHPUnit 5.7.0 by Sebastian Bergmann and contributors</pre>
    <div class="row">
     <div class="col-md-6">
      <h2>Code</h2>
-     <p><strong>src/Money.php</strong></p>
+     <p><strong>src/Email.php</strong></p>
      <pre><code>&lt;?php
-class Money
+declare(strict_types=1);
+
+final class Email
 {
-    private $amount;
-
-    public function __construct($amount)
+    private $email;
+    
+    private function __construct(string $email)
     {
-        $this->amount = $amount;
+        $this->ensureIsValidEmail($email);
+        
+        $this->email = $email;
     }
 
-    public function getAmount()
+    public static function fromEmail(string $email): self
     {
-        return $this->amount;
+        return new self($email);
     }
 
-    public function negate()
+    public function __toString(): string
     {
-        return new Money(-1 * $this->amount);
+        return $this->email;
     }
 
-    // ...
+    private function ensureIsValidEmail(string $email): void
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    '"%s" is not a valid email address',
+                    $email
+                )
+            );
+        }
+    }
 }</code></pre>
-     <p>You can find the complete sourcecode of the <code>Money</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/src/Money.php">here</a>.
     </div>
     <div class="col-md-6">
      <h2>Test Code</h2>
-     <p><strong>tests/MoneyTest.php</strong></p>
+     <p><strong>tests/EmailTest.php</strong></p>
      <pre><code>&lt;?php
+declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase;
 
-class MoneyTest extends TestCase
+/**
+ * @covers Email
+ */
+final class EmailTest extends TestCase
 {
-    // ...
-
-    public function testCanBeNegated()
+    public function testCanBeCreatedFromValidEmailAddress(): void
     {
-        // Arrange
-        $a = new Money(1);
-
-        // Act
-        $b = $a->negate();
-
-        // Assert
-        $this->assertEquals(-1, $b->getAmount());
+        $this->assertInstanceOf(
+            Email::class,
+            Email::fromEmail('user@example.com')
+        );
     }
 
-    // ...
+    public function testCannotBeCreatedFromInvalidEmailAddress(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        Email::fromEmail('invalid');
+    }
+
+    public function testCanBeUsedAsString(): void
+    {
+        $this->assertEquals(
+            'user@example.com',
+            Email::fromEmail('user@example.com')
+        );
+    }
 }
 
+
+
 </code></pre>
-     <p>You can find the complete sourcecode of the <code>MoneyTest</code> class <a href="https://github.com/sebastianbergmann/money/blob/master/tests/MoneyTest.php">here</a>.
     </div>
    </div>
    <div class="row">
     <div class="col-md-12">
      <h2>Test Execution</h2>
-     <pre><strong>➜ phpunit --bootstrap src/autoload.php tests/MoneyTest</strong>
+     <pre><strong>➜ phpunit --bootstrap src/Email.php tests/EmailTest</strong>
 PHPUnit 5.7.0 by Sebastian Bergmann and contributors.
 
-....................
+...                                                                 3 / 3 (100%)
 
-Time: 121 ms, Memory: 4.50Mb
+Time: 70 ms, Memory: 10.00MB
 
-OK (20 tests, 39 assertions)</pre>
+OK (3 tests, 3 assertions)</pre>
      <p>Lets have a look at what the three parts of above's invokation mean:</p>
      <ul>
       <li>
        <p><code>phpunit</code> invokes the PHPUnit command-line test runner. We assume that you have downloaded <code>phpunit.phar</code> (see above) and put it into your <code>$PATH</code> as <code>phpunit</code>.</p>
       </li>
       <li>
-       <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> (which can be found <a href="https://github.com/sebastianbergmann/money/blob/master/src/autoload.php">here</a>) before the test execution. Such a bootstrap script is commonly used to set up <a href="http://php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested.</p>
+       <p><code>--bootstrap src/Email.php</code> instructs the PHPUnit command-line test runner to include <code>src/Email.php</code> before the test execution.</p>
+       <p>Usually, though, you use <code>--bootstrap</code> to instruct the PHPUnit command-line test runner to include bootstrap script that sets up <a href="http://php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using tools such as <a href="https://getcomposer.org/">Composer</a> or <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
       </li>
       <li>
-       <p><code>tests/MoneyTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>MoneyTest</code> class that is declared in <code>tests/MoneyTest.php</code>.</p>
-       <p>Using <code>tests</code> instead of <code>tests/MoneyTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+       <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
+       <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
       </li>
      </ul>
+     <p>Below you see an alternative output of the test result that is enabled using the <code>--testdox</code> option:</p>
+     <pre><strong>➜ phpunit --bootstrap src/Email.php --testdox tests</strong>
+PHPUnit 5.7.0 by Sebastian Bergmann and contributors.
+
+Email
+ [x] Can be created from valid email address
+ [x] Cannot be created from invalid email address
+ [x] Can be used as string</pre>
+     <p>This output is based on the idea that the name of a test can be used to document the behavior that is verified by the test.</p>
     </div>
    </div>
    <div class="row">
