@@ -73,7 +73,7 @@ final class Email
         $this->email = $email;
     }
 
-    public static function fromEmail(string $email): self
+    public static function fromString(string $email): self
     {
         return new self($email);
     }
@@ -113,7 +113,7 @@ final class EmailTest extends TestCase
     {
         $this->assertInstanceOf(
             Email::class,
-            Email::fromEmail('user@example.com')
+            Email::fromString('user@example.com')
         );
     }
 
@@ -121,14 +121,14 @@ final class EmailTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        Email::fromEmail('invalid');
+        Email::fromString('invalid');
     }
 
     public function testCanBeUsedAsString(): void
     {
         $this->assertEquals(
             'user@example.com',
-            Email::fromEmail('user@example.com')
+            Email::fromString('user@example.com')
         );
     }
 }
