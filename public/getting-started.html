@@ -46,12 +46,12 @@
 ➜ sudo mv phpunit.phar /usr/local/bin/phpunit
 
 ➜ phpunit --version</strong>
-PHPUnit 5.7.0 by Sebastian Bergmann and contributors.</pre>
+PHPUnit 6.0.0 by Sebastian Bergmann and contributors.</pre>
      <p>You can also immediately use the PHAR after you have downloaded it, of course:</p>
      <pre><strong>➜ wget https://phar.phpunit.de/phpunit.phar
 
 ➜ php phpunit.phar --version</strong>
-PHPUnit 5.7.0 by Sebastian Bergmann and contributors</pre>
+PHPUnit 6.0.0 by Sebastian Bergmann and contributors</pre>
      <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a> or how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.composer">install PHPUnit using Composer</a>.</p>
     </div>
    </div>
@@ -142,7 +142,7 @@ final class EmailTest extends TestCase
     <div class="col-md-12">
      <h2>Test Execution</h2>
      <pre><strong>➜ phpunit --bootstrap src/Email.php tests/EmailTest</strong>
-PHPUnit 5.7.0 by Sebastian Bergmann and contributors.
+PHPUnit 6.0.0 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -165,7 +165,7 @@ OK (3 tests, 3 assertions)</pre>
      </ul>
      <p>Below you see an alternative output of the test result that is enabled using the <code>--testdox</code> option:</p>
      <pre><strong>➜ phpunit --bootstrap src/Email.php --testdox tests</strong>
-PHPUnit 5.7.0 by Sebastian Bergmann and contributors.
+PHPUnit 6.0.0 by Sebastian Bergmann and contributors.
 
 Email
  [x] Can be created from valid email address
