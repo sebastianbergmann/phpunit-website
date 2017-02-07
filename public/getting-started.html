@@ -56,20 +56,32 @@ PHPUnit 6.0.0 by Sebastian Bergmann and contributors</pre>
     </div>
    </div>
    <div class="row">
-    <div class="col-md-6">
-     <h2>Code</h2>
-     <p><strong>src/Email.php</strong></p>
-     <pre><code>&lt;?php
+    <div class="col-md-12">
+     <h2>Example</h2>
+     <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#php71" aria-controls="php71" role="tab" data-toggle="tab">PHP 7.1</a></li>
+      <li role="presentation"><a href="#php70" aria-controls="php70" role="tab" data-toggle="tab">PHP 7.0</a></li>
+      <li role="presentation"><a href="#php56" aria-controls="php56" role="tab" data-toggle="tab">PHP 5.6</a></li>
+     </ul>
+    </div>
+   </div>
+   <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="php71">
+     <div class="row">
+      <div class="col-md-6">
+       <h3>Code</h3>
+       <p><strong>src/Email.php</strong></p>
+       <pre><code>&lt;?php
 declare(strict_types=1);
 
 final class Email
 {
     private $email;
-    
+
     private function __construct(string $email)
     {
         $this->ensureIsValidEmail($email);
-        
+
         $this->email = $email;
     }
 
@@ -95,11 +107,11 @@ final class Email
         }
     }
 }</code></pre>
-    </div>
-    <div class="col-md-6">
-     <h2>Test Code</h2>
-     <p><strong>tests/EmailTest.php</strong></p>
-     <pre><code>&lt;?php
+      </div>
+      <div class="col-md-6">
+       <h3>Test Code</h3>
+       <p><strong>tests/EmailTest.php</strong></p>
+       <pre><code>&lt;?php
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
@@ -136,6 +148,183 @@ final class EmailTest extends TestCase
 
 
 </code></pre>
+      </div>
+     </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="php70">
+     <div class="row">
+      <div class="col-md-6">
+       <h3>Code</h3>
+       <p><strong>src/Email.php</strong></p>
+       <pre><code>&lt;?php
+declare(strict_types=1);
+
+final class Email
+{
+    private $email;
+
+    private function __construct(string $email)
+    {
+        $this->ensureIsValidEmail($email);
+
+        $this->email = $email;
+    }
+
+    public static function fromString(string $email): self
+    {
+        return new self($email);
+    }
+
+    public function __toString(): string
+    {
+        return $this->email;
+    }
+
+    private function ensureIsValidEmail(string $email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    '"%s" is not a valid email address',
+                    $email
+                )
+            );
+        }
+    }
+}</code></pre>
+      </div>
+      <div class="col-md-6">
+       <h3>Test Code</h3>
+       <p><strong>tests/EmailTest.php</strong></p>
+       <pre><code>&lt;?php
+declare(strict_types=1);
+
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers Email
+ */
+final class EmailTest extends TestCase
+{
+    public function testCanBeCreatedFromValidEmailAddress()
+    {
+        $this->assertInstanceOf(
+            Email::class,
+            Email::fromString('user@example.com')
+        );
+    }
+
+    public function testCannotBeCreatedFromInvalidEmailAddress()
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        Email::fromString('invalid');
+    }
+
+    public function testCanBeUsedAsString()
+    {
+        $this->assertEquals(
+            'user@example.com',
+            Email::fromString('user@example.com')
+        );
+    }
+}
+
+
+
+</code></pre>
+      </div>
+     </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="php56">
+     <div class="row">
+      <div class="col-md-6">
+       <h3>Code</h3>
+       <p><strong>src/Email.php</strong></p>
+       <pre><code>&lt;?php
+
+
+final class Email
+{
+    private $email;
+
+    private function __construct($email)
+    {
+        $this->ensureIsValidEmail($email);
+
+        $this->email = $email;
+    }
+
+    public static function fromString($email)
+    {
+        return new self($email);
+    }
+
+    public function __toString()
+    {
+        return $this->email;
+    }
+
+    private function ensureIsValidEmail($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    '"%s" is not a valid email address',
+                    $email
+                )
+            );
+        }
+    }
+}</code></pre>
+      </div>
+      <div class="col-md-6">
+       <h3>Test Code</h3>
+       <p><strong>tests/EmailTest.php</strong></p>
+       <pre><code>&lt;?php
+
+
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers Email
+ */
+final class EmailTest extends TestCase
+{
+    public function testCanBeCreatedFromValidEmailAddress()
+    {
+        $this->assertInstanceOf(
+            Email::class,
+            Email::fromString('user@example.com')
+        );
+    }
+
+    public function testCannotBeCreatedFromInvalidEmailAddress()
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        Email::fromString('invalid');
+    }
+
+    public function testCanBeUsedAsString()
+    {
+        $this->assertEquals(
+            'user@example.com',
+            Email::fromString('user@example.com')
+        );
+    }
+}
+
+
+
+</code></pre>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <p>If you would like to understand the differences between examples shown above then the "<a href="https://php7explained.com/">PHP 7 Explained</a> eBook might help you.</p>
     </div>
    </div>
    <div class="row">
