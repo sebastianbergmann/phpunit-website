@@ -23,4 +23,10 @@ Disallow: /manual/5.3/
 Disallow: /manual/5.4/
 Disallow: /manual/5.5/
 Disallow: /manual/5.6/
+Disallow: /manual/5.7/
+Disallow: /manual/6.0/
+Disallow: /manual/6.1/
+Disallow: /manual/6.2/
+Disallow: /manual/6.3/
+Disallow: /manual/6.4/
 
