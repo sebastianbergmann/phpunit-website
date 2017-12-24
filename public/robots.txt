@@ -29,4 +29,5 @@ Disallow: /manual/6.1/
 Disallow: /manual/6.2/
 Disallow: /manual/6.3/
 Disallow: /manual/6.4/
+Disallow: /manual/6.5/
 
