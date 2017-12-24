@@ -4,10 +4,20 @@ body, h1, h2, h3, h4, h5, h6 {
 
 code, pre {
  font-family: 'Source Code Pro', sans-serif;
+ font-size: 0.75em;
 }
 
 body {
  padding-top: 60px;
+ font-size: 2em;
+ font-kerning: normal;
+ font-variant-ligatures: common-ligatures;
+ text-rendering: optimizeLegibility;
+ text-rendering: optimizeLegibility;
+}
+
+blockquote {
+ font-size: 1em;
 }
 
 .container {
@@ -30,17 +40,17 @@ body {
 }
 
 .jumbotron h1 {
- font-size: 64px;
+ font-size: 3em;
  line-height: 1;
 }
 
 .jumbotron h2 {
- font-size: 48px;
+ font-size: 2.5em;
  line-height: 1;
 }
 
 .jumbotron .lead {
- font-size: 24px;
+ font-size: 2em;
  line-height: 1.25;
 }
 
@@ -159,6 +169,10 @@ pre {
 .documentation-outdated .panel-body li
  {
  color: #999;
+}
+
+.btn {
+ font-size: 1em;
 }
 
 .btn-learn {
