@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="css/highlight.min.css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <title>Getting Started with PHPUnit &#x2013; The PHP Testing Framework</title>
+ </head>
+ <body>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+   <div class="container">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+    </div>
+    <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li class="active"><a href="getting-started-with-phpunit.html">Getting Started</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li><a href="extensions.html">Extensions</a></li>
+      <li><a href="https://github.com/sebastianbergmann/phpunit">GitHub</a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h1>Getting Started with PHPUnit</h1>
+     <p>This tutorial assumes that you use PHP 7.0 (or later). You will learn how to write simple unit tests as well as how to download and run PHPUnit.</p>
+     <blockquote>
+      <p>Go <a href="getting-started-with-phpunit-for-php56.html">here</a> if you use PHP 5.6.</p>
+      <p>Go <a href="getting-started-with-phpunit-for-php53.html">here</a> if you use PHP 5.3, PHP 5.4, or PHP 5.5.</p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Download</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>PHP Archive (PHAR)</h3>
+     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Simply download it from <a href="https://phar.phpunit.de/phpunit-6.phar">here</a> and make it executable:</p>
+    </div>
+    <div class="col-md-6">
+     <h3>Composer</h3>
+     <p>You can add PHPUnit as a local, per-project, development-time dependency to your project using <a href="https://getcomposer.org/">Composer</a>:</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-6.phar
+
+➜ chmod +x phpunit
+
+➜ ./phpunit --version</strong>
+PHPUnit 6.5.5 by Sebastian Bergmann and contributors.</pre>
+    </div>
+    <div class="col-md-6">
+     <pre><strong>➜ composer require --dev phpunit/phpunit ^6
+
+➜ ./vendor/bin/phpunit --version</strong>
+PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+
+
+</pre>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/6.5/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
+    </div>
+    <div class="col-md-6">
+     <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
+     <p>Your <code>composer.json</code> should look similar to this:</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+     <pre><code>{
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    }
+}</code></pre>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h2>Code</h2>
+     <p><code>src/Email.php</code></p>
+     <pre><code>&lt;?php
+declare(strict_types=1);
+
+final class Email
+{
+    private $email;
+
+    private function __construct(string $email)
+    {
+        $this->ensureIsValidEmail($email);
+
+        $this->email = $email;
+    }
+
+    public static function fromString(string $email): self
+    {
+        return new self($email);
+    }
+
+    public function __toString(): string
+    {
+        return $this->email;
+    }
+
+    private function ensureIsValidEmail(string $email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    '"%s" is not a valid email address',
+                    $email
+                )
+            );
+        }
+    }
+}</code></pre>
+    </div>
+    <div class="col-md-6">
+     <h2>Test Code</h2>
+     <p><code>tests/EmailTest.php</code></p>
+     <pre><code>&lt;?php
+declare(strict_types=1);
+
+use PHPUnit\Framework\TestCase;
+
+final class EmailTest extends TestCase
+{
+    public function testCanBeCreatedFromValidEmailAddress()
+    {
+        $this->assertInstanceOf(
+            Email::class,
+            Email::fromString('user@example.com')
+        );
+    }
+
+    public function testCannotBeCreatedFromInvalidEmailAddress()
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        Email::fromString('invalid');
+    }
+
+    public function testCanBeUsedAsString()
+    {
+        $this->assertEquals(
+            'user@example.com',
+            Email::fromString('user@example.com')
+        );
+    }
+}
+
+
+
+
+
+
+</code></pre>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Test Execution</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>PHP Archive (PHAR)</h3>
+     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests/EmailTest</strong>
+PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+
+...                                                                 3 / 3 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (3 tests, 3 assertions)</pre>
+     <p>The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
+    </div>
+    <div class="col-md-6">
+     <h3>Composer</h3>
+     <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest</strong>
+PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+
+...                                                                 3 / 3 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (3 tests, 3 assertions)</pre>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the tests are run.</p>
+     <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
+     <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+    </div>
+    <div class="col-md-6">
+     <p><code>--bootstrap vendor/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>vendor/autoload.php</code> before the tests are run.</p>
+     <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
+     <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>TestDox</h2>
+     <p>Below you see an alternative output which is based on the idea that the name of a test can be used to document the behavior that is verified by the test:</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
+PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+
+Email
+ [x] Can be created from valid email address
+ [x] Cannot be created from invalid email address
+ [x] Can be used as string</pre>
+    </div>
+    <div class="col-md-6">
+     <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests</strong>
+PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+
+Email
+ [x] Can be created from valid email address
+ [x] Cannot be created from invalid email address
+ [x] Can be used as string</pre>
+    </div>
+   </div>
+   <hr>
+   <div class="footer">
+    <p>Copyright &copy; 2001-2017 Sebastian Bergmann.</p>
+   </div>
+  </div>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.min.js"></script>
+  <script src="js/highlight.js"></script>
+ </body>
+</html>
+
