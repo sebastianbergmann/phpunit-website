@@ -46,38 +46,60 @@
    <div class="row">
     <div class="col-md-12">
      <h2>Download</h2>
-     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 7. Simply download it from <a href="https://phar.phpunit.de/phpunit-7.phar">here</a>, make it executable, and put it into your <code>$PATH</code>, for instance:</p>
     </div>
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ wget https://phar.phpunit.de/phpunit-7.phar
+     <h3>PHP Archive (PHAR)</h3>
+     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 7. Simply download it from <a href="https://phar.phpunit.de/phpunit-7.phar">here</a> and make it executable:</p>
+    </div>
+    <div class="col-md-6">
+     <h3>Composer</h3>
+     <p>You can add PHPUnit as a local, per-project, development-time dependency to your project using <a href="https://getcomposer.org/">Composer</a>:</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
 
-➜ chmod +x phpunit-7.phar
+➜ chmod +x phpunit
 
-➜ sudo mv phpunit-7.phar /usr/local/bin/phpunit
-
-➜ phpunit --version</strong>
+➜ ./phpunit --version</strong>
 PHPUnit 7.0.0 by Sebastian Bergmann and contributors.</pre>
     </div>
-   </div>
-   <div class="row">
-    <div class="col-md-12">
-     <p>The example shown above assumes that <code>/usr/local/bin</code> is on your <code>$PATH</code>.</p>
-     <p>You can also immediately use the PHAR after you have downloaded it, of course:</p>
+    <div class="col-md-6">
+     <pre><strong>➜ composer require --dev phpunit/phpunit ^7
+
+➜ ./vendor/bin/phpunit --version</strong>
+PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+
+
+</pre>
     </div>
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ wget https://phar.phpunit.de/phpunit-7.phar
-
-➜ php phpunit-7.phar --version</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors</pre>
+     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
+    </div>
+    <div class="col-md-6">
+     <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
+     <p>Your <code>composer.json</code> should look similar to this:</p>
     </div>
    </div>
    <div class="row">
-    <div class="col-md-12">
-     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a> or how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.composer">install PHPUnit using Composer</a>.</p>
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+     <pre><code>{
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    }
+}</code></pre>
     </div>
    </div>
    <div class="row">
@@ -170,7 +192,20 @@ final class EmailTest extends TestCase
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ phpunit --bootstrap src/Email.php tests/EmailTest</strong>
+     <h3>PHP Archive (PHAR)</h3>
+     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests/EmailTest</strong>
+PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+
+...                                                                 3 / 3 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (3 tests, 3 assertions)</pre>
+     <p>The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
+    </div>
+    <div class="col-md-6">
+     <h3>Composer</h3>
+     <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest</strong>
 PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
@@ -181,27 +216,26 @@ OK (3 tests, 3 assertions)</pre>
     </div>
    </div>  
    <div class="row">
+    <div class="col-md-6">
+     <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the tests are run.</p>
+     <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
+     <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+    </div>
+    <div class="col-md-6">
+     <p><code>--bootstrap vendor/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>vendor/autoload.php</code> before the tests are run.</p>
+     <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
+     <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+    </div>
+   </div>
+   <div class="row">
     <div class="col-md-12">
-     <p>Lets have a look at what the three parts of above's invokation mean:</p>
-     <ul>
-      <li>
-       <p><code>phpunit</code> invokes the PHPUnit command-line test runner. We assume that you have downloaded <code>phpunit.phar</code> (see above) and put it into your <code>$PATH</code> as <code>phpunit</code>.</p>
-      </li>
-      <li>
-       <p><code>--bootstrap src/Email.php</code> instructs the PHPUnit command-line test runner to include <code>src/Email.php</code> before the test execution.</p>
-       <p>Usually, though, you use <code>--bootstrap</code> to instruct the PHPUnit command-line test runner to include bootstrap script that sets up <a href="http://php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using tools such as <a href="https://getcomposer.org/">Composer</a> or <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
-      </li>
-      <li>
-       <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
-       <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
-      </li>
-     </ul>
-     <p>Below you see an alternative output of the test result that is enabled using the <code>--testdox</code> option:</p>
+     <h2>TestDox</h2>
+     <p>Below you see an alternative output which is based on the idea that the name of a test can be used to document the behavior that is verified by the test:</p>
     </div>
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ phpunit --bootstrap src/Email.php --testdox tests</strong>
+     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
 PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
 
 Email
@@ -209,10 +243,14 @@ Email
  ✔ Cannot be created from invalid email address
  ✔ Can be used as string</pre>
     </div>
-   </div>
-   <div class="row">
-    <div class="col-md-12">
-     <p>This output is based on the idea that the name of a test can be used to document the behavior that is verified by the test.</p>
+    <div class="col-md-6">
+     <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests</strong>
+PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+
+Email
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+ ✔ Can be used as string</pre>
     </div>
    </div>
    <hr>
