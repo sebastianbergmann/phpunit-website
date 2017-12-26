@@ -8,7 +8,7 @@
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700" rel="stylesheet" type="text/css">
-  <title>Getting Started with PHPUnit for PHP 7.0</title>
+  <title>Getting Started with PHPUnit for PHP 5.3, PHP 5.4, or PHP 5.5</title>
  </head>
  <body>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -35,13 +35,14 @@
   <div class="container">
    <div class="row">
     <div class="col-md-12">
-     <h1>Getting Started with PHPUnit for PHP 7.0</h1>
-     <p>This tutorial assumes that you use PHP 7.0. You will learn how to write simple unit tests as well as how to download and run PHPUnit.</p>
+     <h1>Getting Started with PHPUnit for PHP 5.3, PHP 5.4, or PHP 5.5</h1>
+     <p>This tutorial assumes that you use PHP 5.3, PHP 5.4, or PHP 5.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 4, the latest version of PHPUnit that is compatible with PHP 5.3, PHP 5.4, and PHP 5.5.</p>
      <blockquote>
       <p>Go <a href="getting-started-with-phpunit.html">here</a> if you use PHP 7.1 (or later).</p>
+      <p>Go <a href="getting-started-with-phpunit-for-php70.html">here</a> if you use PHP 7.0.</p>
       <p>Go <a href="getting-started-with-phpunit-for-php56.html">here</a> if you use PHP 5.6.</p>
-      <p>Go <a href="getting-started-with-phpunit-for-php53.html">here</a> if you use PHP 5.3, PHP 5.4, or PHP 5.5.</p>
      </blockquote>
+     <p>Please note that the support for PHPUnit 4 by the PHPUnit Project ended on February 3, 2017. Also note that PHP 5.3, PHP 5.4, and PHP 5.5 <a href="https://secure.php.net/supported-versions.php">are no longer supported by the PHP Project</a>.</p>
     </div>
    </div>
    <div class="row">
@@ -52,7 +53,7 @@
    <div class="row">
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
-     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 6, the latest version of PHPUnit that is compatible with PHP 7.0. Simply download it from <a href="https://phar.phpunit.de/phpunit-6.phar">here</a> and make it executable:</p>
+     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Simply download it from <a href="https://phar.phpunit.de/phpunit-4.phar">here</a> and make it executable:</p>
     </div>
     <div class="col-md-6">
      <h3>Composer</h3>
@@ -61,18 +62,18 @@
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-6.phar
+     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-4.phar
 
 ➜ chmod +x phpunit
 
 ➜ ./phpunit --version</strong>
-PHPUnit 6.5.5 by Sebastian Bergmann and contributors.</pre>
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.</pre>
     </div>
     <div class="col-md-6">
-     <pre><strong>➜ composer require --dev phpunit/phpunit ^6
+     <pre><strong>➜ composer require --dev phpunit/phpunit ^4
 
 ➜ ./vendor/bin/phpunit --version</strong>
-PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 
 </pre>
@@ -80,7 +81,7 @@ PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
    </div>
    <div class="row">
     <div class="col-md-6">
-     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/6.5/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
+     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/4.8/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
     </div>
     <div class="col-md-6">
      <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
@@ -98,7 +99,7 @@ PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
         ]
     },
     "require-dev": {
-        "phpunit/phpunit": "^6"
+        "phpunit/phpunit": "^4"
     }
 }</code></pre>
     </div>
@@ -108,30 +109,28 @@ PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
      <h2>Code</h2>
      <p><code>src/Email.php</code></p>
      <pre><code>&lt;?php
-declare(strict_types=1);
-
 final class Email
 {
     private $email;
 
-    private function __construct(string $email)
+    private function __construct($email)
     {
         $this->ensureIsValidEmail($email);
 
         $this->email = $email;
     }
 
-    public static function fromString(string $email): self
+    public static function fromString($email)
     {
         return new self($email);
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->email;
     }
 
-    private function ensureIsValidEmail(string $email)
+    private function ensureIsValidEmail($email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException(
@@ -148,8 +147,6 @@ final class Email
      <h2>Test Code</h2>
      <p><code>tests/EmailTest.php</code></p>
      <pre><code>&lt;?php
-declare(strict_types=1);
-
 use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
@@ -195,7 +192,7 @@ final class EmailTest extends TestCase
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests/EmailTest</strong>
-PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -207,7 +204,7 @@ OK (3 tests, 3 assertions)</pre>
     <div class="col-md-6">
      <h3>Composer</h3>
      <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest</strong>
-PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -215,7 +212,7 @@ Time: 70 ms, Memory: 10.00MB
 
 OK (3 tests, 3 assertions)</pre>
     </div>
-   </div>  
+   </div>
    <div class="row">
     <div class="col-md-6">
      <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the tests are run.</p>
@@ -237,7 +234,7 @@ OK (3 tests, 3 assertions)</pre>
    <div class="row">
     <div class="col-md-6">
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
-PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 Email
  [x] Can be created from valid email address
@@ -246,7 +243,7 @@ Email
     </div>
     <div class="col-md-6">
      <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests</strong>
-PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 Email
  [x] Can be created from valid email address
