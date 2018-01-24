@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="../css/style.css" type="text/css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="../js/html5shiv.min.js"></script><![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  <title>Release Announcement for Version 5 of PHPUnit &#x2013; The PHP Testing Framework</title>
+ </head>
+ <body>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+   <div class="container">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+    </div>
+    <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../getting-started-with-phpunit-7.html">Getting Started</a></li>
+      <li><a href="../documentation.html">Documentation</a></li>
+      <li><a href="../extensions.html">Extensions</a></li>
+      <li><a href="../support.html">Support</a></li>
+      <li><a href="../contribute.html">Contribute</a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h1>PHPUnit 5</h1>
+     <h4>October 2, 2015</h4>
+     <p>The PHPUnit development team announces the immediate availability of PHPUnit 5. This release adds new features, changes and removes existing features, and fixes bugs.</p>
+     <p>A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/5.0/ChangeLog-5.0.md">here</a>.</p>
+     <h2>PHPUnit now requires PHP 5.6 (or newer)</h2>
+     <p>PHP 5.3, PHP 5.4, and PHP 5.5 <a href="https://secure.php.net/supported-versions.php">are no longer supported by the PHP Project</a>. The only actively supported version of PHP as of October 2, 2015 is PHP 5.6.</p>
+     <h2>Backwards Compatibility Issues</h2>
+     <ul>
+      <li>It is now mandatory to configure a whitelist for code coverage analysis</li>
+      <li>The deprecated <code>assertSelectCount()</code>, <code>assertSelectRegExp()</code>, <code>assertSelectEquals()</code>, <code>assertTag()</code>, and <code>assertNotTag()</code> assertions have been removed</li>
+      <li>The deprecated <code>--strict</code> commandline option and the <code>strict</code> configuration setting have been removed</li>
+      <li>The deprecated configuration settings related to phpunit-selenium have been removed</li>
+     </ul>
+     <h2>Getting PHPUnit 5</h2>
+     <p>We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+     <p><a href="../getting-started-with-phpunit-5.html">Here is a tutorial that gets you started.</a></p>
+     <h2>Supported Versions</h2>
+     <p>Detailed information on supported versions of PHPUnit is available <a href="../index.html#supported-versions">here</a>. Below is a summary as of October 2, 2015:</p>
+     <ul>
+      <li>PHPUnit 5 receives bug fixes until February 2, 2018</li>
+      <li>PHPUnit 4 receives bug fixes until February 3, 2017</li>
+     </ul>
+    </div>
+   </div>
+   <hr>
+   <div class="footer">
+    <p>Copyright &copy; 2001-2018 Sebastian Bergmann.</p>
+   </div>
+  </div>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+ </body>
+</html>
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="../css/style.css" type="text/css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="../js/html5shiv.min.js"></script><![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  <title>Release Announcement for Version 4 of PHPUnit &#x2013; The PHP Testing Framework</title>
+ </head>
+ <body>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+   <div class="container">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+    </div>
+    <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../getting-started-with-phpunit-7.html">Getting Started</a></li>
+      <li><a href="../documentation.html">Documentation</a></li>
+      <li><a href="../extensions.html">Extensions</a></li>
+      <li><a href="../support.html">Support</a></li>
+      <li><a href="../contribute.html">Contribute</a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h1>PHPUnit 4</h1>
+     <h4>March 7, 2014</h4>
+     <p>The PHPUnit development team announces the immediate availability of PHPUnit 4. This release adds new features, changes and removes existing features, and fixes bugs.</p>
+     <p>A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/4.0/ChangeLog-4.0.md">here</a>.</p>
+     <h2>Backwards Compatibility Issues</h2>
+     <ul>
+      <li>The limited support for stubbing and mocking static methods that was introduced in PHPUnit 3.5 has been removed. This feature only worked when the stubbed or mocked static method was invoked from another method of the same class. We believe that the limited use of this feature did not justify the increased complexity in the test doubles code generator it incurred. We apologize for any inconvenience this removal may cause and encourage refactoring the code under test to not require this feature for testing.</li>
+      <li>The <code>addRiskyTest()</code> was added to the <code>PHPUnit_Framework_TestListener</code> interface. Classes that implement this interface have to implement this new method. This is the reason why PhpStorm 7 is not compatible with PHPUnit 4, for instance.</li>
+      <li>Bug fixes required a change to how relative paths are resolved for PHPUnit's XML configuration file. All relative paths in a configuration file are now resolved relative to that configuration file. When upgrading, you may need to update relative paths for the following configurations <code>testSuiteLoaderFile</code>, <code>printerFile</code>, <code>testsuites/file</code>, and <code>testsuites/exclude</code>.</li>
+     </ul>
+     <h2>Getting PHPUnit 4</h2>
+     <p>We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+     <p><a href="../getting-started-with-phpunit-4.html">Here is a tutorial that gets you started.</a></p>
+     <h2>Supported Versions</h2>
+     <p>Detailed information on supported versions of PHPUnit is available <a href="../index.html#supported-versions">here</a>. Below is a summary as of March 7, 2014:</p>
+     <ul>
+      <li>PHPUnit 4 receives bug fixes until February 3, 2017</li>
+     </ul>
+    </div>
+   </div>
+   <hr>
+   <div class="footer">
+    <p>Copyright &copy; 2001-2018 Sebastian Bergmann.</p>
+   </div>
+  </div>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+ </body>
+</html>
+
