@@ -44,6 +44,18 @@
      <h2>Backwards Compatibility Issues</h2>
      <ul>
      </ul>
+     <h3>Looking Forward</h3>
+     <p>The following methods do not have a return value and should therefore have a <code>void</code> return type declaration:</p>
+     <ul>
+      <li><code>PHPUnit\Framework\TestCase::setUpBeforeClass()</code></li>
+      <li><code>PHPUnit\Framework\TestCase::setUp()</code></li>
+      <li><code>PHPUnit\Framework\TestCase::assertPreConditions</code></li>
+      <li><code>PHPUnit\Framework\TestCase::assertPostConditions</code></li>
+      <li><code>PHPUnit\Framework\TestCase::tearDown</code></li>
+      <li><code>PHPUnit\Framework\TestCase::tearDownAfterClass</code></li>
+      <li><code>PHPUnit\Framework\TestCase::onNotSuccessfulTest</code></li>
+     </ul>
+     <p>These methods will have a <code>void</code> return type declaration in PHPUnit 8. Please declare your methods that overwrite the above mentioned methods <code>void</code> now so you are not affected by this backward compatibility break.</p>
      <h2>Getting PHPUnit 7</h2>
      <p>We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
      <p><a href="../getting-started-with-phpunit-7.html">Here is a tutorial that gets you started.</a></p>
