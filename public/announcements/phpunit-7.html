@@ -39,10 +39,24 @@
      <h4>February 2, 2018</h4>
      <p>The PHPUnit development team announces the immediate availability of PHPUnit 7. This release adds new features, changes and removes existing features, and fixes bugs.</p>
      <p>A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/7.0/ChangeLog-7.0.md">here</a>.</p>
-     <h2>PHPUnit now requires PHP 7.1 (or newer)</h2>
-     <p><a href="https://secure.php.net/supported-versions.php">Active support for PHP 7.0 by the PHP project ended on December 3, 2017.</a> The only actively supported versions of PHP as of February 2, 2018 are PHP 7.1 and PHP 7.2.</p>
-     <h2>Backwards Compatibility Issues</h2>
+     <h2>PHPUnit now requires <span style="white-space: nowrap;">PHP 7.1</span> (or newer)</h2>
+     <p><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.0</span> by the PHP project ended on December 3, 2017.</a> The only actively supported versions of PHP as of February 2, 2018 are <span style="white-space: nowrap;">PHP 7.1</span> and <span style="white-space: nowrap;">PHP 7.2</span>.</p>
+     <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
+     <p>The first lines of code for PHPUnit were written more than sixteen years ago, back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
+     <blockquote>
+      <p>It has cost <a href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
+      <p>With this new release out, perhaps now it is the time to <a href="../donate.html">contribute to PHPUnit's development</a>.</p>
+     </blockquote>
+     <p>A lot of time and effort went into the development of PHPUnit to make better use of syntax features such as scalar type declarations and return type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>. And quite a few methods that can raise exceptions were missing <code>@throws</code> annotations, there were now added to the documentation of those methods.</p>
+     <h3>Backwards Compatibility Issues</h3>
+     <p>While the aforementioned changes make PHPUnit's code easier to read and more robust to work on, they come at the price of backward compatibility breaks.</p>
      <ul>
+      <li>If you implement an interface provided by PHPUnit, for instance <code>PHPUnit\Framework\TestListener</code>, then you may need to update the signatures of your methods.</li>
+      <li>If you overwrite a method provided by PHPUnit, for instance a method of <code>PHPUnit\Framework\TestCase</code>, then you may need to update the signatures of your methods.</li>
+      <li>PhpStorm currently reports violations for unhandled exceptions raised by PHPUnit's assertion methods. JetBrains is <a href="https://youtrack.jetbrains.com/issue/WI-39464">aware</a> of this and they are working on a solution.</li>
+      <li>The <code>PHPUnit\Framework\BaseTestListener</code> class has been removed, it was deprecated since PHPUnit 6.4. Please use the <code>PHPUnit\Framework\TestListenerDefaultImplementation</code> instead.</li>
+      <li>The <code>@scenario</code> annotation is no longer an alias for <code>@test</code>, it no longer has any effect.</li>
+      <li>The <code>PHPUnit\Framework\TestCase::prepareTemplate()</code> template method has been removed.</li>
      </ul>
      <h3>Looking Forward</h3>
      <p>The following methods do not have a return value and should therefore have a <code>void</code> return type declaration:</p>
