@@ -3,12 +3,12 @@
  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="css/highlight.min.css" rel="stylesheet">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
-  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+  <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="../css/highlight.min.css" rel="stylesheet">
+  <link href="../css/style.css" type="text/css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="../js/html5shiv.min.js"></script><![endif]-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700" rel="stylesheet" type="text/css">
-  <title>Getting Started with Version 7 of PHPUnit &#x2013; The PHP Testing Framework</title>
+  <title>Getting Started with Version 4 of PHPUnit &#x2013; The PHP Testing Framework</title>
  </head>
  <body>
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -23,12 +23,12 @@
     </div>
     <div class="navbar-collapse collapse">
      <ul class="nav navbar-nav">
-      <li><a href="index.html">Home</a></li>
-      <li class="active"><a href="getting-started-with-phpunit-7.html">Getting Started</a></li>
-      <li><a href="documentation.html">Documentation</a></li>
-      <li><a href="extensions.html">Extensions</a></li>
-      <li><a href="support.html">Support</a></li>
-      <li><a href="contribute.html">Contribute</a></li>
+      <li><a href="../index.html">Home</a></li>
+      <li class="active"><a href="phpunit-7.html">Getting Started</a></li>
+      <li><a href="../documentation.html">Documentation</a></li>
+      <li><a href="../extensions.html">Extensions</a></li>
+      <li><a href="../support.html">Support</a></li>
+      <li><a href="../contribute.html">Contribute</a></li>
      </ul>
     </div>
    </div>
@@ -36,14 +36,15 @@
   <div class="container">
    <div class="row">
     <div class="col-md-12">
-     <h1>Getting Started with PHPUnit 7</h1>
-     <p>This tutorial assumes that you use PHP 7.1 or PHP 7.2. You will learn how to write simple unit tests as well as how to download and run PHPUnit.</p>
+     <h1>Getting Started with PHPUnit 4</h1>
+     <p>This tutorial assumes that you use PHP 5.3, PHP 5.4, or PHP 5.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 4, the latest version of PHPUnit that is compatible with PHP 5.3, PHP 5.4, and PHP 5.5.</p>
      <blockquote>
-      <p>Go <a href="getting-started-with-phpunit-6.html">here</a> if you use PHP 7.0.</p>
-      <p>Go <a href="getting-started-with-phpunit-5.html">here</a> if you use PHP 5.6.</p>
-      <p>Go <a href="getting-started-with-phpunit-4.html">here</a> if you use PHP 5.3, PHP 5.4, or PHP 5.5.</p>
+      <p>Go <a href="phpunit-7.html">here</a> if you use PHP 7.1 (or later).</p>
+      <p>Go <a href="phpunit-6.html">here</a> if you use PHP 7.0.</p>
+      <p>Go <a href="phpunit-5.html">here</a> if you use PHP 5.6.</p>
      </blockquote>
-     <p>The documentation for PHPUnit 7 can be found <a href="https://phpunit.readthedocs.io/">here</a>.</p>
+     <p>Please note that the support for PHPUnit 4 by the PHPUnit Project ended on February 3, 2017. Also note that PHP 5.3, PHP 5.4, and PHP 5.5 <a href="https://secure.php.net/supported-versions.php">are no longer supported by the PHP Project</a>.</p>
+     <p>The documentation for PHPUnit 4 can be found <a href="https://phpunit.de/manual/4.8/en/index.html">here</a>.</p>
     </div>
    </div>
    <div class="row">
@@ -54,7 +55,7 @@
    <div class="row">
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
-     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 7. Simply download it from <a href="https://phar.phpunit.de/phpunit-7.phar">here</a> and make it executable:</p>
+     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Simply download it from <a href="https://phar.phpunit.de/phpunit-4.phar">here</a> and make it executable:</p>
     </div>
     <div class="col-md-6">
      <h3>Composer</h3>
@@ -63,18 +64,18 @@
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-4.phar
 
 ➜ chmod +x phpunit
 
 ➜ ./phpunit --version</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors.</pre>
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.</pre>
     </div>
     <div class="col-md-6">
-     <pre><strong>➜ composer require --dev phpunit/phpunit ^7
+     <pre><strong>➜ composer require --dev phpunit/phpunit ^4
 
 ➜ ./vendor/bin/phpunit --version</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 
 </pre>
@@ -82,7 +83,7 @@ PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
    </div>
    <div class="row">
     <div class="col-md-6">
-     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
+     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/4.8/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
     </div>
     <div class="col-md-6">
      <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
@@ -100,7 +101,7 @@ PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
         ]
     },
     "require-dev": {
-        "phpunit/phpunit": "^7"
+        "phpunit/phpunit": "^4"
     }
 }</code></pre>
     </div>
@@ -110,30 +111,28 @@ PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
      <h2>Code</h2>
      <p><code>src/Email.php</code></p>
      <pre><code>&lt;?php
-declare(strict_types=1);
-
 final class Email
 {
     private $email;
 
-    private function __construct(string $email)
+    private function __construct($email)
     {
         $this->ensureIsValidEmail($email);
 
         $this->email = $email;
     }
 
-    public static function fromString(string $email): self
+    public static function fromString($email)
     {
         return new self($email);
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->email;
     }
 
-    private function ensureIsValidEmail(string $email): void
+    private function ensureIsValidEmail($email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException(
@@ -150,13 +149,11 @@ final class Email
      <h2>Test Code</h2>
      <p><code>tests/EmailTest.php</code></p>
      <pre><code>&lt;?php
-declare(strict_types=1);
-
 use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
 {
-    public function testCanBeCreatedFromValidEmailAddress(): void
+    public function testCanBeCreatedFromValidEmailAddress()
     {
         $this->assertInstanceOf(
             Email::class,
@@ -164,14 +161,14 @@ final class EmailTest extends TestCase
         );
     }
 
-    public function testCannotBeCreatedFromInvalidEmailAddress(): void
+    public function testCannotBeCreatedFromInvalidEmailAddress()
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->setExpectedException(InvalidArgumentException::class);
 
         Email::fromString('invalid');
     }
 
-    public function testCanBeUsedAsString(): void
+    public function testCanBeUsedAsString()
     {
         $this->assertEquals(
             'user@example.com',
@@ -197,7 +194,7 @@ final class EmailTest extends TestCase
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests/EmailTest</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -209,7 +206,7 @@ OK (3 tests, 3 assertions)</pre>
     <div class="col-md-6">
      <h3>Composer</h3>
      <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -239,21 +236,21 @@ OK (3 tests, 3 assertions)</pre>
    <div class="row">
     <div class="col-md-6">
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 Email
- ✔ Can be created from valid email address
- ✔ Cannot be created from invalid email address
- ✔ Can be used as string</pre>
+ [x] Can be created from valid email address
+ [x] Cannot be created from invalid email address
+ [x] Can be used as string</pre>
     </div>
     <div class="col-md-6">
      <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests</strong>
-PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
 Email
- ✔ Can be created from valid email address
- ✔ Cannot be created from invalid email address
- ✔ Can be used as string</pre>
+ [x] Can be created from valid email address
+ [x] Cannot be created from invalid email address
+ [x] Can be used as string</pre>
     </div>
    </div>
    <hr>
@@ -261,10 +258,10 @@ Email
     <p>Copyright &copy; 2001-2018 Sebastian Bergmann.</p>
    </div>
   </div>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="js/highlight.min.js"></script>
-  <script src="js/highlight.js"></script>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/highlight.js"></script>
  </body>
 </html>
 
