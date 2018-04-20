@@ -1,3 +1,17 @@
+@font-face {
+ font-family: 'Open Sans';
+ font-style: normal;
+ font-weight: 400;
+ src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/OpenSans.ttf) format('truetype');
+}
+
+@font-face {
+ font-family: 'Source Code Pro';
+ font-style: normal;
+ font-weight: 400;
+ src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(../fonts/SourceCodePro.ttf) format('truetype');
+}
+
 body, h1, h2, h3, h4, h5, h6 {
  font-family: 'Open Sans', sans-serif;
 }
@@ -12,7 +26,6 @@ body {
  font-size: 2em;
  font-kerning: normal;
  font-variant-ligatures: common-ligatures;
- text-rendering: optimizeLegibility;
  text-rendering: optimizeLegibility;
 }
 
