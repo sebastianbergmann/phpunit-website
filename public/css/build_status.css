@@ -19,3 +19,11 @@
  right: 0;
  min-height: 70px;
 }
+
+@media (min-width: 1580px) {
+ .col-xxl-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-with: 33%;
+ }
+}

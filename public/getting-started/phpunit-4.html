@@ -6,43 +6,51 @@
   <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="../css/highlight.min.css" rel="stylesheet">
   <link href="../css/style.css" type="text/css" rel="stylesheet">
-  <!--[if lt IE 9]><script src="../js/html5shiv.min.js"></script><![endif]-->
   <title>Getting Started with Version 4 of PHPUnit &#x2013; The PHP Testing Framework</title>
  </head>
  <body>
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" role="navigation">
    <div class="container">
-    <div class="navbar-header">
-     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+    <div class="d-sm-flex d-md-none flex-row-reverse w-100">
+     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
      </button>
     </div>
-    <div class="navbar-collapse collapse">
-     <ul class="nav navbar-nav">
-      <li><a href="../index.html">Home</a></li>
-      <li class="active"><a href="phpunit-7.html">Getting Started</a></li>
-      <li><a href="../documentation.html">Documentation</a></li>
-      <li><a href="../extensions.html">Extensions</a></li>
-      <li><a href="../support.html">Support</a></li>
-      <li><a href="../contribute.html">Contribute</a></li>
-     </ul>
+
+    <div class="collapse navbar-collapse navbar-nav-justified" id="navbarSupportedContent">
+     <ul class="navbar-nav w-100 nav-justified">
+       <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+       <li class="nav-item active"><a class="nav-link" href="getting-started/phpunit-7.html">Getting Started</a></li>
+       <li class="nav-item"><a class="nav-link" href="../documentation.html">Documentation</a></li>
+       <li class="nav-item"><a class="nav-link" href="../extensions.html">Extensions</a></li>
+       <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
+       <li class="nav-item"><a class="nav-link" href="../contribute.html">Contribute</a></li>
+      </ul>
     </div>
    </div>
-  </div>
-  <div class="container">
+  </nav>
+  <div class="container mt-4">
+    <ul class="nav nav-pills">
+     <li class="nav-item">
+      <a class="nav-link" href="phpunit-7.html">PHPUnit 7</a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="phpunit-6.html">PHPUnit 6</a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="phpunit-5.html">PHPUnit 5</a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link active" href="phpunit-4.html">PHPUnit 4</a>
+     </li>
+   </ul>
    <div class="row">
     <div class="col-md-12">
      <h1>Getting Started with PHPUnit 4</h1>
      <p>This tutorial assumes that you use PHP 5.3, PHP 5.4, or PHP 5.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 4, the latest version of PHPUnit that is compatible with PHP 5.3, PHP 5.4, and PHP 5.5.</p>
-     <blockquote>
-      <p>Go <a href="phpunit-7.html">here</a> if you use PHP 7.1 (or later).</p>
-      <p>Go <a href="phpunit-6.html">here</a> if you use PHP 7.0.</p>
-      <p>Go <a href="phpunit-5.html">here</a> if you use PHP 5.6.</p>
-     </blockquote>
-     <p>Please note that the support for PHPUnit 4 by the PHPUnit Project ended on February 3, 2017. Also note that PHP 5.3, PHP 5.4, and PHP 5.5 <a href="https://secure.php.net/supported-versions.php">are no longer supported by the PHP Project</a>.</p>
+     <div class="alert alert-danger" role="alert">
+      Please note that the support for PHPUnit 4 by the PHPUnit Project ended on February 3, 2017. Also note that PHP 5.3, PHP 5.4, and PHP 5.5 <a href="https://secure.php.net/supported-versions.php">are no longer supported by the PHP Project</a>.
+     </div>
      <p>The documentation for PHPUnit 4 can be found <a href="https://phpunit.de/manual/4.8/en/index.html">here</a>.</p>
     </div>
    </div>

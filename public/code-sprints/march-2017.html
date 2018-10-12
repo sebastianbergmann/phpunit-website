@@ -5,32 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="../css/style.css" type="text/css" rel="stylesheet">
-  <!--[if lt IE 9]><script src="../js/html5shiv.min.js"></script><![endif]-->
   <title>March 2017 Code Sprint for PHPUnit &#x2013; The PHP Testing Framework</title>
  </head>
  <body>
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" role="navigation">
    <div class="container">
-    <div class="navbar-header">
-     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+    <div class="d-sm-flex d-md-none flex-row-reverse w-100">
+     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
      </button>
     </div>
-    <div class="navbar-collapse collapse">
-     <ul class="nav navbar-nav">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../getting-started/phpunit-7.html">Getting Started</a></li>
-      <li><a href="../documentation.html">Documentation</a></li>
-      <li><a href="../extensions.html">Extensions</a></li>
-      <li><a href="../support.html">Support</a></li>
-      <li><a href="../contribute.html">Contribute</a></li>
+
+    <div class="collapse navbar-collapse navbar-nav-justified" id="navbarSupportedContent">
+     <ul class="navbar-nav w-100 nav-justified">
+      <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="../getting-started/phpunit-7.html">Getting Started</a></li>
+      <li class="nav-item"><a class="nav-link" href="../documentation.html">Documentation</a></li>
+      <li class="nav-item"><a class="nav-link" href="../extensions.html">Extensions</a></li>
+      <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
+      <li class="nav-item"><a class="nav-link" href="../contribute.html">Contribute</a></li>
      </ul>
     </div>
    </div>
-  </div>
+  </nav>
   <div class="container">
    <div class="row">
     <div class="col-md-12">
@@ -64,22 +61,57 @@
    </div>
    <div class="row">
     <div class="col-md-3">
-     <blockquote><p>PHPUnit Code Sprint in Hamburg well underway. Bugs, Manual, AppVeyor support for testing PHPUnit on Windows, and code coverage are worked on</p>&mdash; <a href="https://twitter.com/s_bergmann/status/847749266411995136">Sebastian Bergmann (@s_bergmann)</a></blockquote>
+     <div class="card">
+      <div class="card-body">
+       <div class="card-text">
+        <blockquote class="blockquote">PHPUnit Code Sprint in Hamburg well underway. Bugs, Manual, AppVeyor support for testing PHPUnit on Windows, and code coverage are worked on</blockquote>
+        <footer class="blockquote-footer"><a href="https://twitter.com/s_bergmann/status/847749266411995136">Sebastian Bergmann (@s_bergmann)</a></footer>
+       </div>
+      </div>
+     </div>
     </div>
     <div class="col-md-3">
-     <blockquote><p>Thanks to <a href="https://twitter.com/IchHabRecht">@IchHabRecht</a> and <a href="https://twitter.com/helhum">@helhum</a>, PHPUnit is now continuously tested on Windows: <a href="https://ci.appveyor.com/project/sebastianbergmann/phpunit">https://ci.appveyor.com/project/sebastianbergmann/phpunit</a></p>&mdash; <a href="https://twitter.com/s_bergmann/status/847814722623819776">Sebastian Bergmann (@s_bergmann)</a></blockquote>
+     <div class="card">
+      <div class="card-body">
+       <div class="card-text">
+        <blockquote class="blockquote">Thanks to <a href="https://twitter.com/IchHabRecht">@IchHabRecht</a> and <a href="https://twitter.com/helhum">@helhum</a>, PHPUnit is now continuously tested on Windows: <a href="https://ci.appveyor.com/project/sebastianbergmann/phpunit">https://ci.appveyor.com/project/sebastianbergmann/phpunit</a></blockquote>
+        <footer class="blockquote-footer"><a href="https://twitter.com/s_bergmann/status/847814722623819776">Sebastian Bergmann (@s_bergmann)</a></footer>
+       </div>
+      </div>
+     </div>
     </div>
     <div class="col-md-3">
-     <p><img src="../img/tweets/847856291330629632.jpg" width="100%"/></p>
-     <blockquote><p>The view from the PHPUnit code sprint venue.</p>&mdash; <a href="https://twitter.com/s_bergmann/status/847856291330629632">Sebastian Bergmann (@s_bergmann)</a></blockquote>
+     <div class="card">
+      <img class="card-img-top" src="../img/tweets/847856291330629632.jpg" />
+      <div class="card-body">
+       <div class="card-text">
+        <blockquote class="blockquote">The view from the PHPUnit code sprint venue.</blockquote>
+        <footer class="blockquote-footer"><a href="https://twitter.com/s_bergmann/status/847856291330629632">Sebastian Bergmann (@s_bergmann)</a></footer>
+       </div>
+      </div>
+     </div>
     </div>
    </div>
    <div class="row">
     <div class="col-md-3">
-     <blockquote><p>The first day of the <a href="https://twitter.com/phpunit">@phpunit</a> code sprint at <a href="https://twitter.com/techdotkam">@techdotkam</a> was great! Would be awesome if there were more opportunities like that. 🤓</p>&mdash; <a href="https://twitter.com/localheinz/status/847865964163190784">Andreas Möller (@localheinz)</a></blockquote>
+     <div class="card">
+      <div class="card-body">
+       <div class="card-text">
+        <blockquote class="blockquote">The first day of the <a href="https://twitter.com/phpunit">@phpunit</a> code sprint at <a href="https://twitter.com/techdotkam">@techdotkam</a> was great! Would be awesome if there were more opportunities like that. 🤓</blockquote>
+        <footer class="blockquote-footer"><a href="https://twitter.com/localheinz/status/847865964163190784">Andreas Möller (@localheinz)</a></footer>
+       </div>
+      </div>
+     </div>
     </div>
     <div class="col-md-3">
-     <blockquote><p>A big &quot;Thank you!&quot; to the attendees of last week&#39;s code sprint. You were amazing! Here&#39;s hoping you keep contributing in the future :-)</p>&mdash; <a href="https://twitter.com/phpunit/status/848884337445662721">PHPUnit (@phpunit)</a></blockquote>
+     <div class="card">
+      <div class="card-body">
+       <div class="card-text">
+        <blockquote class="blockquote">A big &quot;Thank you!&quot; to the attendees of last week&#39;s code sprint. You were amazing! Here&#39;s hoping you keep contributing in the future :-)</blockquote>
+        <footer class="blockquote-footer"><a href="https://twitter.com/phpunit/status/848884337445662721">PHPUnit (@phpunit)</a></footer>
+       </div>
+      </div>
+     </div>
     </div>
    </div>
    <hr>
