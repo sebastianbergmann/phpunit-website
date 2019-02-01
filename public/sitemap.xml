@@ -37,20 +37,24 @@
   <priority>0.5</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/announcements/phpunit-7.html</loc>
+  <loc>https://phpunit.de/announcements/phpunit-8.html</loc>
   <priority>0.5</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/announcements/phpunit-6.html</loc>
+  <loc>https://phpunit.de/announcements/phpunit-7.html</loc>
   <priority>0.4</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/announcements/phpunit-5.html</loc>
+  <loc>https://phpunit.de/announcements/phpunit-6.html</loc>
   <priority>0.3</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/announcements/phpunit-4.html</loc>
+  <loc>https://phpunit.de/announcements/phpunit-5.html</loc>
   <priority>0.2</priority>
+ </url>
+ <url>
+  <loc>https://phpunit.de/announcements/phpunit-4.html</loc>
+  <priority>0.1</priority>
  </url>
  <url>
   <loc>https://phpunit.de/code-sprints/index.html</loc>
@@ -73,20 +77,24 @@
   <priority>0.1</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/getting-started/phpunit-7.html</loc>
+  <loc>https://phpunit.de/getting-started/phpunit-8.html</loc>
   <priority>0.5</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/getting-started/phpunit-6.html</loc>
+  <loc>https://phpunit.de/getting-started/phpunit-7.html</loc>
   <priority>0.4</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/getting-started/phpunit-5.html</loc>
+  <loc>https://phpunit.de/getting-started/phpunit-6.html</loc>
   <priority>0.3</priority>
  </url>
  <url>
-  <loc>https://phpunit.de/getting-started/phpunit-4.html</loc>
+  <loc>https://phpunit.de/getting-started/phpunit-5.html</loc>
   <priority>0.2</priority>
+ </url>
+ <url>
+  <loc>https://phpunit.de/getting-started/phpunit-4.html</loc>
+  <priority>0.1</priority>
  </url>
 </urlset>
 

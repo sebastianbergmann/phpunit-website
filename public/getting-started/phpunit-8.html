@@ -6,7 +6,7 @@
   <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="../css/highlight.min.css" rel="stylesheet">
   <link href="../css/style.css" type="text/css" rel="stylesheet">
-  <title>Getting Started with Version 4 of PHPUnit &#x2013; The PHP Testing Framework</title>
+  <title>Getting Started with Version 8 of PHPUnit &#x2013; The PHP Testing Framework</title>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" role="navigation">
@@ -32,29 +32,26 @@
   <div class="container mt-4">
     <ul class="nav nav-pills">
      <li class="nav-item">
-      <a class="nav-link" href="phpunit-8.html">PHPUnit 8</a>
+      <a class="nav-link active" href="phpunit-8.html">PHPUnit 8</a>
      </li>
      <li class="nav-item">
-      <a class="nav-link" href="phpunit-7.html">PHPUnit 7</a>
+         <a class="nav-link" href="phpunit-7.html">PHPUnit 7</a>
      </li>
      <li class="nav-item">
-      <a class="nav-link" href="phpunit-6.html">PHPUnit 6</a>
+         <a class="nav-link" href="phpunit-6.html">PHPUnit 6</a>
      </li>
      <li class="nav-item">
       <a class="nav-link" href="phpunit-5.html">PHPUnit 5</a>
      </li>
      <li class="nav-item">
-      <a class="nav-link active" href="phpunit-4.html">PHPUnit 4</a>
+      <a class="nav-link" href="phpunit-4.html">PHPUnit 4</a>
      </li>
    </ul>
    <div class="row">
     <div class="col-md-12">
-     <h1>Getting Started with PHPUnit 4</h1>
-     <p>This tutorial assumes that you use PHP 5.3, PHP 5.4, or PHP 5.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 4, the latest version of PHPUnit that is compatible with PHP 5.3, PHP 5.4, and PHP 5.5.</p>
-     <div class="alert alert-danger" role="alert">
-      Please note that <a href="../supported-versions.html">PHPUnit 4 is no longer supported</a>. Also note that PHP 5.3, PHP 5.4, and PHP 5.5 <a href="https://secure.php.net/supported-versions.php">are no longer supported</a>.
-     </div>
-     <p>The documentation for PHPUnit 4 can be found <a href="https://phpunit.de/manual/4.8/en/index.html">here</a>.</p>
+     <h1>Getting Started with PHPUnit 8</h1>
+     <p>This tutorial assumes that you use PHP 7.2 or PHP 7.3. You will learn how to write simple unit tests as well as how to download and run PHPUnit.</p>
+     <p>The documentation for PHPUnit 8 can be found <a href="https://phpunit.readthedocs.io/">here</a>.</p>
     </div>
    </div>
    <div class="row">
@@ -65,7 +62,7 @@
    <div class="row">
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
-     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Simply download it from <a href="https://phar.phpunit.de/phpunit-4.phar">here</a> and make it executable:</p>
+     <p>We distribute a <a href="http://php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 8. Simply download it from <a href="https://phar.phpunit.de/phpunit-8.phar">here</a> and make it executable:</p>
     </div>
     <div class="col-md-6">
      <h3>Composer</h3>
@@ -74,18 +71,18 @@
    </div>
    <div class="row">
     <div class="col-md-6">
-     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-4.phar
+     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-8.phar
 
 ➜ chmod +x phpunit
 
 ➜ ./phpunit --version</strong>
-PHPUnit 4.8.36 by Sebastian Bergmann and contributors.</pre>
+PHPUnit 8.0.0 by Sebastian Bergmann and contributors.</pre>
     </div>
     <div class="col-md-6">
-     <pre><strong>➜ composer require --dev phpunit/phpunit ^4
+     <pre><strong>➜ composer require --dev phpunit/phpunit ^8
 
 ➜ ./vendor/bin/phpunit --version</strong>
-PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
+PHPUnit 8.0.0 by Sebastian Bergmann and contributors.
 
 
 </pre>
@@ -93,7 +90,7 @@ PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
    </div>
    <div class="row">
     <div class="col-md-6">
-     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/4.8/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
+     <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/current/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
     </div>
     <div class="col-md-6">
      <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
@@ -111,7 +108,7 @@ PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
         ]
     },
     "require-dev": {
-        "phpunit/phpunit": "^4"
+        "phpunit/phpunit": "^8"
     }
 }</code></pre>
     </div>
@@ -121,28 +118,30 @@ PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
      <h2>Code</h2>
      <p><code>src/Email.php</code></p>
      <pre><code>&lt;?php
+declare(strict_types=1);
+
 final class Email
 {
     private $email;
 
-    private function __construct($email)
+    private function __construct(string $email)
     {
         $this->ensureIsValidEmail($email);
 
         $this->email = $email;
     }
 
-    public static function fromString($email)
+    public static function fromString(string $email): self
     {
         return new self($email);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->email;
     }
 
-    private function ensureIsValidEmail($email)
+    private function ensureIsValidEmail(string $email): void
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException(
@@ -159,11 +158,13 @@ final class Email
      <h2>Test Code</h2>
      <p><code>tests/EmailTest.php</code></p>
      <pre><code>&lt;?php
+declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
 {
-    public function testCanBeCreatedFromValidEmailAddress()
+    public function testCanBeCreatedFromValidEmailAddress(): void
     {
         $this->assertInstanceOf(
             Email::class,
@@ -171,14 +172,14 @@ final class EmailTest extends TestCase
         );
     }
 
-    public function testCannotBeCreatedFromInvalidEmailAddress()
+    public function testCannotBeCreatedFromInvalidEmailAddress(): void
     {
-        $this->setExpectedException(InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
 
         Email::fromString('invalid');
     }
 
-    public function testCanBeUsedAsString()
+    public function testCanBeUsedAsString(): void
     {
         $this->assertEquals(
             'user@example.com',
@@ -204,7 +205,7 @@ final class EmailTest extends TestCase
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests/EmailTest</strong>
-PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
+PHPUnit 8.0.0 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -216,7 +217,7 @@ OK (3 tests, 3 assertions)</pre>
     <div class="col-md-6">
      <h3>Composer</h3>
      <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/EmailTest</strong>
-PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
+PHPUnit 8.0.0 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
 
@@ -246,21 +247,21 @@ OK (3 tests, 3 assertions)</pre>
    <div class="row">
     <div class="col-md-6">
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
-PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
+PHPUnit 8.0.0 by Sebastian Bergmann and contributors.
 
 Email
- [x] Can be created from valid email address
- [x] Cannot be created from invalid email address
- [x] Can be used as string</pre>
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+ ✔ Can be used as string</pre>
     </div>
     <div class="col-md-6">
      <pre><strong>➜ ./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests</strong>
-PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
+PHPUnit 8.0.0 by Sebastian Bergmann and contributors.
 
 Email
- [x] Can be created from valid email address
- [x] Cannot be created from invalid email address
- [x] Can be used as string</pre>
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+ ✔ Can be used as string</pre>
     </div>
    </div>
    <hr>
