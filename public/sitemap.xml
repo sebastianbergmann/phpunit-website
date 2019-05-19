@@ -9,6 +9,10 @@
         <priority>0.0</priority>
     </url>
     <url>
+        <loc>https://phpunit.de/commercial-services.html</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://phpunit.de/contribute.html</loc>
         <priority>0.5</priority>
     </url>
@@ -25,11 +29,11 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://phpunit.de/support.html</loc>
+        <loc>https://phpunit.de/supported-versions.html</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://phpunit.de/commercial-services.html</loc>
+        <loc>https://phpunit.de/support.html</loc>
         <priority>0.5</priority>
     </url>
     <url>
@@ -61,16 +65,20 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/september-2018.html</loc>
+        <loc>https://phpunit.de/code-sprints/april-2019.html</loc>
         <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/april-2018.html</loc>
+        <loc>https://phpunit.de/code-sprints/september-2018.html</loc>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/october-2017.html</loc>
+        <loc>https://phpunit.de/code-sprints/april-2018.html</loc>
         <priority>0.2</priority>
+    </url>
+    <url>
+        <loc>https://phpunit.de/code-sprints/october-2017.html</loc>
+        <priority>0.1</priority>
     </url>
     <url>
         <loc>https://phpunit.de/code-sprints/march-2017.html</loc>
