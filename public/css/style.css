@@ -48,7 +48,8 @@ blockquote {
 .jumbotron {
  margin: 40px 0;
  text-align: center;
- padding-bottom: 36px;
+ padding-bottom: 2rem;
+ padding-top: 2rem;
 }
 
 .jumbotron h1 {
@@ -76,17 +77,32 @@ blockquote {
  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.32);
 }
 
-.welcome-block {
+.ad {
+ background-color: #152c66;
+ color: #ffffff;
+}
+
+.ad a, .ad a:visited, .ad a:hover, .ad a:focus {
+ color: #ffffff;
+ text-decoration: none;
+}
+
+.ad, .welcome-block {
  -webkit-box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.32);
  -moz-box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.32);
  box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.32);
 }
 
-.welcome-block .btn {
+.ad .btn, .welcome-block .btn {
  margin: 0 5px;
  -webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.32);
  -moz-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.32);
  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.32);
+}
+
+.ad, .ad .btn {
+ font-size: 1.2rem;
+ font-weight: bold;
 }
 
 pre {
@@ -278,7 +294,7 @@ fieldset[disabled] .btn-training.active {
 }
 
 @media (max-width: 767.98px) {
- .welcome-block .btn {
+ .ad .btn, .welcome-block .btn {
   display: block;
   width: 80%;
   margin: 0 auto 1em;
