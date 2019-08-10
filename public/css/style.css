@@ -130,95 +130,95 @@ pre {
  font-size: 1em;
 }
 
-.btn-learn {
+.btn-start {
  color: #ffffff;
- background-color: #823BD0;
- border-color: #70489C;
+ background-color: #39b54a;
+ border-color: #39b54a;
 }
 
-.btn-learn:hover,
-.btn-learn:focus,
-.btn-learn:active,
-.btn-learn.active,
-.open .dropdown-toggle.btn-learn {
+.btn-start:hover,
+.btn-start:focus,
+.btn-start:active,
+.btn-start.active,
+.open .dropdown-toggle.btn-start {
  color: #ffffff;
- background-color: #6D27B8;
- border-color: #60388A;
+ background-color: #28a439;
+ border-color: #28a439;
 }
 
-.btn-learn:active,
-.btn-learn.active,
-.open .dropdown-toggle.btn-learn {
+.btn-start:active,
+.btn-start.active,
+.open .dropdown-toggle.btn-start {
  background-image: none;
 }
 
-.btn-learn.disabled,
-.btn-learn[disabled],
-fieldset[disabled] .btn-learn,
-.btn-learn.disabled:hover,
-.btn-learn[disabled]:hover,
-fieldset[disabled] .btn-learn:hover,
-.btn-learn.disabled:focus,
-.btn-learn[disabled]:focus,
-fieldset[disabled] .btn-learn:focus,
-.btn-learn.disabled:active,
-.btn-learn[disabled]:active,
-fieldset[disabled] .btn-learn:active,
-.btn-learn.disabled.active,
-.btn-learn[disabled].active,
-fieldset[disabled] .btn-learn.active {
- background-color: #823BD0;
- border-color: #70489C;
+.btn-start.disabled,
+.btn-start[disabled],
+fieldset[disabled] .btn-start,
+.btn-start.disabled:hover,
+.btn-start[disabled]:hover,
+fieldset[disabled] .btn-start:hover,
+.btn-start.disabled:focus,
+.btn-start[disabled]:focus,
+fieldset[disabled] .btn-start:focus,
+.btn-start.disabled:active,
+.btn-start[disabled]:active,
+fieldset[disabled] .btn-start:active,
+.btn-start.disabled.active,
+.btn-start[disabled].active,
+fieldset[disabled] .btn-start.active {
+ background-color: #39b54a;
+ border-color: #39b54a;
 }
 
-.btn-learn .badge {
- color: #823BD0;
- background-color: #ffffff;
+.btn-start .badge {
+ color: #39b54a;
+ background-color: #fff;
 }
 
-.btn-donate {
+.btn-ebook {
  color: #ffffff;
- background-color: #333333;
- border-color: #262626;
+ background-color: #3d9cd7;
+ border-color: #3d9cd7;
 }
 
-.btn-donate:hover,
-.btn-donate:focus,
-.btn-donate:active,
-.btn-donate.active,
-.open .dropdown-toggle.btn-donate {
+.btn-ebook:hover,
+.btn-ebook:focus,
+.btn-ebook:active,
+.btn-ebook.active,
+.open .dropdown-toggle.btn-ebook {
  color: #ffffff;
- background-color: #4c4c4c;
- border-color: #333333;
+ background-color: #2c8bc6;
+ border-color: #2c8bc6;
 }
 
-.btn-donate:active,
-.btn-donate.active,
-.open .dropdown-toggle.btn-donate {
+.btn-ebook:active,
+.btn-ebook.active,
+.open .dropdown-toggle.btn-ebook {
  background-image: none;
 }
 
-.btn-donate.disabled,
-.btn-donate[disabled],
-fieldset[disabled] .btn-donate,
-.btn-donate.disabled:hover,
-.btn-donate[disabled]:hover,
-fieldset[disabled] .btn-donate:hover,
-.btn-donate.disabled:focus,
-.btn-donate[disabled]:focus,
-fieldset[disabled] .btn-donate:focus,
-.btn-donate.disabled:active,
-.btn-donate[disabled]:active,
-fieldset[disabled] .btn-donate:active,
-.btn-donate.disabled.active,
-.btn-donate[disabled].active,
-fieldset[disabled] .btn-donate.active {
- background-color: #333333;
- border-color: #262626;
+.btn-ebook.disabled,
+.btn-ebook[disabled],
+fieldset[disabled] .btn-ebook,
+.btn-ebook.disabled:hover,
+.btn-ebook[disabled]:hover,
+fieldset[disabled] .btn-ebook:hover,
+.btn-ebook.disabled:focus,
+.btn-ebook[disabled]:focus,
+fieldset[disabled] .btn-ebook:focus,
+.btn-ebook.disabled:active,
+.btn-ebook[disabled]:active,
+fieldset[disabled] .btn-ebook:active,
+.btn-ebook.disabled.active,
+.btn-ebook[disabled].active,
+fieldset[disabled] .btn-ebook.active {
+ background-color: #3d9cd7;
+ border-color: #3d9cd7;
 }
 
-.btn-donate .badge {
- color: #333333;
+.btn-ebook .badge {
+ color: #3d9cd7;
  background-color: #fff;
 }
 
@@ -234,8 +234,8 @@ fieldset[disabled] .btn-donate.active {
 .btn-training.active,
 .open .dropdown-toggle.btn-training {
  color: #ffffff;
- background-color: #eb870f;
- border-color: #d3790d;
+ background-color: #e08211;
+ border-color: #e08211;
 }
 
 .btn-training:active,
@@ -265,6 +265,52 @@ fieldset[disabled] .btn-training.active {
 
 .btn-training .badge {
  color: #f19322;
+ background-color: #fff;
+}
+
+.btn-donate {
+ color: #ffffff;
+ background-color: #356388;
+ border-color: #356388;
+}
+
+.btn-donate:hover,
+.btn-donate:focus,
+.btn-donate:active,
+.btn-donate.active,
+.open .dropdown-toggle.btn-donate {
+ color: #ffffff;
+ background-color: #245277;
+ border-color: #245277;
+}
+
+.btn-donate:active,
+.btn-donate.active,
+.open .dropdown-toggle.btn-donate {
+ background-image: none;
+}
+
+.btn-donate.disabled,
+.btn-donate[disabled],
+fieldset[disabled] .btn-donate,
+.btn-donate.disabled:hover,
+.btn-donate[disabled]:hover,
+fieldset[disabled] .btn-donate:hover,
+.btn-donate.disabled:focus,
+.btn-donate[disabled]:focus,
+fieldset[disabled] .btn-donate:focus,
+.btn-donate.disabled:active,
+.btn-donate[disabled]:active,
+fieldset[disabled] .btn-donate:active,
+.btn-donate.disabled.active,
+.btn-donate[disabled].active,
+fieldset[disabled] .btn-donate.active {
+ background-color: #356388;
+ border-color: #356388;
+}
+
+.btn-donate .badge {
+ color: #356388;
  background-color: #fff;
 }
 
