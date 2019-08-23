@@ -25,6 +25,10 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://phpunit.de/merchandise.html</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://phpunit.de/getting-started-with-phpunit.html</loc>
         <priority>0.6</priority>
     </url>
