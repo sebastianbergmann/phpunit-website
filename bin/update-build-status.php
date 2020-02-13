@@ -15,11 +15,15 @@ $nextRepositories = [
     'global-state'             => 'master',
     'object-enumerator'        => 'master',
     'object-reflector'         => 'master',
+    #'php-file-iterator'        => 'master',
     'php-invoker'              => 'master',
+    #'php-text-template'        => 'master',
     'php-timer'                => 'master',
     'php-token-stream'         => 'master',
     'recursion-context'        => 'master',
+    #'resource-operations'      => 'master',
     'type'                     => 'master',
+    #'version'                  => 'master',
 ];
 
 $currentRepositories = [
@@ -33,11 +37,15 @@ $currentRepositories = [
     'global-state'             => 'master',
     'object-enumerator'        => 'master',
     'object-reflector'         => 'master',
+    #'php-file-iterator'        => 'master',
     'php-invoker'              => 'master',
+    #'php-text-template'        => 'master',
     'php-timer'                => 'master',
     'php-token-stream'         => 'master',
     'recursion-context'        => 'master',
+    #'resource-operations'      => 'master',
     'type'                     => 'master',
+    #'version'                  => 'master',
 ];
 
 $oldRepositories = [
@@ -51,11 +59,15 @@ $oldRepositories = [
     'global-state'             => '3.0',
     'object-enumerator'        => '3.0',
     'object-reflector'         => '2.0',
+    #'php-file-iterator'        => '2.0',
     'php-invoker'              => '2.0',
+    #'php-text-template'        => '1.2',
     'php-timer'                => '2.1',
     'php-token-stream'         => '3.1',
     'recursion-context'        => '3.0',
+    #'resource-operations'      => '2.0',
     'type'                     => '1.1',
+    #'version'                  => '2.0',
 ];
 
 \file_put_contents(
