@@ -209,7 +209,7 @@ final class EmailTest extends TestCase
    <div class="row">
     <div class="col-md-6">
      <h3>PHP Archive (PHAR)</h3>
-     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests/EmailTest</strong>
+     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests</strong>
 PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
@@ -221,7 +221,7 @@ OK (3 tests, 3 assertions)</pre>
     </div>
     <div class="col-md-6">
      <h3>Composer</h3>
-     <pre><strong>➜ ./vendor/bin/phpunit tests/EmailTest</strong>
+     <pre><strong>➜ ./vendor/bin/phpunit tests</strong>
 PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
 
 ...                                                                 3 / 3 (100%)
@@ -235,13 +235,10 @@ OK (3 tests, 3 assertions)</pre>
    <div class="row">
     <div class="col-md-6">
      <p><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the tests are run.</p>
-     <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
-     <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+     <p><code>tests</code> instructs the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
     </div>
     <div class="col-md-6">
-     <p><code>--bootstrap vendor/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>vendor/autoload.php</code> before the tests are run.</p>
-     <p><code>tests/EmailTest</code> instructs the PHPUnit command-line test runner to execute the tests of the <code>EmailTest</code> class that is declared in <code>tests/EmailTest.php</code>.</p>
-     <p>Using <code>tests</code> instead of <code>tests/EmailTest</code> would instruct the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+     <p><code>tests</code> instructs the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
     </div>
    </div>
    <div class="row">
