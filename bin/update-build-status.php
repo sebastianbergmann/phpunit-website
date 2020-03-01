@@ -7,6 +7,7 @@ $old     = '8.5';
 $nextRepositories = [
     'phpunit'                  => 'master',
     'php-code-coverage'        => 'master',
+    'code-unit'                => 'master',
     'code-unit-reverse-lookup' => 'master',
     'comparator'               => 'master',
     'diff'                     => 'master',
