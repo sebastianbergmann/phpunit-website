@@ -339,6 +339,12 @@ fieldset[disabled] .btn-donate.active {
     margin-bottom: 2em;
 }
 
+ul.announcements, ul.articles {
+ margin: 0;
+ padding: 0;
+ list-style-type: none;
+}
+
 @media (max-width: 767.98px) {
  .ad .btn, .welcome-block .btn {
   display: block;
