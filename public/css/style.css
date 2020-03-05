@@ -339,7 +339,7 @@ fieldset[disabled] .btn-donate.active {
     margin-bottom: 2em;
 }
 
-ul.announcements, ul.articles {
+ul.announcements, ul.articles, ul.training {
  margin: 0;
  padding: 0;
  list-style-type: none;
