@@ -79,52 +79,60 @@ $oldRepositories = [
     #'version'                  => '2.0',
 ];
 
+$repositories = '';
+
+foreach (array_keys($nextRepositories) as $repository) {
+    $repositories .= \str_replace(
+        [
+            '{{repository}}',
+            '{{next_part}}',
+            '{{current_part}}',
+            '{{old_part}}',
+        ],
+        [
+            $repository,
+            part($repository, $nextRepositories[$repository]),
+            part($repository, $currentRepositories[$repository]),
+            part($repository, $oldRepositories[$repository]),
+        ],
+        \file_get_contents(__DIR__ . '/../templates/build-status-item.html')
+    );
+}
+
 \file_put_contents(
     __DIR__ . '/../public/build-status.html',
     \str_replace(
         [
+            '{{repositories}}',
             '{{next}}',
-            '{{next_items}}',
             '{{current}}',
-            '{{current_items}}',
             '{{old}}',
-            '{{old_items}}',
         ],
         [
+            $repositories,
             $next,
-            render($nextRepositories),
             $current,
-            render($currentRepositories),
-            $old,
-            render($oldRepositories),
+            $old
         ],
         \file_get_contents(__DIR__ . '/../templates/build-status-page.html')
     )
 );
 
-function render(array $repositories): string
+function part(string $repository, string $branch): string
 {
-    $buffer = '';
-
-    foreach ($repositories as $repository => $branch) {
-        if (empty($branch)) {
-            $buffer .= \file_get_contents(__DIR__ . '/../templates/build-status-empty-item.html');
-
-            continue;
-        }
-
-        $buffer .= \str_replace(
-            [
-                '{{repository}}',
-                '{{branch}}',
-            ],
-            [
-                $repository,
-                $branch,
-            ],
-            \file_get_contents(__DIR__ . '/../templates/build-status-item.html')
-        );
+    if (empty($branch)) {
+        return \file_get_contents(__DIR__ . '/../templates/build-status-item-empty-part.html');
     }
 
-    return $buffer;
+    return \str_replace(
+        [
+            '{{repository}}',
+            '{{branch}}',
+        ],
+        [
+            $repository,
+            $branch
+        ],
+        \file_get_contents(__DIR__ . '/../templates/build-status-item-part.html')
+    );
 }
