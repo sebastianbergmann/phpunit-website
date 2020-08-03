@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
-$next    = '9.1';
-$current = '9.0';
+$next    = '9.3';
+$current = '9.2';
 $old     = '8.5';
 
 $nextRepositories = [
@@ -10,13 +10,15 @@ $nextRepositories = [
     'code-unit'                => 'master',
     'code-unit-reverse-lookup' => 'master',
     'comparator'               => 'master',
+    'complexity'               => 'master',
     'diff'                     => 'master',
     'environment'              => 'master',
     'exporter'                 => 'master',
     'global-state'             => 'master',
+    'lines-of-code'            => 'master',
     'object-enumerator'        => 'master',
     'object-reflector'         => 'master',
-    #'php-file-iterator'        => 'master',
+    'php-file-iterator'        => 'master',
     'php-invoker'              => 'master',
     #'php-text-template'        => 'master',
     'php-timer'                => 'master',
@@ -28,17 +30,20 @@ $nextRepositories = [
 ];
 
 $currentRepositories = [
-    'phpunit'                  => '9.0',
-    'php-code-coverage'        => 'master',
+    'phpunit'                  => $current,
+    'php-code-coverage'        => '8.0',
+    'code-unit'                => 'master',
     'code-unit-reverse-lookup' => 'master',
     'comparator'               => 'master',
+    'complexity'               => '',
     'diff'                     => 'master',
     'environment'              => 'master',
     'exporter'                 => 'master',
     'global-state'             => 'master',
+    'lines-of-code'            => '',
     'object-enumerator'        => 'master',
     'object-reflector'         => 'master',
-    #'php-file-iterator'        => 'master',
+    'php-file-iterator'        => 'master',
     'php-invoker'              => 'master',
     #'php-text-template'        => 'master',
     'php-timer'                => 'master',
@@ -52,15 +57,18 @@ $currentRepositories = [
 $oldRepositories = [
     'phpunit'                  => '8.5',
     'php-code-coverage'        => '7.0',
+    'code-unit'                => '',
     'code-unit-reverse-lookup' => '1.0',
     'comparator'               => '3.0',
+    'complexity'               => '',
     'diff'                     => '3.0',
     'environment'              => '4.2',
     'exporter'                 => '3.1',
     'global-state'             => '3.0',
+    'lines-of-code'            => '',
     'object-enumerator'        => '3.0',
     'object-reflector'         => '2.0',
-    #'php-file-iterator'        => '2.0',
+    'php-file-iterator'        => '2.0',
     'php-invoker'              => '2.0',
     #'php-text-template'        => '1.2',
     'php-timer'                => '2.1',
@@ -99,6 +107,12 @@ function render(array $repositories): string
     $buffer = '';
 
     foreach ($repositories as $repository => $branch) {
+        if (empty($branch)) {
+            $buffer .= \file_get_contents(__DIR__ . '/../templates/build-status-empty-item.html');
+
+            continue;
+        }
+
         $buffer .= \str_replace(
             [
                 '{{repository}}',
