@@ -30,7 +30,7 @@ $nextRepositories = [
 ];
 
 $currentRepositories = [
-    'phpunit'                  => 'master',
+    'phpunit'                  => '9.3',
     'php-code-coverage'        => 'master',
     'code-unit'                => 'master',
     'code-unit-reverse-lookup' => 'master',
