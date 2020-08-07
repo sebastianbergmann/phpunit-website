@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
-$next    = '9.3';
-$current = '9.2';
+$next    = '9.4';
+$current = '9.3';
 $old     = '8.5';
 
 $nextRepositories = [
@@ -30,24 +30,24 @@ $nextRepositories = [
 ];
 
 $currentRepositories = [
-    'phpunit'                  => $current,
-    'php-code-coverage'        => '8.0',
+    'phpunit'                  => 'master',
+    'php-code-coverage'        => 'master',
     'code-unit'                => 'master',
     'code-unit-reverse-lookup' => 'master',
     'comparator'               => 'master',
-    'complexity'               => '',
+    'complexity'               => 'master',
     'diff'                     => 'master',
     'environment'              => 'master',
     'exporter'                 => 'master',
     'global-state'             => 'master',
-    'lines-of-code'            => '',
+    'lines-of-code'            => 'master',
     'object-enumerator'        => 'master',
     'object-reflector'         => 'master',
     'php-file-iterator'        => 'master',
     'php-invoker'              => 'master',
     'php-text-template'        => 'master',
     'php-timer'                => 'master',
-    'php-token-stream'         => 'master',
+    'php-token-stream'         => '',
     'recursion-context'        => 'master',
     #'resource-operations'      => 'master',
     'type'                     => 'master',
