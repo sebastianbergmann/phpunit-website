@@ -288,52 +288,6 @@ fieldset[disabled] .btn-training.active {
  background-color: #fff;
 }
 
-.btn-donate {
- color: #ffffff;
- background-color: #356388;
- border-color: #356388;
-}
-
-.btn-donate:hover,
-.btn-donate:focus,
-.btn-donate:active,
-.btn-donate.active,
-.open .dropdown-toggle.btn-donate {
- color: #ffffff;
- background-color: #245277;
- border-color: #245277;
-}
-
-.btn-donate:active,
-.btn-donate.active,
-.open .dropdown-toggle.btn-donate {
- background-image: none;
-}
-
-.btn-donate.disabled,
-.btn-donate[disabled],
-fieldset[disabled] .btn-donate,
-.btn-donate.disabled:hover,
-.btn-donate[disabled]:hover,
-fieldset[disabled] .btn-donate:hover,
-.btn-donate.disabled:focus,
-.btn-donate[disabled]:focus,
-fieldset[disabled] .btn-donate:focus,
-.btn-donate.disabled:active,
-.btn-donate[disabled]:active,
-fieldset[disabled] .btn-donate:active,
-.btn-donate.disabled.active,
-.btn-donate[disabled].active,
-fieldset[disabled] .btn-donate.active {
- background-color: #356388;
- border-color: #356388;
-}
-
-.btn-donate .badge {
- color: #356388;
- background-color: #fff;
-}
-
 .hljs {
   display: block; padding: 0.5em;
   background: #f5f5f5;
@@ -347,6 +301,14 @@ ul.announcements, ul.articles, ul.training {
  margin: 0;
  padding: 0;
  list-style-type: none;
+}
+
+div[data-sponsor] {
+ display: grid;
+ align-items: center;
+ text-align: center;
+ margin-bottom: 2rem;
+ margin-right: 3rem;
 }
 
 @media (max-width: 767.98px) {
