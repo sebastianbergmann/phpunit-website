@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
-$next    = '9.5';
-$current = '9.4';
+$next    = '10.0';
+$current = '9.5';
 $old     = '8.5';
 
 $nextRepositories = [
@@ -31,7 +31,7 @@ $nextRepositories = [
 ];
 
 $currentRepositories = [
-    'phpunit'                  => '9.4',
+    'phpunit'                  => '9.5',
     'php-code-coverage'        => 'master',
     'cli-parser'               => 'master',
     'code-unit'                => 'master',
