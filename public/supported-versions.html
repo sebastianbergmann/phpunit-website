@@ -97,6 +97,7 @@
      <p>Support for minor version <code>X.Y</code> ends when minor version <code>X.(Y+1)</code> is released.</p>
      <p><strong>Life Support</strong> means that changes will be made for an otherwise unsupported version of PHPUnit to be compatible with new versions of PHP. Life Support ends when an old version of PHPUnit cannot be made compatible with a new version of PHP without breaking backwards compatibility.</p>
      <p>The fact that a version of PHPUnit supports a specific PHP version means that this version of PHPUnit works on that PHP version for PHP code that is compatible with the version of PHP required by the PHPUnit version in question. For example, PHPUnit 8.5 requires PHP 7.2. PHPUnit 8.5 works for PHP code compatible with PHP 7.2 on PHP 8. However, PHPUnit 8.5's test double code generator does not support PHP 8's union types syntax, for example.</p>
+     <p>Juliette Reinders Folmer maintains <a href="https://github.com/Yoast/PHPUnit-Polyfills">phpunit-polyfills</a>, a library that "offers a number of polyfills for functionality which was introduced, split up or renamed in PHPUnit". Use this if you must be able to run your tests using PHPUnit 4 through PHPUnit 9.</p>
     </div>
    </div>
    <hr>
