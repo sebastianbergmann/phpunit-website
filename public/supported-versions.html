@@ -52,14 +52,14 @@
         <th scope="row"><a href="announcements/phpunit-9.html" style="color: #333;">PHPUnit 9</a></th>
         <td>>= PHP 7.3</td>
         <td>February 7, 2020</td>
-        <td>February 4, 2022</td>
+        <td>To be determined</td>
         <td>To be determined</td>
        </tr>
        <tr class="table-warning">
         <th scope="row"><a href="announcements/phpunit-8.html" style="color: #333;">PHPUnit 8</a></th>
         <td>>= PHP 7.2</td>
         <td>February 1, 2019</td>
-        <td>February 5, 2021</td>
+        <td>To be determined</td>
         <td>To be determined</td>
        </tr>
        <tr class="table-danger">
@@ -95,6 +95,9 @@
      <p><strong>Support</strong> means that bugs will be fixed for a version of PHPUnit.</p>
      <p>Support for major version <code>X</code> ends two years after its initial release (when major version <code>(X+2)</code> is released).</p>
      <p>Support for minor version <code>X.Y</code> ends when minor version <code>X.(Y+1)</code> is released.</p>
+     <hr/>
+     <p><strong>According to our release plan, PHPUnit 10 should have been released in February 2021. Unfortunately, this was not possible. The support timeline for PHPUnit 8 and PHPUnit 9 will be updated when PHPUnit 10 is released.</strong></p>
+     <hr/>
      <p><strong>Life Support</strong> means that changes will be made for an otherwise unsupported version of PHPUnit to be compatible with new versions of PHP. Life Support ends when an old version of PHPUnit cannot be made compatible with a new version of PHP without breaking backwards compatibility.</p>
      <p>The fact that a version of PHPUnit supports a specific PHP version means that this version of PHPUnit works on that PHP version for PHP code that is compatible with the version of PHP required by the PHPUnit version in question. For example, <span style="white-space: nowrap;">PHPUnit 8.5</span> requires <span style="white-space: nowrap;">PHP 7.2</span>. <span style="white-space: nowrap;">PHPUnit 8.5</span> works for PHP code compatible with <span style="white-space: nowrap;">PHP 7.2</span> on <span style="white-space: nowrap;">PHP 8</span>. However, <span style="white-space: nowrap;">PHPUnit 8.5</span>'s test double code generator does not support <span style="white-space: nowrap;">PHP 8</span>'s union types syntax, for example.</p>
      <p>Juliette Reinders Folmer maintains <a href="https://github.com/Yoast/PHPUnit-Polyfills">phpunit-polyfills</a>, a library that "offers a number of polyfills for functionality which was introduced, split up or renamed in PHPUnit". Use this if you must be able to run your tests using <span style="white-space: nowrap;">PHPUnit 4</span> through <span style="white-space: nowrap;">PHPUnit 9</span>.</p>
