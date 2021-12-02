@@ -311,6 +311,11 @@ div[data-sponsor] {
  margin-right: 5rem;
 }
 
+img[data-previous-sponsor] {
+ filter: grayscale(100%);
+ opacity: 0.25;
+}
+
 @media (max-width: 767.98px) {
  .ad .btn, .welcome-block .btn {
   display: block;
