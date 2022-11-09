@@ -196,48 +196,48 @@ fieldset[disabled] .btn-start.active {
  background-color: #fff;
 }
 
-.btn-ebook {
+.btn-sponsoring {
  color: #ffffff;
  background-color: #3d9cd7;
  border-color: #3d9cd7;
 }
 
-.btn-ebook:hover,
-.btn-ebook:focus,
-.btn-ebook:active,
-.btn-ebook.active,
-.open .dropdown-toggle.btn-ebook {
+.btn-sponsoring:hover,
+.btn-sponsoring:focus,
+.btn-sponsoring:active,
+.btn-sponsoring.active,
+.open .dropdown-toggle.btn-sponsoring {
  color: #ffffff;
  background-color: #2c8bc6;
  border-color: #2c8bc6;
 }
 
-.btn-ebook:active,
-.btn-ebook.active,
-.open .dropdown-toggle.btn-ebook {
+.btn-sponsoring:active,
+.btn-sponsoring.active,
+.open .dropdown-toggle.btn-sponsoring {
  background-image: none;
 }
 
-.btn-ebook.disabled,
-.btn-ebook[disabled],
-fieldset[disabled] .btn-ebook,
-.btn-ebook.disabled:hover,
-.btn-ebook[disabled]:hover,
-fieldset[disabled] .btn-ebook:hover,
-.btn-ebook.disabled:focus,
-.btn-ebook[disabled]:focus,
-fieldset[disabled] .btn-ebook:focus,
-.btn-ebook.disabled:active,
-.btn-ebook[disabled]:active,
-fieldset[disabled] .btn-ebook:active,
-.btn-ebook.disabled.active,
-.btn-ebook[disabled].active,
-fieldset[disabled] .btn-ebook.active {
+.btn-sponsoring.disabled,
+.btn-sponsoring[disabled],
+fieldset[disabled] .btn-sponsoring,
+.btn-sponsoring.disabled:hover,
+.btn-sponsoring[disabled]:hover,
+fieldset[disabled] .btn-sponsoring:hover,
+.btn-sponsoring.disabled:focus,
+.btn-sponsoring[disabled]:focus,
+fieldset[disabled] .btn-sponsoring:focus,
+.btn-sponsoring.disabled:active,
+.btn-sponsoring[disabled]:active,
+fieldset[disabled] .btn-sponsoring:active,
+.btn-sponsoring.disabled.active,
+.btn-sponsoring[disabled].active,
+fieldset[disabled] .btn-sponsoring.active {
  background-color: #3d9cd7;
  border-color: #3d9cd7;
 }
 
-.btn-ebook .badge {
+.btn-sponsoring .badge {
  color: #3d9cd7;
  background-color: #fff;
 }
