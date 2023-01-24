@@ -38,19 +38,19 @@
     <div class="col-md-12">
      <h1>PHPUnit 9</h1>
      <h4>February 7, 2020</h4>
-     <p>The PHPUnit development team announces the immediate availability of PHPUnit 9. This release adds new features, changes and removes existing features, and fixes bugs.</p>
-     <p>A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/9.0.0/ChangeLog-9.0.md#800---2020-02-07">here</a>. More background on some of these changes is given <a href="https://thephp.cc/news/2020/02/migrating-to-phpunit-9">here</a>.</p>
+     <p class="wrapped">The PHPUnit development team announces the immediate availability of PHPUnit 9. This release adds new features, changes and removes existing features, and fixes bugs.</p>
+     <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/9.0.0/ChangeLog-9.0.md#800---2020-02-07">here</a>. More background on some of these changes is given <a href="https://thephp.cc/news/2020/02/migrating-to-phpunit-9">here</a>.</p>
      <h2>PHPUnit now requires <span style="white-space: nowrap;">PHP 7.3</span> (or newer)</h2>
-     <p><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.2</span> ended on November 30, 2019.</a> The only actively supported versions of PHP as of February 7, 2020 are <span style="white-space: nowrap;">PHP 7.3</span> and <span style="white-space: nowrap;">PHP 7.4</span>.</p>
+     <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.2</span> ended on November 30, 2019.</a> The only actively supported versions of PHP as of February 7, 2020 are <span style="white-space: nowrap;">PHP 7.3</span> and <span style="white-space: nowrap;">PHP 7.4</span>.</p>
      <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
-     <p>The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
+     <p class="wrapped">The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
      <blockquote class="text-muted">
-      <p>It has cost <a class="text-muted" href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
-      <p>With this new release out, perhaps now is the time to <a class="text-muted" href="../contribute.html">contribute to PHPUnit's development</a> or <a class="text-muted" href="../sponsors.html">sponsor Sebastian's work</a>.</p>
+      <p class="wrapped">It has cost <a class="text-muted" href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
+      <p class="wrapped">With this new release out, perhaps now is the time to <a class="text-muted" href="../contribute.html">contribute to PHPUnit's development</a> or <a class="text-muted" href="../sponsors.html">sponsor Sebastian's work</a>.</p>
      </blockquote>
-     <p>A lot of time and effort went into the development of PHPUnit 9 to make better use of language features such as strict interpretation of scalar type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>.</p>
+     <p class="wrapped">A lot of time and effort went into the development of PHPUnit 9 to make better use of language features such as strict interpretation of scalar type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>.</p>
      <h3>Backward Incompatible Changes</h3>
-     <p>The following functionality was removed:</p>
+     <p class="wrapped">The following functionality was removed:</p>
      <ul>
       <li>Annotation(s) for expecting exceptions</li>
       <li>Assertions (and helper methods) that operate on (non-public) attributes</li>
@@ -66,18 +66,18 @@
       <li>Support for declaring more that one test case class in test source file</li>
      </ul>
      <h3>Looking Forward</h3>
-     <p>The following features have been deprecated in PHPUnit 9:</p>
+     <p class="wrapped">The following features have been deprecated in PHPUnit 9:</p>
       <ul>
        <li><code>expectException(PHPUnit\Framework\Error\*)</code></li>
        <li><code>MockBuilder::setMethods()</code></li>
        <li>Support for <code>ClassName&lt;*&gt;</code> as values for <code>@covers</code> and <code>@uses</code> annotations</li>
       </ul>
-     <p>The features deprecated in PHPUnit 9 will be removed in PHPUnit 10.</p>
+     <p class="wrapped">The features deprecated in PHPUnit 9 will be removed in PHPUnit 10.</p>
      <h2>Getting PHPUnit 9</h2>
-     <p>We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
-     <p><a href="../getting-started/phpunit-9.html">Here is a tutorial that gets you started.</a></p>
+     <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+     <p class="wrapped"><a href="../getting-started/phpunit-9.html">Here is a tutorial that gets you started.</a></p>
      <h2>Supported Versions</h2>
-     <p>Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 7, 2020:</p>
+     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 7, 2020:</p>
      <ul>
       <li>PHPUnit 9 receives bug fixes until February 4, 2022</li>
       <li>PHPUnit 8 receives bug fixes until February 5, 2021</li>

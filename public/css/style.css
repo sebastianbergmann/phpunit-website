@@ -16,12 +16,26 @@ body, h1, h2, h3, h4, h5, h6 {
  font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
- margin-bottom: 2rem;
+h2, h3 {
+ margin-top: 3rem;
+}
+
+h2, h3, h4 {
+ margin-bottom: 1rem;
+}
+
+.wrapped {
+ overflow-wrap: break-word;
+ text-align: justify;
+ text-justify: inter-word;
+ hyphens: auto;
 }
 
 code, pre {
  font-family: 'Source Code Pro', sans-serif;
+}
+
+pre {
  font-size: 0.75em;
 }
 

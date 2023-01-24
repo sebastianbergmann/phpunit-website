@@ -38,23 +38,23 @@
     <div class="col-md-12">
      <h1>PHPUnit 8</h1>
      <h4>February 1, 2019</h4>
-     <p>The PHPUnit development team announces the immediate availability of PHPUnit 8. This release adds new features, changes and removes existing features, and fixes bugs.</p>
-     <p>A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/8.0.0/ChangeLog-8.0.md#800---2019-02-01">here</a>. More background on some of these changes is given <a href="https://thephp.cc/news/2019/02/help-my-tests-stopped-working">here</a>.</p>
+     <p class="wrapped">The PHPUnit development team announces the immediate availability of PHPUnit 8. This release adds new features, changes and removes existing features, and fixes bugs.</p>
+     <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/8.0.0/ChangeLog-8.0.md#800---2019-02-01">here</a>. More background on some of these changes is given <a href="https://thephp.cc/news/2019/02/help-my-tests-stopped-working">here</a>.</p>
      <h2>PHPUnit now requires <span style="white-space: nowrap;">PHP 7.2</span> (or newer)</h2>
-     <p><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.1</span> ended on December 1, 2018.</a> The only actively supported versions of PHP as of February 1, 2019 are <span style="white-space: nowrap;">PHP 7.2</span> and <span style="white-space: nowrap;">PHP 7.3</span>.</p>
+     <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.1</span> ended on December 1, 2018.</a> The only actively supported versions of PHP as of February 1, 2019 are <span style="white-space: nowrap;">PHP 7.2</span> and <span style="white-space: nowrap;">PHP 7.3</span>.</p>
      <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
-     <p>The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
+     <p class="wrapped">The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
      <blockquote class="text-muted">
-      <p>It has cost <a class="text-muted" href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
-      <p>With this new release out, perhaps now is the time to <a class="text-muted" href="../contribute.html">contribute to PHPUnit's development</a> or <a class="text-muted" href="../sponsors.html">sponsor Sebastian's work</a>.</p>
+      <p class="wrapped">It has cost <a class="text-muted" href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
+      <p class="wrapped">With this new release out, perhaps now is the time to <a class="text-muted" href="../contribute.html">contribute to PHPUnit's development</a> or <a class="text-muted" href="../sponsors.html">sponsor Sebastian's work</a>.</p>
      </blockquote>
-     <p>A lot of time and effort went into the development of PHPUnit 8 to make better use of language features such as strict interpretation of scalar type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>.</p>
+     <p class="wrapped">A lot of time and effort went into the development of PHPUnit 8 to make better use of language features such as strict interpretation of scalar type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>.</p>
      <h3>Backward Incompatible Changes</h3>
      <h4>Dependency Resolution and Result Caching</h4>
-     <p>The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3092">resolution of test dependencies</a> that was introduced in PHPUnit 7.2 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3133">enabled by default</a>.</p>
-     <p>The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3147">caching of test results</a> that was introduced in PHPUnit 7.3 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3244">enabled by default</a>.</p>
+     <p class="wrapped">The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3092">resolution of test dependencies</a> that was introduced in PHPUnit 7.2 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3133">enabled by default</a>.</p>
+     <p class="wrapped">The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3147">caching of test results</a> that was introduced in PHPUnit 7.3 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3244">enabled by default</a>.</p>
      <h4>Return Type of Template Methods</h4>
-     <p>The methods listed below now have a <code>void</code> return type declaration:</p>
+     <p class="wrapped">The methods listed below now have a <code>void</code> return type declaration:</p>
      <ul>
       <li><code>PHPUnit\Framework\TestCase::setUpBeforeClass()</code></li>
       <li><code>PHPUnit\Framework\TestCase::setUp()</code></li>
@@ -64,9 +64,9 @@
       <li><code>PHPUnit\Framework\TestCase::tearDownAfterClass()</code></li>
       <li><code>PHPUnit\Framework\TestCase::onNotSuccessfulTest()</code></li>
      </ul>
-     <p>Your implementations of the methods listed above now must be declared <code>void</code>, too, otherwise you will get a compiler error.</p>
+     <p class="wrapped">Your implementations of the methods listed above now must be declared <code>void</code>, too, otherwise you will get a compiler error.</p>
      <h3>Looking Forward</h3>
-     <p>The following features have been deprecated in PHPUnit 8:</p>
+     <p class="wrapped">The following features have been deprecated in PHPUnit 8:</p>
       <ul>
        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3369"><code>assertInternalType()</code> and <code>assertNotInternalType()</code></a></li>
        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3494"><code>assertArraySubset()</code></a></li>
@@ -76,12 +76,12 @@
        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3388"><code>TestListener</code> interface
        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3425">Optional parameters of <code>assertContains()</code> and <code>assertNotContains()</code> as well as using these methods with <code>string</code> haystacks</a></li>
       </ul>
-     <p>The features deprecated in PHPUnit 8 will be removed in PHPUnit 9.</p>
+     <p class="wrapped">The features deprecated in PHPUnit 8 will be removed in PHPUnit 9.</p>
      <h2>Getting PHPUnit 8</h2>
-     <p>We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
-     <p><a href="../getting-started/phpunit-9.html">Here is a tutorial that gets you started.</a></p>
+     <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+     <p class="wrapped"><a href="../getting-started/phpunit-9.html">Here is a tutorial that gets you started.</a></p>
      <h2>Supported Versions</h2>
-     <p>Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 1, 2019:</p>
+     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 1, 2019:</p>
      <ul>
       <li>PHPUnit 8 receives bug fixes until February 5, 2021</li>
       <li>PHPUnit 7 receives bug fixes until February 7, 2020</li>
