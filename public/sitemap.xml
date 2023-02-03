@@ -28,6 +28,9 @@
         <loc>https://phpunit.de/announcements/index.html</loc>
     </url>
     <url>
+        <loc>https://phpunit.de/announcements/phpunit-10.html</loc>
+    </url>
+    <url>
         <loc>https://phpunit.de/announcements/phpunit-9.html</loc>
     </url>
     <url>
@@ -65,6 +68,9 @@
     </url>
     <url>
         <loc>https://phpunit.de/code-sprints/march-2017.html</loc>
+    </url>
+    <url>
+        <loc>https://phpunit.de/getting-started/phpunit-10.html</loc>
     </url>
     <url>
         <loc>https://phpunit.de/getting-started/phpunit-9.html</loc>
