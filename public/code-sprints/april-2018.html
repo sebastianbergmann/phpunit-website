@@ -1,106 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="../css/style.css" type="text/css" rel="stylesheet">
-  <title>April 2018 Code Sprint for PHPUnit &#x2013; The PHP Testing Framework</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
- </head>
- <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-   <div class="container">
-    <div class="d-sm-flex d-md-none flex-row-reverse w-100">
-     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-     </button>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="collapse navbar-collapse navbar-nav-justified" id="navbarSupportedContent">
-     <a href="../index.html"><img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/></a>
-     <ul class="navbar-nav w-100 nav-justified">
-      <li class="nav-item"><a class="nav-link" href="../documentation.html">Documentation</a></li>
-      <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
-      <li class="nav-item"><a class="nav-link" href="../sponsors.html">Sponsors</a></li>
-      <li class="nav-item"><a class="nav-link" href="../contribute.html">Contribute</a></li>
-     </ul>
-    </div>
-   </div>
-  </nav>
-  <div class="container">
-   <div class="row">
-    <div class="col-md-12">
-     <h1>Code Sprint for PHPUnit</h1>
-     <h3>April 6-7, 2018</h3>
-    </div>
-   </div>
-   <div class="row">
-    <div class="col-md-9">
-     <br/>
-     <table class="table table-bordered table-condensed">
-      <tbody>
-       <tr>
-        <td><strong>Location</strong>
-        <td>Kartenmacherei, Neustädter Neuer Weg 22, 20459 Hamburg, Germany</td>
-       </tr>
-      </tbody>
-     </table>
-    </div>
-    <div class="col-md-3">
-     <h4 class="text-center"><strong>Organized by</strong></h4>
-     <p class="text-center"><a href="https://www.kartenmacherei.de/"><img alt="Kartenmacherei" src="../img/kartenmacherei.svg"/></a></p>
-     <br/>
-     <h4 class="text-center"><strong>Supported by</strong></h4>
-     <p class="text-center"><a href="https://thephp.cc/"><img alt="thePHP.cc" src="../img/thephpcc.svg" width="100"/></a></p>
-    </div>
-   </div>
-    <div class="row">
-     <div class="col-md-4">
-      <div class="card">
-       <img class="card-img-top" src="../img/tweets/982283782685364226.jpg" />
-       <div class="card-body">
-        <div class="card-text">
-         <blockquote class="blockquote">We had a great first day at the <a href="https://twitter.com/phpunit">@PHPUnit</a> Code Sprint at <a href="https://twitter.com/inside_kam">@inside_kam</a> today. More: tomorrow!</blockquote>
-         <footer class="blockquote-footer"><a href="https://twitter.com/s_bergmann/status/982283782685364226">Sebastian Bergmann (@s_bergmann)</a></footer>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>April 2018 Code Sprint for PHPUnit &#x2013; The PHP Testing Framework</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="../support.html" class="nav-link">Support</a></li>
+                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
+                    <li class="nav-item"><a href="../contribute.html" class="nav-link">Contribute</a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>PHPUnit Code Sprint in Hamburg, Germany</h1>
+                    <time datetime="2018-04-06/2018-04-07" title="April 6-7, 2018">April 6-7, 2018</time>
+
+                    <div class="row tweets">
+                        <div class="col-md-6">
+                            <img class="tweet" alt="Photo of people working on PHPUnit, taken by Sebastian Bergmann" src="../img/tweets/982283782685364226.jpg"/>
+                            <p class="wrapped smaller">"We had a great first day at the @PHPUnit Code Sprint at @inside_kam today. More: tomorrow!"</p>
+                            <p class="text-end small">Sebastian Bergmann</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="tweet" alt="Photo of people working on PHPUnit, taken by Sebastian Bergmann" src="../img/tweets/982581817852203008.jpg"/>
+                            <p class="wrapped smaller">"A new HTML test report being designed at the @phpunit code sprint."</p>
+                            <p class="text-end small">Sebastian Bergmann</p>
+                        </div>
+                    </div>
+                    <div class="row tweets">
+                        <div class="col-md-6">
+                            <p class="wrapped smaller">"Thank you, @inside_kam and @belanur for hosting this spring’s @phpunit code sprint with @s_bergmann, @arneblankerts, and a whole lot of participants! I had a great time, and I’m looking forward to the next event. 🤓"</p>
+                            <p class="text-end small">Andreas Möller</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="text-center"><strong style="font-size: smaller;">Organized by</strong></h4>
+                    <p class="text-center"><a href="https://www.kartenmacherei.de/"><img alt="Kartenmacherei" src="../img/kartenmacherei.svg" width="200"/></a></p>
+                    <br/>
+                    <h4 class="text-center"><strong style="font-size: smaller;">Supported by</strong></h4>
+                    <p class="text-center"><a href="https://thephp.cc/"><img alt="thePHP.cc" src="../img/thephpcc.svg" width="100"/></a></p>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/mastodon.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
         </div>
-       </div>
-      </div>
-     </div>
-     <div class="col-md-4">
-      <div class="card">
-       <img class="card-img-top" src="../img/tweets/982581817852203008.jpg" />
-       <div class="card-body">
-        <div class="card-text">
-         <blockquote class="blockquote">A new HTML test report being designed at the <a href="https://twitter.com/phpunit">@phpunit</a> code sprint.</blockquote>
-         <footer class="blockquote-footer"><a href="https://twitter.com/s_bergmann/status/982581817852203008">Sebastian Bergmann (@s_bergmann)</a></footer>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="col-md-4">
-      <div class="card">
-       <div class="card-body">
-        <div class="card-text">
-         <blockquote class="blockquote">Thank you, <a href="https://twitter.com/inside_kam">@inside_kam</a> and <a href="https://twitter.com/belanur">@belanur</a> for hosting this spring’s <a href="https://twitter.com/phpunit">@phpunit</a> code sprint with <a href="https://twitter.com/s_bergmann">@s_bergmann</a>, <a href="https://twitter.com/arneblankerts">@arneblankerts</a>, and a whole lot of participants! I had a great time, and I’m looking forward to the next event. 🤓</blockquote>
-         <footer class="blockquote-footer"><a href="https://twitter.com/localheinz/status/982673599957028864">Andreas Möller (@localheinz)</a></footer>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   <hr>
-   <div class="footer">
-    <p>Copyright &copy; Sebastian Bergmann.</p>
-   </div>
-  </div>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
- </body>
+
+        <script src="../js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
-

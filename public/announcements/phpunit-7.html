@@ -1,97 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="../css/style.css" type="text/css" rel="stylesheet">
-  <title>Release Announcement for Version 7 of PHPUnit &#x2013; The PHP Testing Framework</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
- </head>
- <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-   <div class="container">
-    <div class="d-sm-flex d-md-none flex-row-reverse w-100">
-     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-     </button>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="collapse navbar-collapse navbar-nav-justified" id="navbarSupportedContent">
-     <a href="../index.html"><img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/></a>
-     <ul class="navbar-nav w-100 nav-justified">
-      <li class="nav-item"><a class="nav-link" href="../documentation.html">Documentation</a></li>
-      <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
-      <li class="nav-item"><a class="nav-link" href="../sponsors.html">Sponsors</a></li>
-      <li class="nav-item"><a class="nav-link" href="../contribute.html">Contribute</a></li>
-     </ul>
-    </div>
-   </div>
-  </nav>
-  <div class="container">
-   <div class="row">
-    <div class="col-md-12">
-     <h1>PHPUnit 7</h1>
-     <h4>February 2, 2018</h4>
-     <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 7. This release adds new features, changes and removes existing features, and fixes bugs.</p>
-     <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/7.0.0/ChangeLog-7.0.md#700---2018-02-02">here</a>.</p>
-     <h2>PHPUnit now requires <span style="white-space: nowrap;">PHP 7.1</span> (or newer)</h2>
-     <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.0</span> ended on December 3, 2017.</a> The only actively supported versions of PHP as of February 2, 2018 are <span style="white-space: nowrap;">PHP 7.1</span> and <span style="white-space: nowrap;">PHP 7.2</span>.</p>
-     <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
-     <p class="wrapped">The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
-     <blockquote>
-      <p class="wrapped">It has cost <a href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
-      <p class="wrapped">With this new release out, perhaps now is the time to <a href="../contribute.html">contribute to PHPUnit's development</a> or <a href="../support.html">sponsor Sebastian's work</a>.</p>
-     </blockquote>
-     <p class="wrapped">A lot of time and effort went into the development of PHPUnit 7 to make better use of syntax features such as scalar type declarations and return type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>. And quite a few methods that can raise exceptions were missing <code>@throws</code> annotations, there were now added to the documentation of those methods.</p>
-     <h3>Backwards Compatibility Issues</h3>
-     <p class="wrapped">While the aforementioned changes make PHPUnit's code easier to read and more robust to work on, they come at the price of backward compatibility breaks.</p>
-     <ul>
-      <li>If you implement an interface provided by PHPUnit, for instance <code>PHPUnit\Framework\TestListener</code>, then you may need to update the signatures of your methods.</li>
-      <li>If you overwrite a method provided by PHPUnit, for instance a method of <code>PHPUnit\Framework\TestCase</code>, then you may need to update the signatures of your methods.</li>
-      <li>PhpStorm currently reports violations for unhandled exceptions raised by PHPUnit's assertion methods. JetBrains is <a href="https://youtrack.jetbrains.com/issue/WI-39464">aware</a> of this and they are working on a solution.</li>
-      <li>The <code>PHPUnit\Framework\BaseTestListener</code> class has been removed, it was deprecated since PHPUnit 6.4. Please use the <code>PHPUnit\Framework\TestListenerDefaultImplementation</code> instead.</li>
-      <li>The <code>@scenario</code> annotation is no longer an alias for <code>@test</code>, it no longer has any effect.</li>
-      <li>The <code>PHPUnit\Framework\TestCase::prepareTemplate()</code> template method has been removed.</li>
-     </ul>
-     <h3>Looking Forward</h3>
-     <p class="wrapped">The following methods do not have a return value and should therefore have a <code>void</code> return type declaration:</p>
-     <ul>
-      <li><code>PHPUnit\Framework\TestCase::setUpBeforeClass()</code></li>
-      <li><code>PHPUnit\Framework\TestCase::setUp()</code></li>
-      <li><code>PHPUnit\Framework\TestCase::assertPreConditions()</code></li>
-      <li><code>PHPUnit\Framework\TestCase::assertPostConditions()</code></li>
-      <li><code>PHPUnit\Framework\TestCase::tearDown()</code></li>
-      <li><code>PHPUnit\Framework\TestCase::tearDownAfterClass()</code></li>
-      <li><code>PHPUnit\Framework\TestCase::onNotSuccessfulTest()</code></li>
-     </ul>
-     <p class="wrapped">These methods will have a <code>void</code> return type declaration in PHPUnit 8. Please declare your methods that overwrite the above mentioned methods <code>void</code> now so you are not affected by this backward compatibility break.</p>
-     <h2>PHPUnit now has a modern documentation toolchain</h2>
-     <p class="wrapped">The documentation for PHPUnit has been <a href="https://github.com/sebastianbergmann/phpunit-documentation/issues/471#issuecomment-336631080">migrated from DocBook to reStructuredText</a> and is now hosted on <code>docs.phpunit.de</code>. Details on the new locations can be found <a href="../documentation.html">here</a>.</p>
-     <h2>Getting PHPUnit 7</h2>
-     <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
-     <p class="wrapped"><a href="../getting-started/phpunit-7.html">Here is a tutorial that gets you started.</a></p>
-     <h2>Supported Versions</h2>
-     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 2, 2018:</p>
-     <ul>
-      <li>PHPUnit 7 receives bug fixes until February 7, 2020</li>
-      <li>PHPUnit 6 receives bug fixes until February 8, 2019</li>
-      <li>PHPUnit 5 has reached its End of Life on February 2, 2018 and no longer receives bug fixes</li>
-     </ul>
-    </div>
-   </div>
-   <hr>
-   <div class="footer">
-    <p>Copyright &copy; Sebastian Bergmann.</p>
-   </div>
-  </div>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
- </body>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/highlight.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Release Announcement for Version 7 of PHPUnit &#x2013; The PHP Testing Framework</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="../support.html" class="nav-link">Support</a></li>
+                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
+                    <li class="nav-item"><a href="../contribute.html" class="nav-link">Contribute</a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><span style="white-space: nowrap;">PHPUnit 7</span></h1>
+                    <p><time datetime="2018-02-02" title="February 2, 2018">February 2, 2018</time></p>
+
+                    <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 7. This release adds new features, changes and removes existing features, and fixes bugs.</p>
+                    <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/7.0.0/ChangeLog-7.0.md#700---2018-02-02">here</a>.</p>
+                    <h2>PHPUnit now requires <span style="white-space: nowrap;">PHP 7.1</span> (or newer)</h2>
+                    <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.0</span> ended on December 3, 2017.</a> The only actively supported versions of PHP as of February 2, 2018 are <span style="white-space: nowrap;">PHP 7.1</span> and <span style="white-space: nowrap;">PHP 7.2</span>.</p>
+                    <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
+                    <p class="wrapped">The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
+                    <blockquote>
+                        <p class="wrapped">It has cost <a href="https://sebastian-bergmann.de/">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.</p>
+                        <p class="wrapped">With this new release out, perhaps now is the time to <a href="../contribute.html">contribute to PHPUnit's development</a> or <a href="../support.html">sponsor Sebastian's work</a>.</p>
+                    </blockquote>
+                    <p class="wrapped">A lot of time and effort went into the development of PHPUnit 7 to make better use of syntax features such as scalar type declarations and return type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>. And quite a few methods that can raise exceptions were missing <code>@throws</code> annotations, there were now added to the documentation of those methods.</p>
+                    <h3>Backwards Compatibility Issues</h3>
+                    <p class="wrapped">While the aforementioned changes make PHPUnit's code easier to read and more robust to work on, they come at the price of backward compatibility breaks.</p>
+                    <ul>
+                        <li>If you implement an interface provided by PHPUnit, for instance <code>PHPUnit\Framework\TestListener</code>, then you may need to update the signatures of your methods.</li>
+                        <li>If you overwrite a method provided by PHPUnit, for instance a method of <code>PHPUnit\Framework\TestCase</code>, then you may need to update the signatures of your methods.</li>
+                        <li>PhpStorm currently reports violations for unhandled exceptions raised by PHPUnit's assertion methods. JetBrains is <a href="https://youtrack.jetbrains.com/issue/WI-39464">aware</a> of this and they are working on a solution.</li>
+                        <li>The <code>PHPUnit\Framework\BaseTestListener</code> class has been removed, it was deprecated since PHPUnit 6.4. Please use the <code>PHPUnit\Framework\TestListenerDefaultImplementation</code> instead.</li>
+                        <li>The <code>@scenario</code> annotation is no longer an alias for <code>@test</code>, it no longer has any effect.</li>
+                        <li>The <code>PHPUnit\Framework\TestCase::prepareTemplate()</code> template method has been removed.</li>
+                    </ul>
+                    <h3>Looking Forward</h3>
+                    <p class="wrapped">The following methods do not have a return value and should therefore have a <code>void</code> return type declaration:</p>
+                    <ul>
+                        <li><code>PHPUnit\Framework\TestCase::setUpBeforeClass()</code></li>
+                        <li><code>PHPUnit\Framework\TestCase::setUp()</code></li>
+                        <li><code>PHPUnit\Framework\TestCase::assertPreConditions()</code></li>
+                        <li><code>PHPUnit\Framework\TestCase::assertPostConditions()</code></li>
+                        <li><code>PHPUnit\Framework\TestCase::tearDown()</code></li>
+                        <li><code>PHPUnit\Framework\TestCase::tearDownAfterClass()</code></li>
+                        <li><code>PHPUnit\Framework\TestCase::onNotSuccessfulTest()</code></li>
+                    </ul>
+                    <p class="wrapped">These methods will have a <code>void</code> return type declaration in PHPUnit 8. Please declare your methods that overwrite the above mentioned methods <code>void</code> now so you are not affected by this backward compatibility break.</p>
+                    <h2>PHPUnit now has a modern documentation toolchain</h2>
+                    <p class="wrapped">The documentation for PHPUnit has been <a href="https://github.com/sebastianbergmann/phpunit-documentation/issues/471#issuecomment-336631080">migrated from DocBook to reStructuredText</a> and is now hosted on <code>docs.phpunit.de</code>. Details on the new locations can be found <a href="../documentation.html">here</a>.</p>
+                    <h2>Getting PHPUnit 7</h2>
+                    <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+                    <p class="wrapped"><a href="../getting-started/phpunit-7.html">Here is a tutorial that gets you started.</a></p>
+                    <h2>Supported Versions</h2>
+                    <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 2, 2018:</p>
+                    <ul>
+                        <li>PHPUnit 7 receives bug fixes until February 7, 2020</li>
+                        <li>PHPUnit 6 receives bug fixes until February 8, 2019</li>
+                        <li>PHPUnit 5 has reached its End of Life on February 2, 2018 and no longer receives bug fixes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/mastodon.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/highlight.min.js"></script>
+        <script src="../js/highlight.js"></script>
+    </body>
 </html>
-

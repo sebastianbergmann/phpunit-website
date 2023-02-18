@@ -1,68 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="../css/style.css" type="text/css" rel="stylesheet">
-  <title>Release Announcement for Version 4 of PHPUnit &#x2013; The PHP Testing Framework</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
- </head>
- <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-   <div class="container">
-    <div class="d-sm-flex d-md-none flex-row-reverse w-100">
-     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-     </button>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="collapse navbar-collapse navbar-nav-justified" id="navbarSupportedContent">
-     <a href="../index.html"><img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/></a>
-     <ul class="navbar-nav w-100 nav-justified">
-      <li class="nav-item"><a class="nav-link" href="../documentation.html">Documentation</a></li>
-      <li class="nav-item"><a class="nav-link" href="../support.html">Support</a></li>
-      <li class="nav-item"><a class="nav-link" href="../sponsors.html">Sponsors</a></li>
-      <li class="nav-item"><a class="nav-link" href="../contribute.html">Contribute</a></li>
-     </ul>
-    </div>
-   </div>
-  </nav>
-  <div class="container">
-   <div class="row">
-    <div class="col-md-12">
-     <h1>PHPUnit 4</h1>
-     <h4>March 7, 2014</h4>
-     <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 4. This release adds new features, changes and removes existing features, and fixes bugs.</p>
-     <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/4.8.0/ChangeLog-4.0.md#400---2014-03-07">here</a>.</p>
-     <h2>Backwards Compatibility Issues</h2>
-     <ul>
-      <li>The limited support for stubbing and mocking static methods that was introduced in PHPUnit 3.5 has been removed. This feature only worked when the stubbed or mocked static method was invoked from another method of the same class. We believe that the limited use of this feature did not justify the increased complexity in the test doubles code generator it incurred. We apologize for any inconvenience this removal may cause and encourage refactoring the code under test to not require this feature for testing.</li>
-      <li>The <code>addRiskyTest()</code> was added to the <code>PHPUnit_Framework_TestListener</code> interface. Classes that implement this interface have to implement this new method. This is the reason why PhpStorm 7 is not compatible with PHPUnit 4, for instance.</li>
-      <li>Bug fixes required a change to how relative paths are resolved for PHPUnit's XML configuration file. All relative paths in a configuration file are now resolved relative to that configuration file. When upgrading, you may need to update relative paths for the following configurations <code>testSuiteLoaderFile</code>, <code>printerFile</code>, <code>testsuites/file</code>, and <code>testsuites/exclude</code>.</li>
-     </ul>
-     <h2>Getting PHPUnit 4</h2>
-     <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
-     <p class="wrapped"><a href="../getting-started/phpunit-4.html">Here is a tutorial that gets you started.</a></p>
-     <h2>Supported Versions</h2>
-     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of March 7, 2014:</p>
-     <ul>
-      <li>PHPUnit 4 receives bug fixes until February 3, 2017</li>
-     </ul>
-    </div>
-   </div>
-   <hr>
-   <div class="footer">
-    <p>Copyright &copy; Sebastian Bergmann.</p>
-   </div>
-  </div>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
- </body>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/highlight.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Release Announcement for Version 4 of PHPUnit &#x2013; The PHP Testing Framework</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="../support.html" class="nav-link">Support</a></li>
+                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
+                    <li class="nav-item"><a href="../contribute.html" class="nav-link">Contribute</a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><span style="white-space: nowrap;">PHPUnit 4</span></h1>
+                    <p><time datetime="2014-03-07" title="March 7, 2014">March 7, 2014</time></p>
+
+                    <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 4. This release adds new features, changes and removes existing features, and fixes bugs.</p>
+                    <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/4.8.0/ChangeLog-4.0.md#400---2014-03-07">here</a>.</p>
+                    <h2>Backwards Compatibility Issues</h2>
+                    <ul>
+                        <li>The limited support for stubbing and mocking static methods that was introduced in PHPUnit 3.5 has been removed. This feature only worked when the stubbed or mocked static method was invoked from another method of the same class. We believe that the limited use of this feature did not justify the increased complexity in the test doubles code generator it incurred. We apologize for any inconvenience this removal may cause and encourage refactoring the code under test to not require this feature for testing.</li>
+                        <li>The <code>addRiskyTest()</code> was added to the <code>PHPUnit_Framework_TestListener</code> interface. Classes that implement this interface have to implement this new method. This is the reason why PhpStorm 7 is not compatible with PHPUnit 4, for instance.</li>
+                        <li>Bug fixes required a change to how relative paths are resolved for PHPUnit's XML configuration file. All relative paths in a configuration file are now resolved relative to that configuration file. When upgrading, you may need to update relative paths for the following configurations <code>testSuiteLoaderFile</code>, <code>printerFile</code>, <code>testsuites/file</code>, and <code>testsuites/exclude</code>.</li>
+                    </ul>
+                    <h2>Getting PHPUnit 4</h2>
+                    <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+                    <p class="wrapped"><a href="../getting-started/phpunit-4.html">Here is a tutorial that gets you started.</a></p>
+                    <h2>Supported Versions</h2>
+                    <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of March 7, 2014:</p>
+                    <ul>
+                        <li>PHPUnit 4 receives bug fixes until February 3, 2017</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/mastodon.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/highlight.min.js"></script>
+        <script src="../js/highlight.js"></script>
+    </body>
 </html>
-

@@ -1,91 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
-  <title>PHPUnit &#x2013; The PHP Testing Framework</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
- </head>
- <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-   <div class="container">
-    <div class="d-sm-flex d-md-none flex-row-reverse w-100">
-     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-     </button>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="collapse navbar-collapse navbar-nav-justified" id="navbarSupportedContent">
-     <a href="index.html"><img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/></a>
-     <ul class="navbar-nav w-100 nav-justified">
-       <li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
-       <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
-       <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
-       <li class="nav-item"><a class="nav-link" href="contribute.html">Contribute</a></li>
-      </ul>
-    </div>
-   </div>
-  </nav>
-  <div class="container">
-   <div class="jumbotron welcome-block">
-    <h1>Welcome to PHPUnit!</h1>
-    <p class="lead">PHPUnit is a programmer-oriented testing framework for PHP.<br/>It is an instance of the xUnit architecture for unit testing frameworks.</p>
-    <p class="subnav">
-     <a class="btn btn-start" href="getting-started/phpunit-10.html" role="button">Take the first steps</a>
-     <a class="btn btn-training" href="commercial-services.html" role="button">Get training or consulting</a>
-     <a class="btn btn-sponsoring" href="sponsors.html" role="button">Become a sponsor</a>
-     <a class="btn btn-fediverse" rel="me" href="https://phpc.social/@phpunit/" role="button">Follow @phpunit@phpc.social</a>
-    </p>
-   </div>
-   <div class="row">
-    <div class="col-md-12 text-center">
-     <p>
-      <strong><a href="announcements/phpunit-10.html">PHPUnit 10</a> is the <a href="supported-versions.html">current stable</a> version.</strong>
-     </p>
-     <p>
-      <a href="https://github.com/sebastianbergmann/phpunit/milestone/54">PHPUnit 10.1</a> will be the next minor version.
-      <a href="https://github.com/sebastianbergmann/phpunit/milestone/46">PHPUnit 11</a> will be the next major version.
-     </p>
-    </div>
-   </div>
-   <hr>
-   <div class="row">
-    <div class="col-md-4">
-     <h3>Announcements</h3>
-     <ul class="announcements">
-      <li><strong>February 3, 2023</strong><br/><a href="announcements/phpunit-10.html">PHPUnit 10 has been released</a></li>
-      <hr>
-      <li><strong>February 7, 2020</strong><br/><a href="announcements/phpunit-9.html">PHPUnit 9 has been released</a></li>
-      <hr>
-      <li><strong>February 1, 2019</strong><br/><a href="announcements/phpunit-8.html">PHPUnit 8 has been released</a></li>
-     </ul>
-    </div>
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-     <h3>Articles</h3>
-     <ul class="articles">
-      <li><strong>April 4, 2022</strong><br/><a href="https://thephp.cc/articles/why-i-manage-test-fixture-differently">Why I manage test fixture differently</a></li>
-      <hr>
-      <li><strong>April 21, 2021</strong><br/><a href="https://thephp.cc/articles/do-not-mock-what-you-do-not-own">Do not mock what you do not own</a></li>
-      <hr>
-      <li><strong>October 8, 2020</strong><br/><a href="https://thephp.cc/articles/caching-makes-everything-faster-right">Caching makes everything faster. Right?</a></li>
-     </ul>
-    </div>
-   </div>
-   <hr>
-   <div class="footer">
-    <p>Copyright &copy; Sebastian Bergmann.</p>
-   </div>
-  </div>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
- </body>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>PHPUnit &#x2013; The PHP Testing Framework</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="support.html" class="nav-link">Support</a></li>
+                    <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                    <li class="nav-item"><a href="contribute.html" class="nav-link">Contribute</a></li>
+                </ul>
+            </header>
+
+            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                    <h1 class="display-4 fw-bold lh-1">Welcome to PHPUnit!</h1>
+
+                    <p class="lead wrapped">PHPUnit is a programmer-oriented testing framework for PHP. It is an instance of the xUnit architecture for unit testing frameworks.</p>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                        <a class="btn btn-start" href="getting-started/phpunit-10.html" role="button">Take the first steps</a>
+                        <a class="btn btn-training" href="professional-services.html" role="button">Get training or consulting</a>
+                        <a class="btn btn-sponsoring" href="sponsors.html" role="button">Become a sponsor</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+                    <img class="rounded-lg-3" src="img/raytracer_color.png" alt="Screenshot of PHPUnit test runner" width="720">
+                </div>
+            </div>
+
+            <div class="row text-center" style="margin-top: 1rem;">
+                <div class="col-12">
+                    <p>
+                        <strong><a href="announcements/phpunit-10.html">PHPUnit 10</a> is the <a href="supported-versions.html">current stable</a> version.</strong>
+                    </p>
+                    <p>
+                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/54">PHPUnit 10.1</a> will be the next minor version.
+                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/46">PHPUnit 11</a> will be the next major version.
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Announcements</h3>
+                    <ul class="announcements">
+                        <li>
+                            <time datetime="2023-02-02" title="February 3, 2023">February 3, 2023</time>
+                            <p><a href="announcements/phpunit-10.html">PHPUnit 10 has been released</a></p>
+                        </li>
+                        <li>
+                            <time datetime="2020-02-07" title="February 7, 2020">February 7, 2020</time>
+                            <p><a href="announcements/phpunit-9.html">PHPUnit 9 has been released</a></p>
+                        </li>
+                        <li>
+                            <time datetime="2019-02-01" title="February 1, 2019">February 1, 2019</time>
+                            <p><a href="announcements/phpunit-8.html">PHPUnit 8 has been released</a></p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Articles</h3>
+                    <ul class="articles">
+                        <li>
+                            <time datetime="2022-04-04" title="April 4, 2022">April 4, 2022</time>
+                            <p><a href="https://thephp.cc/articles/why-i-manage-test-fixture-differently">Why I manage test fixture differently</a></p>
+                        </li>
+                        <li>
+                            <time datetime="2021-04-21" title="April 21, 2021">April 21, 2021</time>
+                            <p><a href="https://thephp.cc/articles/do-not-mock-what-you-do-not-own">Do not mock what you do not own</a></p>
+                        </li>
+                        <li>
+                            <time datetime="2020-10-08" title="October 8, 2020">October 8, 2020</time>
+                            <p><a href="https://thephp.cc/articles/caching-makes-everything-faster-right">Caching makes everything faster. Right?</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/mastodon.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
