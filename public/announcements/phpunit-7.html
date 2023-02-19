@@ -39,9 +39,9 @@
 
                     <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 7. This release adds new features, changes and removes existing features, and fixes bugs.</p>
                     <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/7.0.0/ChangeLog-7.0.md#700---2018-02-02">here</a>.</p>
-                    <h2>PHPUnit now requires <span style="white-space: nowrap;">PHP 7.1</span> (or newer)</h2>
+                    <h2 class="subheadline">PHPUnit now requires <span style="white-space: nowrap;">PHP 7.1</span> (or newer)</h2>
                     <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.0</span> ended on December 3, 2017.</a> The only actively supported versions of PHP as of February 2, 2018 are <span style="white-space: nowrap;">PHP 7.1</span> and <span style="white-space: nowrap;">PHP 7.2</span>.</p>
-                    <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
+                    <h2 class="subheadline">PHPUnit now uses (more) PHP 7 syntax</h2>
                     <p class="wrapped">The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
                     <div class="alert alert-secondary" role="alert">
                         <p class="text-center">
@@ -54,7 +54,7 @@
                         </p>
                     </div>
                     <p class="wrapped">A lot of time and effort went into the development of PHPUnit 7 to make better use of syntax features such as scalar type declarations and return type declarations, for instance, that were introduced in <span style="white-space: nowrap;">PHP 7</span>. And quite a few methods that can raise exceptions were missing <code>@throws</code> annotations, there were now added to the documentation of those methods.</p>
-                    <h3>Backwards Compatibility Issues</h3>
+                    <h3 class="subheadline">Backwards Compatibility Issues</h3>
                     <p class="wrapped">While the aforementioned changes make PHPUnit's code easier to read and more robust to work on, they come at the price of backward compatibility breaks.</p>
                     <ul>
                         <li>If you implement an interface provided by PHPUnit, for instance <code>PHPUnit\Framework\TestListener</code>, then you may need to update the signatures of your methods.</li>
@@ -64,7 +64,7 @@
                         <li>The <code>@scenario</code> annotation is no longer an alias for <code>@test</code>, it no longer has any effect.</li>
                         <li>The <code>PHPUnit\Framework\TestCase::prepareTemplate()</code> template method has been removed.</li>
                     </ul>
-                    <h3>Looking Forward</h3>
+                    <h3 class="subheadline">Looking Forward</h3>
                     <p class="wrapped">The following methods do not have a return value and should therefore have a <code>void</code> return type declaration:</p>
                     <ul>
                         <li><code>PHPUnit\Framework\TestCase::setUpBeforeClass()</code></li>
@@ -76,12 +76,12 @@
                         <li><code>PHPUnit\Framework\TestCase::onNotSuccessfulTest()</code></li>
                     </ul>
                     <p class="wrapped">These methods will have a <code>void</code> return type declaration in PHPUnit 8. Please declare your methods that overwrite the above mentioned methods <code>void</code> now so you are not affected by this backward compatibility break.</p>
-                    <h2>PHPUnit now has a modern documentation toolchain</h2>
+                    <h2 class="subheadline">PHPUnit now has a modern documentation toolchain</h2>
                     <p class="wrapped">The documentation for PHPUnit has been <a href="https://github.com/sebastianbergmann/phpunit-documentation/issues/471#issuecomment-336631080">migrated from DocBook to reStructuredText</a> and is now hosted on <code>docs.phpunit.de</code>. Details on the new locations can be found <a href="../documentation.html">here</a>.</p>
-                    <h2>Getting PHPUnit 7</h2>
+                    <h2 class="subheadline">Getting PHPUnit 7</h2>
                     <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
                     <p class="wrapped"><a href="../getting-started/phpunit-7.html">Here is a tutorial that gets you started.</a></p>
-                    <h2>Supported Versions</h2>
+                    <h2 class="subheadline">Supported Versions</h2>
                     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 2, 2018:</p>
                     <ul>
                         <li>PHPUnit 7 receives bug fixes until February 7, 2020</li>

@@ -39,16 +39,16 @@
 
                     <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 4. This release adds new features, changes and removes existing features, and fixes bugs.</p>
                     <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/4.8.0/ChangeLog-4.0.md#400---2014-03-07">here</a>.</p>
-                    <h2>Backwards Compatibility Issues</h2>
+                    <h2 class="subheadline">Backwards Compatibility Issues</h2>
                     <ul>
                         <li>The limited support for stubbing and mocking static methods that was introduced in PHPUnit 3.5 has been removed. This feature only worked when the stubbed or mocked static method was invoked from another method of the same class. We believe that the limited use of this feature did not justify the increased complexity in the test doubles code generator it incurred. We apologize for any inconvenience this removal may cause and encourage refactoring the code under test to not require this feature for testing.</li>
                         <li>The <code>addRiskyTest()</code> was added to the <code>PHPUnit_Framework_TestListener</code> interface. Classes that implement this interface have to implement this new method. This is the reason why PhpStorm 7 is not compatible with PHPUnit 4, for instance.</li>
                         <li>Bug fixes required a change to how relative paths are resolved for PHPUnit's XML configuration file. All relative paths in a configuration file are now resolved relative to that configuration file. When upgrading, you may need to update relative paths for the following configurations <code>testSuiteLoaderFile</code>, <code>printerFile</code>, <code>testsuites/file</code>, and <code>testsuites/exclude</code>.</li>
                     </ul>
-                    <h2>Getting PHPUnit 4</h2>
+                    <h2 class="subheadline">Getting PHPUnit 4</h2>
                     <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
                     <p class="wrapped"><a href="../getting-started/phpunit-4.html">Here is a tutorial that gets you started.</a></p>
-                    <h2>Supported Versions</h2>
+                    <h2 class="subheadline">Supported Versions</h2>
                     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of March 7, 2014:</p>
                     <ul>
                         <li>PHPUnit 4 receives bug fixes until February 3, 2017</li>

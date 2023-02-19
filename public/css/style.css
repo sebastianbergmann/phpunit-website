@@ -23,6 +23,10 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+h2.subheadline, h3.subheadline {
+    margin-top: 4rem;
+}
+
 a {
     text-decoration: none;
 }
