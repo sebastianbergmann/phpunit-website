@@ -27,22 +27,39 @@ a {
     text-decoration: none;
 }
 
+code, pre {
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+hr {
+    margin: 30px 0;
+}
+
+pre {
+    font-size: 0.75em;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+    background: #f5f5f5;
+}
+
+time {
+    font-size: smaller;
+    font-weight: bold;
+}
+
 p.announcement {
     margin-bottom: 3rem;
-}
-
-.tweets {
-    margin-top: 2rem;
-}
-
-img.tweet {
-    width: 100%;
-    margin-bottom: 1rem;
 }
 
 p.lead {
     font-size: 1.5em;
     line-height: 1.25;
+}
+
+img.tweet {
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 ul.announcements, ul.articles, ul.training {
@@ -64,31 +81,14 @@ ul.announcements > li:last-of-type, ul.articles > li:last-of-type, ul.training >
     border-bottom: none;
 }
 
-code, pre {
-    font-family: 'Source Code Pro', sans-serif;
-}
-
-pre {
-    font-size: 0.75em;
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
-    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
-    background: #f5f5f5;
-}
-
 .hljs {
     display: block; padding: 0.5em;
     background: #f5f5f5;
 }
 
-blockquote {
-    font-size: 1em;
-    margin-left: 2em;
-}
 
-time {
-    font-size: smaller;
-    font-weight: bold;
+.tweets {
+    margin-top: 2rem;
 }
 
 .wrapped {
@@ -109,10 +109,6 @@ div[data-sponsor] {
 img[data-previous-sponsor] {
     filter: grayscale(100%);
     opacity: 0.25;
-}
-
-hr {
-    margin: 30px 0;
 }
 
 .btn-start {
