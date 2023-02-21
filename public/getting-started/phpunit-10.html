@@ -116,7 +116,7 @@ final class Email
         return new self($email);
     }
 
-    public function __toString(): string
+    public function asString(): string
     {
         return $this->email;
     }
@@ -142,29 +142,29 @@ use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
 {
-    public function testCanBeCreatedFromValidEmailAddress(): void
+    public function testCanBeCreatedFromValidEmail(): void
     {
-        $this->assertInstanceOf(
-            Email::class,
-            Email::fromString('user@example.com')
-        );
+        $string = 'user@example.com';
+
+        $email = Email::fromString($string);
+
+        $this->assertSame($string, $email->asString());
     }
 
-    public function testCannotBeCreatedFromInvalidEmailAddress(): void
+    public function testCannotBeCreatedFromInvalidEmail(): void
     {
         $this->expectException(InvalidArgumentException::class);
 
         Email::fromString('invalid');
     }
-
-    public function testCanBeUsedAsString(): void
-    {
-        $this->assertEquals(
-            'user@example.com',
-            Email::fromString('user@example.com')
-        );
-    }
 }
+
+
+
+
+
+
+
 
 
 
@@ -185,11 +185,11 @@ final class EmailTest extends TestCase
                     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests</strong>
 PHPUnit 10.0.0 by Sebastian Bergmann and contributors.
 
-...                                       3 / 3 (100%)
+..                                        2 / 2 (100%)
 
 Time: 70 ms, Memory: 10.00MB
 
-OK (3 tests, 3 assertions)</pre>
+OK (2 tests, 2 assertions)</pre>
                     <p class="wrapped">The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
                 </div>
                 <div class="col-md-6">
@@ -197,11 +197,11 @@ OK (3 tests, 3 assertions)</pre>
                     <pre><strong>➜ ./vendor/bin/phpunit tests</strong>
 PHPUnit 10.0.0 by Sebastian Bergmann and contributors.
 
-...                                       3 / 3 (100%)
+..                                        2 / 2 (100%)
 
 Time: 70 ms, Memory: 10.00MB
 
-OK (3 tests, 3 assertions)</pre>
+OK (2 tests, 2 assertions)</pre>
                     <p class="wrapped">The above assumes that <code>vendor/autoload.php</code>, the <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloader</a> script managed by Composer, exists and is able to load the code for the <code>Email</code> class. Depending on how you set up autoloading, you may need to run <code>composer dump-autoload</code> now.</p>
                 </div>
             </div>
@@ -225,31 +225,29 @@ OK (3 tests, 3 assertions)</pre>
      <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
 PHPUnit 10.0.0 by Sebastian Bergmann and contributors.
 
-...                                       3 / 3 (100%)
+..                                        2 / 2 (100%)
 
 Time: 70 ms, Memory: 10.00MB
 
 Email
  ✔ Can be created from valid email address
  ✔ Cannot be created from invalid email address
- ✔ Can be used as string
 
-OK (3 tests, 3 assertions)</pre>
+OK (2 tests, 2 assertions)</pre>
                 </div>
                 <div class="col-md-6">
      <pre><strong>➜ ./vendor/bin/phpunit --testdox tests</strong>
 PHPUnit 10.0.0 by Sebastian Bergmann and contributors.
 
-...                                       3 / 3 (100%)
+..                                        2 / 2 (100%)
 
 Time: 70 ms, Memory: 10.00MB
 
 Email
  ✔ Can be created from valid email address
  ✔ Cannot be created from invalid email address
- ✔ Can be used as string
 
-OK (3 tests, 3 assertions)</pre>
+OK (2 tests, 2 assertions)</pre>
                 </div>
             </div>
 
