@@ -23,8 +23,16 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-h2.subheadline, h3.subheadline {
+h2.subheadline {
     margin-top: 4rem;
+}
+
+h3.subheadline {
+    margin-top: 3rem;
+}
+
+h4.subheadline {
+    margin-top: 2.5rem;
 }
 
 a {

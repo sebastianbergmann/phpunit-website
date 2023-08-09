@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="css/bootstrap.min.css?v=2" rel="stylesheet">
+        <link href="css/style.css?v=2" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Backward Compatibility of PHPUnit &#x2013; The PHP Testing Framework</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="professional-services.html" class="nav-link">Professional Services</a></li>
+                    <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                    <li class="nav-item"><a href="contribute.html" class="nav-link">Contribute</a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Backward Compatibility</h1>
+
+                    <h2 class="subheadline">Semantic Versioning</h2>
+                    <p class="wrapped">
+                        PHPUnit follows <a href="https://semver.org/">Semantic Versioning</a>.
+                        Information about the currently supported versions is available
+                        <a href="supported-versions.html">here</a>.
+                    </p>
+                    <p class="wrapped">
+                        A new <strong>major version</strong> is released each year on the first
+                        Friday of February. Major versions make incompatible API changes and remove
+                        or hard-deprecate (see below) features.
+                    </p>
+                    <p class="wrapped">
+                        A new <strong>minor version</strong> is released on the first Friday of
+                        April, June, August, October, and December. Minor versions add functionality
+                        in a backward compatible manner. Minor versions may soft-deprecate (see below)
+                        features.
+                    </p>
+                    <p class="wrapped">
+                        <strong>Patch versions</strong> are released as needed to address issues
+                        in a backward compatible manner.
+                    </p>
+
+                    <h3 class="subheadline">Exceptions</h3>
+                    <p class="wrapped">The backward compatibility promise for PHPUnit has the following exceptions:</p>
+
+                    <h4 class="subheadline">Internal Code</h4>
+                    <p class="wrapped">
+                        PHPUnit's units of code that are annotated with <code>@internal</code>
+                        are not covered by the backward compatibility promise for PHPUnit.
+                    </p>
+                    <p class="wrapped">
+                        These units of code are internal to PHPUnit and are subject to change
+                        or removal even in minor or patch versions. They must not be used in
+                        third-party code: not in test code and not in extensions for PHPUnit or
+                        in wrappers around PHPUnit.
+                    </p>
+
+                    <h4 class="subheadline">Named Arguments</h4>
+                    <p class="wrapped">
+                        PHPUnit's units of code that are not annotated with <code>@internal</code>
+                        are annotated with <code>@no-named-arguments</code> instead. This documents
+                        the fact that parameter names are not covered by the backward compatibility
+                        promise for PHPUnit.
+                    </p>
+
+                    <h2 class="subheadline">Feature Sunsetting</h2>
+                    <p class="wrapped">The sunsetting of features follows the following steps:</p>
+
+                    <h3 class="subheadline">Soft Deprecation</h3>
+                    <p class="wrapped">
+                        If the feature is used through a unit of code, for instance by calling a
+                        method, then the <code>@deprecated</code> annotation is added to that unit
+                        of code. IDEs and static analysis tools can now report that deprecated
+                        functionality is used.
+                    </p>
+                    <p class="wrapped">
+                        PHPUnit does not report that a soft-deprecated feature is used. Tests that
+                        use a soft-deprecated assertion method, for example, will continue to work
+                        in exactly the same way.
+                    </p>
+
+                    <h3 class="subheadline">Hard Deprecation</h3>
+                    <p class="wrapped">
+                        A soft deprecation is "upgraded" to a hard deprecation in the next major
+                        version.
+                    </p>
+                    <p class="wrapped">
+                        Tests that use a hard-deprecated assertion method, for example, will continue
+                        to work in exactly the same way. The only difference is that PHPUnit now
+                        reports that a hard-deprecated feature is used.
+                    </p>
+
+                    <h3 class="subheadline">Removal</h3>
+                    <p class="wrapped">
+                        The feature is removed in the next major version after it was hard-deprecated.
+                    </p>
+                    <p class="wrapped">
+                        Tests that use an assertion method that was removed, for example, will no longer
+                        work.
+                    </p>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/mastodon.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="js/bootstrap.bundle.min.js?v=2"></script>
+    </body>
+</html>
