@@ -81,6 +81,19 @@
                         promise for PHPUnit.
                     </p>
 
+                    <h4 class="subheadline">Event System: Value Objects</h4>
+                    <p class="wrapped">
+                        For value objects that are passed from PHPUnit's event system to subscribers,
+                        only the public methods for querying information are covered by the backward
+                        compatibility promise for PHPUnit. For instance, the constructor methods of
+                        these objects are not covered.
+                    </p>
+                    <p class="wrapped">
+                        Since there is no point in extending these classes outside of PHPUnit's own code,
+                        making an <code>abstract</code> class of such a value object <code>abstract readonly</code>,
+                        for example, is not considered to be a break of backward compatibility.
+                    </p>
+
                     <h2 class="subheadline">Feature Sunsetting</h2>
                     <p class="wrapped">The sunsetting of features follows the following steps:</p>
 
