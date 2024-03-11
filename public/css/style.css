@@ -73,7 +73,7 @@ p.lead {
     line-height: 1.25;
 }
 
-img.tweet {
+img.quote {
     width: 100%;
     margin-bottom: 1rem;
 }
@@ -103,7 +103,7 @@ ul.announcements > li:last-of-type, ul.articles > li:last-of-type, ul.training >
 }
 
 
-.tweets {
+.quotes {
     margin-top: 2rem;
 }
 
