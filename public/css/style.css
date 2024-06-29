@@ -122,11 +122,6 @@ div[data-sponsor] {
     margin-right: 5rem;
 }
 
-img[data-previous-sponsor] {
-    filter: grayscale(100%);
-    opacity: 0.25;
-}
-
 .btn-start {
     color: #ffffff;
     background-color: #39b54a;
