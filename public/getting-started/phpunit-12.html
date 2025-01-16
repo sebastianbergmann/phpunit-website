@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
+        <link href="../css/highlight.min.css?v=3" rel="stylesheet">
+        <link href="../css/style.css?v=5" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Getting Started with Version 12 of PHPUnit</title>
+        <meta property="og:title" content="Getting Started with PHPUnit 12" />
+        <meta property="og:url" content="https://phpunit.de/getting-started/phpunit-12.html" />
+        <link rel="canonical" href="https://phpunit.de/getting-started/phpunit-12.html" />
+        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="This tutorial assumes that you use PHP 8.3 or PHP 8.4. You will learn how to write simple unit tests as well as how to download and run PHPUnit 12." />
+        <meta name="description" content="This tutorial assumes that you use PHP 8.3 or PHP 8.4. You will learn how to write simple unit tests as well as how to download and run PHPUnit 12." />
+
+        <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <script defer data-api="/api/event" data-domain="phpunit.de" src="/js/script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="../professional-services.html" class="nav-link">Professional Services</a></li>
+                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
+                    <li class="nav-item"><a href="../contribute.html" class="nav-link">Contribute</a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Getting Started with PHPUnit 12</h1>
+                    <p class="wrapped">This tutorial assumes that you use PHP 8.3 or PHP 8.4. You will learn how to write simple unit tests as well as how to download and run PHPUnit.</p>
+                    <p class="wrapped">The documentation for PHPUnit 12 can be found <a href="../documentation.html">here</a>.</p>
+                    <h2>Download</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>PHP Archive (PHAR)</h3>
+                        <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 12. Simply download it from <a href="https://phar.phpunit.de/phpunit-12.phar">here</a> and make it executable:</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Composer</h3>
+                        <p class="wrapped">You can add PHPUnit as a local, per-project, development-time dependency to your project using <a href="https://getcomposer.org/">Composer</a>:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+     <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-12.phar
+
+➜ chmod +x phpunit
+
+➜ ./phpunit --version</strong>
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.</pre>
+                    </div>
+                    <div class="col-md-6">
+     <pre><strong>➜ composer require --dev phpunit/phpunit ^12
+
+➜ ./vendor/bin/phpunit --version</strong>
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+
+</pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="wrapped">Please refer to the documentation for details on how to <a href="https://docs.phpunit.de/en/12.0/installation.html#manual-download-of-phar">verify PHAR releases of PHPUnit</a>.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="wrapped">The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
+                        <p class="wrapped">Your <code>composer.json</code> should look similar to this:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+     <pre><code>{
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12"
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Code</h2>
+                    <p><code>src/Email.php</code></p>
+                    <pre><code>&lt;?php declare(strict_types=1);
+final class Email
+{
+    private string $email;
+
+    private function __construct(string $email)
+    {
+        $this->ensureIsValidEmail($email);
+
+        $this->email = $email;
+    }
+
+    public static function fromString(string $email): self
+    {
+        return new self($email);
+    }
+
+    public function asString(): string
+    {
+        return $this->email;
+    }
+
+    private function ensureIsValidEmail(string $email): void
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    '"%s" is not a valid email address',
+                    $email
+                )
+            );
+        }
+    }
+}</code></pre>
+                </div>
+                <div class="col-md-6">
+                    <h2>Test Code</h2>
+                    <p><code>tests/EmailTest.php</code></p>
+                    <pre><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class EmailTest extends TestCase
+{
+    public function testCanBeCreatedFromValidEmail(): void
+    {
+        $string = 'user@example.com';
+
+        $email = Email::fromString($string);
+
+        $this->assertSame($string, $email->asString());
+    }
+
+    public function testCannotBeCreatedFromInvalidEmail(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        Email::fromString('invalid');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Test Execution</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>PHP Archive (PHAR)</h3>
+                    <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests</strong>
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (2 tests, 2 assertions)</pre>
+                    <p class="wrapped">The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Composer</h3>
+                    <pre><strong>➜ ./vendor/bin/phpunit tests</strong>
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (2 tests, 2 assertions)</pre>
+                    <p class="wrapped">The above assumes that <code>vendor/autoload.php</code>, the <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloader</a> script managed by Composer, exists and is able to load the code for the <code>Email</code> class. Depending on how you set up autoloading, you may need to run <code>composer dump-autoload</code> now.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="wrapped"><code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the tests are run.</p>
+                    <p class="wrapped"><code>tests</code> instructs the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="wrapped"><code>tests</code> instructs the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>TestDox</h2>
+                    <p class="wrapped">Below you see an alternative output which is based on the idea that the name of a test can be used to document the behavior that is verified by the test:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+     <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+Email
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+
+OK (2 tests, 2 assertions)</pre>
+                </div>
+                <div class="col-md-6">
+     <pre><strong>➜ ./vendor/bin/phpunit --testdox tests</strong>
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+Email
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+
+OK (2 tests, 2 assertions)</pre>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0"><a class="text-muted" href="../impressum.html">Impressum</a> | <a class="text-muted" href="../datenschutz.html">Datenschutz</a></p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/icons/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/icons/mastodon.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="../js/bootstrap.bundle.min.js?v=3"></script>
+        <script src="../js/highlight.min.js?v=3"></script>
+        <script src="../js/highlight.js?v=3"></script>
+    </body>
+</html>
