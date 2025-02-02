@@ -92,11 +92,19 @@
                     </div>
                     <p class="wrapped">
                         We are confident that <span style="white-space: nowrap;">PHPUnit 12</span> works as intended, but in some respects
-                        it works differently than previous versions. For example, functionality that was only
-                        <a href="../backward-compatibility.html">soft-deprecated</a> in <span style="white-space: nowrap;">PHPUnit 11</span>
-                        is now <a href="../backward-compatibility.html">hard-deprecated</a> in <span style="white-space: nowrap;">PHPUnit 12</span>.
-                        And functionality that was hard-deprecated in <span style="white-space: nowrap;">PHPUnit 11</span>
-                        has been removed in <span style="white-space: nowrap;">PHPUnit 12</span>.
+                        it works differently than previous versions.
+                    </p>
+                    <p class="wrapped">
+                        For example, functionality that was only <a href="../backward-compatibility.html">soft-deprecated</a>
+                        in <span style="white-space: nowrap;">PHPUnit 11</span> is now <a href="../backward-compatibility.html">hard-deprecated</a>
+                        in <span style="white-space: nowrap;">PHPUnit 12</span>. And functionality that was hard-deprecated in
+                        <span style="white-space: nowrap;">PHPUnit 11</span> has been removed in <span style="white-space: nowrap;">PHPUnit 12</span>.
+                        You can find details about deprecations here:
+
+                        <ul>
+                            <li><a href="https://github.com/sebastianbergmann/phpunit/blob/10.5/DEPRECATIONS.md#deprecations">Deprecations in PHPUnit 10</a></li>
+                            <li><a href="https://github.com/sebastianbergmann/phpunit/blob/11.5/DEPRECATIONS.md#deprecations">Deprecations in PHPUnit 11</a></li>
+                        </ul>
                     </p>
                     <p class="wrapped">
                         You should not even try to upgrade to <span style="white-space: nowrap;">PHPUnit 12</span>
@@ -118,9 +126,56 @@
                         </p>
                     </div>
                     <h2 class="subheadline">Major Changes in PHPUnit 12</h2>
-                    <h3 class="subheadline">TODO</h3>
+                    <h3 class="subheadline">Test Doubles</h3>
                     <p class="wrapped">
-                        ...
+                        We cleaned up PHPUnit's functionality for programmatically creating test stubs and mock objects.
+                        We did this primarily to make working with test doubles easier and less confusing for developers
+                        using PHPUnit. But we also did this to reduce complexity in the implementation by removing features
+                        that are not as necessary as they were a decade or two ago (as well as features that probably should
+                        never have been implemented in the first place).
+                    </p>
+                    <p class="wrapped">
+                        The methods for creating mock objects for abstract classes and traits  have been removed.
+                        Testing concrete classes in isolation from their abstract base classes (and vice versa) as well
+                        as testing traits in isolation from the classes that use them has not proven to be useful.
+                    </p>
+                    <p class="wrapped">
+                        Several releases ago, we introduced special methods, <code>createStub()</code> and <code>createMock()</code>,
+                        for example, to create test stubs and mock objects, respectively. These methods allow developers
+                        to make their intentions clear in the test code they write:
+
+                        <ul>
+                            <li>
+                                Need a test stub to isolate the code under test from a dependency?
+                                Use <code>createStub()</code> to create a test stub.
+                            </li>
+                            <li>
+                                Need to test communication between two objects?
+                                Use <code>createMock()</code> to create a mock object.
+                            </li>
+                        </ul>
+
+                        This <a href="https://thephp.cc/presentations/testing-with-doubles-why-when-and-how?ref=phpunit">presentation</a>
+                        has more details on when test stubs and mock objects should be used.
+                    </p>
+                    <p class="wrapped">
+                        Configuring expectations on an object created with <code>createStub()</code> did already not
+                        have an effect anymore since <span style="white-space: nowrap;">PHPUnit 10</span> and triggered
+                        a deprecation since <span style="white-space: nowrap;">PHPUnit 11</span>.
+                        In <span style="white-space: nowrap;">PHPUnit 12</span> this is no longer possible.
+                    </p>
+                    <h3 class="subheadline">Metadata</h3>
+                    <p class="wrapped">
+                        <span style="white-space: nowrap;">PHPUnit 10</span> introduced support for
+                        <span style="white-space: nowrap;">PHP 8</span> attributes to add metadata to test classes and
+                        test methods. Previously, annotations in special PHP comments called "docblocks" or "doc-comments"
+                        were the only way to add metadata to units of code.
+                    </p>
+                    <p class="wrapped">
+                        In <span style="white-space: nowrap;">PHPUnit 11</span>, the support for the annotations that
+                        can be used in special PHP comments to add metadata to test classes and test methods was
+                        deprecated. Support for using annotations has now been removed and you need to migrate your
+                        tests from annotations to attributes.
                     </p>
                     <h2 class="subheadline">Getting <span style="white-space: nowrap;">PHPUnit 12</span></h2>
                     <p class="wrapped">
