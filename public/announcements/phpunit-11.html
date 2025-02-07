@@ -126,26 +126,26 @@
                         that are not as necessary as they were a decade or two ago (as well as features that probably should
                         never have been implemented in the first place).
                     </p>
-                    <p>
+                    <p class="wrapped">
                         The methods for creating mock objects for abstract classes and traits were already soft-deprecated
                         in <span style="white-space: nowrap;">PHPUnit 10</span>, they are now hard-deprecated and will be
                         removed in <span style="white-space: nowrap;">PHPUnit 12</span>. Testing concrete classes in
                         isolation from their abstract base classes (and vice versa) as well as testing traits in isolation
                         from the classes that use them has not proven to be useful.
                     </p>
-                    <p>
+                    <p class="wrapped">
                         Several releases ago, we introduced special methods, such as <code>createStub()</code> and <code>createMock()</code>,
                         for creating test stubs and mock objects, respectively. These methods allow developers to make their
                         intentions clear in the test code they write. Need a test stub to isolate the code under test from a
                         dependency? Use <code>createStub()</code> to create a test stub. Need to test communication between
                         two objects? Use <code>createMock()</code> to create a mock object.
                     </p>
-                    <p>
+                    <p class="wrapped">
                         Configuring expectations on an object created with <code>createStub()</code> will trigger a deprecation
                         warning in <span style="white-space: nowrap;">PHPUnit 11</span> and will not work in
                         <span style="white-space: nowrap;">PHPUnit 12</span>.
                     </p>
-                    <p>
+                    <p class="wrapped">
                         This <a href="https://thephp.cc/presentations/testing-with-doubles-why-when-and-how?ref=phpunit">presentation</a>
                         has more details on when test stubs and mock objects should be used.
                     </p>
