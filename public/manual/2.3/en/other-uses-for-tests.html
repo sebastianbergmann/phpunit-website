@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual &#8211; Chapter 11. Other Uses for Tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/other-uses-for-tests.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="preface"><a href="preface.html">Preface</a></span></dt><dd><dl><dt><span class="section"><a href="preface.html#preface.requirements">Requirements</a></span></dt><dt><span class="section"><a href="preface.html#preface.license">This Book Is Free</a></span></dt><dt><span class="section"><a href="preface.html#preface.conventions">Conventions Used in This Book</a></span></dt><dt><span class="section"><a href="preface.html#preface.acknowledgements">Acknowledgements</a></span></dt></dl></dd><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dt><span class="chapter"><a href="textui.html">4. The Command-Line Test Runner</a></span></dt><dt><span class="chapter"><a href="fixtures.html">5. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.suite-level-setup">Suite-Level Setup</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-exceptions-and-performance-regressions.html">6. Testing Exceptions and Performance Regressions</a></span></dt><dd><dl><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.exceptions">Exceptions</a></span></dt><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.performance-regressions">Performance Regressions</a></span></dt></dl></dd><dt><span class="chapter"><a href="incomplete-tests.html">7. Incomplete Tests</a></span></dt><dt><span class="chapter"><a href="test-first-programming.html">8. Test-First Programming</a></span></dt><dd><dl><dt><span class="section"><a href="test-first-programming.html#test-first-programming.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">9. Code-Coverage Analysis</a></span></dt><dt><span class="chapter"><a href="stubs.html">10. Stubs</a></span></dt><dd><dl><dt><span class="section"><a href="stubs.html#stubs.self-shunting">Self-Shunting</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html" class="active">11. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.debugging-tests">Debugging Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.refactoring">Refactoring</a></span></dt></dl></dd><dt><span class="chapter"><a href="phing.html">12. PHPUnit and Phing</a></span></dt><dd><dl><dt><span class="section"><a href="phing.html#phing.formatting-feedback">Formatting Feedback</a></span></dt></dl></dd><dt><span class="chapter"><a href="implementation.html">13. PHPUnit's Implementation</a></span></dt><dt><span class="chapter"><a href="api.html">14. PHPUnit API</a></span></dt><dd><dl><dt><span class="section"><a href="api.html#api.overview">Overview</a></span></dt><dt><span class="section"><a href="api.html#api.assert">PHPUnit2_Framework_Assert</a></span></dt><dt><span class="section"><a href="api.html#api.test">PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="api.html#api.testcase">PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="api.html#api.testsuite">PHPUnit2_Framework_TestSuite</a></span></dt><dt><span class="section"><a href="api.html#api.testresult">PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="api.html#api.package-structure">Package Structure</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">15. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestCase">Subclass PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.Assert">Assert Classes</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Extensions_TestDecorator">Subclass PHPUnit2_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_Test">Implement PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestResult">Subclass PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestListener">Implement PHPUnit2_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.TestRunner">New Test Runner</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.phpunit1.html">A. PHPUnit for PHP 4</a></span></dt><dt><span class="appendix"><a href="appendixes.index.html">B. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">C. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">D. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="stubs.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="phing.html">Next</a></div>
+     </div>
+<div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="other-uses-for-tests"></a>Chapter 11. Other Uses for Tests</h1></div></div></div><div class="alert alert-warning"><h3 class="title">Caution</h3><p>
+      You are looking at the documentation for a version of PHPUnit that is no
+      longer supported.
+    </p><p>
+      The documentation for the current version of PHPUnit can be found
+      <a class="ulink" href="../../current/en/index.html" target="_top">here</a>.
+    </p></div><p>
+    Once you get used to writing automated tests, you will likely discover
+    more uses for tests. Here are some examples.
+  </p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="other-uses-for-tests.agile-documentation"></a>Agile Documentation</h2></div></div></div><p>
+      <a id="idm140250594630720" class="indexterm"></a>
+      <a id="idm140250594550704" class="indexterm"></a>
+      <a id="idm140250594549952" class="indexterm"></a>
+      <a id="idm140250594549200" class="indexterm"></a>
+
+      Typically, in a project that is developed using an agile process,
+      such as Extreme Programming, the documentation cannot keep up with the
+      frequent changes to the project's design and code. Extreme Programming
+      demands <span class="emphasis"><em>collective code ownership</em></span>, so all
+      developers need to know how the entire system works. If you are
+      disciplined enough to consequently use "speaking names" for your tests
+      that describe what a class should do, you can use PHPUnit's TestDox
+      functionality to generate automated documentation for your project based
+      on its tests. This documentation gives developers an overview of what
+      each class of the project is supposed to do.
+    </p><p>
+      PHPUnit's TestDox functionality looks at a test class and all the test
+      method names and converts them from camel case PHP names to sentences:
+      <code class="literal">testBalanceIsInitiallyZero()</code> becomes "Balance is
+      initially zero". If there are several test methods whose names only
+      differ in a suffix of one or more digits, such as
+      <code class="literal">testBalanceCannotBecomeNegative()</code> and
+      <code class="literal">testBalanceCannotBecomeNegative2()</code>, the sentence
+      "Balance cannot become negative" will appear only once, assuming that
+      all of these tests succeed.
+    </p><p>
+      The following code shows the agile documentation for the
+      <code class="literal">BankAccount</code> class (from
+      <a class="xref" href="test-first-programming.html#test-first-programming.bankaccount-example.examples.BankAccountTest.php" title="Example 8.1: Tests for the BankAccount class">Example 8.1</a>)
+      generated by running <strong class="userinput"><code>phpunit --testdox-text BankAccountTest.txt BankAccountTest</code></strong>:
+    </p><pre class="screen">BankAccount
+ - Balance is initially zero
+ - Balance cannot become negative</pre><p>
+      Alternatively, the agile documentation can be generated in HTML format
+      by using <code class="literal">--testdox-html BankAccountTest.htm</code>.
+    </p><p>
+      <a id="idm140250594540240" class="indexterm"></a>
+
+      Agile Documentation can be used to document the assumptions you make
+      about the external packages that you use in your project. When you use
+      an external package, you are exposed to the risks that the package will
+      not behave as you expect, and that future versions of the package will
+      change in subtle ways that will break your code, without you knowing it.
+      You can address these risks by writing a test every time you make an
+      assumption. If your test succeeds, your assumption is valid. If you
+      document all your assumptions with tests, future releases of the
+      external package will be no cause for concern: if the tests succeed,
+      your system should continue working.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="other-uses-for-tests.cross-team-tests"></a>Cross-Team Tests</h2></div></div></div><p>
+      When you document assumptions with tests, you own the tests. The
+      supplier of the package -- who you make assumptions about -- knows
+      nothing about your tests. If you want to have a closer relationship
+      with the supplier of a package, you can use the tests to communicate
+      and coordinate your activities.
+    </p><p>
+      When you agree on coordinating your activities with the supplier of a
+      package, you can write the tests together. Do this in such a way that
+      the tests reveal as many assumptions as possible. Hidden assumptions are
+      the death of cooperation. With the tests, you document exactly what you
+      expect from the supplied package. The supplier will know the package is
+      complete when all the tests run.
+    </p><p>
+      <a id="idm140250594535776" class="indexterm"></a>
+
+      By using stubs (see the section "Stubs", earlier in this book), you can
+      further decouple yourself from the supplier: The job of the supplier is
+      to make the tests run with the real implementation of the package. Your
+      job is to make the tests run for your own code. Until such time as you
+      have the real implementation of the supplied package, you use stub
+      objects. Following this approach, the two teams can develop
+      independently.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="other-uses-for-tests.debugging-tests"></a>Debugging Tests</h2></div></div></div><p>
+      When you get a defect report, your impulse might be to fix the defect as
+      quickly as possible. Experience shows that this impulse will not serve
+      you well; it is likely that the fix for the defect causes another
+      defect.
+    </p><p>
+      You can hold your impulse in check by doing the following:
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
+          Verify that you can reproduce the defect.
+        </p></li><li class="listitem"><p>
+          Find the smallest-scale demonstration of the defect in the code.
+          For example, if a number appears incorrectly in an output, find the
+          object that is computing that number.
+        </p></li><li class="listitem"><p>
+          Write an automated test that fails now but will succeed when the
+          defect is fixed.
+        </p></li><li class="listitem"><p>
+          Fix the defect.
+        </p></li></ol></div><p>
+      Finding the smallest reliable reproduction of the defect gives you the
+      opportunity to really examine the cause of the defect. The test you
+      write will improve the chances that when you fix the defect, you really
+      fix it, because the new test reduces the likelihood of undoing the fix
+      with future code changes. All the tests you wrote before reduce the
+      likelihood of inadvertently causing a different problem.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="other-uses-for-tests.refactoring"></a>Refactoring</h2></div></div></div><p>
+      <a id="idm140250594525808" class="indexterm"></a>
+
+      Refactoring, the controlled technique for improving the design of an
+      existing code base, can be applied safely only when you have a test
+      suite. Otherwise, you might not notice the system breaking while you are
+      carrying out the restructuring. Refactoring can be broken down into
+      a series of small behavior-preserving transformations.
+    </p><p>
+      The following conditions will help you to improve the code and design
+      of your project, while using unit tests to verify that the refactoring's
+      transformation steps are, indeed, behavior-preserving and do not
+      introduce errors:
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>All unit tests run correctly.</p></li><li class="listitem"><p>The code communicates its design principles.</p></li><li class="listitem"><p>The code contains no redundancies.</p></li><li class="listitem"><p>The code contains the minimal number of classes and methods.</p></li></ol></div></div></div>
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="stubs.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="phing.html">Next</a></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>

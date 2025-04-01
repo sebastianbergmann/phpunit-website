@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual &#8211; Preface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/preface.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="preface"><a href="preface.html" class="active">Preface</a></span></dt><dd><dl><dt><span class="section"><a href="preface.html#preface.requirements">Requirements</a></span></dt><dt><span class="section"><a href="preface.html#preface.license">This Book Is Free</a></span></dt><dt><span class="section"><a href="preface.html#preface.conventions">Conventions Used in This Book</a></span></dt><dt><span class="section"><a href="preface.html#preface.acknowledgements">Acknowledgements</a></span></dt></dl></dd><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dt><span class="chapter"><a href="textui.html">4. The Command-Line Test Runner</a></span></dt><dt><span class="chapter"><a href="fixtures.html">5. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.suite-level-setup">Suite-Level Setup</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-exceptions-and-performance-regressions.html">6. Testing Exceptions and Performance Regressions</a></span></dt><dd><dl><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.exceptions">Exceptions</a></span></dt><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.performance-regressions">Performance Regressions</a></span></dt></dl></dd><dt><span class="chapter"><a href="incomplete-tests.html">7. Incomplete Tests</a></span></dt><dt><span class="chapter"><a href="test-first-programming.html">8. Test-First Programming</a></span></dt><dd><dl><dt><span class="section"><a href="test-first-programming.html#test-first-programming.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">9. Code-Coverage Analysis</a></span></dt><dt><span class="chapter"><a href="stubs.html">10. Stubs</a></span></dt><dd><dl><dt><span class="section"><a href="stubs.html#stubs.self-shunting">Self-Shunting</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html">11. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.debugging-tests">Debugging Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.refactoring">Refactoring</a></span></dt></dl></dd><dt><span class="chapter"><a href="phing.html">12. PHPUnit and Phing</a></span></dt><dd><dl><dt><span class="section"><a href="phing.html#phing.formatting-feedback">Formatting Feedback</a></span></dt></dl></dd><dt><span class="chapter"><a href="implementation.html">13. PHPUnit's Implementation</a></span></dt><dt><span class="chapter"><a href="api.html">14. PHPUnit API</a></span></dt><dd><dl><dt><span class="section"><a href="api.html#api.overview">Overview</a></span></dt><dt><span class="section"><a href="api.html#api.assert">PHPUnit2_Framework_Assert</a></span></dt><dt><span class="section"><a href="api.html#api.test">PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="api.html#api.testcase">PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="api.html#api.testsuite">PHPUnit2_Framework_TestSuite</a></span></dt><dt><span class="section"><a href="api.html#api.testresult">PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="api.html#api.package-structure">Package Structure</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">15. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestCase">Subclass PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.Assert">Assert Classes</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Extensions_TestDecorator">Subclass PHPUnit2_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_Test">Implement PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestResult">Subclass PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestListener">Implement PHPUnit2_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.TestRunner">New Test Runner</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.phpunit1.html">A. PHPUnit for PHP 4</a></span></dt><dt><span class="appendix"><a href="appendixes.index.html">B. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">C. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">D. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="index.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="automating-tests.html">Next</a></div>
+     </div>
+<div class="preface"><div class="titlepage"><div><div><h1 class="title"><a id="preface"></a>Preface</h1></div></div></div><div class="alert alert-warning"><h3 class="title">Caution</h3><p>
+      You are looking at the documentation for a version of PHPUnit that is no
+      longer supported.
+    </p><p>
+      The documentation for the current version of PHPUnit can be found
+      <a class="ulink" href="../../current/en/index.html" target="_top">here</a>.
+    </p></div><p>
+    For a very long time my answer to the question "When will you write
+    documentation for PHPUnit?" has been "You do not need documentation for
+    PHPUnit. Just read the documentation for JUnit or a buy a book on JUnit
+    and adapt the code examples from Java and JUnit to PHP and PHPUnit."
+    When I mentioned this to Barbara Weiss and Alexandra Follenius from the
+    O'Reilly Germany office, they encouraged me to think it over and
+    write a book that would serve as the documentation for PHPUnit.
+  </p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="preface.requirements"></a>Requirements</h2></div></div></div><p>
+      The topic of this book is PHPUnit, an open source framework for test-driven
+      development with the PHP programming language. This edition covers Version
+      2.3 of PHPUnit. Most of the examples should work, however, with PHPUnit
+      versions 2.0-2.2. The "PHPUnit for PHP 4" section, later in this book,
+      covers the older, no longer actively developed version of PHPUnit for
+      PHP 4.
+    </p><p>
+      The reader should have a good understanding of object-oriented
+      programming with PHP 5. To German readers I can recommend my own book on
+      PHP 5, <a class="xref" href="appendixes.bibliography.html#Bergmann2005" title="Professionelle Softwareentwicklung mit PHP 5">[<abbr class="abbrev">Bergmann2005</abbr>]</a>, as an introduction to
+      object-oriented programming with PHP 5. A good English book on the subject
+      is <a class="xref" href="appendixes.bibliography.html#GuBaRe2005" title="PHP 5 Power Programming">[<abbr class="abbrev">GuBaRe2005</abbr>]</a> by Andi Gutmans, Stig Bakken, and Derick
+      Rethans.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="preface.license"></a>This Book Is Free</h2></div></div></div><p>
+      This book is available under the Creative Commons Attribution License. You
+      will always find the latest version of this book on its website at
+      <code class="uri">http://www.phpunit.de/pocket_guide/</code>.
+      You may distribute and make changes to this book however you wish. Of
+      course, rather than distribute your own private version of the book,
+      I would prefer you send feedback and patches to
+      <code class="email">&lt;<a class="email" href="mailto:sb@sebastian-bergmann.de">sb@sebastian-bergmann.de</a>&gt;</code>.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="preface.conventions"></a>Conventions Used in This Book</h2></div></div></div><p>
+      The following is a list of typographical conventions used in this book:
+    </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="emphasis"><em>Italic</em></span></span></dt><dd><p>
+            Indicates new terms, URLs, email addresses, filenames, file
+            extensions, pathnames, directories, and Unix utilities.
+          </p></dd><dt><span class="term"><code class="literal">Constant width</code></span></dt><dd><p>
+            Indicates commands, options, switches, variables, functions,
+            classes, namespaces, methods, modules, parameters, values,
+            objects, the contents of files, or the output from commands.
+          </p></dd><dt><span class="term"><strong class="userinput"><code>Constant width bold</code></strong></span></dt><dd><p>
+            Shows commands or other text that should be typed literally
+            by the user.
+          </p></dd><dt><span class="term"><em class="replaceable"><code>Constant width italic</code></em></span></dt><dd><p>
+            Shows text that should be replaced with user-supplied values.
+          </p></dd></dl></div><p>
+      You should pay special attention to notes set apart from the text
+      with the following styles:
+    </p><div class="alert alert-info"><h3 class="title">Note</h3><p>
+        This is a tip, suggestion, or general note. It contains useful
+        supplementary information about the topic at hand.
+      </p></div><div class="alert alert-danger"><h3 class="title">Warning</h3><p>
+        This is a warning or note of caution.
+      </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="preface.acknowledgements"></a>Acknowledgements</h2></div></div></div><p>
+      I would like to thank Kent Beck and Erich Gamma for JUnit and the
+      inspiration to write PHPUnit. I would also like to thank Kent Beck for
+      his "JUnit Pocket Guide" <a class="xref" href="appendixes.bibliography.html#Beck2004" title="JUnit Pocket Guide">[<abbr class="abbrev">Beck2004</abbr>]</a>, which sparked the
+      idea for this book. I would like to thank Allison Randal, Alexandra
+      Follenius, and Barbara Weiss for sponsoring this book at O'Reilly.
+    </p><p>
+      I would like to thank Andi Gutmans, Zeev Suraski, and Marcus Börger
+      for their work on the Zend Engine 2, the core of PHP 5. I would like to
+      thank Derick Rethans for Xdebug, the PHP extension that makes PHPUnit's
+      Code Coverage functionality possible. Finally, I would like to thank
+      Michiel Rook, who wrote the PHPUnit tasks for Phing.
+    </p></div></div>
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="index.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="automating-tests.html">Next</a></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>

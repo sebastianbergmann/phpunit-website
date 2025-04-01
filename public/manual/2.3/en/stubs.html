@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual &#8211; Chapter 10. Stubs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/stubs.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="preface"><a href="preface.html">Preface</a></span></dt><dd><dl><dt><span class="section"><a href="preface.html#preface.requirements">Requirements</a></span></dt><dt><span class="section"><a href="preface.html#preface.license">This Book Is Free</a></span></dt><dt><span class="section"><a href="preface.html#preface.conventions">Conventions Used in This Book</a></span></dt><dt><span class="section"><a href="preface.html#preface.acknowledgements">Acknowledgements</a></span></dt></dl></dd><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dt><span class="chapter"><a href="textui.html">4. The Command-Line Test Runner</a></span></dt><dt><span class="chapter"><a href="fixtures.html">5. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.suite-level-setup">Suite-Level Setup</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-exceptions-and-performance-regressions.html">6. Testing Exceptions and Performance Regressions</a></span></dt><dd><dl><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.exceptions">Exceptions</a></span></dt><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.performance-regressions">Performance Regressions</a></span></dt></dl></dd><dt><span class="chapter"><a href="incomplete-tests.html">7. Incomplete Tests</a></span></dt><dt><span class="chapter"><a href="test-first-programming.html">8. Test-First Programming</a></span></dt><dd><dl><dt><span class="section"><a href="test-first-programming.html#test-first-programming.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">9. Code-Coverage Analysis</a></span></dt><dt><span class="chapter"><a href="stubs.html" class="active">10. Stubs</a></span></dt><dd><dl><dt><span class="section"><a href="stubs.html#stubs.self-shunting">Self-Shunting</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html">11. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.debugging-tests">Debugging Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.refactoring">Refactoring</a></span></dt></dl></dd><dt><span class="chapter"><a href="phing.html">12. PHPUnit and Phing</a></span></dt><dd><dl><dt><span class="section"><a href="phing.html#phing.formatting-feedback">Formatting Feedback</a></span></dt></dl></dd><dt><span class="chapter"><a href="implementation.html">13. PHPUnit's Implementation</a></span></dt><dt><span class="chapter"><a href="api.html">14. PHPUnit API</a></span></dt><dd><dl><dt><span class="section"><a href="api.html#api.overview">Overview</a></span></dt><dt><span class="section"><a href="api.html#api.assert">PHPUnit2_Framework_Assert</a></span></dt><dt><span class="section"><a href="api.html#api.test">PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="api.html#api.testcase">PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="api.html#api.testsuite">PHPUnit2_Framework_TestSuite</a></span></dt><dt><span class="section"><a href="api.html#api.testresult">PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="api.html#api.package-structure">Package Structure</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">15. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestCase">Subclass PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.Assert">Assert Classes</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Extensions_TestDecorator">Subclass PHPUnit2_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_Test">Implement PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestResult">Subclass PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestListener">Implement PHPUnit2_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.TestRunner">New Test Runner</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.phpunit1.html">A. PHPUnit for PHP 4</a></span></dt><dt><span class="appendix"><a href="appendixes.index.html">B. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">C. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">D. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="code-coverage-analysis.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="other-uses-for-tests.html">Next</a></div>
+     </div>
+<div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="stubs"></a>Chapter 10. Stubs</h1></div></div></div><div class="alert alert-warning"><h3 class="title">Caution</h3><p>
+      You are looking at the documentation for a version of PHPUnit that is no
+      longer supported.
+    </p><p>
+      The documentation for the current version of PHPUnit can be found
+      <a class="ulink" href="../../current/en/index.html" target="_top">here</a>.
+    </p></div><p>
+    <a id="idm140250594662448" class="indexterm"></a>
+
+    Tests that only test one thing are more informative than tests where
+    failure can come from many sources. How can you isolate your tests from
+    external influences? Simply put, by replacing the expensive, messy,
+    unreliable, slow, complicated resources with stubs made from plain PHP
+    objects. For example, you can implement what is in reality a complicated
+    computation by returning a constant, at least for the purposes of a
+    single test.
+  </p><p>
+    <a id="idm140250594687536" class="indexterm"></a>
+
+    Stubs solve the problem of allocating expensive external resources.
+    For example, sharing a resource, such as a database connection, between
+    tests by using the <code class="literal">PHPUnit2_Extensions_TestSetup</code>
+    decorator helps, but not using the database for the purposes of the tests
+    at all is even better.
+  </p><p>
+    Design improvement is one effect of using stubs. Widely used resources
+    are accessed through a single façade, so you can easily replace the
+    resource with the stub. For example, instead of having direct database
+    calls scattered throughout the code, you have a single
+    <code class="literal">Database</code> object, an implementor of the
+    <code class="literal">IDatabase</code> interface. Then, you can create a stub
+    implementation of <code class="literal">IDatabase</code> and use it for your
+    tests. You can even create an option for running the tests with the
+    stub database or the real database, so you can use your tests for both
+    local testing during development and integration testing with the real
+    database.
+  </p><p>
+    Functionality that needs to be stubbed out tends to cluster in the same
+    object, improving cohesion. By presenting the functionality with a
+    single, coherent interface, you reduce the coupling with the rest of the
+    system.
+  </p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="stubs.self-shunting"></a>Self-Shunting</h2></div></div></div><p>
+      <a id="idm140250594606992" class="indexterm"></a>
+
+      Sometimes you need to check that an object has been called correctly. You
+      can create a complete stub of the object to be called, but that can make
+      it inconvenient to check for correct results. A simpler solution is to
+      apply the <span class="emphasis"><em>Self Shunt Pattern</em></span> and use the test-case
+      object itself as a stub. The term self-shunting is taken from the medical
+      practice of installing a tube that takes blood from an artery and returns
+      it to a vein to provide a convenient place for injecting drugs.
+    </p><p>
+      <a id="idm140250594604928" class="indexterm"></a>
+
+      Here is an example: suppose we want to test that the correct method is
+      called on an object that observes another object. First, we make our
+      test-case class an implementor of <code class="literal">Observer</code>:
+</p><pre class="programlisting">class ObserverTest extends PHPUnit2_Framework_TestCase implements Observer {
+}</pre><p>
+    </p><p>
+      Next, we implement the one <code class="literal">Observer</code> method,
+      <code class="literal">update()</code>, to check that it is called when the state
+      of the observed <code class="literal">Subject</code> object changes:
+</p><pre class="programlisting">public $wasCalled = FALSE;
+
+public function update(Subject $subject) {
+    $this-&gt;wasCalled = TRUE;
+}</pre><p>
+    </p><p>
+      Now, we can write our test. We create a new <code class="literal">Subject</code>
+      object and attach the test object to it as an observer. When the state
+      of the <code class="literal">Subject</code> changes -- for instance, by calling its
+      <code class="literal">doSomething()</code> method -- the <code class="literal">Subject</code>
+      object has to call the <code class="literal">update()</code> method on all objects
+      that are registered as observers. We use the <code class="literal">$wasCalled</code>
+      instance variable that is set by our implementation of
+      <code class="literal">update()</code> to check whether the <code class="literal">Subject</code>
+      object does what it is supposed to do:
+
+</p><pre class="programlisting">public function testUpdate() {
+    $subject = new Subject;
+    $subject-&gt;attach($this);
+    $subject-&gt;doSomething();
+
+    $this-&gt;assertTrue($this-&gt;wasCalled);
+}</pre><p>
+    </p><p>
+      Notice that we create a new <code class="literal">Subject</code> object instead of
+      relying on a global instance. Stubbing encourages this style of design.
+      It reduces the coupling between objects and improves reuse.
+    </p><p>
+      If you are not familiar with the self-shunt pattern, the tests can be
+      hard to read. What is going on here? Why is a test case also an
+      observer? Once you get used to the idiom, the tests are easy to read.
+      Everything you need to understand the test is in one class.
+    </p></div></div>
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="code-coverage-analysis.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="other-uses-for-tests.html">Next</a></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/index.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="preface"><a href="preface.html">Preface</a></span></dt><dd><dl><dt><span class="section"><a href="preface.html#preface.requirements">Requirements</a></span></dt><dt><span class="section"><a href="preface.html#preface.license">This Book Is Free</a></span></dt><dt><span class="section"><a href="preface.html#preface.conventions">Conventions Used in This Book</a></span></dt><dt><span class="section"><a href="preface.html#preface.acknowledgements">Acknowledgements</a></span></dt></dl></dd><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dt><span class="chapter"><a href="textui.html">4. The Command-Line Test Runner</a></span></dt><dt><span class="chapter"><a href="fixtures.html">5. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.suite-level-setup">Suite-Level Setup</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-exceptions-and-performance-regressions.html">6. Testing Exceptions and Performance Regressions</a></span></dt><dd><dl><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.exceptions">Exceptions</a></span></dt><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.performance-regressions">Performance Regressions</a></span></dt></dl></dd><dt><span class="chapter"><a href="incomplete-tests.html">7. Incomplete Tests</a></span></dt><dt><span class="chapter"><a href="test-first-programming.html">8. Test-First Programming</a></span></dt><dd><dl><dt><span class="section"><a href="test-first-programming.html#test-first-programming.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">9. Code-Coverage Analysis</a></span></dt><dt><span class="chapter"><a href="stubs.html">10. Stubs</a></span></dt><dd><dl><dt><span class="section"><a href="stubs.html#stubs.self-shunting">Self-Shunting</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html">11. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.debugging-tests">Debugging Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.refactoring">Refactoring</a></span></dt></dl></dd><dt><span class="chapter"><a href="phing.html">12. PHPUnit and Phing</a></span></dt><dd><dl><dt><span class="section"><a href="phing.html#phing.formatting-feedback">Formatting Feedback</a></span></dt></dl></dd><dt><span class="chapter"><a href="implementation.html">13. PHPUnit's Implementation</a></span></dt><dt><span class="chapter"><a href="api.html">14. PHPUnit API</a></span></dt><dd><dl><dt><span class="section"><a href="api.html#api.overview">Overview</a></span></dt><dt><span class="section"><a href="api.html#api.assert">PHPUnit2_Framework_Assert</a></span></dt><dt><span class="section"><a href="api.html#api.test">PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="api.html#api.testcase">PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="api.html#api.testsuite">PHPUnit2_Framework_TestSuite</a></span></dt><dt><span class="section"><a href="api.html#api.testresult">PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="api.html#api.package-structure">Package Structure</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">15. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestCase">Subclass PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.Assert">Assert Classes</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Extensions_TestDecorator">Subclass PHPUnit2_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_Test">Implement PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestResult">Subclass PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestListener">Implement PHPUnit2_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.TestRunner">New Test Runner</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.phpunit1.html">A. PHPUnit for PHP 4</a></span></dt><dt><span class="appendix"><a href="appendixes.index.html">B. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">C. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">D. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"></div>
+      <div class="col-md-1 pull-right next-nav"></div>
+     </div>
+
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"></div>
+      <div class="col-md-1 pull-right next-nav"></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual &#8211; Chapter 14. PHPUnit API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/api.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="preface"><a href="preface.html">Preface</a></span></dt><dd><dl><dt><span class="section"><a href="preface.html#preface.requirements">Requirements</a></span></dt><dt><span class="section"><a href="preface.html#preface.license">This Book Is Free</a></span></dt><dt><span class="section"><a href="preface.html#preface.conventions">Conventions Used in This Book</a></span></dt><dt><span class="section"><a href="preface.html#preface.acknowledgements">Acknowledgements</a></span></dt></dl></dd><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dt><span class="chapter"><a href="textui.html">4. The Command-Line Test Runner</a></span></dt><dt><span class="chapter"><a href="fixtures.html">5. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.suite-level-setup">Suite-Level Setup</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-exceptions-and-performance-regressions.html">6. Testing Exceptions and Performance Regressions</a></span></dt><dd><dl><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.exceptions">Exceptions</a></span></dt><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.performance-regressions">Performance Regressions</a></span></dt></dl></dd><dt><span class="chapter"><a href="incomplete-tests.html">7. Incomplete Tests</a></span></dt><dt><span class="chapter"><a href="test-first-programming.html">8. Test-First Programming</a></span></dt><dd><dl><dt><span class="section"><a href="test-first-programming.html#test-first-programming.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">9. Code-Coverage Analysis</a></span></dt><dt><span class="chapter"><a href="stubs.html">10. Stubs</a></span></dt><dd><dl><dt><span class="section"><a href="stubs.html#stubs.self-shunting">Self-Shunting</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html">11. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.debugging-tests">Debugging Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.refactoring">Refactoring</a></span></dt></dl></dd><dt><span class="chapter"><a href="phing.html">12. PHPUnit and Phing</a></span></dt><dd><dl><dt><span class="section"><a href="phing.html#phing.formatting-feedback">Formatting Feedback</a></span></dt></dl></dd><dt><span class="chapter"><a href="implementation.html">13. PHPUnit's Implementation</a></span></dt><dt><span class="chapter"><a href="api.html" class="active">14. PHPUnit API</a></span></dt><dd><dl><dt><span class="section"><a href="api.html#api.overview">Overview</a></span></dt><dt><span class="section"><a href="api.html#api.assert">PHPUnit2_Framework_Assert</a></span></dt><dt><span class="section"><a href="api.html#api.test">PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="api.html#api.testcase">PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="api.html#api.testsuite">PHPUnit2_Framework_TestSuite</a></span></dt><dt><span class="section"><a href="api.html#api.testresult">PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="api.html#api.package-structure">Package Structure</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">15. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestCase">Subclass PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.Assert">Assert Classes</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Extensions_TestDecorator">Subclass PHPUnit2_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_Test">Implement PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestResult">Subclass PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestListener">Implement PHPUnit2_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.TestRunner">New Test Runner</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.phpunit1.html">A. PHPUnit for PHP 4</a></span></dt><dt><span class="appendix"><a href="appendixes.index.html">B. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">C. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">D. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="implementation.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="extending-phpunit.html">Next</a></div>
+     </div>
+<div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="api"></a>Chapter 14. PHPUnit API</h1></div></div></div><div class="alert alert-warning"><h3 class="title">Caution</h3><p>
+      You are looking at the documentation for a version of PHPUnit that is no
+      longer supported.
+    </p><p>
+      The documentation for the current version of PHPUnit can be found
+      <a class="ulink" href="../../current/en/index.html" target="_top">here</a>.
+    </p></div><p>
+    For most uses, PHPUnit has a simple API: subclass
+    <code class="literal">PHPUnit2_Framework_TestCase</code> for your test cases and
+    call <code class="literal">assertTrue()</code> or <code class="literal">assertEquals()</code>.
+    However, for those of you who would like to look deeper into PHPUnit,
+    here are all of its published methods and classes.
+  </p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.overview"></a>Overview</h2></div></div></div><p>
+      Most of the time, you will encounter five classes or interfaces when you
+      are using PHPUnit:
+    </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">PHPUnit2_Framework_Assert</code></span></dt><dd><p>
+          A collection of static methods for checking actual values against
+          expected values.
+          </p></dd><dt><span class="term"><code class="literal">PHPUnit2_Framework_Test</code></span></dt><dd><p>
+            The interface of all objects that act like tests.
+          </p></dd><dt><span class="term"><code class="literal">PHPUnit2_Framework_TestCase</code></span></dt><dd><p>
+            A single test.
+          </p></dd><dt><span class="term"><code class="literal">PHPUnit2_Framework_TestSuite</code></span></dt><dd><p>
+            A collection of tests.
+          </p></dd><dt><span class="term"><code class="literal">PHPUnit2_Framework_TestResult</code></span></dt><dd><p>
+            A summary of the results of running one or more tests.
+          </p></dd></dl></div><p>
+      <a class="xref" href="api.html#api.overview.figures.PHPUnit2_Framework.png" title="Figure 14.1. The five basic classes and interfaces in PHPUnit">Figure 14.1</a>
+      shows the relationship of the five basic classes and interfaces
+      in PHPUnit: <code class="literal">PHPUnit2_Framework_Assert</code>,
+      <code class="literal">PHPUnit2_Framework_Test</code>,
+      <code class="literal">PHPUnit2_Framework_TestCase</code>,
+      <code class="literal">PHPUnit2_Framework_TestSuite</code>, and
+      <code class="literal">PHPUnit2_Framework_TestResult</code>.
+    </p><div class="figure"><a id="api.overview.figures.PHPUnit2_Framework.png"></a><p class="title"><strong>Figure 14.1. The five basic classes and interfaces in PHPUnit</strong></p><div class="figure-contents"><div><img src="figures/PHPUnit2_Framework.png" alt="The five basic classes and interfaces in PHPUnit"></img></div></div></div><br class="figure-break"></br></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.assert"></a>PHPUnit2_Framework_Assert</h2></div></div></div><a id="idm140250594130160" class="indexterm"></a><p>
+      <a id="idm140250594129152" class="indexterm"></a>
+      <a id="idm140250594128400" class="indexterm"></a>
+
+      Most test cases written for PHPUnit are derived indirectly from the class
+      <code class="literal">PHPUnit2_Framework_Assert</code>, which contains methods for
+      automatically checking values and reporting discrepancies. The methods
+      are declared static, so you can write design-by-contract style
+      assertions in your methods and have them reported through PHPUnit
+      (<a class="xref" href="api.html#api.assert.examples.Sample.php" title="Example 14.1: Design-by-Contract Style Assertions">Example 14.1</a>).
+    </p><div class="example"><a id="api.assert.examples.Sample.php"></a><p class="title"><strong>Example 14.1: Design-by-Contract Style Assertions</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+require_once 'PHPUnit2/Framework/Assert.php';
+
+class Sample {
+    public function aSampleMethod($object) {
+        PHPUnit2_Framework_Assert::assertNotNull($object);
+    }
+}
+
+$sample = new Sample;
+$sample-&gt;aSampleMethod(NULL);
+?&gt;</pre><pre class="screen">Fatal error: Uncaught exception 'PHPUnit2_Framework_AssertionFailedError'
+with message 'expected: &lt;NOT NULL&gt; but was: &lt;NULL&gt;'</pre></div></div><br class="example-break"></br><p>
+      Most of the time, though, you'll be checking the assertions inside of
+      tests.
+    </p><p>
+      There are two variants of each of the assertion methods: one takes a
+      message to be displayed with the error as a parameter, and one does not.
+      The optional message is typically displayed when a failure is displayed,
+      which can make debugging easier.
+    </p><div class="example"><a id="api.assert.examples.MessageTest.php"></a><p class="title"><strong>Example 14.2: Using assertions with messages</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+require_once 'PHPUnit2/Framework/TestCase.php';
+
+class MessageTest extends PHPUnit2_Framework_TestCase {
+    public function testMessage() {
+        $this-&gt;assertTrue(FALSE, 'This is a custom message.');
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      The following example shows the output you get when you run the
+      <code class="literal">testMessage()</code> test from
+      <a class="xref" href="api.html#api.assert.examples.MessageTest.php" title="Example 14.2: Using assertions with messages">Example 14.2</a>, using
+      assertions with messages:
+    </p><pre class="screen"><strong class="userinput"><code>phpunit MessageTest.php</code></strong>
+PHPUnit 2.3.0 by Sebastian Bergmann.
+
+F
+
+Time: 0.102507
+There was 1 failure:
+1) testMessage(MessageTest)
+This is a custom message.
+
+FAILURES!!!
+Tests run: 1, Failures: 1, Errors: 0, Incomplete Tests: 0.</pre><p>
+      <a class="xref" href="api.html#api.assert.tables.assertions" title="Table 14.1. Assertions">Table 14.1</a> shows all the varieties
+      of assertions.
+    </p><div class="table"><a id="api.assert.tables.assertions"></a><p class="title"><strong>Table 14.1. Assertions</strong></p><div class="table-contents"><table class="table" summary="Assertions" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Assertion</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void assertTrue(bool $condition)</code></td><td align="left">Reports an error if <code class="literal">$condition</code> is <code class="literal">FALSE</code>.</td></tr><tr><td align="left"><code class="literal">void assertTrue(bool $condition, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$condition</code> is <code class="literal">FALSE</code>.</td></tr><tr><td align="left"><code class="literal">void assertFalse(bool $condition)</code></td><td align="left">Reports an error if <code class="literal">$condition</code> is <code class="literal">TRUE</code>.</td></tr><tr><td align="left"><code class="literal">void assertFalse(bool $condition, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$condition</code> is <code class="literal">TRUE</code>.</td></tr><tr><td align="left"><code class="literal">void assertNull(mixed $variable)</code></td><td align="left">Reports an error if <code class="literal">$variable</code> is not <code class="literal">NULL</code>.</td></tr><tr><td align="left"><code class="literal">void assertNull(mixed $variable, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$variable</code> is not <code class="literal">NULL</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotNull(mixed $variable)</code></td><td align="left">Reports an error if <code class="literal">$variable</code> is <code class="literal">NULL</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotNull(mixed $variable, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$variable</code> is <code class="literal">NULL</code>.</td></tr><tr><td align="left"><code class="literal">void assertSame(object $expected, object $actual)</code></td><td align="left">Reports an error if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> do not reference the same object.</td></tr><tr><td align="left"><code class="literal">void assertSame(object $expected, object $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> do not reference the same object.</td></tr><tr><td align="left"><code class="literal">void assertSame(mixed $expected, mixed $actual)</code></td><td align="left">Reports an error if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> do not have the same type and value.</td></tr><tr><td align="left"><code class="literal">void assertSame(mixed $expected, mixed $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> do not have the same type and value.</td></tr><tr><td align="left"><code class="literal">void assertNotSame(object $expected, object $actual)</code></td><td align="left">Reports an error if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> reference the same object.</td></tr><tr><td align="left"><code class="literal">void assertNotSame(object $expected, object $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> reference the same object.</td></tr><tr><td align="left"><code class="literal">void assertNotSame(mixed $expected, mixed $actual)</code></td><td align="left">Reports an error if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> have the same type and value.</td></tr><tr><td align="left"><code class="literal">void assertNotSame(mixed $expected, mixed $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> have the same type and value.</td></tr><tr><td align="left"><code class="literal">void assertEquals(array $expected, array $actual)</code></td><td align="left">Reports an error if the two arrays <code class="literal">$expected</code> and <code class="literal">$actual</code> are not equal.</td></tr><tr><td align="left"><code class="literal">void assertEquals(array $expected, array $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two arrays <code class="literal">$expected</code> and <code class="literal">$actual</code> are not equal.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(array $expected, array $actual)</code></td><td align="left">Reports an error if the two arrays <code class="literal">$expected</code> and <code class="literal">$actual</code> are equal.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(array $expected, array $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two arrays <code class="literal">$expected</code> and <code class="literal">$actual</code> are equal.</td></tr><tr><td align="left"><code class="literal">void assertEquals(float $expected, float $actual, '', float $delta = 0)</code></td><td align="left">Reports an error if the two floats <code class="literal">$expected</code> and <code class="literal">$actual</code> are not within <code class="literal">$delta</code> of each other.</td></tr><tr><td align="left"><code class="literal">void assertEquals(float $expected, float $actual, string $message, float $delta = 0)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two floats <code class="literal">$expected</code> and <code class="literal">$actual</code> are not within <code class="literal">$delta</code> of each other.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(float $expected, float $actual, '', float $delta = 0)</code></td><td align="left">Reports an error if the two floats <code class="literal">$expected</code> and <code class="literal">$actual</code> are within <code class="literal">$delta</code> of each other.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(float $expected, float $actual, string $message, float $delta = 0)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two floats <code class="literal">$expected</code> and <code class="literal">$actual</code> are within <code class="literal">$delta</code> of each other.</td></tr><tr><td align="left"><code class="literal">void assertEquals(string $expected, string $actual)</code></td><td align="left">Reports an error if the two strings <code class="literal">$expected</code> and <code class="literal">$actual</code> are not equal. The error is reported as the delta between the two strings.</td></tr><tr><td align="left"><code class="literal">void assertEquals(string $expected, string $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two strings <code class="literal">$expected</code> and <code class="literal">$actual</code> are not equal. The error is reported as the delta between the two strings.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(string $expected, string $actual)</code></td><td align="left">Reports an error if the two strings <code class="literal">$expected</code> and <code class="literal">$actual</code> are equal.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(string $expected, string $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two strings <code class="literal">$expected</code> and <code class="literal">$actual</code> are equal.</td></tr><tr><td align="left"><code class="literal">void assertEquals(mixed $expected, mixed $actual)</code></td><td align="left">Reports an error if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> are not equal.</td></tr><tr><td align="left"><code class="literal">void assertEquals(mixed $expected, mixed $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> are not equal.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(mixed $expected, mixed $actual)</code></td><td align="left">Reports an error if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> are equal.</td></tr><tr><td align="left"><code class="literal">void assertNotEquals(mixed $expected, mixed $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the two variables <code class="literal">$expected</code> and <code class="literal">$actual</code> are equal.</td></tr><tr><td align="left"><code class="literal">void assertContains(mixed $needle, array $haystack)</code></td><td align="left">Reports an error if <code class="literal">$needle</code> is not an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertContains(mixed $needle, array $haystack, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$needle</code> is not an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotContains(mixed $needle, array $haystack)</code></td><td align="left">Reports an error if <code class="literal">$needle</code> is an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotContains(mixed $needle, array $haystack, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$needle</code> is an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertContains(mixed $needle, Iterator $haystack)</code></td><td align="left">Reports an error if <code class="literal">$needle</code> is not an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertContains(mixed $needle, Iterator $haystack, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$needle</code> is not an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotContains(mixed $needle, Iterator $haystack)</code></td><td align="left">Reports an error if <code class="literal">$needle</code> is an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotContains(mixed $needle, Iterator $haystack, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$needle</code> is an element of <code class="literal">$haystack</code>.</td></tr><tr><td align="left"><code class="literal">void assertRegExp(string $pattern, string $string)</code></td><td align="left">Reports an error if <code class="literal">$string</code> does not match the regular expression <code class="literal">$pattern</code>.</td></tr><tr><td align="left"><code class="literal">void assertRegExp(string $pattern, string $string, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$string</code> does not match the regular expression <code class="literal">$pattern</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotRegExp(string $pattern, string $string)</code></td><td align="left">Reports an error if <code class="literal">$string</code> matches the regular expression <code class="literal">$pattern</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotRegExp(string $pattern, string $string, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if <code class="literal">$string</code> matches the regular expression <code class="literal">$pattern</code>.</td></tr><tr><td align="left"><code class="literal">void assertType(string $expected, mixed $actual)</code></td><td align="left">Reports an error if the variable <code class="literal">$actual</code> is not of type <code class="literal">$expected</code>.</td></tr><tr><td align="left"><code class="literal">void assertType(string $expected, mixed $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the variable <code class="literal">$actual</code> is not of type <code class="literal">$expected</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotType(string $expected, mixed $actual)</code></td><td align="left">Reports an error if the variable <code class="literal">$actual</code> is of type <code class="literal">$expected</code>.</td></tr><tr><td align="left"><code class="literal">void assertNotType(string $expected, mixed $actual, string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code> if the variable <code class="literal">$actual</code> is of type <code class="literal">$expected</code>.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      You may find that you need other assertions than these to compare
+      objects specific to your project. Create your own <code class="literal">Assert</code>
+      class to contain these assertions to simplify your tests.
+    </p><p>
+      Failing assertions all call a single bottleneck method,
+      <code class="literal">fail(string $message)</code>, which throws an
+      <code class="literal">PHPUnit2_Framework_AssertionFailedError</code>. There is
+      also a variant which takes no parameters. Call <code class="literal">fail()</code>
+      explicitly when your test encounters an error. The test for an expected
+      exception is an example.
+      <a class="xref" href="api.html#api.assert.tables.bottleneck-methods" title="Table 14.2. Bottleneck Methods">Table 14.2</a> lists the
+      bottlenext methods in PHPUnit.
+    </p><div class="table"><a id="api.assert.tables.bottleneck-methods"></a><p class="title"><strong>Table 14.2. Bottleneck Methods</strong></p><div class="table-contents"><table class="table" summary="Bottleneck Methods" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void fail()</code></td><td align="left">Reports an error.</td></tr><tr><td align="left"><code class="literal">void fail(string $message)</code></td><td align="left">Reports an error identified by <code class="literal">$message</code>.</td></tr></tbody></table></div></div><br class="table-break"></br></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.test"></a>PHPUnit2_Framework_Test</h2></div></div></div><a id="idm140250593947456" class="indexterm"></a><p>
+      <code class="literal">PHPUnit2_Framework_Test</code> is the generic interface
+      used by all objects that can act as tests. Implementors may represent
+      one or more tests. The two methods are shown in
+      <a class="xref" href="api.html#api.test.tables.implementor-methods" title="Table 14.3. Implementor Methods">Table 14.3</a>.
+    </p><div class="table"><a id="api.test.tables.implementor-methods"></a><p class="title"><strong>Table 14.3. Implementor Methods</strong></p><div class="table-contents"><table class="table" summary="Implementor Methods" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">int countTestCases()</code></td><td align="left">Return the number of tests.</td></tr><tr><td align="left"><code class="literal">void run(PHPUnit2_Framework_TestResult $result)</code></td><td align="left">Run the tests and report the results on <code class="literal">$result</code>.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      <code class="literal">PHPUnit2_Framework_TestCase</code> and
+      <code class="literal">PHPUnit2_Framework_TestSuite</code> are the two most
+      prominent implementors of <code class="literal">PHPUnit2_Framework_Test</code>.
+      You can implement <code class="literal">PHPUnit2_Framework_Test</code> yourself.
+      The interface is kept small intentionally so it will be easy to
+      implement.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.testcase"></a>PHPUnit2_Framework_TestCase</h2></div></div></div><a id="idm140250593933088" class="indexterm"></a><p>
+      Your test-case classes will inherit from
+      <code class="literal">PHPUnit2_Framework_TestCase</code>. Most of the time, you
+      will run tests from automatically created test suites. In this case,
+      each of your tests should be represented by a method named
+      <code class="literal">test*</code> (by convention).
+    </p><p>
+      <code class="literal">PHPUnit2_Framework_TestCase</code> implements
+      <code class="literal">PHPUnit2_Framework_Test::countTestCases()</code> so that it
+      always returns <code class="literal">1</code>. The implementation of
+      <code class="literal">PHPUnit2_Framework_Test::run(PHPUnit2_Framework_TestResult $result)</code>
+      in this class runs <code class="literal">setUp()</code>, runs the test method,
+      and then runs <code class="literal">tearDown()</code>, reporting any exceptions
+      to the <code class="literal">PHPUnit2_Framework_TestResult</code>.
+    </p><p>
+      <a class="xref" href="api.html#api.testcase.tables.external-protocols" title="Table 14.4. TestCase external protocols">Table 14.4</a> shows the
+      external protocol implemented by <code class="literal">PHPUnit2_Framework_TestCase</code>.
+    </p><div class="table"><a id="api.testcase.tables.external-protocols"></a><p class="title"><strong>Table 14.4. TestCase external protocols</strong></p><div class="table-contents"><table class="table" summary="TestCase external protocols" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">__construct()</code></td><td align="left">Creates a test case.</td></tr><tr><td align="left"><code class="literal">__construct(string $name)</code></td><td align="left">Creates a named test case. Names are used to print the test case and often as the name of the test method to be run by reflection.</td></tr><tr><td align="left"><code class="literal">string getName()</code></td><td align="left">Return the name of the test case.</td></tr><tr><td align="left"><code class="literal">void setName($name)</code></td><td align="left">Set the name of the test case.</td></tr><tr><td align="left"><code class="literal">PHPUnit2_Framework_TestResult run(PHPUnit2_Framework_TestResult $result)</code></td><td align="left">Convenience method to run the test case and report it in <code class="literal">$result</code>.</td></tr><tr><td align="left"><code class="literal">void runTest()</code></td><td align="left">Override with a testing method if you do not want the testing method to be invoked by reflection.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      There are two template methods -- <code class="literal">setUp()</code> and
+      <code class="literal">tearDown()</code> -- you can override to create and
+      dispose of the objects against which you are going to test.
+      <a class="xref" href="api.html#api.testcase.tables.template-methods" title="Table 14.5. Template Methods">Table 14.5</a> shows
+      these methods.
+    </p><div class="table"><a id="api.testcase.tables.template-methods"></a><p class="title"><strong>Table 14.5. Template Methods</strong></p><div class="table-contents"><table class="table" summary="Template Methods" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void setUp()</code></td><td align="left">Override to create objects against which to test. Each test that runs will be run in its own test case, and <code class="literal">setUp()</code> will be called separately for each one.</td></tr><tr><td align="left"><code class="literal">void tearDown()</code></td><td align="left">Override to dispose of objects no longer needed once the test has finished. In general, you only need to explicitly dispose of external resources (files or sockets, for example) in <code class="literal">tearDown()</code>.</td></tr></tbody></table></div></div><br class="table-break"></br></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.testsuite"></a>PHPUnit2_Framework_TestSuite</h2></div></div></div><a id="idm140250593897584" class="indexterm"></a><p>
+      A <code class="literal">PHPUnit2_Framework_TestSuite</code> is a composite of
+      <code class="literal">PHPUnit2_Framework_Test</code>s. At its simplest, it
+      contains a bunch of test cases, all of which are run when the suite is
+      run. Since it is a composite, however, a suite can contain suites which
+      can contain suites and so on, making it easy to combine tests from
+      various sources and run them together.
+    </p><p>
+      In addition to the <code class="literal">PHPUnit2_Framework_Test</code> protocol --
+      <code class="literal">run(PHPUnit2_Framework_TestResult $result)</code> and
+      <code class="literal">countTestCases()</code> -- <code class="literal">PHPUnit2_Framework_TestSuite</code>
+      contains protocol to create named or unnamed instances.
+      <a class="xref" href="api.html#api.testsuite.tables.creating-instances" title="Table 14.6. Creating named or unnamed instances">Table 14.6</a> shows the
+      instance creation protocol for <code class="literal">PHPUnit2_Framework_TestSuite</code>.
+    </p><div class="table"><a id="api.testsuite.tables.creating-instances"></a><p class="title"><strong>Table 14.6. Creating named or unnamed instances</strong></p><div class="table-contents"><table class="table" summary="Creating named or unnamed instances" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">__construct()</code></td><td align="left">Return an empty test suite.</td></tr><tr><td align="left"><code class="literal">__construct(string $theClass)</code></td><td align="left">Return a test suite containing an instance of the class named <code class="literal">$theClass</code> for each method in the class named <code class="literal">test*</code>. If no class of name <code class="literal">$theClass</code> exists an empty test suite named <code class="literal">$theClass</code> is returned.</td></tr><tr><td align="left"><code class="literal">__construct(string $theClass, string $name)</code></td><td align="left">Return a test suite named <code class="literal">$name</code> containing an instance of the class named <code class="literal">$theClass</code> for each method in the class named <code class="literal">test*</code>.</td></tr><tr><td align="left"><code class="literal">__construct(ReflectionClass $theClass)</code></td><td align="left">Return a test suite containing an instance of the class represented by <code class="literal">$theClass</code> for each method in the class named <code class="literal">test*</code>.</td></tr><tr><td align="left"><code class="literal">__construct(ReflectionClass $theClass, $name)</code></td><td align="left">Return a test suite named <code class="literal">$name</code> containing an instance of the class represented by <code class="literal">$theClass</code> for each method in the class named <code class="literal">test*</code>.</td></tr><tr><td align="left"><code class="literal">string getName()</code></td><td align="left">Return the name of the test suite.</td></tr><tr><td align="left"><code class="literal">void setName(string $name)</code></td><td align="left">Set the name of the test suite.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      <code class="literal">PHPUnit2_Framework_TestSuite</code> also contains protocol
+      for adding and retrieving <code class="literal">PHPUnit2_Framework_Test</code>s,
+      as shown in <a class="xref" href="api.html#api.testsuite.tables.protocol" title="Table 14.7. Protocol for adding and retrieving tests">Table 14.7</a>.
+    </p><div class="table"><a id="api.testsuite.tables.protocol"></a><p class="title"><strong>Table 14.7. Protocol for adding and retrieving tests</strong></p><div class="table-contents"><table class="table" summary="Protocol for adding and retrieving tests" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void addTest(PHPUnit2_Framework_Test $test)</code></td><td align="left">Add <code class="literal">$test</code> to the suite.</td></tr><tr><td align="left"><code class="literal">void addTestFile(string $filename)</code></td><td align="left">Add the tests that are defined in the class(es) of a given sourcefile to the suite.</td></tr><tr><td align="left"><code class="literal">void addTestFiles(array $filenames)</code></td><td align="left">Add the tests that are defined in the classes of the given sourcefiles to the suite.</td></tr><tr><td align="left"><code class="literal">int testCount()</code></td><td align="left">Return the number of tests directly (not recursively) in this suite.</td></tr><tr><td align="left"><code class="literal">PHPUnit2_Framework_Test[] tests()</code></td><td align="left">Return the tests directly in this suite.</td></tr><tr><td align="left"><code class="literal">PHPUnit2_Framework_Test testAt(int $index)</code></td><td align="left">Return the test at the <code class="literal">$index</code>.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      <a class="xref" href="api.html#api.testsuite.examples.TestSuite-example.php" title="Example 14.3: Creating and running a test suite">Example 14.3</a> shows
+      how to create and run a test suite.
+    </p><div class="example"><a id="api.testsuite.examples.TestSuite-example.php"></a><p class="title"><strong>Example 14.3: Creating and running a test suite</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+require_once 'PHPUnit2/Framework/TestSuite.php';
+
+require_once 'ArrayTest.php';
+
+// Create a test suite that contains the tests
+// from the ArrayTest class.
+$suite = new PHPUnit2_Framework_TestSuite('ArrayTest');
+
+// Run the tests.
+$suite-&gt;run();
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      For an example on how to use <code class="literal">PHPUnit2_Framework_TestSuite</code>
+      to hierarchically compose test cases let us look at PHPUnit's own test
+      suite.
+    </p><p>
+      <a class="xref" href="api.html#api.testsuite.examples.AllTests.php" title="Example 14.4: The AllTests class">Example 14.4</a> shows a cut-down
+      version of <code class="filename">Tests/AllTests.php</code>,
+      <a class="xref" href="api.html#api.testsuite.examples.Framework_AllTests.php" title="Example 14.5: The Framework_AllTests class">Example 14.5</a> a
+      cut-down version of <code class="filename">Tests/Framework/AllTests.php</code>.
+    </p><div class="example"><a id="api.testsuite.examples.AllTests.php"></a><p class="title"><strong>Example 14.4: The AllTests class</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+if (!defined('PHPUnit2_MAIN_METHOD')) {
+    define('PHPUnit2_MAIN_METHOD', 'AllTests::main');
+}
+
+require_once 'PHPUnit2/Framework/TestSuite.php';
+require_once 'PHPUnit2/TextUI/TestRunner.php';
+
+require_once 'Framework/AllTests.php';
+// ...
+
+class AllTests {
+    public static function main() {
+        PHPUnit2_TextUI_TestRunner::run(self::suite());
+    }
+
+    public static function suite() {
+        $suite = new PHPUnit2_Framework_TestSuite('PHPUnit');
+
+        $suite-&gt;addTest(Framework_AllTests::suite());
+        // ...
+
+        return $suite;
+    }
+}
+
+if (PHPUnit2_MAIN_METHOD == 'AllTests::main') {
+    AllTests::main();
+}
+?&gt;</pre></div></div><br class="example-break"></br><div class="example"><a id="api.testsuite.examples.Framework_AllTests.php"></a><p class="title"><strong>Example 14.5: The Framework_AllTests class</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+if (!defined('PHPUnit2_MAIN_METHOD')) {
+    define('PHPUnit2_MAIN_METHOD', 'Framework_AllTests::main');
+}
+
+require_once 'PHPUnit2/Framework/TestSuite.php';
+require_once 'PHPUnit2/TextUI/TestRunner.php';
+
+require_once 'Framework/AssertTest.php';
+// ...
+
+class Framework_AllTests {
+    public static function main() {
+        PHPUnit2_TextUI_TestRunner::run(self::suite());
+    }
+
+    public static function suite() {
+        $suite = new PHPUnit2_Framework_TestSuite('PHPUnit Framework');
+
+        $suite-&gt;addTestSuite('Framework_AssertTest');
+        // ...
+
+        return $suite;
+    }
+}
+
+if (PHPUnit2_MAIN_METHOD == 'Framework_AllTests::main') {
+    Framework_AllTests::main();
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      The <code class="literal">Framework_AssertTest</code> class is a standard test case
+      that extends <code class="literal">PHPUnit2_Framework_TestCase</code>.
+    </p><p>
+      Running <code class="filename">Tests/AllTests.php</code> uses the TextUI
+      test runner to run all tests while running
+      <code class="filename">Tests/Framework/AllTests.php</code> runs only the tests
+      for the <code class="literal">PHPUnit2_Framework_*</code> classes.
+    </p><p>
+      This example shows the PHPUnit test suite running:
+    </p><pre class="screen"><strong class="userinput"><code>php AllTests.php</code></strong>
+PHPUnit 2.3.0 by Sebastian Bergmann.
+
+.........................................
+.........................................
+.......
+
+Time: 4.642600
+
+OK (89 tests)</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.testresult"></a>PHPUnit2_Framework_TestResult</h2></div></div></div><a id="idm140250593834016" class="indexterm"></a><p>
+      While you are running all these tests, you need somewhere to store all
+      the results: how many tests ran, which failed, and how long they took.
+      <code class="literal">PHPUnit2_Framework_TestResult</code> collects these results.
+      A single <code class="literal">PHPUnit2_Framework_TestResult</code> is passed
+      around the whole tree of tests; when a test runs or fails, the fact is
+      noted in the <code class="literal">PHPUnit2_Framework_TestResult</code>. At the
+      end of the run, <code class="literal">PHPUnit2_Framework_TestResult</code>
+      contains a summary of all the tests.
+    </p><p>
+      <code class="literal">PHPUnit2_Framework_TestResult</code> is also a subject than
+      can be observed by other objects wanting to report test progress. For
+      example, a graphical test runner might observe the
+      <code class="literal">PHPUnit2_Framework_TestResult</code> and update a progress
+      bar every time a test starts.
+    </p><p>
+      <a class="xref" href="api.html#api.testresult.tables.external-protocols" title="Table 14.8. TestResult external protocols">Table 14.8</a> summarizes
+      the external protocols of <code class="literal">PHPUnit2_Framework_TestResult</code>.
+    </p><div class="table"><a id="api.testresult.tables.external-protocols"></a><p class="title"><strong>Table 14.8. TestResult external protocols</strong></p><div class="table-contents"><table class="table" summary="TestResult external protocols" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void addError(PHPUnit2_Framework_Test $test, Exception $e)</code></td><td align="left">Record that running <code class="literal">$test</code> caused <code class="literal">$e</code> to be thrown unexpectedly.</td></tr><tr><td align="left"><code class="literal">void addFailure(PHPUnit2_Framework_Test $test, PHPUnit2_Framework_AssertionFailedError $e)</code></td><td align="left">Record that running <code class="literal">$test</code> caused <code class="literal">$e</code> to be thrown unexpectedly.</td></tr><tr><td align="left"><code class="literal">PHPUnit2_Framework_TestFailure[] errors()</code></td><td align="left">Return the errors recorded.</td></tr><tr><td align="left"><code class="literal">PHPUnit2_Framework_TestFailure[] failures()</code></td><td align="left">Return the failures recorded.</td></tr><tr><td align="left"><code class="literal">PHPUnit2_Framework_TestFailure[] notImplemented()</code></td><td align="left">Return the incomplete test cases recorded.</td></tr><tr><td align="left"><code class="literal">int errorCount()</code></td><td align="left">Return the number of errors.</td></tr><tr><td align="left"><code class="literal">int failureCount()</code></td><td align="left">Return the number of failures.</td></tr><tr><td align="left"><code class="literal">int notImplementedCount()</code></td><td align="left">Return the number of incomplete test cases.</td></tr><tr><td align="left"><code class="literal">int runCount()</code></td><td align="left">Return the total number of test cases run.</td></tr><tr><td align="left"><code class="literal">boolean wasSuccessful()</code></td><td align="left">Return whether or not all tests ran successfully.</td></tr><tr><td align="left"><code class="literal">boolean allCompletlyImplemented()</code></td><td align="left">Return whether or not all tests were completely implemented.</td></tr><tr><td align="left"><code class="literal">void collectCodeCoverageInformation(bool $flag)</code></td><td align="left">Enables or disables the collection of Code Coverage information.</td></tr><tr><td align="left"><code class="literal">array getCodeCoverageInformation()</code></td><td align="left">Return the code coverage information collected.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      <a id="idm140250593799552" class="indexterm"></a>
+      <a id="idm140250593798800" class="indexterm"></a>
+
+      If you want to register as an observer of a
+      <code class="literal">PHPUnit2_Framework_TestResult</code>, you need to implement
+      <code class="literal">PHPUnit2_Framework_TestListener</code>. To register, call
+      <code class="literal">addListener()</code>, as shown in
+      <a class="xref" href="api.html#api.testresult.tables.testresult-testlistener" title="Table 14.9. TestResult and TestListener">Table 14.9</a>.
+    </p><div class="table"><a id="api.testresult.tables.testresult-testlistener"></a><p class="title"><strong>Table 14.9. TestResult and TestListener</strong></p><div class="table-contents"><table class="table" summary="TestResult and TestListener" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void addListener(PHPUnit2_Framework_TestListener $listener)</code></td><td align="left">Register <code class="literal">$listener</code> to receive updates as results are recorded in the test result.</td></tr><tr><td align="left"><code class="literal">void removeListener(PHPUnit2_Framework_TestListener $listener)</code></td><td align="left">Unregister <code class="literal">$listener</code> from receiving updates.</td></tr></tbody></table></div></div><br class="table-break"></br><p>
+      <a class="xref" href="api.html#api.testresult.tables.testlistener" title="Table 14.10. TestListener Callbacks">Table 14.10</a> shows the methods
+      that test listeners implement; also see
+      <a class="xref" href="extending-phpunit.html#extending-phpunit.examples.SimpleTestListener.php" title="Example 15.3: A simple test listener">Example 15.3</a>.
+    </p><div class="table"><a id="api.testresult.tables.testlistener"></a><p class="title"><strong>Table 14.10. TestListener Callbacks</strong></p><div class="table-contents"><table class="table" summary="TestListener Callbacks" border="1"><colgroup><col></col><col></col></colgroup><thead><tr><th align="left">Method</th><th align="left">Meaning</th></tr></thead><tbody><tr><td align="left"><code class="literal">void addError(PHPUnit2_Framework_Test $test, Exception $e)</code></td><td align="left"><code class="literal">$test</code> has thrown <code class="literal">$e</code>.</td></tr><tr><td align="left"><code class="literal">void addFailure(PHPUnit2_Framework_Test $test, PHPUnit2_Framework_AssertionFailedError $e)</code></td><td align="left"><code class="literal">$test</code> has failed an assertion, throwing a kind of <code class="literal">PHPUnit2_Framework_AssertionFailedError</code>.</td></tr><tr><td align="left"><code class="literal">void addIncompleteTest(PHPUnit2_Framework_Test $test, Exception $e)</code></td><td align="left"><code class="literal">$test</code> is an incomplete test.</td></tr><tr><td align="left"><code class="literal">void startTestSuite(PHPUnit2_Framework_TestSuite $suite)</code></td><td align="left"><code class="literal">$suite</code> is about to be run.</td></tr><tr><td align="left"><code class="literal">void endTestSuite(PHPUnit2_Framework_TestSuite $suite)</code></td><td align="left"><code class="literal">$suite</code> has finished running.</td></tr><tr><td align="left"><code class="literal">void startTest(PHPUnit2_Framework_Test $test)</code></td><td align="left"><code class="literal">$test</code> is about to be run.</td></tr><tr><td align="left"><code class="literal">void endTest(PHPUnit2_Framework_Test $test)</code></td><td align="left"><code class="literal">$test</code> has finished running.</td></tr></tbody></table></div></div><br class="table-break"></br></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="api.package-structure"></a>Package Structure</h2></div></div></div><p>
+      Many of the classes mentioned so far in this book come from
+      <code class="literal">PHPUnit2/Framework</code>. Here are all the packages in
+      PHPUnit:
+    </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><code class="literal">PHPUnit2/Framework</code></p><p>
+          The basic classes in PHPUnit.
+        </p></li><li class="listitem"><p><code class="literal">PHPUnit2/Extensions</code></p><p>
+          Extensions to the PHPUnit framework.
+        </p></li><li class="listitem"><p><code class="literal">PHPUnit2/Runner</code></p><p>
+          Abstract support for running tests.
+        </p></li><li class="listitem"><p><code class="literal">PHPUnit2/TextUI</code></p><p>
+          The text-based test runner.
+        </p></li><li class="listitem"><p><code class="literal">PHPUnit2/Util</code></p><p>
+          Utility classes used by the other packages.
+        </p></li></ul></div></div></div>
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="implementation.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="extending-phpunit.html">Next</a></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>

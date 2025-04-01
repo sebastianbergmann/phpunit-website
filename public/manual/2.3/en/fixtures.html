@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual &#8211; Chapter 5. Fixtures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/fixtures.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="preface"><a href="preface.html">Preface</a></span></dt><dd><dl><dt><span class="section"><a href="preface.html#preface.requirements">Requirements</a></span></dt><dt><span class="section"><a href="preface.html#preface.license">This Book Is Free</a></span></dt><dt><span class="section"><a href="preface.html#preface.conventions">Conventions Used in This Book</a></span></dt><dt><span class="section"><a href="preface.html#preface.acknowledgements">Acknowledgements</a></span></dt></dl></dd><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dt><span class="chapter"><a href="textui.html">4. The Command-Line Test Runner</a></span></dt><dt><span class="chapter"><a href="fixtures.html" class="active">5. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.suite-level-setup">Suite-Level Setup</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-exceptions-and-performance-regressions.html">6. Testing Exceptions and Performance Regressions</a></span></dt><dd><dl><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.exceptions">Exceptions</a></span></dt><dt><span class="section"><a href="testing-exceptions-and-performance-regressions.html#testing-exceptions-and-performance-regressions.performance-regressions">Performance Regressions</a></span></dt></dl></dd><dt><span class="chapter"><a href="incomplete-tests.html">7. Incomplete Tests</a></span></dt><dt><span class="chapter"><a href="test-first-programming.html">8. Test-First Programming</a></span></dt><dd><dl><dt><span class="section"><a href="test-first-programming.html#test-first-programming.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">9. Code-Coverage Analysis</a></span></dt><dt><span class="chapter"><a href="stubs.html">10. Stubs</a></span></dt><dd><dl><dt><span class="section"><a href="stubs.html#stubs.self-shunting">Self-Shunting</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html">11. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.debugging-tests">Debugging Tests</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.refactoring">Refactoring</a></span></dt></dl></dd><dt><span class="chapter"><a href="phing.html">12. PHPUnit and Phing</a></span></dt><dd><dl><dt><span class="section"><a href="phing.html#phing.formatting-feedback">Formatting Feedback</a></span></dt></dl></dd><dt><span class="chapter"><a href="implementation.html">13. PHPUnit's Implementation</a></span></dt><dt><span class="chapter"><a href="api.html">14. PHPUnit API</a></span></dt><dd><dl><dt><span class="section"><a href="api.html#api.overview">Overview</a></span></dt><dt><span class="section"><a href="api.html#api.assert">PHPUnit2_Framework_Assert</a></span></dt><dt><span class="section"><a href="api.html#api.test">PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="api.html#api.testcase">PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="api.html#api.testsuite">PHPUnit2_Framework_TestSuite</a></span></dt><dt><span class="section"><a href="api.html#api.testresult">PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="api.html#api.package-structure">Package Structure</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">15. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestCase">Subclass PHPUnit2_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.Assert">Assert Classes</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Extensions_TestDecorator">Subclass PHPUnit2_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_Test">Implement PHPUnit2_Framework_Test</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestResult">Subclass PHPUnit2_Framework_TestResult</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit2_Framework_TestListener">Implement PHPUnit2_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.TestRunner">New Test Runner</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.phpunit1.html">A. PHPUnit for PHP 4</a></span></dt><dt><span class="appendix"><a href="appendixes.index.html">B. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">C. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">D. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="textui.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="testing-exceptions-and-performance-regressions.html">Next</a></div>
+     </div>
+<div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="fixtures"></a>Chapter 5. Fixtures</h1></div></div></div><div class="alert alert-warning"><h3 class="title">Caution</h3><p>
+      You are looking at the documentation for a version of PHPUnit that is no
+      longer supported.
+    </p><p>
+      The documentation for the current version of PHPUnit can be found
+      <a class="ulink" href="../../current/en/index.html" target="_top">here</a>.
+    </p></div><p>
+    <a id="idm140250595045136" class="indexterm"></a>
+
+    One of the most time-consuming parts of writing tests is writing the
+    code to set the world up in a known state and then return it to its
+    original state when the test is complete. This known state is called
+    the <span class="emphasis"><em>fixture</em></span> of the test.
+  </p><p>
+    In <a class="xref" href="goals.html#goals.examples.ArrayTest.php" title="Example 2.1: Testing Array and sizeof() with PHPUnit">Example 2.1</a>, the fixture
+    was simply the array that is stored in the <code class="literal">$fixture</code>
+    variable. Most of the time, though, the fixture will be more complex
+    than a simple array, and the amount of code needed to set it up will
+    grow accordingly. The actual content of the test gets lost in the noise
+    of setting up the fixture. This problem gets even worse when you write
+    several tests with similar fixtures. Without some help from the testing
+    framework, we would have to duplicate the code that sets up the fixture
+    for each test we write.
+  </p><p>
+    <a id="idm140250594982384" class="indexterm"></a>
+    <a id="idm140250594981632" class="indexterm"></a>
+    <a id="idm140250594980880" class="indexterm"></a>
+
+    PHPUnit supports sharing the setup code. Before a test method is run, a
+    template method called <code class="literal">setUp()</code> is invoked.
+    <code class="literal">setUp()</code> is where you create the objects against which
+    you will test. Once the test method has finished running, whether it
+    succeeded or failed, another template method called
+    <code class="literal">tearDown()</code> is invoked. <code class="literal">tearDown()</code>
+    is where you clean up the objects against which you tested.
+  </p><p>
+    We can now refactor <a class="xref" href="goals.html#goals.examples.ArrayTest.php" title="Example 2.1: Testing Array and sizeof() with PHPUnit">Example 2.1</a> and
+    use <code class="literal">setUp()</code> to eliminate the code duplication that
+    we had before. First we declare the instance variable,
+    <code class="literal">$fixture</code>, that we are going to use instead of a
+    method-local variable. Then we put the creation of the
+    <code class="literal">array</code> fixture into the <code class="literal">setUp()</code>
+    method. Finally, we remove the redundant code from the test methods and
+    use the newly introduced instance variable,
+    <code class="literal">$this-&gt;fixture</code>, instead of the method-local variable
+    <code class="literal">$fixture</code> with the <code class="literal">assertEquals()</code>
+    assertion method.
+  </p><div class="example"><a id="fixtures.examples.ArrayTest.php"></a><p class="title"><strong>Example 5.1: Using setUp() to create the Array fixture</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+require_once 'PHPUnit2/Framework/TestCase.php';
+
+class ArrayTest extends PHPUnit2_Framework_TestCase {
+    protected $fixture;
+
+    protected function setUp() {
+        // Create the Array fixture.
+        $this-&gt;fixture = array();
+    }
+
+    public function testNewArrayIsEmpty() {
+        // Assert that the size of the Array fixture is 0.
+        $this-&gt;assertEquals(0, sizeof($this-&gt;fixture));
+    }
+
+    public function testArrayContainsAnElement() {
+        // Add an element to the Array fixture.
+        $this-&gt;fixture[] = 'Element';
+
+        // Assert that the size of the Array fixture is 1.
+        $this-&gt;assertEquals(1, sizeof($this-&gt;fixture));
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+    <code class="literal">setUp()</code> and <code class="literal">tearDown()</code> will be
+    called once for each test method run. While it might seem frugal to
+    only run these methods once for all the test methods in a test-case
+    class, doing so would make it hard to write tests that are completely
+    independent of each other.
+  </p><p>
+    Not only are <code class="literal">setUp()</code> and <code class="literal">tearDown()</code>
+    run once for each test method, but the test methods are run in fresh
+    instances of the test-case class (see <a class="xref" href="implementation.html" title="Chapter 13. PHPUnit's Implementation">Chapter 13</a>).
+  </p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="fixtures.more-setup-than-teardown"></a>More setUp() than tearDown()</h2></div></div></div><p>
+      <code class="literal">setUp()</code> and <code class="literal">tearDown()</code> are nicely
+      symmetrical in theory but not in practice. In practice, you only need
+      to implement <code class="literal">tearDown()</code> if you have allocated
+      external resources like files or sockets in <code class="literal">setUp()</code>.
+      If your <code class="literal">setUp()</code> just creates plain PHP objects, you
+      can generally ignore <code class="literal">tearDown()</code>. However, if you
+      create many objects in your <code class="literal">setUp()</code>, you might want
+      to <code class="literal">unset()</code> the variables pointing to those objects
+      in your <code class="literal">tearDown()</code> so they can be garbage collected.
+      The garbage collection of test case objects is not predictable.
+    </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="fixtures.variations"></a>Variations</h2></div></div></div><p>
+      What happens when you have two tests with slightly different setups?
+      There are two possibilities:
+    </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+          If the <code class="literal">setUp()</code> code differs only slightly, move
+          the code that differs from the <code class="literal">setUp()</code> code to
+          the test method.
+        </p></li><li class="listitem"><p>
+          If you really have a different <code class="literal">setUp()</code>, you need
+          a different test-case class. Name the class after the difference in
+          the setup.
+        </p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="fixtures.suite-level-setup"></a>Suite-Level Setup</h2></div></div></div><p>
+      <a id="idm140250594951072" class="indexterm"></a>
+
+      PHPUnit does not provide convenient support for suite-level setup. There
+      are few good reasons to share fixtures between tests, but in most cases
+      the need to share a fixture between tests stems from an unresolved
+      design problem.
+    </p><p>
+      A good example of a fixture that makes sense to share across several
+      tests is a database connection: you log into the database once and reuse
+      the database connection instead of creating a new connection for each
+      test. This makes your tests run faster. To do this, write your database
+      tests in a test-case class named <code class="literal">DatabaseTests</code> and
+      wrap the test suite in a <code class="literal">TestSetup</code> decorator object
+      that overrides <code class="literal">setUp()</code> to open the database
+      connection and <code class="literal">tearDown()</code> to close the connection, as
+      shown in
+      <a class="xref" href="fixtures.html#fixtures.suite-level-setup.examples.DatabaseTestSetup.php" title="Example 5.2: Writing a suite-level setup decorator">Example 5.2</a>.
+      You can run the tests from <code class="literal">DatabaseTests</code> through the
+      <code class="literal">DatabaseTestSetup</code> decorator by invoking, for instance,
+      PHPUnit's command-line test runner with
+      <strong class="userinput"><code>phpunit DatabaseTestSetup</code></strong>.
+    </p><div class="example"><a id="fixtures.suite-level-setup.examples.DatabaseTestSetup.php"></a><p class="title"><strong>Example 5.2: Writing a suite-level setup decorator</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+require_once 'PHPUnit2/Framework/TestSuite.php';
+require_once 'PHPUnit2/Extensions/TestSetup.php';
+
+class DatabaseTestSetup extends PHPUnit2_Extensions_TestSetup {
+    protected $connection = NULL;
+
+    protected function setUp() {
+        $this-&gt;connection = new PDO(
+          'mysql:host=wopr;dbname=test',
+          'root',
+          ''
+        );
+    }
+
+    protected function tearDown() {
+        $this-&gt;connection = NULL;
+    }
+
+    public static function suite() {
+        return new DatabaseTestSetup(
+          new PHPUnit2_Framework_TestSuite('DatabaseTests')
+        );
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      It cannot be emphasized enough that sharing fixtures between tests
+      reduces the value of the tests. The underlying design problem is
+      that objects are too closely bound together. You will achieve better
+      results solving the underlying design problem and then writing tests
+      using stubs (see <a class="xref" href="stubs.html" title="Chapter 10. Stubs">Chapter 10</a>), than by creating
+      dependencies between tests at runtime and ignoring the opportunity
+      to improve your design.
+    </p></div></div>
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="textui.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="testing-exceptions-and-performance-regressions.html">Next</a></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>

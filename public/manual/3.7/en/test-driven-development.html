@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>PHPUnit Manual &#8211; Chapter 12. Test-Driven Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://phpunit.de/manual/current/en/test-driven-development.html">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/highlight.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CSource+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]><script src="js/html5shiv.min.js"></script><![endif]-->
+ </head>
+ <body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="https://phpunit.de/documentation.html">This documentation is outdated. Please follow this link to learn about the new documentation.</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-4 col-lg-3">
+     <div class="well well-sm sidebar-nav">
+<dl class="toc nav hidden-print"><dt><span class="chapter"><a href="automating-tests.html">1. Automating Tests</a></span></dt><dt><span class="chapter"><a href="goals.html">2. PHPUnit's Goals</a></span></dt><dt><span class="chapter"><a href="installation.html">3. Installing PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="installation.html#installation.requirements">Requirements</a></span></dt><dt><span class="section"><a href="installation.html#installation.phar">PHP Archive (PHAR)</a></span></dt><dd><dl><dt><span class="section"><a href="installation.html#installation.phar.verification">Verifying PHPUnit PHAR Releases</a></span></dt></dl></dd><dt><span class="section"><a href="installation.html#installation.composer">Composer</a></span></dt><dt><span class="section"><a href="installation.html#installation.optional-packages">Optional packages</a></span></dt><dt><span class="section"><a href="installation.html#installing.upgrading">Upgrading</a></span></dt></dl></dd><dt><span class="chapter"><a href="writing-tests-for-phpunit.html">4. Writing Tests for PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.test-dependencies">Test Dependencies</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers">Data Providers</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions">Testing Exceptions</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.errors">Testing PHP Errors</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.output">Testing Output</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions">Assertions</a></span></dt><dd><dl><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertArrayHasKey">assertArrayHasKey()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertClassHasAttribute">assertClassHasAttribute()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertClassHasStaticAttribute">assertClassHasStaticAttribute()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertContains">assertContains()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertContainsOnly">assertContainsOnly()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertContainsOnlyInstancesOf">assertContainsOnlyInstancesOf()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertCount">assertCount()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertEmpty">assertEmpty()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertEqualXMLStructure">assertEqualXMLStructure()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertEquals">assertEquals()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertFalse">assertFalse()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertFileEquals">assertFileEquals()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertFileExists">assertFileExists()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertGreaterThan">assertGreaterThan()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertGreaterThanOrEqual">assertGreaterThanOrEqual()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertInstanceOf">assertInstanceOf()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertInternalType">assertInternalType()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertJsonFileEqualsJsonFile">assertJsonFileEqualsJsonFile()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertJsonStringEqualsJsonFile">assertJsonStringEqualsJsonFile()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertJsonStringEqualsJsonString">assertJsonStringEqualsJsonString()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertLessThan">assertLessThan()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertLessThanOrEqual">assertLessThanOrEqual()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertNull">assertNull()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertObjectHasAttribute">assertObjectHasAttribute()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertRegExp">assertRegExp()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertStringMatchesFormat">assertStringMatchesFormat()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertStringMatchesFormatFile">assertStringMatchesFormatFile()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertSame">assertSame()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertSelectCount">assertSelectCount()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertSelectEquals">assertSelectEquals()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertSelectRegExp">assertSelectRegExp()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertStringEndsWith">assertStringEndsWith()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertStringEqualsFile">assertStringEqualsFile()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertStringStartsWith">assertStringStartsWith()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertTag">assertTag()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertThat">assertThat()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertTrue">assertTrue()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertXmlFileEqualsXmlFile">assertXmlFileEqualsXmlFile()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertXmlStringEqualsXmlFile">assertXmlStringEqualsXmlFile()</a></span></dt><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.assertions.assertXmlStringEqualsXmlString">assertXmlStringEqualsXmlString()</a></span></dt></dl></dd><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.error-output">Error output</a></span></dt><dd><dl><dt><span class="section"><a href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.error-output.edge-cases">Edge cases</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="textui.html">5. The Command-Line Test Runner</a></span></dt><dd><dl><dt><span class="section"><a href="textui.html#textui.clioptions">Command-Line Options</a></span></dt></dl></dd><dt><span class="chapter"><a href="fixtures.html">6. Fixtures</a></span></dt><dd><dl><dt><span class="section"><a href="fixtures.html#fixtures.more-setup-than-teardown">More setUp() than tearDown()</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.variations">Variations</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.sharing-fixture">Sharing Fixture</a></span></dt><dt><span class="section"><a href="fixtures.html#fixtures.global-state">Global State</a></span></dt></dl></dd><dt><span class="chapter"><a href="organizing-tests.html">7. Organizing Tests</a></span></dt><dd><dl><dt><span class="section"><a href="organizing-tests.html#organizing-tests.filesystem">Composing a Test Suite Using the Filesystem</a></span></dt><dt><span class="section"><a href="organizing-tests.html#organizing-tests.xml-configuration">Composing a Test Suite Using XML Configuration</a></span></dt></dl></dd><dt><span class="chapter"><a href="database.html">8. Database Testing</a></span></dt><dd><dl><dt><span class="section"><a href="database.html#database.supported-vendors-for-database-testing">Supported Vendors for Database Testing</a></span></dt><dt><span class="section"><a href="database.html#database.difficulties-in-database-testing">Difficulties in Database Testing</a></span></dt><dt><span class="section"><a href="database.html#database.the-four-stages-of-a-database-test">The four stages of a database test</a></span></dt><dd><dl><dt><span class="section"><a href="database.html#database.clean-up-database">1. Clean-Up Database</a></span></dt><dt><span class="section"><a href="database.html#database.set-up-fixture">2. Set up fixture</a></span></dt><dt><span class="section"><a href="database.html#database.run-test-verify-outcome-and-teardown">3–5. Run Test, Verify outcome and Teardown</a></span></dt></dl></dd><dt><span class="section"><a href="database.html#database.configuration-of-a-phpunit-database-testcase">Configuration of a PHPUnit Database TestCase</a></span></dt><dd><dl><dt><span class="section"><a href="database.html#database.implementing-getconnection">Implementing getConnection()</a></span></dt><dt><span class="section"><a href="database.html#database.implementing-getdataset">Implementing getDataSet()</a></span></dt><dt><span class="section"><a href="database.html#database.what-about-the-database-schema-ddl">What about the Database Schema (DDL)?</a></span></dt><dt><span class="section"><a href="database.html#database.tip-use-your-own-abstract-database-testcase">Tip: Use your own Abstract Database TestCase</a></span></dt></dl></dd><dt><span class="section"><a href="database.html#database.understanding-datasets-and-datatables">Understanding DataSets and DataTables</a></span></dt><dd><dl><dt><span class="section"><a href="database.html#database.available-implementations">Available Implementations</a></span></dt><dt><span class="section"><a href="database.html#database.beware-of-foreign-keys">Beware of Foreign Keys</a></span></dt><dt><span class="section"><a href="database.html#database.implementing-your-own-datasetsdatatables">Implementing your own DataSets/DataTables</a></span></dt></dl></dd><dt><span class="section"><a href="database.html#database.the-connection-api">The Connection API</a></span></dt><dt><span class="section"><a href="database.html#database.database-assertions-api">Database Assertions API</a></span></dt><dd><dl><dt><span class="section"><a href="database.html#database.asserting-the-row-count-of-a-table">Asserting the Row-Count of a Table</a></span></dt><dt><span class="section"><a href="database.html#database.asserting-the-state-of-a-table">Asserting the State of a Table</a></span></dt><dt><span class="section"><a href="database.html#database.asserting-the-result-of-a-query">Asserting the Result of a Query</a></span></dt><dt><span class="section"><a href="database.html#database.asserting-the-state-of-multiple-tables">Asserting the State of Multiple Tables</a></span></dt></dl></dd><dt><span class="section"><a href="database.html#database.frequently-asked-questions">Frequently Asked Questions</a></span></dt><dd><dl><dt><span class="section"><a href="database.html#database.will-phpunit-re-create-the-database-schema-for-each-test">Will PHPUnit (re-)create the database schema for each
+             test?</a></span></dt><dt><span class="section"><a href="database.html#database.am-i-required-to-use-pdo-in-my-application-for-the-database-extension-to-work">Am I required to use PDO in my application for the Database
+             Extension to work?</a></span></dt><dt><span class="section"><a href="database.html#database.what-can-i-do-when-i-get-a-too-much-connections-error">What can I do, when I get a
+             <span class="quote">“<span class="quote">Too much Connections</span>”</span> Error?</a></span></dt><dt><span class="section"><a href="database.html#database.how-to-handle-null-with-flat-xml-csv-datasets">How to handle NULL with Flat XML / CSV Datasets?</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="incomplete-and-skipped-tests.html">9. Incomplete and Skipped Tests</a></span></dt><dd><dl><dt><span class="section"><a href="incomplete-and-skipped-tests.html#incomplete-and-skipped-tests.incomplete-tests">Incomplete Tests</a></span></dt><dt><span class="section"><a href="incomplete-and-skipped-tests.html#incomplete-and-skipped-tests.skipping-tests">Skipping Tests</a></span></dt><dt><span class="section"><a href="incomplete-and-skipped-tests.html#incomplete-and-skipped-tests.skipping-tests-using-requires">Skipping Tests using @requires</a></span></dt></dl></dd><dt><span class="chapter"><a href="test-doubles.html">10. Test Doubles</a></span></dt><dd><dl><dt><span class="section"><a href="test-doubles.html#test-doubles.stubs">Stubs</a></span></dt><dt><span class="section"><a href="test-doubles.html#test-doubles.mock-objects">Mock Objects</a></span></dt><dt><span class="section"><a href="test-doubles.html#test-doubles.stubbing-and-mocking-web-services">Stubbing and Mocking Web Services</a></span></dt><dt><span class="section"><a href="test-doubles.html#test-doubles.mocking-the-filesystem">Mocking the Filesystem</a></span></dt></dl></dd><dt><span class="chapter"><a href="testing-practices.html">11. Testing Practices</a></span></dt><dd><dl><dt><span class="section"><a href="testing-practices.html#testing-practices.during-development">During Development</a></span></dt><dt><span class="section"><a href="testing-practices.html#testing-practices.during-debugging">During Debugging</a></span></dt></dl></dd><dt><span class="chapter"><a href="test-driven-development.html" class="active">12. Test-Driven Development</a></span></dt><dd><dl><dt><span class="section"><a href="test-driven-development.html#test-driven-development.bankaccount-example">BankAccount Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="behaviour-driven-development.html">13. Behaviour-Driven Development</a></span></dt><dd><dl><dt><span class="section"><a href="behaviour-driven-development.html#behaviour-driven-development.bowlinggame-example">BowlingGame Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="code-coverage-analysis.html">14. Code Coverage Analysis</a></span></dt><dd><dl><dt><span class="section"><a href="code-coverage-analysis.html#code-coverage-analysis.specifying-covered-methods">Specifying Covered Methods</a></span></dt><dt><span class="section"><a href="code-coverage-analysis.html#code-coverage-analysis.ignoring-code-blocks">Ignoring Code Blocks</a></span></dt><dt><span class="section"><a href="code-coverage-analysis.html#code-coverage-analysis.including-excluding-files">Including and Excluding Files</a></span></dt><dt><span class="section"><a href="code-coverage-analysis.html#code-coverage-analysis.edge-cases">Edge cases</a></span></dt></dl></dd><dt><span class="chapter"><a href="other-uses-for-tests.html">15. Other Uses for Tests</a></span></dt><dd><dl><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.agile-documentation">Agile Documentation</a></span></dt><dt><span class="section"><a href="other-uses-for-tests.html#other-uses-for-tests.cross-team-tests">Cross-Team Tests</a></span></dt></dl></dd><dt><span class="chapter"><a href="skeleton-generator.html">16. Skeleton Generator</a></span></dt><dd><dl><dt><span class="section"><a href="skeleton-generator.html#skeleton-generator.test">Generating a Test Case Class Skeleton</a></span></dt><dt><span class="section"><a href="skeleton-generator.html#skeleton-generator.class">Generating a Class Skeleton from a Test Case Class</a></span></dt></dl></dd><dt><span class="chapter"><a href="selenium.html">17. PHPUnit and Selenium</a></span></dt><dd><dl><dt><span class="section"><a href="selenium.html#selenium.selenium-rc">Selenium Server</a></span></dt><dt><span class="section"><a href="selenium.html#selenium.installation">Installation</a></span></dt><dt><span class="section"><a href="selenium.html#selenium.selenium2testcase">PHPUnit_Extensions_Selenium2TestCase</a></span></dt><dt><span class="section"><a href="selenium.html#selenium.seleniumtestcase">PHPUnit_Extensions_SeleniumTestCase</a></span></dt></dl></dd><dt><span class="chapter"><a href="logging.html">18. Logging</a></span></dt><dd><dl><dt><span class="section"><a href="logging.html#logging.xml">Test Results (XML)</a></span></dt><dt><span class="section"><a href="logging.html#logging.tap">Test Results (TAP)</a></span></dt><dt><span class="section"><a href="logging.html#logging.json">Test Results (JSON)</a></span></dt><dt><span class="section"><a href="logging.html#logging.codecoverage.xml">Code Coverage (XML)</a></span></dt><dt><span class="section"><a href="logging.html#logging.codecoverage.text">Code Coverage (TEXT)</a></span></dt></dl></dd><dt><span class="chapter"><a href="extending-phpunit.html">19. Extending PHPUnit</a></span></dt><dd><dl><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit_Framework_TestCase">Subclass PHPUnit_Framework_TestCase</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.custom-assertions">Write custom assertions</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit_Framework_TestListener">Implement PHPUnit_Framework_TestListener</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit_Extensions_TestDecorator">Subclass PHPUnit_Extensions_TestDecorator</a></span></dt><dt><span class="section"><a href="extending-phpunit.html#extending-phpunit.PHPUnit_Framework_Test">Implement PHPUnit_Framework_Test</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.assertions.html">A. Assertions</a></span></dt><dt><span class="appendix"><a href="appendixes.annotations.html">B. Annotations</a></span></dt><dd><dl><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.author">@author</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.backupGlobals">@backupGlobals</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.backupStaticAttributes">@backupStaticAttributes</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.codeCoverageIgnore">@codeCoverageIgnore*</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.covers">@covers</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.coversDefaultClass">@coversDefaultClass</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.coversNothing">@coversNothing</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.dataProvider">@dataProvider</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.depends">@depends</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.expectedException">@expectedException</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.expectedExceptionCode">@expectedExceptionCode</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.expectedExceptionMessage">@expectedExceptionMessage</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.group">@group</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.large">@large</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.medium">@medium</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.preserveGlobalState">@preserveGlobalState</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.requires">@requires</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.runTestsInSeparateProcesses">@runTestsInSeparateProcesses</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.runInSeparateProcess">@runInSeparateProcess</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.small">@small</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.test">@test</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.testdox">@testdox</a></span></dt><dt><span class="section"><a href="appendixes.annotations.html#appendixes.annotations.ticket">@ticket</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.configuration.html">C. The XML Configuration File</a></span></dt><dd><dl><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.phpunit">PHPUnit</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.testsuites">Test Suites</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.groups">Groups</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.blacklist-whitelist">Including and Excluding Files for Code Coverage</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.logging">Logging</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.test-listeners">Test Listeners</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.php-ini-constants-variables">Setting PHP INI settings, Constants and Global Variables</a></span></dt><dt><span class="section"><a href="appendixes.configuration.html#appendixes.configuration.selenium-rc">Configuring Browsers for Selenium RC</a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.index.html">D. Index</a></span></dt><dd><dl><dt><span class="index"><a href="appendixes.index.html#appendixes.index.index"></a></span></dt></dl></dd><dt><span class="appendix"><a href="appendixes.bibliography.html">E. Bibliography</a></span></dt><dt><span class="appendix"><a href="appendixes.copyright.html">F. Copyright</a></span></dt></dl>
+     </div>
+    </div>
+    <div class="col-md-8 col-lg-9">
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="testing-practices.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="behaviour-driven-development.html">Next</a></div>
+     </div>
+<div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="test-driven-development"></a>Chapter 12. Test-Driven Development</h1></div></div></div><p>
+    <a id="idm140646179677200" class="indexterm"></a>
+    <a id="idm140646179676624" class="indexterm"></a>
+    <a id="idm140646179464368" class="indexterm"></a>
+    <a id="idm140646179463792" class="indexterm"></a>
+    <a id="idm140646179463216" class="indexterm"></a>
+
+    Unit Tests are a vital part of several software development practices
+    and processes such as Test-First Programming,
+    <a class="ulink" href="http://en.wikipedia.org/wiki/Extreme_Programming" target="_top">Extreme Programming</a>,
+    and <a class="ulink" href="http://en.wikipedia.org/wiki/Test-driven_development" target="_top">Test-Driven Development</a>.
+    They also allow for <a class="ulink" href="http://en.wikipedia.org/wiki/Design_by_Contract" target="_top">Design-by-Contract</a>
+    in programming languages that do not support this methodology with
+    language constructs.
+  </p><p>
+    You can use PHPUnit to write tests once you are done programming.
+    However, the sooner a test is written after an error has been introduced,
+    the more valuable the test is. So instead of writing tests months after
+    the code is "complete", we can write tests days or hours or minutes after
+    the possible introduction of a defect. Why stop there? Why not write the
+    tests a little before the possible introduction of a defect?
+  </p><p>
+    Test-First Programming, which is part of Extreme Programming and
+    Test-Driven Development, builds upon this idea and takes it to the
+    extreme. With today's computational power, we have the opportunity to
+    run thousands of tests thousands of times per day. We can use the
+    feedback from all of these tests to program in small steps, each of
+    which carries with it the assurance of a new automated test in addition
+    to all the tests that have come before. The tests are like pitons,
+    assuring you that, no matter what happens, once you have made progress
+    you can only fall so far.
+  </p><p>
+    When you first write the test it cannot possibly run, because you are
+    calling on objects and methods that have not been programmed yet. This
+    might feel strange at first, but after a while you will get used to it.
+    Think of Test-First Programming as a pragmatic approach to following the
+    object-oriented programming principle of programming to an interface
+    instead of programming to an implementation: while you are writing the
+    test you are thinking about the interface of the object you are
+    testing -- what does this object look like from the outside. When you
+    go to make the test really work, you are thinking about pure
+    implementation. The interface is fixed by the failing test.
+  </p><div class="blockquote"><table border="0" class="blockquote" style="width: 100%; cellspacing: 0; cellpadding: 0;" summary="Block quote"><tr><td width="10%" valign="top"> </td><td width="80%" valign="top"><p>
+      The point of <a class="ulink" href="http://en.wikipedia.org/wiki/Test-driven_development" target="_top">Test-Driven Development</a>
+      is to drive out the functionality the software actually needs, rather
+      than what the programmer thinks it probably ought to have. The way it
+      does this seems at first counterintuitive, if not downright silly, but
+      it not only makes sense, it also quickly becomes a natural and elegant
+      way to develop software.
+    </p></td><td width="10%" valign="top"> </td></tr><tr><td width="10%" valign="top"> </td><td colspan="2" align="right" valign="top">--<span class="attribution">Dan North</span></td></tr></table></div><p>
+    What follows is necessarily an abbreviated introduction to Test-Driven
+    Development. You can explore the topic further in other books, such as
+    <span class="emphasis"><em>Test-Driven Development</em></span> <a class="xref" href="appendixes.bibliography.html#Beck2002" title="Test Driven Development by Example">[<abbr class="abbrev">Beck2002</abbr>]</a>
+    by Kent Beck or Dave Astels' <span class="emphasis"><em>A Practical Guide to Test-Driven
+    Development</em></span> <a class="xref" href="appendixes.bibliography.html#Astels2003" title="Test Driven Development">[<abbr class="abbrev">Astels2003</abbr>]</a>.
+  </p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="test-driven-development.bankaccount-example"></a>BankAccount Example</h2></div></div></div><p>
+      In this section, we will look at the example of a class that represents
+      a bank account. The contract for the <code class="literal">BankAccount</code>
+      class not only requires methods to get and set the bank account's
+      balance, as well as methods to deposit and withdraw money. It also
+      specifies the following two conditions that must be ensured:
+    </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The bank account's initial balance must be zero.</p></li><li class="listitem"><p>The bank account's balance cannot become negative.</p></li></ul></div><p>
+      We write the tests for the <code class="literal">BankAccount</code> class before we
+      write the code for the class itself. We use the contract conditions as the
+      basis for the tests and name the test methods accordingly, as shown in
+      <a class="xref" href="test-driven-development.html#test-driven-development.bankaccount-example.examples.BankAccountTest.php" title="Example 12.1: Tests for the BankAccount class">Example 12.1</a>.
+    </p><div class="example"><a id="test-driven-development.bankaccount-example.examples.BankAccountTest.php"></a><p class="title"><strong>Example 12.1: Tests for the BankAccount class</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+require_once 'BankAccount.php';
+
+class BankAccountTest extends PHPUnit_Framework_TestCase
+{
+    protected $ba;
+
+    protected function setUp()
+    {
+        $this-&gt;ba = new BankAccount;
+    }
+
+    public function testBalanceIsInitiallyZero()
+    {
+        $this-&gt;assertEquals(0, $this-&gt;ba-&gt;getBalance());
+    }
+
+    public function testBalanceCannotBecomeNegative()
+    {
+        try {
+            $this-&gt;ba-&gt;withdrawMoney(1);
+        }
+
+        catch (BankAccountException $e) {
+            $this-&gt;assertEquals(0, $this-&gt;ba-&gt;getBalance());
+
+            return;
+        }
+
+        $this-&gt;fail();
+    }
+
+    public function testBalanceCannotBecomeNegative2()
+    {
+        try {
+            $this-&gt;ba-&gt;depositMoney(-1);
+        }
+
+        catch (BankAccountException $e) {
+            $this-&gt;assertEquals(0, $this-&gt;ba-&gt;getBalance());
+
+            return;
+        }
+
+        $this-&gt;fail();
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      We now write the minimal amount of code needed for the first test,
+      <code class="literal">testBalanceIsInitiallyZero()</code>, to pass. In our
+      example this amounts to implementing the <code class="literal">getBalance()</code>
+      method of the <code class="literal">BankAccount</code> class, as shown in
+      <a class="xref" href="test-driven-development.html#test-driven-development.bankaccount-example.examples.BankAccount.php" title="Example 12.2: Code needed for the testBalanceIsInitiallyZero() test to pass">Example 12.2</a>.
+    </p><div class="example"><a id="test-driven-development.bankaccount-example.examples.BankAccount.php"></a><p class="title"><strong>Example 12.2: Code needed for the testBalanceIsInitiallyZero() test to pass</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+class BankAccount
+{
+    protected $balance = 0;
+
+    public function getBalance()
+    {
+        return $this-&gt;balance;
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      The test for the first contract condition now passes, but the tests for
+      the second contract condition fail because we have yet to implement the
+      methods that these tests call.
+    </p><pre class="screen"><strong class="userinput"><code>phpunit BankAccountTest</code></strong>
+PHPUnit 3.7.0 by Sebastian Bergmann.
+
+.
+Fatal error: Call to undefined method BankAccount::withdrawMoney()</pre><p>
+      For the tests that ensure the second contract condition to pass, we now
+      need to implement the <code class="literal">withdrawMoney()</code>,
+      <code class="literal">depositMoney()</code>, and <code class="literal">setBalance()</code>
+      methods, as shown in
+      <a class="xref" href="test-driven-development.html#test-driven-development.bankaccount-example.examples.BankAccount2.php" title="Example 12.3: The complete BankAccount class">Example 12.3</a>.
+      These methods are written in a such a way that they raise an
+      <code class="literal">BankAccountException</code> when they are called with
+      illegal values that would violate the contract conditions.
+    </p><div class="example"><a id="test-driven-development.bankaccount-example.examples.BankAccount2.php"></a><p class="title"><strong>Example 12.3: The complete BankAccount class</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+class BankAccount
+{
+    protected $balance = 0;
+
+    public function getBalance()
+    {
+        return $this-&gt;balance;
+    }
+
+    protected function setBalance($balance)
+    {
+        if ($balance &gt;= 0) {
+            $this-&gt;balance = $balance;
+        } else {
+            throw new BankAccountException;
+        }
+    }
+
+    public function depositMoney($balance)
+    {
+        $this-&gt;setBalance($this-&gt;getBalance() + $balance);
+
+        return $this-&gt;getBalance();
+    }
+
+    public function withdrawMoney($balance)
+    {
+        $this-&gt;setBalance($this-&gt;getBalance() - $balance);
+
+        return $this-&gt;getBalance();
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      The tests that ensure the second contract condition now pass, too:
+    </p><pre class="screen"><strong class="userinput"><code>phpunit BankAccountTest</code></strong>
+PHPUnit 3.7.0 by Sebastian Bergmann.
+
+...
+
+Time: 0 seconds
+
+
+OK (3 tests, 3 assertions)</pre><p>
+      <a id="idm140646178343728" class="indexterm"></a>
+
+      Alternatively, you can use the static assertion methods provided by the
+      <code class="literal">PHPUnit_Framework_Assert</code> class to write the contract
+      conditions as design-by-contract style assertions into your code, as
+      shown in <a class="xref" href="test-driven-development.html#test-driven-development.bankaccount-example.examples.BankAccount3.php" title="Example 12.4: The BankAccount class with Design-by-Contract assertions">Example 12.4</a>.
+      When one of these assertions fails, an
+      <code class="literal">PHPUnit_Framework_AssertionFailedError</code> exception
+      will be raised. With this approach, you write less code for the contract
+      condition checks and the tests become more readable. However, you add a
+      runtime dependency on PHPUnit to your project.
+    </p><div class="example"><a id="test-driven-development.bankaccount-example.examples.BankAccount3.php"></a><p class="title"><strong>Example 12.4: The BankAccount class with Design-by-Contract assertions</strong></p><div class="example-contents"><pre class="programlisting">&lt;?php
+class BankAccount
+{
+    private $balance = 0;
+
+    public function getBalance()
+    {
+        return $this-&gt;balance;
+    }
+
+    protected function setBalance($balance)
+    {
+        PHPUnit_Framework_Assert::assertTrue($balance &gt;= 0);
+
+        $this-&gt;balance = $balance;
+    }
+
+    public function depositMoney($amount)
+    {
+        PHPUnit_Framework_Assert::assertTrue($amount &gt;= 0);
+
+        $this-&gt;setBalance($this-&gt;getBalance() + $amount);
+
+        return $this-&gt;getBalance();
+    }
+
+    public function withdrawMoney($amount)
+    {
+        PHPUnit_Framework_Assert::assertTrue($amount &gt;= 0);
+        PHPUnit_Framework_Assert::assertTrue($this-&gt;balance &gt;= $amount);
+
+        $this-&gt;setBalance($this-&gt;getBalance() - $amount);
+
+        return $this-&gt;getBalance();
+    }
+}
+?&gt;</pre></div></div><br class="example-break"></br><p>
+      By writing the contract conditions into the tests, we have used
+      Design-by-Contract to program the <code class="literal">BankAccount</code> class.
+      We then wrote, following the Test-First Programming approach, the
+      code needed to make the tests pass. However, we forgot to write
+      tests that call <code class="literal">setBalance()</code>,
+      <code class="literal">depositMoney()</code>, and <code class="literal">withdrawMoney()</code>
+      with legal values that do not violate the contract conditions.
+      We need a means to test our tests or at least to measure their quality.
+      Such a means is the analysis of code-coverage information that we will
+      discuss next.
+    </p></div></div>
+     <div class="row">
+      <div class="col-md-1 pull-left prev-nav"><a accesskey="p" href="testing-practices.html">Prev</a></div>
+      <div class="col-md-1 pull-right next-nav"><a accesskey="n" href="behaviour-driven-development.html">Next</a></div>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <footer>
+    <p><a href="appendixes.copyright.html">Copyright</a> &copy; 2005-2017 <a href="http://sebastian-bergmann.de/">Sebastian Bergmann</a>.</p>
+   </footer>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() { $('pre.programlisting').each(function(i, e) {hljs.highlightBlock(e)}); });
+  </script>
+ </body>
+</html>
