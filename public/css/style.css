@@ -168,48 +168,48 @@ fieldset[disabled] .btn-start.active {
     background-color: #fff;
 }
 
-.btn-sponsoring {
+.btn-newsletter {
     color: #ffffff;
     background-color: #3d9cd7;
     border-color: #3d9cd7;
 }
 
-.btn-sponsoring:hover,
-.btn-sponsoring:focus,
-.btn-sponsoring:active,
-.btn-sponsoring.active,
-.open .dropdown-toggle.btn-sponsoring {
+.btn-newsletter:hover,
+.btn-newsletter:focus,
+.btn-newsletter:active,
+.btn-newsletter.active,
+.open .dropdown-toggle.btn-newsletter {
     color: #ffffff;
     background-color: #2c8bc6;
     border-color: #2c8bc6;
 }
 
-.btn-sponsoring:active,
-.btn-sponsoring.active,
-.open .dropdown-toggle.btn-sponsoring {
+.btn-newsletter:active,
+.btn-newsletter.active,
+.open .dropdown-toggle.btn-newsletter {
     background-image: none;
 }
 
-.btn-sponsoring.disabled,
-.btn-sponsoring[disabled],
-fieldset[disabled] .btn-sponsoring,
-.btn-sponsoring.disabled:hover,
-.btn-sponsoring[disabled]:hover,
-fieldset[disabled] .btn-sponsoring:hover,
-.btn-sponsoring.disabled:focus,
-.btn-sponsoring[disabled]:focus,
-fieldset[disabled] .btn-sponsoring:focus,
-.btn-sponsoring.disabled:active,
-.btn-sponsoring[disabled]:active,
-fieldset[disabled] .btn-sponsoring:active,
-.btn-sponsoring.disabled.active,
-.btn-sponsoring[disabled].active,
-fieldset[disabled] .btn-sponsoring.active {
+.btn-newsletter.disabled,
+.btn-newsletter[disabled],
+fieldset[disabled] .btn-newsletter,
+.btn-newsletter.disabled:hover,
+.btn-newsletter[disabled]:hover,
+fieldset[disabled] .btn-newsletter:hover,
+.btn-newsletter.disabled:focus,
+.btn-newsletter[disabled]:focus,
+fieldset[disabled] .btn-newsletter:focus,
+.btn-newsletter.disabled:active,
+.btn-newsletter[disabled]:active,
+fieldset[disabled] .btn-newsletter:active,
+.btn-newsletter.disabled.active,
+.btn-newsletter[disabled].active,
+fieldset[disabled] .btn-newsletter.active {
     background-color: #3d9cd7;
     border-color: #3d9cd7;
 }
 
-.btn-sponsoring .badge {
+.btn-newsletter .badge {
     color: #3d9cd7;
     background-color: #fff;
 }
