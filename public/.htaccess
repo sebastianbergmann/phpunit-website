@@ -8,3 +8,4 @@ Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';"
 
 RedirectPermanent /professional-services.html https://phpunit.expert/?ref=phpunit.de
+RedirectPermanent /newsletter https://t8cbf4509.emailsys1a.net/275/973/33ad04f4be/subscribe/form.html?_g=1752156344
