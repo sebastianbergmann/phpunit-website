@@ -43,11 +43,22 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1><span style="white-space: nowrap;">PHPUnit 8</span></h1>
-                    <p><time datetime="2019-02-01" title="February 1, 2019">February 1, 2019</time></p>
+                    <section class="announcement-hero">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <h1 class="me-2 mb-0"><span style="white-space: nowrap;">PHPUnit 8</span></h1>
+                            <span class="release-badge mt-2 mt-sm-0">Major Release</span>
+                        </div>
 
-                    <p class="wrapped">The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 8. This release adds new features, changes and removes existing features, and fixes bugs.</p>
-                    <p class="wrapped">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/8.0.0/ChangeLog-8.0.md#800---2019-02-01">here</a>. More background on some of these changes is given <a href="https://thephp.cc/articles/help-my-tests-stopped-working?ref=phpunit">here</a>.</p>
+                        <div class="mt-1">
+                            <time datetime="2019-02-01" title="February 1, 2019">February 1, 2019</time>
+                        </div>
+
+                        <p class="lead wrapped mt-3 mb-2">
+                            The PHPUnit development team is pleased to announce the release of <span style="white-space: nowrap;">PHPUnit 8</span>.
+                            This release introduces new features and modifies or removes existing functionality.
+                        </p>
+                        <p class="wrapped mb-0">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/8.0.0/ChangeLog-8.0.md#800---2019-02-01">here</a>. More background on some of these changes is given <a href="https://thephp.cc/articles/help-my-tests-stopped-working?ref=phpunit">here</a>.</p>
+                    </section>
                     <h2 class="subheadline">PHPUnit now requires <span style="white-space: nowrap;">PHP 7.2</span> (or newer)</h2>
                     <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span style="white-space: nowrap;">PHP 7.1</span> ended on December 1, 2018.</a> The only actively supported versions of PHP as of February 1, 2019 are <span style="white-space: nowrap;">PHP 7.2</span> and <span style="white-space: nowrap;">PHP 7.3</span>.</p>
                     <h2 class="subheadline">PHPUnit now uses (more) PHP 7 syntax</h2>
@@ -87,7 +98,7 @@
                         <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3332">Annotation(s) for expecting exceptions</a></li>
                         <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3338">Assertions (and helper methods) that operate on (non-public) attributes</a></li>
                         <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3341">Optional parameters of <code>assertEquals()</code> and <code>assertNotEquals()</code></a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3388"><code>TestListener</code> interface
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3388"><code>TestListener</code> interface</a></li>
                         <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3425">Optional parameters of <code>assertContains()</code> and <code>assertNotContains()</code> as well as using these methods with <code>string</code> haystacks</a></li>
                     </ul>
                     <p class="wrapped">The features deprecated in PHPUnit 8 will be removed in PHPUnit 9.</p>
@@ -96,7 +107,7 @@
                     <p class="wrapped"><a href="../getting-started/phpunit-8.html">Here is a tutorial that gets you started.</a></p>
                     <h2 class="subheadline">Supported Versions</h2>
                     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 1, 2019:</p>
-                    <ul>
+                    <ul class="feature-list">
                         <li>PHPUnit 8 receives bug fixes until February 5, 2021</li>
                         <li>PHPUnit 7 receives bug fixes until February 7, 2020</li>
                         <li>PHPUnit 6 has reached its End of Life on February 1, 2019 and no longer receives bug fixes</li>
