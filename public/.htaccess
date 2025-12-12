@@ -9,3 +9,4 @@ Header always set Content-Security-Policy "default-src 'none'; script-src 'self'
 
 RedirectPermanent /professional-services.html https://phpunit.expert/?ref=phpunit.de
 RedirectPermanent /newsletter https://t8cbf4509.emailsys1a.net/275/973/33ad04f4be/subscribe/form.html?_g=1752156344
+RedirectPermanent /test-smarter-not-harder.html https://thephpcc.academy/en/test-smarter-not-harder?ref=phpunit#dates
