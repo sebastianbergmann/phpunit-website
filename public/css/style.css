@@ -310,6 +310,68 @@ fieldset[disabled] .btn-training.active {
     font-weight: 600;
 }
 
+/* Event banner (moved from inline CSS in index.html) */
+#dismiss-event-banner {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#dismiss-event-banner:checked + .event-banner {
+    display: none;
+}
+
+.event-banner {
+    width: 100%;
+    background: #fff3cd; /* Bootstrap warning background */
+    color: #664d03;
+    border-bottom: 1px solid #ffe69c;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    position: relative;
+}
+
+.event-banner a,
+.event-banner a:visited,
+.event-banner a:hover,
+.event-banner a:focus,
+.event-banner a:active {
+    color: #000;
+}
+
+.event-banner__close {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #664d03;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.event-banner__badge {
+    background: #fd7e14;
+    color: #fff;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .event-banner {
+        font-size: 0.95rem;
+        padding-right: 2.5rem;
+    }
+
+    .event-banner__close {
+        right: 0.5rem;
+        top: 0.25rem;
+    }
+}
+
 .feature-list,
 .roadmap-list {
     margin-top: 0.5rem;

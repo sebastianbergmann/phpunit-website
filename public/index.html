@@ -26,6 +26,13 @@
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
     </head>
     <body>
+        <input type="checkbox" id="dismiss-event-banner" aria-hidden="true" />
+        <div class="event-banner" role="region" aria-label="Event-Hinweis">
+            <span class="event-banner__badge">Free live online event</span>
+            <a href="https://thephpcc.academy/en/test-smarter-not-harder?ref=phpunit"><strong>Test smarter, not harder</strong> — February 9, 2026, 04:00pm-06:00pm (CET)</a>
+            <label class="event-banner__close" for="dismiss-event-banner" aria-label="Close banner">&times;</label>
+        </div>
+
         <div class="container">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
