@@ -2,24 +2,24 @@
 Hash: SHA512
 
 Contact: mailto:sebastian@phpunit.de
-Expires: 2025-12-31T22:59:00.000Z
+Expires: 2026-12-31T22:59:00.000Z
 Encryption: https://sebastian-bergmann.de/gpg.asc
 Preferred-Languages: en, de
 Canonical: https://phpunit.de/.well-known/security.txt
 Policy: https://github.com/sebastianbergmann/phpunit-website/blob/main/SECURITY.md
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE2EBtDYKUd0cpN3gxSqOUCGNywgoFAmdsNGsACgkQSqOUCGNy
-wgrCGg/+LbtZHRs7POFBaN//9pIopRd/ESB2/14beQMN9x38cKx/C22GU0CZ+BfV
-yfgW1309Ca9bprRbIJJY9e9ioUOlvL7gs1rbcD9xQAstU+JPj68KSHYlIlRbdDDZ
-lLpQNtvSlufLK4kZ7tBcxjo9AQA3i/tG4ZKFioGRsT0cc4ZLTt5tgXTMgd0pVkDe
-FtLZBz1V24y17EcyXpbRVm93YFGIczjjAWS9VauK+Nd2P79dIs+keU8aoQEzTNk2
-W6n5MDQ2tv+OvklFxv7LwteAj2s9FodUj/NIaiOS5COUESxm4pWhbD/Trj/Gb5ZY
-GmDr1C2RrqvLfJPT5o9Veq4HDJaBqi6XcltLFBUl2xgASLOVy0NI3JYacnM+nhwp
-UpOnEmKlO8hBlcHi+r3lCSL2I7ekKGVLh+QgMw4ELYRMQMm/gmAqz/bKhZV4zC9/
-qFLBv93FN74Z+Aq2t8HTdqiYpiJrSQk4TVLgnOeGgk62pDRP2Pb73VuvrL4PHOp7
-IR+5C6FvwPHod7n7NlWohlHdHv+eJdPvwZS6yjvzPko8InNMb6cLJB9Hg1S52y7o
-/1JVrypxPh9n/bV5RJP3cMwFSLb+m4tfDaG2VPvTvnP/B8h65egor48xlCGbC1uY
-oxelM86aoBv+1nInPKNuRArUCC0/IjrH5m1n2+rvYHQcdqMnU3U=
-=3egS
+iQIzBAEBCgAdFiEE2EBtDYKUd0cpN3gxSqOUCGNywgoFAmlUuXgACgkQSqOUCGNy
+wgoD4Q/+K+YcgOiPEzmkazCBCeyQo6YcGLLb1PflZoiYfiSxM2kXArK/1IGBiP8q
+8yZAb1pJ1eNgRLKkS03Ne3FnVdD7OMVryjcVc5ngDVcn8h5uovhtWMvzTJ3Gzx1I
+dRKpicQGV/BbJgDlHgoj2Bd+nIlmtzYp4lSur+0rE/OB/CPcy6qyM4aUCYGvL40+
+9XourV/POZK+b8wTKr5WikJoS2nzU3EhdRgER+cpdMlbPSamAOCU4bZZykfvq9qb
+TrPsINnRVgjqeU/aMwvS0wRXwyCz7oJy67c9OL7fzfE8rs8uq7ra1R5JlR3L1Y6T
+vvQJXGZKwbbnh7yG5Q5U3rr1be98Ng1+NYj6XO/mLH5RWxoWaRLUzMMWl3kOUZcz
+1eEHokphqJXKlbrBl0GKiideXycmanutGN2isszygmkGJhwK2wXk51l6DJTZG0yS
+bVNuUWgDV4+eSMor7gYjvsJTo275vJt9FwG/5L4YqMKGgfShsfotVhhUJZ90Wl1w
+OG99yoQbvevBozXHkEzwwHI/a2L7m1CI2eaBCDCdElRyIBg2kfBANtot23LMyNNi
+SHMum51DDBamk6bfw6Cs/IkA3JGAdy2dWrZEMeUUXvl3swGUUTCzKUikzY/IAj7j
+L26ny+UJAADP6XQL3CH51Iq1fOmYeW3qMdrixaZhQ4c+5m8o6kg=
+=RpfT
 -----END PGP SIGNATURE-----
