@@ -6,7 +6,7 @@
 
         <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
         <link href="../css/highlight.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=6" rel="stylesheet">
+        <link href="../css/style.css?v=7" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,45 +48,45 @@
                     <p><time datetime="2014-04-21" title="April 21, 2014">April 21, 2014</time></p>
 
                     <p class="wrapped">
-                        PHPUnit was developed in <span style="white-space: nowrap;">cvs.php.net</span> and released on <span style="white-space: nowrap;">pear.php.net</span> from its inception in 2001 until July 2006.
-                        PHPUnit was developed in <span style="white-space: nowrap;">svn.phpunit.de</span> from July 2006 until December 2009 when its development moved to GitHub.
+                        PHPUnit was developed in <span class="nobr">cvs.php.net</span> and released on <span class="nobr">pear.php.net</span> from its inception in 2001 until July 2006.
+                        PHPUnit was developed in <span class="nobr">svn.phpunit.de</span> from July 2006 until December 2009 when its development moved to GitHub.
                         Until today, every PHPUnit release was made available as a PEAR package.
-                        These PEAR packages were hosted on <span style="white-space: nowrap;">pear.phpunit.de</span> since July 2006.
+                        These PEAR packages were hosted on <span class="nobr">pear.phpunit.de</span> since July 2006.
                     </p>
                     <p class="wrapped">
-                        Since <span style="white-space: nowrap;">PHPUnit 3.7</span>, released in the fall of 2012, using the PEAR Installer was no longer the only installation
+                        Since <span class="nobr">PHPUnit 3.7</span>, released in the fall of 2012, using the PEAR Installer was no longer the only installation
                         method for PHPUnit. Today most users prefer to use a PHP Archive (PHAR) of PHPUnit or Composer to download and
                         install PHPUnit.
                     </p>
                     <p class="wrapped">
-                        Starting with <span style="white-space: nowrap;">PHPUnit 4.0</span>, the PEAR package of PHPUnit was merely a distribution mechanism for the PHP Archive (PHAR)
+                        Starting with <span class="nobr">PHPUnit 4.0</span>, the PEAR package of PHPUnit was merely a distribution mechanism for the PHP Archive (PHAR)
                         and many of PHPUnit's dependencies were no longer released as PEAR packages. Furthermore, the PEAR installation method
                         has been removed from the documentation.
                     </p>
                     <p class="wrapped">
                         We are taking the next step in retiring the PEAR installation method with today's release of
-                        <span style="white-space: nowrap;">PHPUnit 3.7.35</span> and <span style="white-space: nowrap;">PHPUnit 4.0.17</span>. These two releases are the last versions of PHPUnit released as PEAR packages.
+                        <span class="nobr">PHPUnit 3.7.35</span> and <span class="nobr">PHPUnit 4.0.17</span>. These two releases are the last versions of PHPUnit released as PEAR packages.
                         Installing them using the PEAR Installer will trigger a deprecation message on every execution of the commandline test runner.
                     </p>
                     <p class="wrapped">
-                        If you have installed <span style="white-space: nowrap;">PHPUnit 3.7</span> using the PEAR Installer then you need to uninstall at least the PHPUnit,
+                        If you have installed <span class="nobr">PHPUnit 3.7</span> using the PEAR Installer then you need to uninstall at least the PHPUnit,
                         PHPUnit_MockObject, and PHP_CodeCoverage PEAR packages:
                     </p>
                     <pre>$ pear uninstall phpunit/PHPUnit \
 phpunit/PHPUnit_MockObject \
 phpunit/PHP_CodeCoverage</pre>
                     <p class="wrapped">
-                        If you have installed <span style="white-space: nowrap;">PHPUnit 4.0</span> using the PEAR Installer then you only need to uninstall the PHPUnit PEAR package:
+                        If you have installed <span class="nobr">PHPUnit 4.0</span> using the PEAR Installer then you only need to uninstall the PHPUnit PEAR package:
                     </p>
                     <pre>$ pear uninstall phpunit/PHPUnit</pre>
                     <p class="wrapped">
-                        You may have other packages from the <span style="white-space: nowrap;">pear.phpunit.de</span> channel installed, for instance as dependencies for other tools
-                        that you may have installed. If "pear list -c phpunit" shows that you still have packages from the <span style="white-space: nowrap;">pear.phpunit.de</span>
+                        You may have other packages from the <span class="nobr">pear.phpunit.de</span> channel installed, for instance as dependencies for other tools
+                        that you may have installed. If "pear list -c phpunit" shows that you still have packages from the <span class="nobr">pear.phpunit.de</span>
                         channel installed then you should uninstall those packages, too. Please make sure, though, that these packages are
                         not required by other tools that you may have installed.
                     </p>
                     <p class="wrapped">
-                        The shutdown of <span style="white-space: nowrap;">pear.phpunit.de</span> also means that all other packages that were hosted on this PEAR channel can no
+                        The shutdown of <span class="nobr">pear.phpunit.de</span> also means that all other packages that were hosted on this PEAR channel can no
                         longer be installed via PEAR. These packages include dependencies of PHPUnit such as PHP_CodeCoverage and
                         PHPUnit_MockObject as well as tools such as PHPCPD and PHPLOC.
                     </p>
@@ -99,13 +99,13 @@ phpunit/PHP_CodeCoverage</pre>
                         maintaining a PEAR channel server this long would have been unbearable.
                     </p>
                     <p class="wrapped">
-                        <strong>Update (December 1, 2014):</strong> We have released <span style="white-space: nowrap;">PHPUnit 3.7.36</span> and <span style="white-space: nowrap;">PHPUnit 4.0.18</span> as PEAR packages.
+                        <strong>Update (December 1, 2014):</strong> We have released <span class="nobr">PHPUnit 3.7.36</span> and <span class="nobr">PHPUnit 4.0.18</span> as PEAR packages.
                         These PEAR packages do not install a working version of PHPUnit.
                         They merely install a script that prints an error message.
                     </p>
                     <p class="wrapped">
-                        <strong>Update (December 31, 2014):</strong> The process of retiring <span style="white-space: nowrap;">pear.phpunit.de</span> was tracked in <a href="https://github.com/sebastianbergmann/phpunit/issues/1229">ticket #1229</a>.
-                        The final step was the shutdown of <span style="white-space: nowrap;">pear.phpunit.de</span>.
+                        <strong>Update (December 31, 2014):</strong> The process of retiring <span class="nobr">pear.phpunit.de</span> was tracked in <a href="https://github.com/sebastianbergmann/phpunit/issues/1229">ticket #1229</a>.
+                        The final step was the shutdown of <span class="nobr">pear.phpunit.de</span>.
                     </p>
                 </div>
             </div>

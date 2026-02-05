@@ -6,7 +6,7 @@
 
         <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
         <link href="../css/highlight.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=6" rel="stylesheet">
+        <link href="../css/style.css?v=7" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,7 +46,7 @@
                 <div class="col-md-12">
                     <section class="announcement-hero">
                         <div class="d-flex align-items-center flex-wrap">
-                            <h1 class="me-2 mb-0"><span style="white-space: nowrap;">PHPUnit 12</span></h1>
+                            <h1 class="me-2 mb-0"><span class="nobr">PHPUnit 12</span></h1>
                             <span class="release-badge mt-2 mt-sm-0">Major Release</span>
                         </div>
 
@@ -55,7 +55,7 @@
                         </div>
 
                         <p class="lead wrapped mt-3 mb-2">
-                            The PHPUnit development team is pleased to announce the release of <span style="white-space: nowrap;">PHPUnit 12</span>.
+                            The PHPUnit development team is pleased to announce the release of <span class="nobr">PHPUnit 12</span>.
                             This release introduces new features and modifies or removes existing functionality.
                         </p>
 
@@ -64,13 +64,13 @@
                             The most significant changes are discussed below.
                         </p>
                     </section>
-                    <h2 class="subheadline">OMGWTFBBQ? I must upgrade to <span style="white-space: nowrap;">PHPUnit 12</span> immediately!</h2>
+                    <h2 class="subheadline">OMGWTFBBQ? I must upgrade to <span class="nobr">PHPUnit 12</span> immediately!</h2>
                     <p class="wrapped">
                         <strong>No, you do not.</strong>
                     </p>
                     <p class="wrapped">
-                        Just because <span style="white-space: nowrap;">PHPUnit 12</span> has been released today does not mean that
-                        <span style="white-space: nowrap;">PHPUnit 10</span> or <span style="white-space: nowrap;">PHPUnit 11</span>
+                        Just because <span class="nobr">PHPUnit 12</span> has been released today does not mean that
+                        <span class="nobr">PHPUnit 10</span> or <span class="nobr">PHPUnit 11</span>
                         will no longer work. While old versions of PHPUnit will eventually stop receiving bug fixes,
                         <a href="../supported-versions.html">we will keep them compatible with new versions of PHP for as long as
                         possible</a>.
@@ -85,27 +85,27 @@
                         <a href="https://github.com/sebastianbergmann/phpunit/blob/12.0.0/ChangeLog-12.0.md#1200---2025-02-07">ChangeLog</a>.
                     </p>
                     <p class="wrapped">
-                        <span style="white-space: nowrap;">PHPUnit 12</span> requires <span style="white-space: nowrap;">PHP 8.3</span> or later.
-                        If you are not using <span style="white-space: nowrap;">PHP 8.3</span> or <span style="white-space: nowrap;">PHP 8.4</span>,
-                        you will not be able to use <span style="white-space: nowrap;">PHPUnit 12</span> right away.
+                        <span class="nobr">PHPUnit 12</span> requires <span class="nobr">PHP 8.3</span> or later.
+                        If you are not using <span class="nobr">PHP 8.3</span> or <span class="nobr">PHP 8.4</span>,
+                        you will not be able to use <span class="nobr">PHPUnit 12</span> right away.
                     </p>
                     <div class="alert alert-secondary" role="alert">
                         <p class="text-center">
                             <strong>Need more reasons to upgrade your PHP?</strong>
                         </p>
                         <p class="text-center">
-                            The only <a href="https://www.php.net/supported-versions.php">actively supported</a> versions of PHP as of February 7, 2025 are <span style="white-space: nowrap;">PHP 8.3</span> and <span style="white-space: nowrap;">PHP 8.4</span>.
+                            The only <a href="https://www.php.net/supported-versions.php">actively supported</a> versions of PHP as of February 7, 2025 are <span class="nobr">PHP 8.3</span> and <span class="nobr">PHP 8.4</span>.
                         </p>
                     </div>
                     <p class="wrapped">
-                        We are confident that <span style="white-space: nowrap;">PHPUnit 12</span> works as intended, but in some respects
+                        We are confident that <span class="nobr">PHPUnit 12</span> works as intended, but in some respects
                         it works differently than previous versions.
                     </p>
                     <p class="wrapped">
                         For example, functionality that was only <a href="../backward-compatibility.html">soft-deprecated</a>
-                        in <span style="white-space: nowrap;">PHPUnit 11</span> is now <a href="../backward-compatibility.html">hard-deprecated</a>
-                        in <span style="white-space: nowrap;">PHPUnit 12</span>. And functionality that was hard-deprecated in
-                        <span style="white-space: nowrap;">PHPUnit 11</span> has been removed in <span style="white-space: nowrap;">PHPUnit 12</span>.
+                        in <span class="nobr">PHPUnit 11</span> is now <a href="../backward-compatibility.html">hard-deprecated</a>
+                        in <span class="nobr">PHPUnit 12</span>. And functionality that was hard-deprecated in
+                        <span class="nobr">PHPUnit 11</span> has been removed in <span class="nobr">PHPUnit 12</span>.
                         You can find details about deprecations here:
                     </p>
                     <ul class="feature-list">
@@ -113,8 +113,8 @@
                         <li><a href="https://github.com/sebastianbergmann/phpunit/blob/12.5/DEPRECATIONS.md#deprecations">Deprecations in PHPUnit 12</a></li>
                     </ul>
                     <p class="wrapped">
-                        You should not even try to upgrade to <span style="white-space: nowrap;">PHPUnit 12</span>
-                        if you cannot run your test suite using <span style="white-space: nowrap;">PHPUnit 11.5</span>
+                        You should not even try to upgrade to <span class="nobr">PHPUnit 12</span>
+                        if you cannot run your test suite using <span class="nobr">PHPUnit 11.5</span>
                         without getting deprecation warnings.
                     </p>
                     <p class="wrapped">
@@ -166,24 +166,24 @@
                     </p>
                     <p class="wrapped">
                         Configuring expectations on an object created with <code>createStub()</code> did already not
-                        have an effect anymore since <span style="white-space: nowrap;">PHPUnit 10</span> and triggered
-                        a deprecation since <span style="white-space: nowrap;">PHPUnit 11</span>.
-                        In <span style="white-space: nowrap;">PHPUnit 12</span> this is no longer possible.
+                        have an effect anymore since <span class="nobr">PHPUnit 10</span> and triggered
+                        a deprecation since <span class="nobr">PHPUnit 11</span>.
+                        In <span class="nobr">PHPUnit 12</span> this is no longer possible.
                     </p>
                     <h3 class="subheadline">Metadata</h3>
                     <p class="wrapped">
-                        <span style="white-space: nowrap;">PHPUnit 10</span> introduced support for
-                        <span style="white-space: nowrap;">PHP 8</span> attributes to add metadata to test classes and
+                        <span class="nobr">PHPUnit 10</span> introduced support for
+                        <span class="nobr">PHP 8</span> attributes to add metadata to test classes and
                         test methods. Previously, annotations in special PHP comments called "docblocks" or "doc-comments"
                         were the only way to add metadata to units of code.
                     </p>
                     <p class="wrapped">
-                        In <span style="white-space: nowrap;">PHPUnit 11</span>, the support for the annotations that
+                        In <span class="nobr">PHPUnit 11</span>, the support for the annotations that
                         can be used in special PHP comments to add metadata to test classes and test methods was
                         deprecated. Support for using annotations has now been removed and you need to migrate your
                         tests from annotations to attributes.
                     </p>
-                    <h2 class="subheadline">Getting <span style="white-space: nowrap;">PHPUnit 12</span></h2>
+                    <h2 class="subheadline">Getting <span class="nobr">PHPUnit 12</span></h2>
                     <p class="wrapped">
                         We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit.
                         Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.
@@ -197,9 +197,9 @@
                         Below is a summary as of February 7, 2025:
                     </p>
                     <ul class="feature-list">
-                        <li><span style="white-space: nowrap;">PHPUnit 12</span> receives bug fixes until February 5, 2027</li>
-                        <li><span style="white-space: nowrap;">PHPUnit 11</span> receives bug fixes until February 6, 2026</li>
-                        <li><span style="white-space: nowrap;">PHPUnit 10</span> and older versions no longer receive bug fixes</li>
+                        <li><span class="nobr">PHPUnit 12</span> receives bug fixes until February 5, 2027</li>
+                        <li><span class="nobr">PHPUnit 11</span> receives bug fixes until February 6, 2026</li>
+                        <li><span class="nobr">PHPUnit 10</span> and older versions no longer receive bug fixes</li>
                     </ul>
                     <p class="wrapped">
                         The versions listed above will be kept compatible with new PHP versions as long as possible.
@@ -209,12 +209,12 @@
                         Here is the roadmap for the next year:
                     </p>
                     <ul class="roadmap-list">
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/64"><span style="white-space: nowrap;">PHPUnit 12.1</span></a> is planned for April 4, 2025</li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/65"><span style="white-space: nowrap;">PHPUnit 12.2</span></a> is planned for June 6, 2025</li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/66"><span style="white-space: nowrap;">PHPUnit 12.3</span></a> is planned for August 1, 2025</li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/67"><span style="white-space: nowrap;">PHPUnit 12.4</span></a> is planned for October 3, 2025</li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/68"><span style="white-space: nowrap;">PHPUnit 12.5</span></a> is planned for December 5, 2025</li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/69"><span style="white-space: nowrap;">PHPUnit 13</span></a> is planned for February 6, 2026</li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/64"><span class="nobr">PHPUnit 12.1</span></a> is planned for April 4, 2025</li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/65"><span class="nobr">PHPUnit 12.2</span></a> is planned for June 6, 2025</li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/66"><span class="nobr">PHPUnit 12.3</span></a> is planned for August 1, 2025</li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/67"><span class="nobr">PHPUnit 12.4</span></a> is planned for October 3, 2025</li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/68"><span class="nobr">PHPUnit 12.5</span></a> is planned for December 5, 2025</li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/69"><span class="nobr">PHPUnit 13</span></a> is planned for February 6, 2026</li>
                     </ul>
                     <h2 class="subheadline">Keep up to date with PHPUnit</h2>
                     <p class="wrapped">

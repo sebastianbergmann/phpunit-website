@@ -114,6 +114,10 @@ ul.announcements > li:last-of-type, ul.articles > li:last-of-type, ul.training >
     hyphens: auto;
 }
 
+.nobr {
+    white-space: nowrap;
+}
+
 div[data-sponsor] {
     display: grid;
     align-items: center;
