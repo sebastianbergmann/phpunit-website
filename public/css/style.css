@@ -264,6 +264,10 @@ fieldset[disabled] .btn-training.active {
     background-color: #fff;
 }
 
+.version-link {
+    color: #333;
+}
+
 .announcements-archive {
     max-width: 52rem;
 }
