@@ -6,7 +6,7 @@
 
         <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
         <link href="../css/highlight.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=7" rel="stylesheet">
+        <link href="../css/style.css?v=8" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -36,9 +36,8 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="https://phpunit.expert/?ref=phpunit.de" class="nav-link">Professional Services</a></li>
+                    <li class="nav-item"><a href="../supported-versions.html" class="nav-link">Supported Versions</a></li>
                     <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
-                    <li class="nav-item"><a href="../contribute.html" class="nav-link">Contribute</a></li>
                 </ul>
             </header>
 
@@ -47,7 +46,7 @@
                     <h1>Getting Started with PHPUnit 6</h1>
                     <p class="wrapped">This tutorial assumes that you use PHP 7.0. You will learn how to write simple unit tests as well as how to download and run PHPUnit.</p>
                     <div class="alert alert-danger" role="alert">
-                        Please note that <a href="../supported-versions.html">PHPUnit 6 is no longer supported</a>. Also note that PHP 7 <a href="https://secure.php.net/supported-versions.php">is no longer supported</a>.
+                        Please note that <a href="../supported-versions.html">PHPUnit 6 is no longer supported</a>. Also note that PHP 7 <a href="https://secure.php.net/supported-versions.php" target="_blank">is no longer supported</a>.
                     </div>
                     <p class="wrapped">The documentation for PHPUnit 6 can be found <a href="../documentation.html">here</a>.</p>
                     <h2>Download</h2>
@@ -61,11 +60,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <h3>PHP Archive (PHAR)</h3>
-                    <p>We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 6, the latest version of PHPUnit that is compatible with PHP 7.0. Simply download it from <a href="https://phar.phpunit.de/phpunit-6.phar">here</a> and make it executable:</p>
+                    <p>We distribute a <a href="https://secure.php.net/phar" target="_blank">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 6, the latest version of PHPUnit that is compatible with PHP 7.0. Simply download it from <a href="https://phar.phpunit.de/phpunit-6.phar" target="_blank">here</a> and make it executable:</p>
                 </div>
                 <div class="col-md-6">
                     <h3>Composer</h3>
-                    <p>You can add PHPUnit as a local, per-project, development-time dependency to your project using <a href="https://getcomposer.org/">Composer</a>:</p>
+                    <p>You can add PHPUnit as a local, per-project, development-time dependency to your project using <a href="https://getcomposer.org/" target="_blank">Composer</a>:</p>
                 </div>
             </div>
             <div class="row">
@@ -89,7 +88,7 @@ PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <p>Please refer to the documentation for details on how to <a href="https://phpunit.de/manual/6.5/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
+                    <p>Please refer to the documentation for details on how to <a href="/manual/6.5/en/installation.html#installation.phar.verification">verify PHAR releases of PHPUnit</a>.</p>
                 </div>
                 <div class="col-md-6">
                     <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
@@ -207,7 +206,7 @@ PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
 Time: 70 ms, Memory: 10.00MB
 
 OK (3 tests, 3 assertions)</pre>
-                    <p>The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme">phpab</a>.</p>
+                    <p>The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php" target="_blank">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme" target="_blank">phpab</a>.</p>
                 </div>
                 <div class="col-md-6">
                     <h3>Composer</h3>
@@ -219,7 +218,7 @@ PHPUnit 6.5.5 by Sebastian Bergmann and contributors.
 Time: 70 ms, Memory: 10.00MB
 
 OK (3 tests, 3 assertions)</pre>
-                    <p>The above assumes that <code>vendor/autoload.php</code>, the <a href="https://secure.php.net/manual/en/language.oop5.autoload.php">autoloader</a> script managed by Composer, exists and is able to load the code for the <code>Email</code> class. Depending on how you set up autoloading, you may need to run <code>composer dump-autoload</code> now.</p>
+                    <p>The above assumes that <code>vendor/autoload.php</code>, the <a href="https://secure.php.net/manual/en/language.oop5.autoload.php" target="_blank">autoloader</a> script managed by Composer, exists and is able to load the code for the <code>Email</code> class. Depending on how you set up autoloading, you may need to run <code>composer dump-autoload</code> now.</p>
                 </div>
             </div>
             <div class="row">

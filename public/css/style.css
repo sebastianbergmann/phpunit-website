@@ -172,94 +172,94 @@ fieldset[disabled] .btn-start.active {
     background-color: #fff;
 }
 
-.btn-newsletter {
+.btn-sponsoring {
     color: #ffffff;
-    background-color: #3d9cd7;
-    border-color: #3d9cd7;
+    background-color: #ef2929;
+    border-color: #ef2929;
 }
 
-.btn-newsletter:hover,
-.btn-newsletter:focus,
-.btn-newsletter:active,
-.btn-newsletter.active,
-.open .dropdown-toggle.btn-newsletter {
+.btn-sponsoring:hover,
+.btn-sponsoring:focus,
+.btn-sponsoring:active,
+.btn-sponsoring.active,
+.open .dropdown-toggle.btn-sponsoring {
     color: #ffffff;
-    background-color: #2c8bc6;
-    border-color: #2c8bc6;
+    background-color: #cc0000;
+    border-color: #cc0000;
 }
 
-.btn-newsletter:active,
-.btn-newsletter.active,
-.open .dropdown-toggle.btn-newsletter {
+.btn-sponsoring:active,
+.btn-sponsoring.active,
+.open .dropdown-toggle.btn-sponsoring {
     background-image: none;
 }
 
-.btn-newsletter.disabled,
-.btn-newsletter[disabled],
-fieldset[disabled] .btn-newsletter,
-.btn-newsletter.disabled:hover,
-.btn-newsletter[disabled]:hover,
-fieldset[disabled] .btn-newsletter:hover,
-.btn-newsletter.disabled:focus,
-.btn-newsletter[disabled]:focus,
-fieldset[disabled] .btn-newsletter:focus,
-.btn-newsletter.disabled:active,
-.btn-newsletter[disabled]:active,
-fieldset[disabled] .btn-newsletter:active,
-.btn-newsletter.disabled.active,
-.btn-newsletter[disabled].active,
-fieldset[disabled] .btn-newsletter.active {
-    background-color: #3d9cd7;
-    border-color: #3d9cd7;
+.btn-sponsoring.disabled,
+.btn-sponsoring[disabled],
+fieldset[disabled] .btn-sponsoring,
+.btn-sponsoring.disabled:hover,
+.btn-sponsoring[disabled]:hover,
+fieldset[disabled] .btn-sponsoring:hover,
+.btn-sponsoring.disabled:focus,
+.btn-sponsoring[disabled]:focus,
+fieldset[disabled] .btn-sponsoring:focus,
+.btn-sponsoring.disabled:active,
+.btn-sponsoring[disabled]:active,
+fieldset[disabled] .btn-sponsoring:active,
+.btn-sponsoring.disabled.active,
+.btn-sponsoring[disabled].active,
+fieldset[disabled] .btn-sponsoring.active {
+    background-color: #ef2929;
+    border-color: #ef2929;
 }
 
-.btn-newsletter .badge {
-    color: #3d9cd7;
+.btn-sponsoring .badge {
+    color: #ef2929;
     background-color: #fff;
 }
 
-.btn-training {
+.btn-consulting {
     color: #ffffff;
     background-color: #f19322;
     border-color: #f19322;
 }
 
-.btn-training:hover,
-.btn-training:focus,
-.btn-training:active,
-.btn-training.active,
-.open .dropdown-toggle.btn-training {
+.btn-consulting:hover,
+.btn-consulting:focus,
+.btn-consulting:active,
+.btn-consulting.active,
+.open .dropdown-toggle.btn-consulting {
     color: #ffffff;
     background-color: #e08211;
     border-color: #e08211;
 }
 
-.btn-training:active,
-.btn-training.active,
-.open .dropdown-toggle.btn-training {
+.btn-consulting:active,
+.btn-consulting.active,
+.open .dropdown-toggle.btn-consulting {
     background-image: none;
 }
 
-.btn-training.disabled,
-.btn-training[disabled],
-fieldset[disabled] .btn-training,
-.btn-training.disabled:hover,
-.btn-training[disabled]:hover,
-fieldset[disabled] .btn-training:hover,
-.btn-training.disabled:focus,
-.btn-training[disabled]:focus,
-fieldset[disabled] .btn-training:focus,
-.btn-training.disabled:active,
-.btn-training[disabled]:active,
-fieldset[disabled] .btn-training:active,
-.btn-training.disabled.active,
-.btn-training[disabled].active,
-fieldset[disabled] .btn-training.active {
+.btn-consulting.disabled,
+.btn-consulting[disabled],
+fieldset[disabled] .btn-consulting,
+.btn-consulting.disabled:hover,
+.btn-consulting[disabled]:hover,
+fieldset[disabled] .btn-consulting:hover,
+.btn-consulting.disabled:focus,
+.btn-consulting[disabled]:focus,
+fieldset[disabled] .btn-consulting:focus,
+.btn-consulting.disabled:active,
+.btn-consulting[disabled]:active,
+fieldset[disabled] .btn-consulting:active,
+.btn-consulting.disabled.active,
+.btn-consulting[disabled].active,
+fieldset[disabled] .btn-consulting.active {
     background-color: #f19322;
     border-color: #f19322;
 }
 
-.btn-training .badge {
+.btn-consulting .badge {
     color: #f19322;
     background-color: #fff;
 }
@@ -344,4 +344,8 @@ fieldset[disabled] .btn-training.active {
     border-top: 1px dashed #e3e3e3;
     height: 0;
     opacity: 1;
+}
+
+.inverted {
+    filter: invert(1);
 }

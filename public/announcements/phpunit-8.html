@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=7" rel="stylesheet">
+        <link href="../css/style.css?v=8" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -35,9 +35,8 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="https://phpunit.expert/?ref=phpunit.de" class="nav-link">Professional Services</a></li>
+                    <li class="nav-item"><a href="../supported-versions.html" class="nav-link">Supported Versions</a></li>
                     <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
-                    <li class="nav-item"><a href="../contribute.html" class="nav-link">Contribute</a></li>
                 </ul>
             </header>
 
@@ -57,27 +56,26 @@
                             The PHPUnit development team is pleased to announce the release of <span class="nobr">PHPUnit 8</span>.
                             This release introduces new features and modifies or removes existing functionality.
                         </p>
-                        <p class="wrapped mb-0">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/8.0.0/ChangeLog-8.0.md#800---2019-02-01">here</a>. More background on some of these changes is given <a href="https://phpunit.expert/articles/help-my-tests-stopped-working.html?ref=phpunit">here</a>.</p>
+                        <p class="wrapped mb-0">A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/8.0.0/ChangeLog-8.0.md#800---2019-02-01" target="_blank">here</a>. More background on some of these changes is given <a href="https://phpunit.expert/articles/help-my-tests-stopped-working.html?ref=phpunit.de" target="_blank">here</a>.</p>
                     </section>
                     <h2 class="subheadline">PHPUnit now requires <span class="nobr">PHP 7.2</span> (or newer)</h2>
-                    <p class="wrapped"><a href="https://secure.php.net/supported-versions.php">Active support for <span class="nobr">PHP 7.1</span> ended on December 1, 2018.</a> The only actively supported versions of PHP as of February 1, 2019 are <span class="nobr">PHP 7.2</span> and <span class="nobr">PHP 7.3</span>.</p>
+                    <p class="wrapped"><a href="https://secure.php.net/supported-versions.php" target="_blank">Active support for <span class="nobr">PHP 7.1</span> ended on December 1, 2018.</a> The only actively supported versions of PHP as of February 1, 2019 are <span class="nobr">PHP 7.2</span> and <span class="nobr">PHP 7.3</span>.</p>
                     <h2 class="subheadline">PHPUnit now uses (more) PHP 7 syntax</h2>
                     <p class="wrapped">The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.</p>
                     <div class="alert alert-secondary" role="alert">
                         <p class="text-center">
-                            It has taken <a href="https://phpunit.expert/?ref=phpunit">Sebastian Bergmann</a> thousands
+                            It has taken <a href="https://phpunit.expert/?ref=phpunit.de" target="_blank">Sebastian Bergmann</a> thousands
                             of hours to develop, test, and support PHPUnit.
                         </p>
                         <p class="text-center">
-                            Perhaps now is the time to <a href="../contribute.html">contribute
-                            to the development of PHPUnit</a> or <a href="../sponsors.html">sponsor Sebastian's work</a>.
+                            Perhaps now is the time to <a href="../sponsors.html">sponsor Sebastian's work</a>.
                         </p>
                     </div>
                     <p class="wrapped">A lot of time and effort went into the development of PHPUnit 8 to make better use of language features such as strict interpretation of scalar type declarations, for instance, that were introduced in <span class="nobr">PHP 7</span>.</p>
                     <h3 class="subheadline">Backward Incompatible Changes</h3>
                     <h4>Dependency Resolution and Result Caching</h4>
-                    <p class="wrapped">The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3092">resolution of test dependencies</a> that was introduced in PHPUnit 7.2 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3133">enabled by default</a>.</p>
-                    <p class="wrapped">The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3147">caching of test results</a> that was introduced in PHPUnit 7.3 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3244">enabled by default</a>.</p>
+                    <p class="wrapped">The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3092" target="_blank">resolution of test dependencies</a> that was introduced in PHPUnit 7.2 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3133" target="_blank">enabled by default</a>.</p>
+                    <p class="wrapped">The optional <a href="https://github.com/sebastianbergmann/phpunit/pull/3147" target="_blank">caching of test results</a> that was introduced in PHPUnit 7.3 is now <a href="https://github.com/sebastianbergmann/phpunit/issues/3244" target="_blank">enabled by default</a>.</p>
                     <h4>Return Type of Template Methods</h4>
                     <p class="wrapped">The methods listed below now have a <code>void</code> return type declaration:</p>
                     <ul>
@@ -93,17 +91,17 @@
                     <h3 class="subheadline">Looking Forward</h3>
                     <p class="wrapped">The following features have been deprecated in PHPUnit 8:</p>
                     <ul>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3369"><code>assertInternalType()</code> and <code>assertNotInternalType()</code></a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3494"><code>assertArraySubset()</code></a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3332">Annotation(s) for expecting exceptions</a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3338">Assertions (and helper methods) that operate on (non-public) attributes</a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3341">Optional parameters of <code>assertEquals()</code> and <code>assertNotEquals()</code></a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3388"><code>TestListener</code> interface</a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3425">Optional parameters of <code>assertContains()</code> and <code>assertNotContains()</code> as well as using these methods with <code>string</code> haystacks</a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3369" target="_blank"><code>assertInternalType()</code> and <code>assertNotInternalType()</code></a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3494" target="_blank"><code>assertArraySubset()</code></a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3332" target="_blank">Annotation(s) for expecting exceptions</a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3338" target="_blank">Assertions (and helper methods) that operate on (non-public) attributes</a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3341" target="_blank">Optional parameters of <code>assertEquals()</code> and <code>assertNotEquals()</code></a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3388" target="_blank"><code>TestListener</code> interface</a></li>
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/issues/3425" target="_blank">Optional parameters of <code>assertContains()</code> and <code>assertNotContains()</code> as well as using these methods with <code>string</code> haystacks</a></li>
                     </ul>
                     <p class="wrapped">The features deprecated in PHPUnit 8 will be removed in PHPUnit 9.</p>
                     <h2 class="subheadline">Getting PHPUnit 8</h2>
-                    <p class="wrapped">We distribute a <a href="https://secure.php.net/phar">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
+                    <p class="wrapped">We distribute a <a href="https://secure.php.net/phar" target="_blank">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.</p>
                     <p class="wrapped"><a href="../getting-started/phpunit-8.html">Here is a tutorial that gets you started.</a></p>
                     <h2 class="subheadline">Supported Versions</h2>
                     <p class="wrapped">Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>. Below is a summary as of February 1, 2019:</p>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="css/style.css?v=7" rel="stylesheet">
+        <link href="css/style.css?v=8" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -35,27 +35,40 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
                     <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="https://phpunit.expert/?ref=phpunit.de" class="nav-link">Professional Services</a></li>
+                    <li class="nav-item"><a href="supported-versions.html" class="nav-link">Supported Versions</a></li>
                     <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                    <li class="nav-item"><a href="contribute.html" class="nav-link">Contribute</a></li>
                 </ul>
             </header>
 
-            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                    <h1 class="display-4 fw-bold lh-1">Welcome to PHPUnit!</h1>
+            <div class="px-4 py-5 my-5 text-center rounded-3 border shadow-sm" style="background: linear-gradient(180deg, #fbfbfb 0%, #ffffff 100%);">
+                <h1 class="display-5 fw-bold mb-3">PHPUnit: The testing framework for PHP</h1>
+                <div class="col-lg-8 mx-auto">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="getting-started/phpunit-13.html" class="btn btn-start btn-lg px-4 me-sm-3 nobr">
+                            <img alt="Get started" src="img/icons/file-code.svg" width="24" height="24" class="inverted"/>
+                            Get started
+                        </a>
 
-                    <p class="lead wrapped">PHPUnit is a programmer-oriented testing framework for PHP. It is an instance of the xUnit architecture for unit testing frameworks.</p>
+                        <a href="documentation.html" class="btn btn-start btn-lg px-4 me-sm-3 nobr">
+                            <img alt="Documentation" src="img/icons/book-open-text.svg" width="24" height="24" class="inverted"/>
+                            Documentation
+                        </a>
 
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                        <a class="btn btn-start" href="getting-started/phpunit-13.html" role="button">Take the first steps</a>
-                        <a class="btn btn-training" href="https://phpunit.expert/consulting-and-coaching.html/?ref=phpunit.de" role="button">Get training or consulting</a>
-                        <a class="btn btn-newsletter" href="/newsletter" role="button">Subscribe to newsletter</a>
+                        <a href="https://github.com/sebastianbergmann/phpunit" class="btn btn-start btn-lg px-4 me-sm-3 nobr" target="_blank">
+                            <img alt="Code &amp; Issues" src="img/icons/git-compare-arrows.svg" width="24" height="24" class="inverted"/>
+                            Code &amp; Issues
+                        </a>
+
+                        <a href="https://phpunit.expert/consulting-and-coaching.html?ref=phpunit.de" class="btn btn-consulting btn-lg px-4 me-sm-3 nobr" target="_blank">
+                            <img alt="Code &amp; Issues" src="img/icons/life-buoy.svg" width="24" height="24" class="inverted"/>
+                            Consulting &amp; Coaching
+                        </a>
+
+                        <a href="sponsors.html" class="btn btn-sponsoring btn-lg px-4 me-sm-3 nobr">
+                            <img alt="Sponsor" src="img/icons/heart-handshake.svg" width="24" height="24" class="inverted"/>
+                            Sponsor
+                        </a>
                     </div>
-                </div>
-
-                <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-                    <img class="rounded-lg-3" src="img/raytracer_color.png" alt="Screenshot of PHPUnit test runner" width="600">
                 </div>
             </div>
 
@@ -65,8 +78,8 @@
                         <strong><a href="announcements/phpunit-13.html">PHPUnit 13</a> is the <a href="supported-versions.html">current stable</a> version.</strong>
                     </p>
                     <p>
-                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/70">PHPUnit 13.1</a> will be the next minor version.
-                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/75">PHPUnit 14</a> will be the next major version.
+                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/70" target="_blank">PHPUnit 13.1</a> will be the next minor version.
+                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/75" target="_blank">PHPUnit 14</a> will be the next major version.
                     </p>
                 </div>
             </div>
@@ -96,19 +109,19 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h3><a href="https://phpunit.expert/articles/?ref=phpunit">Articles</a></h3>
+                    <h3><a href="https://phpunit.expert/articles/?ref=phpunit.de" target="_blank">Articles</a></h3>
                     <ul class="articles">
                         <li>
                             <time datetime="2025-12-31" title="December 31, 2025">December 31, 2025</time>
-                            <p><a href="https://phpunit.expert/articles/the-stub-mock-intervention.html?ref=phpunit">The Stub/Mock Intervention</a></p>
+                            <p><a href="https://phpunit.expert/articles/the-stub-mock-intervention.html?ref=phpunit.de" target="_blank">The Stub/Mock Intervention</a></p>
                         </li>
                         <li>
                             <time datetime="2025-11-05" title="November 25, 2025">November 25, 2025</time>
-                            <p><a href="https://phpunit.expert/articles/more-control-less-friction-what-is-new-in-phpunit-12.4.html?ref=phpunit">More control, less friction</a></p>
+                            <p><a href="https://phpunit.expert/articles/more-control-less-friction-what-is-new-in-phpunit-12.4.html?ref=phpunit.de" target="_blank">More control, less friction</a></p>
                         </li>
                         <li>
                             <time datetime="2025-09-01" title="September 1, 2025">September 1, 2025</time>
-                            <p><a href="https://phpunit.expert/articles/innovation-through-collaboration-the-highlights-of-phpunit-12.3.html?ref=phpunit">Innovation through collaboration</a></p>
+                            <p><a href="https://phpunit.expert/articles/innovation-through-collaboration-the-highlights-of-phpunit-12.3.html?ref=phpunit.de" target="_blank">Innovation through collaboration</a></p>
                         </li>
                     </ul>
                 </div>
