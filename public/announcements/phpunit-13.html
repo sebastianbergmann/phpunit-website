@@ -63,7 +63,7 @@
                             The most significant changes are discussed below.
                         </p>
                     </section>
-                    <h2 class="subheadline">OMGWTFBBQ? I must upgrade to <span class="nobr">PHPUnit 13</span> immediately!</h2>
+                    <h2 class="subheadline" id="omgwtfbbq">OMGWTFBBQ? I must upgrade to <span class="nobr">PHPUnit 13</span> immediately!</h2>
                     <p class="wrapped">
                         <strong>No, you do not.</strong>
                     </p>
@@ -129,8 +129,8 @@
                             Perhaps now is the time to <a href="../sponsoring.html">sponsor Sebastian's work</a>.
                         </p>
                     </div>
-                    <h2 class="subheadline">Major Changes in PHPUnit 13</h2>
-                    <h3 class="subheadline">New array assertions</h3>
+                    <h2 class="subheadline" id="major-changes">Major Changes in PHPUnit 13</h2>
+                    <h3 class="subheadline" id="new-array-assertions">New array assertions</h3>
                     <p class="wrapped">
                         <span class="nobr">PHPUnit 13</span> introduces new assertions to address a long-standing need for more precise array comparison semantics beyond the general-purpose <code>assertSame()</code> and <code>assertEquals()</code> methods.
                     </p>
@@ -145,7 +145,20 @@
                     <p class="wrapped">
                         This systematic approach eliminates the ambiguity that often arose when developers needed to compare arrays with specific requirements, such as verifying that two arrays contain the same values regardless of key names or order, or ensuring that associative arrays are strictly identical including key ordering.
                     </p>
-                    <h3 class="subheadline">A replacement for <code>withConsecutive()</code></h3>
+                    <p class="wrapped">
+                        Each method name encodes all three dimensions directly, making intent immediately clear at the call site. The eight new methods are (<a href="https://github.com/sebastianbergmann/phpunit/pull/6477" target="_blank">#6477</a>):
+                    </p>
+                    <ul class="feature-list">
+                        <li><code>assertArraysAreIdentical()</code> — strict, keys considered, order significant</li>
+                        <li><code>assertArraysAreIdenticalIgnoringOrder()</code> — strict, keys considered, order ignored</li>
+                        <li><code>assertArraysHaveIdenticalValues()</code> — strict, keys ignored, order significant</li>
+                        <li><code>assertArraysHaveIdenticalValuesIgnoringOrder()</code> — strict, keys ignored, order ignored</li>
+                        <li><code>assertArraysAreEqual()</code> — loose, keys considered, order significant</li>
+                        <li><code>assertArraysAreEqualIgnoringOrder()</code> — loose, keys considered, order ignored</li>
+                        <li><code>assertArraysHaveEqualValues()</code> — loose, keys ignored, order significant</li>
+                        <li><code>assertArraysHaveEqualValuesIgnoringOrder()</code> — loose, keys ignored, order ignored</li>
+                    </ul>
+                    <h3 class="subheadline" id="replacement-for-withconsecutive">A replacement for <code>withConsecutive()</code></h3>
                     <p class="wrapped">
                         <span class="nobr">PHPUnit</span> 13 introduces refined parameter matching capabilities for mock objects, addressing longstanding limitations in test double verification.
                     </p>
@@ -155,7 +168,14 @@
                     <p class="wrapped">
                         This evolution reflects a deeper commitment to making mock object assertions more intuitive and maintainable, allowing developers to express complex call verification scenarios with cleaner, more readable code.
                     </p>
-                    <h3 class="subheadline">Sealed test doubles</h3>
+                    <p class="wrapped">
+                        The two replacement methods are chained after <code>expects()</code> and <code>method()</code>, each taking the same argument shape as the old <code>withConsecutive()</code>, an array of parameter arrays, one per expected invocation (<a href="https://github.com/sebastianbergmann/phpunit/issues/6455" target="_blank">#6455</a>):
+                    </p>
+                    <ul class="feature-list">
+                        <li><code>withParameterSetsInOrder(...)</code> validates that the mock object is called with each parameter set in the exact order configured</li>
+                        <li><code>withParameterSetsInAnyOrder(...)</code> validates that the mock object is called with each parameter set in any order</li>
+                    </ul>
+                    <h3 class="subheadline" id="sealed-test-doubles">Sealed test doubles</h3>
                     <p class="wrapped">
                         <span class="nobr">PHPUnit 13</span> introduces sealed test doubles, a powerful new feature that prevents common mocking pitfalls by finalising a test double's configuration and enforcing strict expectations.
                     </p>
@@ -169,9 +189,12 @@
                         Sealed test doubles provide a clear contract: once the configuration is finalised, the test double becomes a reliable, immutable fixture that accurately reflects the intended behavior of dependencies, making tests more robust and maintainable while catching unintended interactions that would otherwise go unnoticed.
                     </p>
                     <p class="wrapped">
-                        This purely additive feature requires no changes to existing test suites, allowing developers to opt in where stricter test double behavior provides value.
+                        <code>seal()</code> is called directly on the mock or stub object after all configuration is complete. Additionally, the <code>requireSealedMockObjects</code> XML configuration option (<a href="https://github.com/sebastianbergmann/phpunit/issues/6468" target="_blank">#6468</a>) can be used to enforce sealing globally across an entire test suite, turning any unsealed mock object into a test failure.
                     </p>
-                    <h3 class="subheadline">The <code>any()</code> matcher is now hard-deprecated</h3>
+                    <p class="wrapped">
+                        This purely additive feature requires no changes to existing test suites, allowing developers to opt in where stricter test double behavior provides value (<a href="https://github.com/sebastianbergmann/phpunit/issues/6466" target="_blank">#6466</a>).
+                    </p>
+                    <h3 class="subheadline" id="any-matcher-hard-deprecated">The <code>any()</code> matcher is now hard-deprecated</h3>
                     <p class="wrapped">
                         The deprecation of the <code>any()</code> matcher reinforces a fundamental principle:
                         mock objects are verification tools designed to assert that specific interactions occur, not to silently ignore them.
@@ -180,9 +203,12 @@
                         By eliminating the conceptual contradiction inherent in creating a mock object while declaring indifference to its invocation, <span class="nobr">PHPUnit 13</span> encourages developers to make deliberate choices: either using specific matchers like <code>once()</code> or <code>exactly()</code> for true verification concerns, or migrating to test stubs when no verification is needed.
                     </p>
                     <p class="wrapped">
-                        This shift promotes clearer test intent and eliminates the performance overhead of mock objects in scenarios where they provide no actual verification value.
+                        This shift promotes clearer test intent and eliminates the performance overhead of mock objects in scenarios where they provide no actual verification value (<a href="https://github.com/sebastianbergmann/phpunit/issues/6461" target="_blank">#6461</a>).
                     </p>
-                    <h2 class="subheadline">Supported Versions</h2>
+                    <p class="wrapped">
+                        When invocation count does matter, use a specific matcher: <code>once()</code>, <code>exactly(N)</code>, <code>atLeast(1)</code>, <code>atMostOnce()</code>, <code>atMost(N)</code>, or <code>never()</code>. When no invocation verification is needed at all, switch from <code>createMock()</code> to <code>createStub()</code> to use a test stub instead.
+                    </p>
+                    <h2 class="subheadline" id="supported-versions">Supported Versions</h2>
                     <p class="wrapped">
                         Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>.
                         Below is a summary as of February 6, 2026:
@@ -195,7 +221,7 @@
                     <p class="wrapped">
                         The versions listed above will be kept compatible with new PHP versions as long as possible.
                     </p>
-                    <h2 class="subheadline">Looking Forward</h2>
+                    <h2 class="subheadline" id="looking-forward">Looking Forward</h2>
                     <p class="wrapped">
                         Here is the roadmap for the next year:
                     </p>
@@ -207,7 +233,7 @@
                         <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/74" target="_blank"><span class="nobr">PHPUnit 13.5</span></a> is planned for December 4, 2026</li>
                         <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/75" target="_blank"><span class="nobr">PHPUnit 14</span></a> is planned for February 5, 2027</li>
                     </ul>
-                    <h2 class="subheadline">Keep up to date with PHPUnit</h2>
+                    <h2 class="subheadline" id="keep-up-to-date">Keep up to date with PHPUnit</h2>
                     <p class="wrapped">
                         You can follow <a rel="me" href="https://phpc.social/@phpunit/">@phpunit@phpc.social</a> to stay up to date with PHPUnit's development.
                     </p>

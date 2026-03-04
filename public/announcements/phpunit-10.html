@@ -74,7 +74,7 @@
                             The most significant changes are discussed below.
                         </p>
                     </section>
-                    <h2 class="subheadline">OMGWTFBBQ? I must upgrade to <span class="nobr">PHPUnit 10</span> immediately!</h2>
+                    <h2 class="subheadline" id="omgwtfbbq">OMGWTFBBQ? I must upgrade to <span class="nobr">PHPUnit 10</span> immediately!</h2>
                     <p class="wrapped">
                         <strong>No, you do not.</strong>
                     </p>
@@ -168,7 +168,7 @@
                         These changes were necessary to make life easier for those working on PHPUnit and to allow for the
                         development of new features in the future.
                     </p>
-                    <h3 class="subheadline">Event System</h3>
+                    <h3 class="subheadline" id="event-system">Event System</h3>
                     <p class="wrapped">
                         Previous versions of PHPUnit provided the <code>TestListener</code> interface as well as the
                         <code>TestHook</code> interfaces for developers of extensions for PHPUnit's test runner. Both of
@@ -235,7 +235,7 @@
                         from 2022 gives a good overview of the concepts and ideas behind the new event system. It also sheds some light on why
                         <span class="nobr">PHPUnit 10</span> was delayed.
                     </p>
-                    <h3 class="subheadline">Test Outcome versus Test Issues</h3>
+                    <h3 class="subheadline" id="test-outcome-vs-issues">Test Outcome versus Test Issues</h3>
                     <p class="wrapped">
                         <span class="nobr">PHPUnit 10</span> introduces a clear separation between the <em>outcome</em> (errored, failed, incomplete, skipped, or passed)
                         of a test and the <em>issues</em> (considered risky, triggered a warning, ...) of a test.
@@ -394,7 +394,7 @@ Tests: 2, Assertions: 0, Errors: 2.
                         use the CLI options <code>--display-deprecations</code>, <code>--display-notices</code>, and <code>--display-warnings</code>
                         (or their XML configuration file counterparts) when you want these details displayed.
                     </p>
-                    <h3 class="subheadline">Metadata</h3>
+                    <h3 class="subheadline" id="metadata">Metadata</h3>
                     <p class="wrapped">
                         <span class="nobr">PHPUnit 10</span> introduces <a href="https://github.com/sebastianbergmann/phpunit/issues/4502" target="_blank">support for <span class="nobr">PHP 8</span> attributes
                         for adding metadata to test classes and test methods as well as tested code units</a>. We could have made our lives
@@ -483,7 +483,7 @@ final class ExampleTest extends TestCase
                         Rector supports the <a href="https://github.com/rectorphp/rector-phpunit/blob/main/docs/rector_rules_overview.md" target="_blank">migration
                         from annotations in comments to attributes in code</a>.
                     </p>
-                    <h2 class="subheadline">Getting <span class="nobr">PHPUnit 10</span></h2>
+                    <h2 class="subheadline" id="getting-phpunit-10">Getting <span class="nobr">PHPUnit 10</span></h2>
                     <p class="wrapped">
                         We distribute a <a href="https://secure.php.net/phar" target="_blank">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit.
                         Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.
@@ -491,7 +491,7 @@ final class ExampleTest extends TestCase
                     <p class="wrapped">
                         <a href="../getting-started/phpunit-10.html">Here is a tutorial that gets you started.</a>
                     </p>
-                    <h2 class="subheadline">Supported Versions</h2>
+                    <h2 class="subheadline" id="supported-versions">Supported Versions</h2>
                     <p class="wrapped">
                         Detailed information on supported versions of PHPUnit is available <a href="../supported-versions.html">here</a>.
                         Below is a summary as of February 3, 2023:
@@ -504,7 +504,7 @@ final class ExampleTest extends TestCase
                     <p class="wrapped">
                         The versions listed above will be kept compatible with new PHP versions as long as possible.
                     </p>
-                    <h2 class="subheadline">Looking Forward</h2>
+                    <h2 class="subheadline" id="looking-forward">Looking Forward</h2>
                     <p class="wrapped">
                         Here is the roadmap for the next year:
                     </p>
@@ -516,7 +516,7 @@ final class ExampleTest extends TestCase
                         <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/58" target="_blank"><span class="nobr">PHPUnit 10.5</span></a> is planned for December 1, 2023</li>
                         <li><a href="https://github.com/sebastianbergmann/phpunit/milestone/46" target="_blank"><span class="nobr">PHPUnit 11</span></a> is planned for February 2, 2024</li>
                     </ul>
-                    <h2 class="subheadline">Keep up to date with PHPUnit</h2>
+                    <h2 class="subheadline" id="keep-up-to-date">Keep up to date with PHPUnit</h2>
                     <p class="wrapped">
                         You can follow <a rel="me" href="https://phpc.social/@phpunit/" target="_blank">@phpunit@phpc.social</a> to stay up to date with PHPUnit's development.
                     </p>
