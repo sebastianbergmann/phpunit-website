@@ -160,21 +160,15 @@
                     </ul>
                     <h3 class="subheadline" id="replacement-for-withconsecutive">A replacement for <code>withConsecutive()</code></h3>
                     <p class="wrapped">
-                        <span class="nobr">PHPUnit</span> 13 introduces refined parameter matching capabilities for mock objects, addressing longstanding limitations in test double verification.
-                    </p>
-                    <p class="wrapped">
-                        The removal of <code>withConsecutive()</code> and its replacement with two specialized rules for validating parameter sets across multiple invocations eliminates the need for the verbose workarounds that developers had to implement when upgrading to <span class="nobr">PHPUnit 10</span>.
-                    </p>
-                    <p class="wrapped">
-                        This evolution reflects a deeper commitment to making mock object assertions more intuitive and maintainable, allowing developers to express complex call verification scenarios with cleaner, more readable code.
-                    </p>
-                    <p class="wrapped">
-                        The two replacement methods are chained after <code>expects()</code> and <code>method()</code>, each taking the same argument shape as the old <code>withConsecutive()</code>, an array of parameter arrays, one per expected invocation (<a href="https://github.com/sebastianbergmann/phpunit/issues/6455" target="_blank">#6455</a>):
+                        <span class="nobr">PHPUnit 13</span> introduces two new methods as a replacement for the long-removed <code>withConsecutive()</code> (<a href="https://github.com/sebastianbergmann/phpunit/issues/6455" target="_blank">#6455</a>):
                     </p>
                     <ul class="feature-list">
                         <li><code>withParameterSetsInOrder(...)</code> validates that the mock object is called with each parameter set in the exact order configured</li>
                         <li><code>withParameterSetsInAnyOrder(...)</code> validates that the mock object is called with each parameter set in any order</li>
                     </ul>
+                    <p class="wrapped">
+                        For an in-depth discussion of these new methods, please refer to this <a href="https://phpunit.expert/articles/better-than-withconsecutive.html?ref=phpunit.de" target="_blank">article</a>.
+                    </p>
                     <h3 class="subheadline" id="sealed-test-doubles">Sealed test doubles</h3>
                     <p class="wrapped">
                         <span class="nobr">PHPUnit 13</span> introduces sealed test doubles, a powerful new feature that prevents common mocking pitfalls by finalising a test double's configuration and enforcing strict expectations.
