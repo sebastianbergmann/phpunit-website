@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="css/bootstrap.min.css?v=3" rel="stylesheet">
+        <link href="css/style.css?v=8" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>Verify PHPUnit Releases</title>
+        <meta property="og:title" content="Verify PHPUnit Releases" />
+        <meta property="og:url" content="https://phpunit.de/verify.html" />
+        <link rel="canonical" href="https://phpunit.de/verify.html" />
+        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="How to verify the integrity and authenticity of PHPUnit releases" />
+        <meta name="description" content="How to verify the integrity and authenticity of PHPUnit releases" />
+
+        <meta name="fediverse:creator" content="@phpunit@phpc.social">
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
+                    <li class="nav-item"><a href="supported-versions.html" class="nav-link">Supported Versions</a></li>
+                    <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                </ul>
+            </header>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Verify</h1>
+
+                    <p class="wrapped">
+                        <em>This page is inspired by the curl project's <a href="https://curl.se/docs/verify.html" target="_blank">Verify</a> page.</em>
+                    </p>
+
+                    <p class="wrapped">Do not trust, verify!</p>
+
+                    <h2 class="subheadline">Signed releases</h2>
+                    <p class="wrapped">
+                        Every PHPUnit release is shipped as a PHP Archive (PHAR).
+                        PHAR releases are available on <a href="https://phar.phpunit.de/" target="_blank">https://phar.phpunit.de/</a>.
+                    </p>
+                    <p class="wrapped">
+                        Each PHAR is signed by Sebastian Bergmann.
+                        PGP signatures and SHA256 hashes are provided alongside every release for verification.
+                        The digital signatures can be used to verify that the PHARs were produced by Sebastian Bergmann and have not been tampered with.
+                    </p>
+                    <p class="wrapped">
+                        If the PHPUnit website or PHAR distribution server were breached and fake PHPUnit releases were provided, they could be detected using these signatures.
+                    </p>
+                    <p class="wrapped">
+                        Sebastian Bergmann's public GPG key:
+                        <a href="https://sebastian-bergmann.de/gpg.asc" target="_blank">D840 6D0D 8294 7747 2937 7831 4AA3 9408 6372 C20A</a>
+                    </p>
+                    <p class="wrapped">
+                        For information on all keys Sebastian Bergmann uses to sign code, see his <a href="https://sebastian-bergmann.de/code-signing.html" target="_blank">code signing policy</a>.
+                    </p>
+
+                    <h2 class="subheadline" id="verifying-phar-releases-with-gpg">Verifying PHAR releases with GPG</h2>
+                    <p class="wrapped">
+                        Here is how you can manually verify a PHP Archive of a PHPUnit release using its detached PGP signature.
+                        We use PHPUnit 13 as an example throughout, but the process is the same for any version.
+                    </p>
+
+                    <h3 class="subheadline">Step 1: Download the PHAR and its signature</h3>
+                    <pre><code>wget -O phpunit.phar https://phar.phpunit.de/phpunit-13.phar
+wget -O phpunit.phar.asc https://phar.phpunit.de/phpunit-13.phar.asc</code></pre>
+
+                    <h3 class="subheadline">Step 2: Import the public key</h3>
+                    <p class="wrapped">
+                        You need Sebastian Bergmann's public key in your local GPG keyring.
+                        You can import it directly from his website:
+                    </p>
+                    <pre><code>curl --silent https://sebastian-bergmann.de/gpg.asc | gpg --import</code></pre>
+                    <p class="wrapped">Alternatively, you can fetch it from a key server:</p>
+                    <pre><code>gpg --keyserver pgp.uni-mainz.de --recv-keys 0x4AA394086372C20A</code></pre>
+
+                    <h3 class="subheadline">Step 3: Verify the signature</h3>
+                    <pre><code>gpg --verify phpunit.phar.asc phpunit.phar</code></pre>
+                    <p class="wrapped">If the PHAR has not been tampered with, GPG will report a good signature:</p>
+                    <pre><code>gpg: Signature made Mon Jul 19 06:13:42 2021 UTC
+gpg: using RSA key D8406D0D82947747293778314AA394086372C20A
+gpg: issuer "sb@sebastian-bergmann.de"
+gpg: Good signature from "Sebastian Bergmann &lt;sb@sebastian-bergmann.de&gt;" [unknown]
+gpg:                 aka "Sebastian Bergmann &lt;sebastian@thephp.cc&gt;" [unknown]
+gpg:                 aka "Sebastian Bergmann &lt;sebastian@phpunit.de&gt;" [unknown]
+gpg:                 aka "Sebastian Bergmann &lt;sebastian@php.net&gt;" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+     Primary key fingerprint: D840 6D0D 8294 7747 2937 7831 4AA3 9408 6372 C20A</code></pre>
+
+                    <h3 class="subheadline">Understanding the output</h3>
+                    <p class="wrapped">
+                        At this point, the signature is good, which means the file has not been tampered with.
+                        However, you may see a warning that the key is not certified with a trusted signature.
+                        This is expected if you have not established a chain of trust to Sebastian Bergmann's key through the GPG web of trust.
+                    </p>
+                    <p class="wrapped">
+                        A good signature confirms the file was signed by whoever controls the private key matching the fingerprint <code>D840 6D0D 8294 7747 2937 7831 4AA3 9408 6372 C20A</code>.
+                        To be certain that this key actually belongs to Sebastian Bergmann, you need to validate the authenticity of the key itself.
+                        For example, by verifying the fingerprint through an independent channel or through the PGP web of trust.
+                    </p>
+
+                    <h3 class="subheadline">What if the signature is bad?</h3>
+                    <p class="wrapped">
+                        If you see <code>BAD signature</code>, the file has been modified after it was signed.
+                        Do not use it.
+                        Download the PHAR again from a trusted source and repeat the verification.
+                    </p>
+
+                    <h2 class="subheadline" id="verifying-sha256-hashes">Verifying SHA256 hashes</h2>
+                    <p class="wrapped">
+                        In addition to PGP signatures, SHA256 hashes are published on <a href="https://phar.phpunit.de/" target="_blank">https://phar.phpunit.de/</a>.
+                        You can verify the integrity of a downloaded PHAR by comparing its hash:
+                    </p>
+                    <pre><code>sha256sum phpunit.phar</code></pre>
+                    <p class="wrapped">Compare the output against the hash published on the distribution page.</p>
+
+                    <h2 class="subheadline" id="inspecting-the-contents-of-the-phar">Inspecting the contents of the PHAR</h2>
+                    <p class="wrapped">
+                        PHPUnit's PHAR bundles all of its dependencies in a single file.
+                        The PHAR itself provides three CLI options that let you inspect exactly what is inside it, without having to extract or reverse-engineer anything.
+                    </p>
+
+                    <h3 class="subheadline"><code>--manifest</code></h3>
+                    <p class="wrapped">
+                        Prints a list of every package bundled in the PHAR together with its exact version number:
+                    </p>
+                    <pre><code>php phpunit.phar --manifest
+phpunit/phpunit: 13.0.5
+myclabs/deep-copy: 1.13.4
+nikic/php-parser: v5.7.0
+phar-io/manifest: 2.0.4
+phar-io/version: 3.2.1
+phpunit/php-code-coverage: 13.0.1
+...</code></pre>
+                    <p class="wrapped">
+                        This is the quickest way to check which version of a particular dependency is bundled.
+                    </p>
+
+                    <h3 class="subheadline"><code>--sbom</code></h3>
+                    <p class="wrapped">
+                        Prints a full Software Bill of Materials (SBOM) in CycloneDX XML format.
+                        For every bundled component, it includes the group, name, version, license, and a Package URL (purl):
+                    </p>
+                    <pre><code>php phpunit.phar --sbom
+&lt;?xml version="1.0"?&gt;
+&lt;bom xmlns="http://cyclonedx.org/schema/bom/1.4"&gt;
+ &lt;components&gt;
+  &lt;component type="library"&gt;
+   &lt;group&gt;phpunit&lt;/group&gt;
+   &lt;name&gt;phpunit&lt;/name&gt;
+   &lt;version&gt;13.0.5&lt;/version&gt;
+   &lt;description&gt;The PHP Unit Testing framework.&lt;/description&gt;
+   &lt;licenses&gt;
+    &lt;license&gt;
+     &lt;id&gt;BSD-3-Clause&lt;/id&gt;
+    &lt;/license&gt;
+   &lt;/licenses&gt;
+   &lt;purl&gt;pkg:composer/phpunit/phpunit@13.0.5&lt;/purl&gt;
+  &lt;/component&gt;
+  ...
+ &lt;/components&gt;
+&lt;/bom&gt;</code></pre>
+                    <p class="wrapped">
+                        The SBOM can be fed into supply-chain security tools that track known vulnerabilities across your dependency tree.
+                    </p>
+
+                    <h3 class="subheadline"><code>--composer-lock</code></h3>
+                    <p class="wrapped">
+                        Prints the <code>composer.lock</code> file that was used to install PHPUnit's dependencies when the PHAR was built:
+                    </p>
+                    <pre><code>php phpunit.phar --composer-lock
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "efcffb01d63d6a8a77320b50ca07079d",
+    ...
+}</code></pre>
+                    <p class="wrapped">
+                        This is useful for reproducing the exact build or for source-based distributions (such as Nix) that compile everything from source and need a lock file to guarantee reproducibility.
+                    </p>
+                    <p class="wrapped">
+                        Together, these three options give you full transparency into what the PHAR contains and how it was built, complementing the signature-based verification described above.
+                    </p>
+
+                    <h2 class="subheadline" id="using-phive-for-automatic-verification">Using PHIVE for automatic verification</h2>
+                    <p class="wrapped">
+                        Manually verifying PGP signatures every time you download or update PHPUnit is tedious.
+                        <a href="https://phar.io/" target="_blank">PHIVE</a> (the PHAR Installation and Verification Environment) was created to automate this process.
+                        PHIVE handles downloading, signature verification, and management of PHAR-based tools for your PHP projects.
+                    </p>
+                    <p class="wrapped">Install PHIVE:</p>
+                    <pre><code>wget -O phive.phar https://phar.io/releases/phive.phar
+wget -O phive.phar.asc https://phar.io/releases/phive.phar.asc
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 0x6AF725270AB81E04D79442549D8A98B29B2D5D79
+gpg --verify phive.phar.asc phive.phar
+chmod +x phive.phar
+sudo mv phive.phar /usr/local/bin/phive</code></pre>
+                    <p class="wrapped">Then install PHPUnit with automatic signature verification:</p>
+                    <pre><code>phive install phpunit</code></pre>
+                    <p class="wrapped">
+                        PHIVE downloads the PHAR, fetches the PGP signature, verifies it, and only installs the tool if the signature is valid.
+                    </p>
+
+                    <h2 class="subheadline" id="git-commits-and-tags">Git commits and tags</h2>
+                    <p class="wrapped">
+                        Sebastian Bergmann signs Git commits and tags for the PHPUnit source code repository.
+                    </p>
+                    <p class="wrapped">
+                        Since February 18, 2026, Git commits and tags are signed with an <a href="https://sebastian-bergmann.de/ssh.asc" target="_blank">SSH key</a>.
+                    </p>
+                    <p class="wrapped">
+                        From August 18, 2020 until February 18, 2025, Git commits and tags were signed with a <a href="https://sebastian-bergmann.de/gpg.asc" target="_blank">GPG key</a>.
+                    </p>
+                    <p class="wrapped">
+                        Prior to August 18, 2020, Git commits and tags were not signed.
+                    </p>
+                    <p class="wrapped">
+                        You can verify signed commits and tags in the <a href="https://github.com/sebastianbergmann/phpunit" target="_blank">PHPUnit source repository on GitHub</a> using the corresponding public key.
+                    </p>
+
+                    <h2 class="subheadline" id="source-code">Source code</h2>
+                    <p class="wrapped">
+                        How do you then verify that what is in the PHPUnit source repository is fine to build a product from?
+                    </p>
+                    <p class="wrapped">
+                        The PHPUnit project maintains quality and integrity of its source code through several measures:
+                    </p>
+                    <ul>
+                        <li>All official releases are built from tagged commits in the source repository. Sebastian Bergmann signs every tag.</li>
+                        <li>Pull requests are reviewed before merging.</li>
+                        <li>The project runs an extensive test suite with thousands of tests. Tests are executed in continuous integration for every commit and every pull request.</li>
+                        <li>Code coverage is monitored. The project actively works to close gaps.</li>
+                        <li>Static analysis tools are used to detect potential issues before they reach a release.</li>
+                        <li>Dependencies are explicitly declared and locked. The PHAR bundles all dependencies, so what you download is self-contained.</li>
+                    </ul>
+
+                    <h2 class="subheadline" id="verifying-a-composer-based-installation">Verifying a Composer-based installation</h2>
+                    <p class="wrapped">
+                        When you install PHPUnit via Composer (as a development dependency in your project), the verification story is different from the PHAR approach.
+                        Composer does not natively verify signatures on individual packages.
+                        Instead, integrity relies on a combination of Composer's built-in mechanisms and additional tooling.
+                    </p>
+
+                    <h3 class="subheadline">What Composer already does</h3>
+                    <p class="wrapped">
+                        Composer downloads packages over HTTPS from Packagist and checks that the downloaded archive matches the commit hash or tag recorded in <code>composer.lock</code>.
+                        When you commit <code>composer.lock</code> to version control, subsequent runs of <code>composer install</code> will fetch the exact same versions and verify that the downloaded contents match the recorded hashes.
+                        This protects against silent changes to a package after it was locked, but it does not verify that the package was authored by the person you expect.
+                    </p>
+                    <p class="wrapped">
+                        Composer verifies its own integrity during self-updates.
+                        Composer treats repositories as canonical by default.
+                        This prevents an attacker from injecting a higher version from a repository they control.
+                    </p>
+
+                    <h3 class="subheadline">Signature verification of Git tags</h3>
+                    <p class="wrapped">
+                        Composer does not verify GPG or SSH signatures on the Git tags it downloads.
+                        There is currently no maintained Composer plugin that fills this gap.
+                    </p>
+                    <p class="wrapped">
+                        If you need to verify tag signatures, you would have to do so manually against the <a href="https://github.com/sebastianbergmann/phpunit" target="_blank">PHPUnit source repository</a> using the appropriate public key (see the <a href="#git-commits-and-tags">Git commits and tags</a> section above).
+                    </p>
+
+                    <h3 class="subheadline">When to prefer the PHAR</h3>
+                    <p class="wrapped">
+                        The PHAR distribution provides a stronger verification story out of the box:
+                        every release has a detached GPG signature that can be verified before execution.
+                        The PHAR also avoids dependency conflicts with your project's own dependencies.
+                        If cryptographic verification of PHPUnit itself is important to you, the PHAR (verified manually or via PHIVE) is the better choice.
+                    </p>
+
+                    <h2 class="subheadline" id="verify-the-verify">Verify the verify</h2>
+                    <p class="wrapped">
+                        You should not blindly trust this page or the verification tools.
+                        The GPG commands shown here are standard and can be independently confirmed from the GPG documentation.
+                        The key fingerprint published here can be cross-referenced against Sebastian Bergmann's <a href="https://sebastian-bergmann.de/code-signing.html" target="_blank">code signing page</a>, his profiles on <a href="https://github.com/sebastianbergmann" target="_blank">GitHub</a>, and other independent sources.
+                    </p>
+                    <p class="wrapped">If in doubt, verify through multiple channels.</p>
+                </div>
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0"><a class="text-muted" href="impressum.html">Impressum</a> | <a class="text-muted" href="datenschutz.html">Datenschutz</a></p>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/icons/github.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/icons/mastodon.svg" width="24" height="24"/></a></li>
+                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="img/icons/newsletter.svg" width="24" height="24"/></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="js/bootstrap.bundle.min.js?v=3"></script>
+    </body>
+</html>
