@@ -240,18 +240,34 @@ sudo mv phive.phar /usr/local/bin/phive</code></pre>
 
                     <h2 class="subheadline" id="source-code">Source code</h2>
                     <p class="wrapped">
-                        How do you then verify that what is in the PHPUnit source repository is fine to build a product from?
+                        How do you then verify that what is in the PHPUnit source repository is fine to use in your development process?
                     </p>
                     <p class="wrapped">
                         The PHPUnit project maintains quality and integrity of its source code through several measures:
                     </p>
                     <ul>
-                        <li>All official releases are built from tagged commits in the source repository. Sebastian Bergmann signs every tag.</li>
-                        <li>Pull requests are reviewed before merging.</li>
-                        <li>The project runs an extensive test suite with thousands of tests. Tests are executed in continuous integration for every commit and every pull request.</li>
-                        <li>Code coverage is monitored. The project actively works to close gaps.</li>
-                        <li>Static analysis tools are used to detect potential issues before they reach a release.</li>
-                        <li>Dependencies are explicitly declared and locked. The PHAR bundles all dependencies, so what you download is self-contained.</li>
+                        <li>
+                            All official releases are built from tagged commits in the source repository.
+                            Sebastian Bergmann signs every tag.
+                        </li>
+                        <li>
+                            Pull requests are reviewed before merging.
+                        </li>
+                        <li>
+                            The project runs an extensive test suite with thousands of tests.
+                            Tests are executed in continuous integration for every commit and every pull request.
+                        </li>
+                        <li>
+                            Code coverage is monitored.
+                            The project actively works to close gaps.
+                        </li>
+                        <li>
+                            Static analysis tools are used to detect potential issues before they reach a release.
+                        </li>
+                        <li>
+                            Dependencies are explicitly declared and locked.
+                            The PHAR bundles all dependencies, so what you download is self-contained.
+                        </li>
                     </ul>
 
                     <h2 class="subheadline" id="verifying-a-composer-based-installation">Verifying a Composer-based installation</h2>
@@ -263,7 +279,7 @@ sudo mv phive.phar /usr/local/bin/phive</code></pre>
 
                     <h3 class="subheadline">What Composer already does</h3>
                     <p class="wrapped">
-                        Composer downloads packages over HTTPS from Packagist and checks that the downloaded archive matches the commit hash or tag recorded in <code>composer.lock</code>.
+                        Composer downloads package metadata over HTTPS from Packagist and checks that the downloaded archive matches the commit hash or tag recorded in <code>composer.lock</code>.
                         When you commit <code>composer.lock</code> to version control, subsequent runs of <code>composer install</code> will fetch the exact same versions and verify that the downloaded contents match the recorded hashes.
                         This protects against silent changes to a package after it was locked, but it does not verify that the package was authored by the person you expect.
                     </p>
@@ -280,11 +296,12 @@ sudo mv phive.phar /usr/local/bin/phive</code></pre>
                     </p>
                     <p class="wrapped">
                         If you need to verify tag signatures, you would have to do so manually against the <a href="https://github.com/sebastianbergmann/phpunit" target="_blank">PHPUnit source repository</a> using the appropriate public key (see the <a href="#git-commits-and-tags">Git commits and tags</a> section above).
+                        You would also have to do this for all dependencies of PHPUnit.
                     </p>
 
                     <h3 class="subheadline">When to prefer the PHAR</h3>
                     <p class="wrapped">
-                        The PHAR distribution provides a stronger verification story out of the box:
+                        The PHAR distribution provides stronger verification out of the box:
                         every release has a detached GPG signature that can be verified before execution.
                         The PHAR also avoids dependency conflicts with your project's own dependencies.
                         If cryptographic verification of PHPUnit itself is important to you, the PHAR (verified manually or via PHIVE) is the better choice.
