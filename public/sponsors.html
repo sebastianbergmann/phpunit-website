@@ -4,130 +4,157 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>Sponsors of PHPUnit</title>
-        <meta property="og:title" content="Sponsors of PHPUnit" />
-        <meta property="og:url" content="https://phpunit.de/sponsors.html" />
-        <link rel="canonical" href="https://phpunit.de/sponsors.html" />
-        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit." />
-        <meta name="description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit." />
+        <meta name="description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit.">
+        <link rel="canonical" href="https://phpunit.de/sponsors.html">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Sponsors of PHPUnit">
+        <meta property="og:description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit.">
+        <meta property="og:url" content="https://phpunit.de/sponsors.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sponsors of PHPUnit">
+        <meta name="twitter:description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Sponsors"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="sponsors.html" class="nav-link active" aria-current="page">Sponsors</a></li>
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html" aria-current="page">Sponsors</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main" class="wrap">
+            <h1>Sponsors of PHPUnit</h1>
+
+            <h2>Business Sponsors</h2>
+            <p>These businesses support Sebastian Bergmann's work on PHPUnit:</p>
+
+            <ul class="sponsor-grid">
+                    <li><a href="https://www.bubbleshooter.net/" target="_blank" rel="noopener"><img src="/img/sponsors/bubble-shooter.png" alt="Bubble Shooter" loading="lazy"></a></li>
+                    <li><a href="https://www.in2it.be/phpunit-supporter/" target="_blank" rel="noopener"><img src="/img/sponsors/in2it.svg" alt="in2it vof" loading="lazy"></a></li>
+                    <li><a href="https://l.rw.rw/php_unit" target="_blank" rel="noopener"><img src="/img/sponsors/mailtrap.svg" alt="Mailtrap" loading="lazy"></a></li>
+                    <li><a href="https://testmo.com/" target="_blank" rel="noopener"><img src="/img/sponsors/testmo.svg" alt="Testmo GmbH" loading="lazy"></a></li>
+                    <li><a href="https://www.testmuai.com/?utm_medium=sponsor&amp;utm_source=phpunit" target="_blank" rel="noopener"><img src="/img/sponsors/testmuai.svg" alt="TestMu AI" loading="lazy"></a></li>
+                    <li><a href="https://tideways.com/" target="_blank" rel="noopener"><img src="/img/sponsors/tideways.svg" alt="Tideways GmbH" loading="lazy"></a></li>
+                    <li><a href="https://typo3.com/" target="_blank" rel="noopener"><img src="/img/sponsors/typo3.svg" alt="TYPO3 GmbH" loading="lazy"></a></li>
+                    <li><a href="https://vema-eg.de/" target="_blank" rel="noopener"><img src="/img/sponsors/vema.svg" alt="VEMA Versicherungsmakler Genossenschaft eG" loading="lazy"></a></li>
+            </ul>
+
+            <p>
+                Would you like to see your logo here?
+                Please see the <a href="/sponsoring.html">sponsoring information page</a> for more details.
+            </p>
+
+            <h2>Infrastructure Sponsors</h2>
+            <p>These businesses sponsor infrastructure for the PHPUnit project:</p>
+
+            <ul class="sponsor-grid">
+                    <li><a href="https://developers.cloudflare.com/sponsorships" target="_blank" rel="noopener"><img src="/img/sponsors/cloudflare.svg" alt="Cloudflare" loading="lazy"></a></li>
+                    <li><a href="https://www.mittwald.de/" target="_blank" rel="noopener"><img src="/img/sponsors/mittwald.svg" alt="mittwald" loading="lazy"></a></li>
+                    <li><a href="https://thephp.cc/?ref=phpunit.de" target="_blank" rel="noopener"><img src="/img/sponsors/thephpcc.svg" alt="thePHP.cc" loading="lazy"></a></li>
+            </ul>
+
+            <h2>Funding Platforms</h2>
+            <p>
+                You can also sponsor Sebastian Bergmann's work on PHPUnit using various funding platforms.
+                Please see the <a href="/sponsoring.html">sponsoring information page</a> for more details.
+            </p>
+        </main>
+
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </header>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Sponsors of PHPUnit</h1>
-                </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <p style="margin-top: 1rem;">These businesses support Sebastian Bergmann's work on PHPUnit:</p>
-
-                    <br/>
-
-                    <div class="row">
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://www.bubbleshooter.net/" target="_blank"><img class="img-fluid" alt="Bubble Shooter" src="img/sponsors/bubble-shooter.png"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://www.in2it.be/phpunit-supporter/" target="_blank"><img class="img-fluid" alt="in2it vof" src="img/sponsors/in2it.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://l.rw.rw/php_unit" target="_blank"><img class="img-fluid" alt="Mailtrap" src="img/sponsors/mailtrap.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://testmo.com/" target="_blank"><img class="img-fluid" alt="Testmo GmbH" src="img/sponsors/testmo.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=phpunit" target="_blank"><img class="img-fluid" alt="TestMu AI" src="img/sponsors/testmuai.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://tideways.com/" target="_blank"><img class="img-fluid" alt="Tideways GmbH" src="img/sponsors/tideways.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://typo3.com/" target="_blank"><img class="img-fluid" alt="TYPO3 GmbH" src="img/sponsors/typo3.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://vema-eg.de/" target="_blank"><img class="img-fluid" alt="VEMA Versicherungsmakler Genossenschaft eG" src="img/sponsors/vema.svg"/></a>
-                        </div>
-                    </div>
-                    <p>
-                        Would you like to see your logo here?
-                        Please see the <a href="sponsoring.html">sponsoring information page</a> for more details.
-                    </p>
-                </div>
-            </div>
-
-            <hr/>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <p style="margin-top: 1rem;">These businesses sponsor infrastructure for the PHPUnit project:</p>
-                    <br/>
-                    <div class="row">
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://developers.cloudflare.com/sponsorships" target="_blank"><img class="img-fluid" alt="Cloudflare" src="img/sponsors/cloudflare.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://www.mittwald.de/" target="_blank"><img class="img-fluid" alt="mittwald" src="img/sponsors/mittwald.svg"/></a>
-                        </div>
-                        <div class="col-md-3" data-sponsor="true">
-                            <a href="https://thephp.cc/?ref=phpunit.de" target="_blank"><img class="img-fluid" alt="thePHP.cc" src="img/sponsors/thephpcc.svg"/></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr/>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Funding Platforms</h2>
-                    <p>
-                        You can also sponsor Sebastian Bergmann's work on PHPUnit using various funding platforms.
-                        Please see the <a href="sponsoring.html">sponsoring information page</a> for more details.
-                    </p>
-                </div>
-            </div>
-
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="impressum.html">Impressum</a> | <a class="text-muted" href="datenschutz.html">Datenschutz</a></p>
-
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="img/icons/newsletter.svg" width="24" height="24"/></a></li>
-                </ul>
-            </footer>
-        </div>
-
-        <script src="js/bootstrap.bundle.min.js?v=3"></script>
+        </footer>
     </body>
 </html>

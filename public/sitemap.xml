@@ -1,108 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://phpunit.de/index.html</loc>
+        <loc>https://phpunit.de/</loc>
+        <lastmod>2026-07-01</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/backward-compatibility.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/documentation.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/sponsoring.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/sponsors.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/supported-versions.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/index.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-13.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-12.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-11.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-10.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-9.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-8.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-7.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-6.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-5.html</loc>
-    </url>
-    <url>
-        <loc>https://phpunit.de/announcements/phpunit-4.html</loc>
+        <loc>https://phpunit.de/announcements/</loc>
+        <lastmod>2026-06-05</lastmod>
     </url>
     <url>
         <loc>https://phpunit.de/announcements/end-of-life-for-pear-installation-method.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/index.html</loc>
+        <loc>https://phpunit.de/announcements/phpunit-10.html</loc>
+        <lastmod>2026-03-04</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/april-2019.html</loc>
+        <loc>https://phpunit.de/announcements/phpunit-11.html</loc>
+        <lastmod>2026-03-04</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/september-2018.html</loc>
+        <loc>https://phpunit.de/announcements/phpunit-12.html</loc>
+        <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-13.html</loc>
+        <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-4.html</loc>
+        <lastmod>2026-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-5.html</loc>
+        <lastmod>2026-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-6.html</loc>
+        <lastmod>2026-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-7.html</loc>
+        <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-8.html</loc>
+        <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/announcements/phpunit-9.html</loc>
+        <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/backward-compatibility.html</loc>
+        <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/code-sprints/</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
         <loc>https://phpunit.de/code-sprints/april-2018.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/code-sprints/october-2017.html</loc>
+        <loc>https://phpunit.de/code-sprints/april-2019.html</loc>
+        <lastmod>2026-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://phpunit.de/code-sprints/april-2025.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
         <loc>https://phpunit.de/code-sprints/march-2017.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-13.html</loc>
+        <loc>https://phpunit.de/code-sprints/march-2024.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-12.html</loc>
+        <loc>https://phpunit.de/code-sprints/october-2017.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-11.html</loc>
+        <loc>https://phpunit.de/code-sprints/october-2024.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-10.html</loc>
+        <loc>https://phpunit.de/code-sprints/september-2018.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-9.html</loc>
+        <loc>https://phpunit.de/code-sprints/september-2019.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-8.html</loc>
+        <loc>https://phpunit.de/documentation.html</loc>
+        <lastmod>2026-06-05</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-7.html</loc>
+        <loc>https://phpunit.de/getting-started.html</loc>
+        <lastmod>2017-12-24</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-6.html</loc>
+        <loc>https://phpunit.de/sponsoring.html</loc>
+        <lastmod>2026-03-28</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-5.html</loc>
+        <loc>https://phpunit.de/sponsors.html</loc>
+        <lastmod>2026-02-26</lastmod>
     </url>
     <url>
-        <loc>https://phpunit.de/getting-started/phpunit-4.html</loc>
+        <loc>https://phpunit.de/supported-versions.html</loc>
+        <lastmod>2026-02-24</lastmod>
     </url>
     <url>
         <loc>https://phpunit.de/verify.html</loc>
+        <lastmod>2026-05-01</lastmod>
     </url>
 </urlset>

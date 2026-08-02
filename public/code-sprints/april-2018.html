@@ -4,86 +4,171 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>April 2018 Code Sprint for PHPUnit</title>
-        <meta property="og:title" content="April 2018 Code Sprint for PHPUnit" />
-        <meta property="og:url" content="https://phpunit.de/code-sprints/april-2018.html" />
-        <link rel="canonical" href="https://phpunit.de/code-sprints/april-2018.html" />
-        <meta property="og:image" content="https://phpunit.de/img/tweets/982283782685364226.jpg" />
-        <meta property="og:type" content="article" />
-        <meta property="og:description" content="On April 6-7, 2018, there was a code sprint in Hamburg, Germany to work on PHPUnit and onboard new developers to the project." />
-        <meta name="description" content="On April 6-7, 2018, there was a code sprint in Hamburg, Germany to work on PHPUnit and onboard new developers to the project." />
+        <meta name="description" content="On April 6-7, 2018, there was a code sprint in Hamburg, Germany to work on PHPUnit and onboard new developers to the project.">
+        <link rel="canonical" href="https://phpunit.de/code-sprints/april-2018.html">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="April 2018 Code Sprint for PHPUnit">
+        <meta property="og:description" content="On April 6-7, 2018, there was a code sprint in Hamburg, Germany to work on PHPUnit and onboard new developers to the project.">
+        <meta property="og:url" content="https://phpunit.de/code-sprints/april-2018.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="April 2018 Code Sprint for PHPUnit">
+        <meta name="twitter:description" content="On April 6-7, 2018, there was a code sprint in Hamburg, Germany to work on PHPUnit and onboard new developers to the project.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Code Sprints",
+                            "item": "https://phpunit.de/code-sprints/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": "April 2018 Code Sprint for PHPUnit"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="../supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
-                </ul>
-            </header>
-
-            <div class="row">
-                <div class="col-md-9">
-                    <h1>PHPUnit Code Sprint in Hamburg, Germany</h1>
-                    <time datetime="2018-04-06/2018-04-07" title="April 6-7, 2018">April 6-7, 2018</time>
-
-                    <div class="row quotes">
-                        <div class="col-md-6">
-                            <img class="quote" alt="Photo of people working on PHPUnit, taken by Sebastian Bergmann" src="../img/tweets/982283782685364226.jpg"/>
-                            <p class="wrapped smaller">"We had a great first day at the @PHPUnit Code Sprint at @inside_kam today. More: tomorrow!"</p>
-                            <p class="text-end small">Sebastian Bergmann</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="quote" alt="Photo of people working on PHPUnit, taken by Sebastian Bergmann" src="../img/tweets/982581817852203008.jpg"/>
-                            <p class="wrapped smaller">"A new HTML test report being designed at the @phpunit code sprint."</p>
-                            <p class="text-end small">Sebastian Bergmann</p>
-                        </div>
-                    </div>
-                    <div class="row quotes">
-                        <div class="col-md-6">
-                            <p class="wrapped smaller">"Thank you, @inside_kam and @belanur for hosting this spring’s @phpunit code sprint with @s_bergmann, @arneblankerts, and a whole lot of participants! I had a great time, and I’m looking forward to the next event. 🤓"</p>
-                            <p class="text-end small">Andreas Möller</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="text-center"><strong style="font-size: smaller;">Organized by</strong></h4>
-                    <p class="text-center"><a href="https://www.kartenmacherei.de/" target="_blank"><img alt="Kartenmacherei" src="../img/sponsors/kartenmacherei.svg" width="200"/></a></p>
-                    <br/>
-                    <h4 class="text-center"><strong style="font-size: smaller;">Supported by</strong></h4>
-                    <p class="text-center"><a href="https://thephp.cc/?ref=phpunit.de" target="_blank"><img alt="thePHP.cc" src="../img/sponsors/thephpcc.svg" width="100"/></a></p>
-                </div>
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
+                    </ul>
+                </nav>
             </div>
+        </header>
 
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="../impressum.html">Impressum</a> | <a class="text-muted" href="../datenschutz.html">Datenschutz</a></p>
+        <main id="main" class="wrap">
+            <h1>PHPUnit Code Sprint in Hamburg, Germany</h1>
+            <p><time datetime="2018-04-06/2018-04-07">April 6-7, 2018</time></p>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="../img/icons/newsletter.svg" width="24" height="24"/></a></li>
+            <div class="sidebar-layout">
+                <div>
+                    <ul class="photo-grid">
+                        <li>
+                            <figure>
+                                <img src="/img/tweets/982283782685364226.jpg" alt="Photo of people working on PHPUnit, taken by Sebastian Bergmann" loading="lazy">
+                                <figcaption>"We had a great first day at the @PHPUnit Code Sprint at @inside_kam today. More: tomorrow!"
+                                    <span class="credit">Sebastian Bergmann</span>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure>
+                                <img src="/img/tweets/982581817852203008.jpg" alt="Photo of people working on PHPUnit, taken by Sebastian Bergmann" loading="lazy">
+                                <figcaption>"A new HTML test report being designed at the @phpunit code sprint."
+                                    <span class="credit">Sebastian Bergmann</span>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <blockquote>
+                                <p>"Thank you, @inside_kam and @belanur for hosting this spring’s @phpunit code sprint with @s_bergmann, @arneblankerts, and a whole lot of participants! I had a great time, and I’m looking forward to the next event. 🤓"</p>
+                                <footer>Andreas Möller</footer>
+                            </blockquote>
+                        </li>
+                    </ul>
+                </div>
+
+                <aside>
+                    <section class="org-block">
+                        <h2>Organized by</h2>
+                        <p><a href="https://www.kartenmacherei.de/" target="_blank" rel="noopener"><img src="/img/sponsors/kartenmacherei.svg" alt="Kartenmacherei" width="200" loading="lazy"></a></p>
+                    </section>
+
+                    <section class="org-block">
+                        <h2>Supported by</h2>
+                        <p><a href="https://thephp.cc/?ref=phpunit.de" target="_blank" rel="noopener"><img src="/img/sponsors/thephpcc.svg" alt="thePHP.cc" width="100" loading="lazy"></a></p>
+                    </section>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </footer>
-        </div>
-
-        <script src="../js/bootstrap.bundle.min.js?v=3"></script>
+            </div>
+        </footer>
     </body>
 </html>

@@ -1,6 +1,10 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "PHPUnit: The testing framework for PHP",
+    "short_name": "PHPUnit",
+    "description": "PHPUnit is the industry-leading test automation framework for software built using PHP.",
+    "lang": "en",
+    "start_url": "/",
+    "scope": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

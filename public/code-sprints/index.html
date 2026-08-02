@@ -4,75 +4,141 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>Code Sprints for PHPUnit</title>
-        <meta property="og:title" content="Code Sprints for PHPUnit" />
-        <meta property="og:url" content="https://phpunit.de/code-sprints/index.html" />
-        <link rel="canonical" href="https://phpunit.de/code-sprints/index.html" />
-        <meta property="og:image" content="https://phpunit.de/img/tweets/1170346193492283393.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="PHPUnit Code Sprints provide an opportunity to work on PHPUnit and the ecosystem of components around it." />
-        <meta name="description" content="PHPUnit Code Sprints provide an opportunity to work on PHPUnit and the ecosystem of components around it." />
+        <meta name="description" content="PHPUnit Code Sprints provide an opportunity to work on PHPUnit and the ecosystem of components around it.">
+        <link rel="canonical" href="https://phpunit.de/code-sprints/">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Code Sprints for PHPUnit">
+        <meta property="og:description" content="PHPUnit Code Sprints provide an opportunity to work on PHPUnit and the ecosystem of components around it.">
+        <meta property="og:url" content="https://phpunit.de/code-sprints/">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Code Sprints for PHPUnit">
+        <meta name="twitter:description" content="PHPUnit Code Sprints provide an opportunity to work on PHPUnit and the ecosystem of components around it.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Code Sprints"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="../supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
-                </ul>
-            </header>
-
-            <div class="row">
-                <div class="col-md-9">
-                    <h1>Code Sprints for PHPUnit</h1>
-                    <p>Do you want to contribute to PHPUnit but do not know how to get started? Then a PHPUnit Code Sprint is the right event for you!</p>
-                    <p>These events provide an opportunity to work on PHPUnit and the ecosystem of components around it.</p>
-                    <h2>Next Event</h2>
-                    <p>The next Code Sprint for PHPUnit is currently being planned and will be announced soon.</p>
-                    <h2>Past Events</h2>
+                <nav class="site-nav" aria-label="Main">
                     <ul>
-                        <li><a href="april-2025.html">April 25-26, 2025</a></li>
-                        <li><a href="october-2024.html">October 18-19, 2024</a></li>
-                        <li><a href="march-2024.html">March 8-9, 2024</a></li>
-                        <li><a href="september-2019.html">September 6-7, 2019</a></li>
-                        <li><a href="april-2019.html">April 26-27, 2019</a></li>
-                        <li><a href="september-2018.html">September 7-8, 2018</a></li>
-                        <li><a href="april-2018.html">April 6-7, 2018</a></li>
-                        <li><a href="october-2017.html">October 13-14, 2017</a></li>
-                        <li><a href="march-2017.html">March 31, 2017 - April 1, 2017</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
                     </ul>
-                </div>
+                </nav>
             </div>
+        </header>
 
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="../impressum.html">Impressum</a> | <a class="text-muted" href="../datenschutz.html">Datenschutz</a></p>
+        <main id="main" class="wrap">
+            <h1>Code Sprints for PHPUnit</h1>
+            <p>
+                Do you want to contribute to PHPUnit but do not know how to get started? Then a PHPUnit Code Sprint is the right event for you!
+            </p>
+            <p>These events provide an opportunity to work on PHPUnit and the ecosystem of components around it.</p>
+            <h2>Next Event</h2>
+            <p>The next Code Sprint for PHPUnit is currently being planned and will be announced soon.</p>
+            <h2>Past Events</h2>
+            <ul>
+                <li><a href="/code-sprints/april-2025.html">April 25-26, 2025</a></li>
+                <li><a href="/code-sprints/october-2024.html">October 18-19, 2024</a></li>
+                <li><a href="/code-sprints/march-2024.html">March 8-9, 2024</a></li>
+                <li><a href="/code-sprints/september-2019.html">September 6-7, 2019</a></li>
+                <li><a href="/code-sprints/april-2019.html">April 26-27, 2019</a></li>
+                <li><a href="/code-sprints/september-2018.html">September 7-8, 2018</a></li>
+                <li><a href="/code-sprints/april-2018.html">April 6-7, 2018</a></li>
+                <li><a href="/code-sprints/october-2017.html">October 13-14, 2017</a></li>
+                <li><a href="/code-sprints/march-2017.html">March 31, 2017 - April 1, 2017</a></li>
+            </ul>
+        </main>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="../img/icons/newsletter.svg" width="24" height="24"/></a></li>
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </footer>
-        </div>
-
-        <script src="../js/bootstrap.bundle.min.js?v=3"></script>
+            </div>
+        </footer>
     </body>
 </html>

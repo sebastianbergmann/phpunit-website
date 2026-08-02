@@ -1,0 +1,897 @@
+/*!
+ * phpunit.de design system
+ *
+ * No framework, no JavaScript. Palette derived from the PHPUnit logo
+ * (#39B54A green, #3C9CD7 / #356388 blues).
+ */
+
+/* ============================================================ tokens === */
+
+:root {
+    color-scheme: light dark;
+
+    /*
+     * Brand hues are the logo's colours darkened until white text on them
+     * clears WCAG AA (4.5:1). The logo artwork itself keeps the original
+     * #39B54A / #3C9CD7.
+     */
+    --brand:         #2b8737;
+    --brand-strong:  #237c30;
+    --brand-contrast:#ffffff;
+    --accent:        #257db3;
+    --accent-strong: #20678f;
+
+    /* call-to-action hues carried over from the previous design */
+    --sponsor:       #d92626;
+    --sponsor-strong:#c31d1d;
+    --consulting:    #ae640b;
+    --consulting-strong:#8f5209;
+
+    /* neutrals */
+    --bg:            #ffffff;
+    --bg-subtle:     #f6f8fa;
+    --bg-inset:      #eef2f6;
+    --bg-raised:     #ffffff;
+    --text:          #16202b;
+    --text-muted:    #56636f;
+    --border:        #dfe5ec;
+    --border-strong: #c3ccd6;
+
+    /* status */
+    --ok-bg:      #e4f4e7;   --ok-border:   #bfe4c6;   --ok-text:   #17532a;
+    --warn-bg:    #fdf3d9;   --warn-border: #f0dda6;   --warn-text: #6b4c07;
+    --danger-bg:  #fdeaea;   --danger-border:#f2c9c9;  --danger-text:#7d1f1f;
+    --info-bg:    #e7f2fa;   --info-border: #c3ddef;   --info-text: #17435f;
+
+    /* shape & depth */
+    --radius:     0.625rem;
+    --radius-sm:  0.375rem;
+    --radius-pill: 999px;
+    --shadow-sm:  0 1px 2px rgba(16, 32, 48, .06), 0 1px 3px rgba(16, 32, 48, .05);
+    --shadow:     0 2px 4px rgba(16, 32, 48, .05), 0 8px 20px rgba(16, 32, 48, .07);
+
+    /* type */
+    --font-sans: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* metrics */
+    --wrap:      72rem;
+    --header-h:  4rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --brand:         #46c257;
+        --brand-strong:  #5ad06b;
+        --brand-contrast:#08210c;
+        --accent:        #63b3e0;
+        --accent-strong: #8ecbef;
+
+        --sponsor:       #e35555;
+        --sponsor-strong:#ef7373;
+        --consulting:    #e0913a;
+        --consulting-strong:#eda85c;
+
+        --bg:            #0f151b;
+        --bg-subtle:     #151d25;
+        --bg-inset:      #1a232d;
+        --bg-raised:     #161f28;
+        --text:          #e4eaf0;
+        --text-muted:    #9aa7b4;
+        --border:        #253039;
+        --border-strong: #364453;
+
+        --ok-bg:      #102a19;   --ok-border:   #1f4c2c;   --ok-text:   #86e0a0;
+        --warn-bg:    #2b2210;   --warn-border: #4d3f1c;   --warn-text: #e8ce85;
+        --danger-bg:  #2c1416;   --danger-border:#512427;  --danger-text:#f0a0a2;
+        --info-bg:    #10222e;   --info-border: #1f3f54;   --info-text: #9ad0ee;
+
+        --shadow-sm:  0 1px 2px rgba(0, 0, 0, .4);
+        --shadow:     0 2px 4px rgba(0, 0, 0, .3), 0 8px 20px rgba(0, 0, 0, .35);
+    }
+}
+
+/* ============================================================= fonts === */
+
+/*
+ * Both files are static regular-weight faces. They must be declared as
+ * weight 400 only: announcing a 400-700 range would tell the browser the
+ * family already covers bold, and it would stop synthesising it - which
+ * silently flattens every <strong> and heading on the site.
+ */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/OpenSans.woff2) format('woff2'),
+         url(../fonts/OpenSans.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/SourceCodePro.woff2) format('woff2'),
+         url(../fonts/SourceCodePro.ttf) format('truetype');
+}
+
+/* ============================================================= reset === */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+body {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, .96rem + .2vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+
+input, button, textarea, select { font: inherit; color: inherit; }
+
+:target { scroll-margin-top: calc(var(--header-h) + 1rem); }
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* ======================================================== typography === */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    text-wrap: balance;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+h1 { font-size: clamp(2rem, 1.5rem + 2.2vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 1.25rem + 1.1vw, 2rem); }
+h3 { font-size: clamp(1.25rem, 1.12rem + .6vw, 1.5rem); }
+h4 { font-size: 1.15rem; }
+h5, h6 { font-size: 1rem; }
+
+p, ul, ol, dl, pre, table, blockquote, figure { margin-block: 0 1.15rem; }
+
+h2 { margin-block: 2.75rem 1rem; }
+h3 { margin-block: 2rem .75rem; }
+h4 { margin-block: 1.5rem .5rem; }
+
+:is(h1, h2, h3, h4) + :is(p, ul, ol) { margin-top: 0; }
+
+ul, ol { padding-left: 1.35rem; }
+li + li { margin-top: .35rem; }
+li > ul, li > ol { margin-block: .35rem; }
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    text-underline-offset: .18em;
+    transition: color .15s ease;
+}
+
+a:hover { color: var(--accent-strong); text-decoration: underline; }
+
+/* Body copy links stay underlined for legibility; chrome links do not. */
+:is(p, li, dd, td, th, figcaption, blockquote) > a { text-decoration: underline; }
+
+strong, b { font-weight: 700; }
+
+small, .small { font-size: .875em; }
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin-block: 2.5rem;
+}
+
+blockquote {
+    padding-left: 1.1rem;
+    border-left: 3px solid var(--border-strong);
+    color: var(--text-muted);
+}
+
+time { font-size: .875em; font-weight: 600; color: var(--text-muted); }
+
+abbr[title] { text-decoration-style: dotted; cursor: help; }
+
+/* ============================================================== code === */
+
+code, kbd, samp, pre { font-family: var(--font-mono); }
+
+:not(pre) > code {
+    font-size: .875em;
+    padding: .12em .38em;
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    word-break: break-word;
+}
+
+pre {
+    font-size: .8125rem;
+    line-height: 1.6;
+    padding: 1rem 1.1rem;
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow-x: auto;
+    tab-size: 4;
+    color: var(--text);
+}
+
+pre code {
+    all: unset;
+    font: inherit;
+    white-space: pre;
+}
+
+/*
+ * In the tutorials, <strong> inside <pre> marks what the reader types,
+ * as opposed to the program output. That distinction used to be invisible;
+ * now it carries the brand colour instead of relying on a highlighter.
+ */
+pre strong {
+    display: block;
+    font-weight: 600;
+    color: var(--brand-strong);
+}
+
+@media (prefers-color-scheme: dark) {
+    pre strong { color: var(--brand); }
+}
+
+/* ========================================================== skip link === */
+
+.skip-link {
+    position: absolute;
+    left: .5rem;
+    top: -4rem;
+    z-index: 100;
+    padding: .6rem 1rem;
+    background: var(--bg-raised);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    transition: top .15s ease;
+}
+
+.skip-link:focus { top: .5rem; }
+
+/* ============================================================ layout === */
+
+.wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, .5rem + 2vw, 2rem);
+}
+
+main { flex: 1 0 auto; padding-block: 2.5rem 4rem; }
+
+.lead {
+    font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem);
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.nowrap { white-space: nowrap; }
+.muted  { color: var(--text-muted); }
+.center { text-align: center; }
+
+/* ============================================================ header === */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .site-header {
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: saturate(180%) blur(12px);
+    }
+}
+
+.site-header__inner {
+    min-height: var(--header-h);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem 1.5rem;
+    padding-block: .7rem;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    margin-right: auto;
+    color: var(--text);
+    border-radius: var(--radius-sm);
+}
+
+/* A <picture> swaps in phpunit-dark.svg, whose navy ink is lightened. */
+.brand img { height: 2.25rem; width: auto; }
+
+.site-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav li + li { margin-top: 0; }
+
+.site-nav a {
+    display: block;
+    padding: .45rem .85rem;
+    border-radius: var(--radius-pill);
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.site-nav a:hover {
+    background: var(--bg-subtle);
+    color: var(--text);
+    text-decoration: none;
+}
+
+.site-nav a[aria-current='page'] {
+    background: var(--brand);
+    color: var(--brand-contrast);
+}
+
+/* ============================================================ footer === */
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding-block: 1.75rem;
+    margin-top: auto;
+    color: var(--text-muted);
+    font-size: .9rem;
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.site-footer a { color: var(--text-muted); }
+.site-footer a:hover { color: var(--text); }
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.social li + li { margin-top: 0; }
+
+.social a {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-sm);
+    transition: background-color .15s ease;
+}
+
+.social a:hover { background: var(--bg-subtle); }
+
+.social img { width: 1.25rem; height: 1.25rem; opacity: .7; }
+.social a:hover img { opacity: 1; }
+
+@media (prefers-color-scheme: dark) {
+    .social img { filter: invert(1); opacity: .65; }
+}
+
+/* ============================================================== hero === */
+
+.hero {
+    text-align: center;
+    padding: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: 3rem;
+    background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) * 1.6);
+}
+
+.hero h1 { margin-bottom: .5rem; }
+
+/*
+ * The tagline lives inside the <h1> so the heading still carries the full
+ * "PHPUnit: The testing framework for PHP" phrase, but reads as two lines.
+ */
+.hero h1 .tagline,
+.hero__tagline {
+    display: block;
+    margin-top: .6rem;
+    font-size: clamp(1.05rem, .95rem + .55vw, 1.35rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.4;
+    color: var(--text-muted);
+    text-wrap: balance;
+}
+
+.hero__icon { margin: 0 auto 1.25rem; width: 4rem; height: 4rem; }
+
+@media (prefers-color-scheme: dark) {
+    .hero__icon { filter: invert(1) opacity(.85); }
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    margin-top: 2rem;
+}
+
+/* =========================================================== buttons === */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    padding: .7rem 1.35rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--text);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease,
+                color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:active { transform: none; box-shadow: none; }
+
+.btn img { width: 1.25rem; height: 1.25rem; }
+
+.btn--primary,
+.btn--sponsor,
+.btn--consulting { color: #fff; border-color: transparent; }
+
+.btn--primary    { background: var(--brand); color: var(--brand-contrast); }
+.btn--primary:hover { background: var(--brand-strong); color: var(--brand-contrast); }
+
+.btn--sponsor    { background: var(--sponsor); }
+.btn--sponsor:hover { background: var(--sponsor-strong); color: #fff; }
+
+.btn--consulting { background: var(--consulting); }
+.btn--consulting:hover { background: var(--consulting-strong); color: #fff; }
+
+.btn--block { width: 100%; }
+
+/* Icons inside coloured buttons are monochrome line art. */
+.btn--primary img,
+.btn--sponsor img,
+.btn--consulting img { filter: brightness(0) invert(1); }
+
+@media (prefers-color-scheme: dark) {
+    .btn--primary img { filter: brightness(0); }
+}
+
+/* ============================================================= cards === */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.card > :last-child { margin-bottom: 0; }
+
+.card__title { font-size: 1.15rem; margin-block: 0 .6rem; }
+
+/* A linked card title should still read as a heading, not as body-copy link. */
+.card__title a { color: inherit; text-decoration: none; }
+.card__title a:hover { color: var(--accent); text-decoration: underline; }
+
+.card--center { text-align: center; align-items: center; }
+
+.card--link { position: relative; transition: border-color .15s ease, box-shadow .15s ease; }
+.card--link:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+
+/* Makes the whole card clickable without nesting interactive elements. */
+.stretch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+
+/* ============================================================== grid === */
+
+.card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+    margin-bottom: 1.5rem;
+}
+
+.card-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr)); }
+
+.split {
+    display: grid;
+    gap: 1.5rem 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+    align-items: start;
+    margin-bottom: 1.5rem;
+}
+
+.split > * > :last-child { margin-bottom: 0; }
+
+.sidebar-layout {
+    display: grid;
+    gap: 2rem 3rem;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+}
+
+@media (max-width: 60rem) {
+    .sidebar-layout { grid-template-columns: 1fr; }
+}
+
+/* ============================================================= notes === */
+
+.note {
+    padding: 1rem 1.15rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--info-border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+    background: var(--info-bg);
+    color: var(--info-text);
+}
+
+.note > :last-child { margin-bottom: 0; }
+.note a { color: inherit; font-weight: 600; }
+
+.note--warn {
+    background: var(--warn-bg);
+    border-color: var(--warn-border);
+    border-left-color: #d9a72b;
+    color: var(--warn-text);
+}
+
+.note--danger {
+    background: var(--danger-bg);
+    border-color: var(--danger-border);
+    border-left-color: var(--sponsor);
+    color: var(--danger-text);
+}
+
+.note--neutral {
+    background: var(--bg-subtle);
+    border-color: var(--border);
+    border-left-color: var(--border-strong);
+    color: var(--text);
+}
+
+/* ============================================================ badges === */
+
+.badge {
+    display: inline-block;
+    padding: .25rem .7rem;
+    font-size: .78rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    border-radius: var(--radius-pill);
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.badge--major { background: #efe6ff; border-color: #ddd0fb; color: #5a35b5; }
+
+@media (prefers-color-scheme: dark) {
+    .badge--major { background: #241a3d; border-color: #3b2c5e; color: #c3aef5; }
+}
+
+.badge--ok     { background: var(--ok-bg);     border-color: var(--ok-border);     color: var(--ok-text); }
+.badge--warn   { background: var(--warn-bg);   border-color: var(--warn-border);   color: var(--warn-text); }
+.badge--danger { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger-text); }
+
+/* ============================================================ tables === */
+
+.table-scroll {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+table { border-collapse: collapse; width: 100%; }
+
+.table-scroll > table { margin-bottom: 0; }
+
+th, td {
+    padding: .7rem .9rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    font-size: .95rem;
+}
+
+thead th {
+    background: var(--bg-subtle);
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+tbody tr:last-child :is(th, td) { border-bottom: 0; }
+
+tbody th { font-weight: 700; white-space: nowrap; }
+
+tr.is-supported :is(th, td) { background: var(--ok-bg);     color: var(--ok-text); }
+tr.is-security  :is(th, td) { background: var(--warn-bg);   color: var(--warn-text); }
+tr.is-eol       :is(th, td) { background: var(--danger-bg); color: var(--danger-text); }
+
+:is(tr.is-supported, tr.is-security, tr.is-eol) a { color: inherit; }
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.legend li { margin-top: 0; }
+
+/* ====================================================== entry lists === */
+
+.entry-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.entry-list > li {
+    margin-top: 0;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.entry-list > li:last-child { border-bottom: 0; }
+
+.entry-list p { margin-bottom: 0; }
+
+.entry-list a { font-weight: 600; }
+
+/* Announcement archive */
+.archive-entry { padding-block: 1.5rem; border-bottom: 1px solid var(--border); }
+.archive-entry:last-of-type { border-bottom: 0; }
+.archive-entry h2 { font-size: 1.3rem; margin-block: 0 .35rem; }
+.archive-entry p { margin-bottom: 0; }
+.archive-entry time { display: block; margin-bottom: .5rem; }
+
+/* ====================================================== announcement === */
+
+.announcement-hero {
+    padding: 1.75rem;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.announcement-hero > :last-child { margin-bottom: 0; }
+
+.announcement-hero__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .5rem;
+}
+
+.announcement-hero__head h1 { margin: 0; font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem); }
+
+/* ========================================================== sponsors === */
+
+.sponsor-grid {
+    display: grid;
+    gap: 2.5rem 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 0;
+    list-style: none;
+}
+
+.sponsor-grid li { margin-top: 0; }
+
+/*
+ * Most sponsor logos are SVGs carrying a viewBox but no width/height, so they
+ * have no intrinsic size and collapse unless an ancestor gives them a
+ * definite width. The <a> is the element that must be sized: it is the box
+ * the image resolves its percentage width against.
+ */
+.sponsor-grid a {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 4.5rem;
+}
+
+.sponsor-grid img {
+    width: 100%;
+    max-width: 11rem;
+    height: auto;
+    max-height: 4.5rem;
+    object-fit: contain;
+}
+
+/*
+ * Sponsor logos are third-party artwork in fixed colours. Rather than
+ * filtering them (which mangles anything already light or multi-coloured),
+ * give them a light plate to sit on when the page is dark.
+ */
+@media (prefers-color-scheme: dark) {
+    .sponsor-grid li,
+    .org-block p {
+        padding: 1rem 1.25rem;
+        background: #fff;
+        border-radius: var(--radius);
+    }
+}
+
+/* ============================================================ photos === */
+
+.photo-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    margin-bottom: 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.photo-grid li { margin-top: 0; }
+
+.photo-grid figure { margin: 0; }
+
+.photo-grid img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); }
+
+.photo-grid figcaption { margin-top: .6rem; font-size: .875rem; color: var(--text-muted); }
+
+.photo-grid figcaption .credit { display: block; font-size: .8rem; opacity: .8; }
+
+/* Testimonial cards sit in the same grid as the photos. */
+.photo-grid blockquote {
+    height: 100%;
+    margin: 0;
+    padding: 1.25rem 1.4rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--brand);
+    border-radius: var(--radius);
+    color: var(--text);
+}
+
+.photo-grid blockquote p { margin-bottom: .75rem; }
+
+.photo-grid blockquote footer {
+    font-size: .875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.photo-grid blockquote footer::before { content: "\2014\00a0"; }
+
+.portrait {
+    width: 10rem;
+    height: 10rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.with-portrait {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+    margin-bottom: 1.15rem;
+}
+
+.with-portrait > div > :last-child { margin-bottom: 0; }
+
+@media (max-width: 34rem) {
+    .with-portrait { display: block; }
+    .with-portrait .portrait { display: none; }
+}
+
+/* ========================================================== organiser === */
+
+.org-block { text-align: center; }
+.org-block h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+                color: var(--text-muted); margin-block: 0 .75rem; }
+.org-block + .org-block { margin-top: 2.5rem; }
+.org-block img { margin-inline: auto; }
+.org-block p { display: grid; place-items: center; }
+
+/* =========================================================== utility === */
+
+.stack-lg > * + * { margin-top: 2.5rem; }
+
+.section-heading {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}

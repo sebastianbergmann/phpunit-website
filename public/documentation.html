@@ -4,95 +4,155 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>Documentation for PHPUnit</title>
-        <meta property="og:title" content="Documentation for PHPUnit" />
-        <meta property="og:url" content="https://phpunit.de/documentation.html" />
-        <link rel="canonical" href="https://phpunit.de/documentation.html" />
-        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="On this page you will find the documentation for the different versions of PHPUnit." />
-        <meta name="description" content="On this page you will find the documentation for the different versions of PHPUnit." />
+        <meta name="description" content="On this page you will find the documentation for the different versions of PHPUnit.">
+        <link rel="canonical" href="https://phpunit.de/documentation.html">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Documentation for PHPUnit">
+        <meta property="og:description" content="On this page you will find the documentation for the different versions of PHPUnit.">
+        <meta property="og:url" content="https://phpunit.de/documentation.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Documentation for PHPUnit">
+        <meta name="twitter:description" content="On this page you will find the documentation for the different versions of PHPUnit.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Documentation"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="documentation.html" class="nav-link active" aria-current="page">Documentation</a></li>
-                    <li class="nav-item"><a href="supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                </ul>
-            </header>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Documentation for PHPUnit</h1>
-
-                    <p>
-                        Here are the links to the documentation for versions of PHPUnit that are <a href="supported-versions.html">supported</a>:
-                    </p>
-
+                <nav class="site-nav" aria-label="Main">
                     <ul>
-                        <li><a href="https://docs.phpunit.de/en/13.2/" target="_blank">PHPUnit 13.2</a></li>
-                        <li><a href="https://docs.phpunit.de/en/12.5/" target="_blank">PHPUnit 12.5</a></li>
-                        <li><a href="https://docs.phpunit.de/en/11.5/" target="_blank">PHPUnit 11.5</a></li>
-                        <li><a href="https://docs.phpunit.de/en/10.5/" target="_blank">PHPUnit 10.5</a></li>
-                        <li><a href="https://docs.phpunit.de/en/9.6/" target="_blank">PHPUnit 9.6</a></li>
-                        <li><a href="https://docs.phpunit.de/en/8.5/" target="_blank">PHPUnit 8.5</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html" aria-current="page">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
                     </ul>
-
-                    <p>
-                        And here are the URLs for the documentation for versions of PHPUnit that are <a href="supported-versions.html">no longer supported</a>:
-                    </p>
-
-                    <ul>
-                        <li><code>https://docs.phpunit.de/en/7.5/</code>
-                        <li><code>https://phpunit.de/manual/6.5/en/index.html</code>
-                        <li><code>https://phpunit.de/manual/5.7/en/index.html</code>
-                        <li><code>https://phpunit.de/manual/4.8/en/index.html</code>
-                        <li><code>https://phpunit.de/manual/3.7/en/index.html</code>
-                        <li><code>https://phpunit.de/manual/2.3/en/index.html</code>
-                    </ul>
-
-                    <br/>
-
-                    <h3>Further Information</h3>
-
-                    <ul>
-                        <li><a href="backward-compatibility.html">Semantic Versioning, Feature Sunsetting, Version Control</a></li>
-                        <li><a href="supported-versions.html">Supported Versions</a></li>
-                        <li><a href="https://github.com/sebastianbergmann/phpunit/blob/main/.github/CONTRIBUTING.md#contributing-to-phpunit" target="_blank">Contributing to PHPUnit</a></li>
-                    </ul>
-                </div>
+                </nav>
             </div>
+        </header>
 
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="impressum.html">Impressum</a> | <a class="text-muted" href="datenschutz.html">Datenschutz</a></p>
+        <main id="main" class="wrap">
+            <h1>Documentation for PHPUnit</h1>
+            <p>
+                Here are the links to the documentation for versions of PHPUnit that are <a href="/supported-versions.html">supported</a>:
+            </p>
+            <ul>
+                <li><a href="https://docs.phpunit.de/en/13.2/" target="_blank" rel="noopener">PHPUnit 13.2</a></li>
+                <li><a href="https://docs.phpunit.de/en/12.5/" target="_blank" rel="noopener">PHPUnit 12.5</a></li>
+                <li><a href="https://docs.phpunit.de/en/11.5/" target="_blank" rel="noopener">PHPUnit 11.5</a></li>
+                <li><a href="https://docs.phpunit.de/en/10.5/" target="_blank" rel="noopener">PHPUnit 10.5</a></li>
+                <li><a href="https://docs.phpunit.de/en/9.6/" target="_blank" rel="noopener">PHPUnit 9.6</a></li>
+                <li><a href="https://docs.phpunit.de/en/8.5/" target="_blank" rel="noopener">PHPUnit 8.5</a></li>
+            </ul>
+            <p>
+                And here are the URLs for the documentation for versions of PHPUnit that are <a href="/supported-versions.html">no longer supported</a>:
+            </p>
+            <ul>
+                <li><code>https://docs.phpunit.de/en/7.5/</code></li>
+                <li><code>https://phpunit.de/manual/6.5/en/index.html</code></li>
+                <li><code>https://phpunit.de/manual/5.7/en/index.html</code></li>
+                <li><code>https://phpunit.de/manual/4.8/en/index.html</code></li>
+                <li><code>https://phpunit.de/manual/3.7/en/index.html</code></li>
+                <li><code>https://phpunit.de/manual/2.3/en/index.html</code></li>
+            </ul>
+            <h2>Further Information</h2>
+            <ul>
+                <li>
+                    <a href="/backward-compatibility.html">Semantic Versioning, Feature Sunsetting, Version Control</a>
+                </li>
+                <li><a href="/supported-versions.html">Supported Versions</a></li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/blob/main/.github/CONTRIBUTING.md#contributing-to-phpunit" target="_blank" rel="noopener">Contributing to PHPUnit</a>
+                </li>
+            </ul>
+        </main>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="img/icons/newsletter.svg" width="24" height="24"/></a></li>
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </footer>
-        </div>
-
-        <script src="js/bootstrap.bundle.min.js?v=3"></script>
+            </div>
+        </footer>
     </body>
 </html>

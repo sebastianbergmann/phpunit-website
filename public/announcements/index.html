@@ -4,490 +4,477 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="../css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="../css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>Announcements for PHPUnit</title>
-        <meta property="og:title" content="Announcements for PHPUnit" />
-        <meta property="og:url" content="https://phpunit.de/announcements/index.html" />
-        <link rel="canonical" href="https://phpunit.de/announcements/index.html" />
-        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="Announcements for PHPUnit" />
-        <meta name="description" content="Announcements for PHPUnit" />
+        <meta name="description" content="Announcements for PHPUnit">
+        <link rel="canonical" href="https://phpunit.de/announcements/">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Announcements for PHPUnit">
+        <meta property="og:description" content="Announcements for PHPUnit">
+        <meta property="og:url" content="https://phpunit.de/announcements/">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Announcements for PHPUnit">
+        <meta name="twitter:description" content="Announcements for PHPUnit">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Announcements"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="../img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="../documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="../supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
-                </ul>
-            </header>
-
-            <div class="row">
-                <div class="col-md-9 announcements-archive">
-                    <h1>Announcements for PHPUnit</h1>
-                    <br/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/13.2.0" target="_blank">PHPUnit 13.2</a></h3>
-                    <p><time datetime="2026-06-05" title="June 5, 2026">June 5, 2026</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 13.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/13.1.0" target="_blank">PHPUnit 13.1</a></h3>
-                    <p><time datetime="2026-04-03" title="April 3, 2026">April 3, 2026</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 13.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-13.html">PHPUnit 13</a></h3>
-                    <p><time datetime="2026-02-06" title="February 6, 2026">February 6, 2026</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 13.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.5.0" target="_blank">PHPUnit 12.5</a></h3>
-                    <p><time datetime="2025-12-05" title="December 5, 2025">December 5, 2025</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 12.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.4.0" target="_blank">PHPUnit 12.4</a></h3>
-                    <p><time datetime="2025-10-03" title="October 3, 2025">October 3, 2025</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 12.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.3.0" target="_blank">PHPUnit 12.3</a></h3>
-                    <p><time datetime="2025-08-01" title="August 1, 2025">August 1, 2025</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 12.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.2.0" target="_blank">PHPUnit 12.2</a></h3>
-                    <p><time datetime="2025-06-06" title="June 6, 2025">June 6, 2025</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 12.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.1.0" target="_blank">PHPUnit 12.1</a></h3>
-                    <p><time datetime="2025-04-04" title="April 4, 2025">April 4, 2025</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 12.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-12.html">PHPUnit 12</a></h3>
-                    <p><time datetime="2025-02-07" title="February 7, 2025">February 7, 2025</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 12.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.5.0" target="_blank">PHPUnit 11.5</a></h3>
-                    <p><time datetime="2024-12-06" title="December 6, 2024">December 6, 2024</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 11.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.4.0" target="_blank">PHPUnit 11.4</a></h3>
-                    <p><time datetime="2024-10-05" title="October 5, 2024">October 5, 2024</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 11.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.3.0" target="_blank">PHPUnit 11.3</a></h3>
-                    <p><time datetime="2024-08-02" title="August 2, 2024">August 2, 2024</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 11.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.2.0" target="_blank">PHPUnit 11.2</a></h3>
-                    <p><time datetime="2024-06-07" title="June 7, 2024">June 7, 2024</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 11.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.1.0" target="_blank">PHPUnit 11.1</a></h3>
-                    <p><time datetime="2024-04-05" title="April 5, 2024">April 5, 2024</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 11.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-11.html">PHPUnit 11</a></h3>
-                    <p><time datetime="2024-02-02" title="February 2, 2024">February 2, 2024</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 11.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/10.5.0/ChangeLog-10.5.md#1050---2023-12-01" target="_blank">PHPUnit 10.5</a></h3>
-                    <p><time datetime="2023-12-01" title="December 1, 2023">December 1, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 10.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/10.4.0/ChangeLog-10.4.md#1040---2023-10-06" target="_blank">PHPUnit 10.4</a></h3>
-                    <p><time datetime="2023-10-06" title="October 6, 2023">October 6, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 10.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/10.3.0/ChangeLog-10.3.md#1030---2023-08-04" target="_blank">PHPUnit 10.3</a></h3>
-                    <p><time datetime="2023-08-04" title="August 4, 2023">August 4, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 10.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/10.2.0/ChangeLog-10.2.md#1020---2023-06-02" target="_blank">PHPUnit 10.2</a></h3>
-                    <p><time datetime="2023-06-02" title="June 2, 2023">June 2, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 10.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/10.1.0/ChangeLog-10.1.md#1010---2023-04-14" target="_blank">PHPUnit 10.1</a></h3>
-                    <p><time datetime="2023-04-14" title="April 14, 2023">April 14, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 10.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-10.html">PHPUnit 10</a></h3>
-                    <p><time datetime="2023-02-03" title="February 3, 2023">February 3, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 10.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/9.6.0/ChangeLog-9.6.md#960---2023-02-03" target="_blank">PHPUnit 9.6</a></h3>
-                    <p><time datetime="2023-02-03" title="February 3, 2023">February 3, 2023</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.6.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/9.5.0/ChangeLog-9.5.md#950---2020-12-04" target="_blank">PHPUnit 9.5</a></h3>
-                    <p><time datetime="2020-12-04" title="December 4, 2020">December 4, 2020</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/9.4.0/ChangeLog-9.4.md#940---2020-10-02" target="_blank">PHPUnit 9.4</a></h3>
-                    <p><time datetime="2020-10-02" title="October 2, 2020">October 2, 2020</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/9.3.0/ChangeLog-9.3.md#930---2020-08-07" target="_blank">PHPUnit 9.3</a></h3>
-                    <p><time datetime="2020-08-07" title="August 7, 2020">August 7, 2020</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/9.2.0/ChangeLog-9.2.md#920---2020-06-05" target="_blank">PHPUnit 9.2</a></h3>
-                    <p><time datetime="2020-06-05" title="June 5, 2020">June 5, 2020</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/9.1.0/ChangeLog-9.1.md#910---2020-04-03" target="_blank">PHPUnit 9.1</a></h3>
-                    <p><time datetime="2020-04-03" title="April 3, 2020">April 3, 2020</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-9.html">PHPUnit 9</a></h3>
-                    <p><time datetime="2020-02-07" title="February 7, 2020">February 7, 2020</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 9.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/8.5.0/ChangeLog-8.5.md#850---2019-12-06" target="_blank">PHPUnit 8.5</a></h3>
-                    <p><time datetime="2019-12-06" title="December 6, 2019">December 6, 2019</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 8.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/8.4.0/ChangeLog-8.4.md#840---2019-10-04" target="_blank">PHPUnit 8.4</a></h3>
-                    <p><time datetime="2019-10-04" title="October 4, 2019">October 4, 2019</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 8.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/8.3.0/ChangeLog-8.3.md#830---2019-08-02" target="_blank">PHPUnit 8.3</a></h3>
-                    <p><time datetime="2019-08-02" title="August 2, 2019">August 2, 2019</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 8.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/8.2.0/ChangeLog-8.2.md#820---2019-06-07" target="_blank">PHPUnit 8.2</a></h3>
-                    <p><time datetime="2019-06-07" title="June 7, 2019">June 7, 2019</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 8.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/8.1.0/ChangeLog-8.1.md#810---2019-04-05" target="_blank">PHPUnit 8.1</a></h3>
-                    <p><time datetime="2019-04-05" title="April 5, 2019">April 5, 2019</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 8.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-8.html">PHPUnit 8</a></h3>
-                    <p><time datetime="2019-02-01" title="February 1, 2019">February 1, 2019</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 8.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/7.5.0/ChangeLog-7.5.md#750---2018-12-07" target="_blank">PHPUnit 7.5</a></h3>
-                    <p><time datetime="2018-12-07" title="December 7, 2018">December 7, 2018</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 7.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/7.4.0/ChangeLog-7.4.md#740---2018-10-05" target="_blank">PHPUnit 7.4</a></h3>
-                    <p><time datetime="2018-10-05" title="October 5, 2018">October 5, 2018</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 7.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/7.3.0/ChangeLog-7.3.md#730---2018-08-03" target="_blank">PHPUnit 7.3</a></h3>
-                    <p><time datetime="2018-08-03" title="August 3, 2018">August 3, 2018</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 7.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/7.2.0/ChangeLog-7.2.md#720---2018-06-01" target="_blank">PHPUnit 7.2</a></h3>
-                    <p><time datetime="2018-06-01" title="June 1, 2018">June 1, 2018</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 7.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/7.1.0/ChangeLog-7.1.md#710---2018-04-06" target="_blank">PHPUnit 7.1</a></h3>
-                    <p><time datetime="2018-04-06" title="April 6, 2018">April 6, 2018</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 7.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-7.html">PHPUnit 7</a></h3>
-                    <p><time datetime="2018-02-02" title="February 2, 2018">February 2, 2018</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 7.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/6.5.0/ChangeLog-6.5.md#650---2017-12-01" target="_blank">PHPUnit 6.5</a></h3>
-                    <p><time datetime="2017-12-01" title="December 1, 2017">December 1, 2017</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 6.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/6.4.0/ChangeLog-6.4.md#640---2017-10-06" target="_blank">PHPUnit 6.4</a></h3>
-                    <p><time datetime="2017-10-06" title="October 6, 2017">October 6, 2017</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 6.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/6.3.0/ChangeLog-6.3.md#630---2017-08-04" target="_blank">PHPUnit 6.3</a></h3>
-                    <p><time datetime="2017-08-04" title="August 4, 2017">August 4, 2017</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 6.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/6.2.0/ChangeLog-6.2.md#620---2017-06-02" target="_blank">PHPUnit 6.2</a></h3>
-                    <p><time datetime="2017-06-02" title="June 2, 2017">June 2, 2017</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 6.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/6.1.0/ChangeLog-6.1.md#610---2017-04-07" target="_blank">PHPUnit 6.1</a></h3>
-                    <p><time datetime="2017-04-07" title="April 7, 2017">April 7, 2017</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 6.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-6.html">PHPUnit 6</a></h3>
-                    <p><time datetime="2017-02-03" title="February 3, 2017">February 3, 2017</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 6.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.7.0/ChangeLog-5.7.md#570---2016-12-02" target="_blank">PHPUnit 5.7</a></h3>
-                    <p><time datetime="2016-12-02" title="December 2, 2016">December 2, 2016</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.7.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.6.0/ChangeLog-5.6.md#560---2016-10-07" target="_blank">PHPUnit 5.6</a></h3>
-                    <p><time datetime="2016-10-07" title="October 7, 2016">October 7, 2016</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.6.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.5.0/ChangeLog-5.5.md#550---2016-08-05" target="_blank">PHPUnit 5.5</a></h3>
-                    <p><time datetime="2016-08-05" title="August 5, 2016">August 5, 2016</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.5.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.4.0/ChangeLog-5.4.md#540---2016-06-03" target="_blank">PHPUnit 5.4</a></h3>
-                    <p><time datetime="2016-06-03" title="June 3, 2016">June 3, 2016</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.4.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.3.0/ChangeLog-5.3.md#530---2016-04-01" target="_blank">PHPUnit 5.3</a></h3>
-                    <p><time datetime="2016-04-01" title="April 1, 2016">April 1, 2016</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.3.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.2.0/ChangeLog-5.2.md#520---2016-02-05" target="_blank">PHPUnit 5.2</a></h3>
-                    <p><time datetime="2016-02-05" title="February 5, 2016">February 5, 2016</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.2.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/5.1.0/ChangeLog-5.1.md#510---2015-12-04" target="_blank">PHPUnit 5.1</a></h3>
-                    <p><time datetime="2015-12-04" title="December 4, 2015">December 4, 2015</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.1.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-5.html">PHPUnit 5</a></h3>
-                    <p><time datetime="2015-10-02" title="October 2, 2015">October 2, 2015</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 5.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/4.8.0/ChangeLog-4.8.md#480---2015-08-07" target="_blank">PHPUnit 4.8</a></h3>
-                    <p><time datetime="2015-08-07" title="August 7, 2015">August 7, 2015</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 4.8.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/4.7.0/ChangeLog-4.7.md#phpunit-470" target="_blank">PHPUnit 4.7</a></h3>
-                    <p><time datetime="2015-06-05" title="June 5, 2015">June 5, 2015</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 4.7.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="https://github.com/sebastianbergmann/phpunit/blob/4.6.0/ChangeLog-4.6.md#phpunit-460" target="_blank">PHPUnit 4.6</a></h3>
-                    <p><time datetime="2015-04-03" title="April 3, 2015">April 3, 2015</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 4.6.
-                        This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.
-                    </p>
-
-                    <h3><a href="phpunit-4.html">PHPUnit 4</a></h3>
-                    <p><time datetime="2014-03-07" title="March 7, 2014">March 7, 2014</time></p>
-                    <p class="announcement">
-                        The PHPUnit development team is pleased to announce the release of PHPUnit 4.
-                        This release introduces new features and modifies or removes existing functionality.
-                    </p>
-
-                    <hr/>
-
-                    <h3><a href="end-of-life-for-pear-installation-method.html">End of Life for PEAR Installation Method</a></h3>
-                    <p><time datetime="2014-04-21" title="April 21, 2014">April 21, 2014</time></p>
-                    <p class="announcement">PHPUnit can no longer be installed using the PEAR Installer.</p>
-                </div>
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
+                    </ul>
+                </nav>
             </div>
+        </header>
 
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="../impressum.html">Impressum</a> | <a class="text-muted" href="../datenschutz.html">Datenschutz</a></p>
+        <main id="main" class="wrap">
+            <h1>Announcements for PHPUnit</h1>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="../img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="../img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="../img/icons/newsletter.svg" width="24" height="24"/></a></li>
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/13.2.0" target="_blank" rel="noopener">PHPUnit 13.2</a></h2>
+                <time datetime="2026-06-05">June 5, 2026</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 13.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/13.1.0" target="_blank" rel="noopener">PHPUnit 13.1</a></h2>
+                <time datetime="2026-04-03">April 3, 2026</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 13.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-13.html">PHPUnit 13</a></h2>
+                <time datetime="2026-02-06">February 6, 2026</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 13. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.5.0" target="_blank" rel="noopener">PHPUnit 12.5</a></h2>
+                <time datetime="2025-12-05">December 5, 2025</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 12.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.4.0" target="_blank" rel="noopener">PHPUnit 12.4</a></h2>
+                <time datetime="2025-10-03">October 3, 2025</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 12.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.3.0" target="_blank" rel="noopener">PHPUnit 12.3</a></h2>
+                <time datetime="2025-08-01">August 1, 2025</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 12.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.2.0" target="_blank" rel="noopener">PHPUnit 12.2</a></h2>
+                <time datetime="2025-06-06">June 6, 2025</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 12.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/12.1.0" target="_blank" rel="noopener">PHPUnit 12.1</a></h2>
+                <time datetime="2025-04-04">April 4, 2025</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 12.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-12.html">PHPUnit 12</a></h2>
+                <time datetime="2025-02-07">February 7, 2025</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 12. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.5.0" target="_blank" rel="noopener">PHPUnit 11.5</a></h2>
+                <time datetime="2024-12-06">December 6, 2024</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 11.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.4.0" target="_blank" rel="noopener">PHPUnit 11.4</a></h2>
+                <time datetime="2024-10-05">October 5, 2024</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 11.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.3.0" target="_blank" rel="noopener">PHPUnit 11.3</a></h2>
+                <time datetime="2024-08-02">August 2, 2024</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 11.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.2.0" target="_blank" rel="noopener">PHPUnit 11.2</a></h2>
+                <time datetime="2024-06-07">June 7, 2024</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 11.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.1.0" target="_blank" rel="noopener">PHPUnit 11.1</a></h2>
+                <time datetime="2024-04-05">April 5, 2024</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 11.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-11.html">PHPUnit 11</a></h2>
+                <time datetime="2024-02-02">February 2, 2024</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 11. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/10.5.0/ChangeLog-10.5.md#1050---2023-12-01" target="_blank" rel="noopener">PHPUnit 10.5</a></h2>
+                <time datetime="2023-12-01">December 1, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 10.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/10.4.0/ChangeLog-10.4.md#1040---2023-10-06" target="_blank" rel="noopener">PHPUnit 10.4</a></h2>
+                <time datetime="2023-10-06">October 6, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 10.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/10.3.0/ChangeLog-10.3.md#1030---2023-08-04" target="_blank" rel="noopener">PHPUnit 10.3</a></h2>
+                <time datetime="2023-08-04">August 4, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 10.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/10.2.0/ChangeLog-10.2.md#1020---2023-06-02" target="_blank" rel="noopener">PHPUnit 10.2</a></h2>
+                <time datetime="2023-06-02">June 2, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 10.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/10.1.0/ChangeLog-10.1.md#1010---2023-04-14" target="_blank" rel="noopener">PHPUnit 10.1</a></h2>
+                <time datetime="2023-04-14">April 14, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 10.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-10.html">PHPUnit 10</a></h2>
+                <time datetime="2023-02-03">February 3, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 10. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/9.6.0/ChangeLog-9.6.md#960---2023-02-03" target="_blank" rel="noopener">PHPUnit 9.6</a></h2>
+                <time datetime="2023-02-03">February 3, 2023</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9.6. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/9.5.0/ChangeLog-9.5.md#950---2020-12-04" target="_blank" rel="noopener">PHPUnit 9.5</a></h2>
+                <time datetime="2020-12-04">December 4, 2020</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/9.4.0/ChangeLog-9.4.md#940---2020-10-02" target="_blank" rel="noopener">PHPUnit 9.4</a></h2>
+                <time datetime="2020-10-02">October 2, 2020</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/9.3.0/ChangeLog-9.3.md#930---2020-08-07" target="_blank" rel="noopener">PHPUnit 9.3</a></h2>
+                <time datetime="2020-08-07">August 7, 2020</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/9.2.0/ChangeLog-9.2.md#920---2020-06-05" target="_blank" rel="noopener">PHPUnit 9.2</a></h2>
+                <time datetime="2020-06-05">June 5, 2020</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/9.1.0/ChangeLog-9.1.md#910---2020-04-03" target="_blank" rel="noopener">PHPUnit 9.1</a></h2>
+                <time datetime="2020-04-03">April 3, 2020</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-9.html">PHPUnit 9</a></h2>
+                <time datetime="2020-02-07">February 7, 2020</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 9. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/8.5.0/ChangeLog-8.5.md#850---2019-12-06" target="_blank" rel="noopener">PHPUnit 8.5</a></h2>
+                <time datetime="2019-12-06">December 6, 2019</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 8.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/8.4.0/ChangeLog-8.4.md#840---2019-10-04" target="_blank" rel="noopener">PHPUnit 8.4</a></h2>
+                <time datetime="2019-10-04">October 4, 2019</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 8.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/8.3.0/ChangeLog-8.3.md#830---2019-08-02" target="_blank" rel="noopener">PHPUnit 8.3</a></h2>
+                <time datetime="2019-08-02">August 2, 2019</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 8.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/8.2.0/ChangeLog-8.2.md#820---2019-06-07" target="_blank" rel="noopener">PHPUnit 8.2</a></h2>
+                <time datetime="2019-06-07">June 7, 2019</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 8.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/8.1.0/ChangeLog-8.1.md#810---2019-04-05" target="_blank" rel="noopener">PHPUnit 8.1</a></h2>
+                <time datetime="2019-04-05">April 5, 2019</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 8.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-8.html">PHPUnit 8</a></h2>
+                <time datetime="2019-02-01">February 1, 2019</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 8. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/7.5.0/ChangeLog-7.5.md#750---2018-12-07" target="_blank" rel="noopener">PHPUnit 7.5</a></h2>
+                <time datetime="2018-12-07">December 7, 2018</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 7.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/7.4.0/ChangeLog-7.4.md#740---2018-10-05" target="_blank" rel="noopener">PHPUnit 7.4</a></h2>
+                <time datetime="2018-10-05">October 5, 2018</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 7.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/7.3.0/ChangeLog-7.3.md#730---2018-08-03" target="_blank" rel="noopener">PHPUnit 7.3</a></h2>
+                <time datetime="2018-08-03">August 3, 2018</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 7.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/7.2.0/ChangeLog-7.2.md#720---2018-06-01" target="_blank" rel="noopener">PHPUnit 7.2</a></h2>
+                <time datetime="2018-06-01">June 1, 2018</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 7.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/7.1.0/ChangeLog-7.1.md#710---2018-04-06" target="_blank" rel="noopener">PHPUnit 7.1</a></h2>
+                <time datetime="2018-04-06">April 6, 2018</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 7.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-7.html">PHPUnit 7</a></h2>
+                <time datetime="2018-02-02">February 2, 2018</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 7. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/6.5.0/ChangeLog-6.5.md#650---2017-12-01" target="_blank" rel="noopener">PHPUnit 6.5</a></h2>
+                <time datetime="2017-12-01">December 1, 2017</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 6.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/6.4.0/ChangeLog-6.4.md#640---2017-10-06" target="_blank" rel="noopener">PHPUnit 6.4</a></h2>
+                <time datetime="2017-10-06">October 6, 2017</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 6.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/6.3.0/ChangeLog-6.3.md#630---2017-08-04" target="_blank" rel="noopener">PHPUnit 6.3</a></h2>
+                <time datetime="2017-08-04">August 4, 2017</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 6.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/6.2.0/ChangeLog-6.2.md#620---2017-06-02" target="_blank" rel="noopener">PHPUnit 6.2</a></h2>
+                <time datetime="2017-06-02">June 2, 2017</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 6.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/6.1.0/ChangeLog-6.1.md#610---2017-04-07" target="_blank" rel="noopener">PHPUnit 6.1</a></h2>
+                <time datetime="2017-04-07">April 7, 2017</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 6.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-6.html">PHPUnit 6</a></h2>
+                <time datetime="2017-02-03">February 3, 2017</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 6. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.7.0/ChangeLog-5.7.md#570---2016-12-02" target="_blank" rel="noopener">PHPUnit 5.7</a></h2>
+                <time datetime="2016-12-02">December 2, 2016</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.7. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.6.0/ChangeLog-5.6.md#560---2016-10-07" target="_blank" rel="noopener">PHPUnit 5.6</a></h2>
+                <time datetime="2016-10-07">October 7, 2016</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.6. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.5.0/ChangeLog-5.5.md#550---2016-08-05" target="_blank" rel="noopener">PHPUnit 5.5</a></h2>
+                <time datetime="2016-08-05">August 5, 2016</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.5. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.4.0/ChangeLog-5.4.md#540---2016-06-03" target="_blank" rel="noopener">PHPUnit 5.4</a></h2>
+                <time datetime="2016-06-03">June 3, 2016</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.4. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.3.0/ChangeLog-5.3.md#530---2016-04-01" target="_blank" rel="noopener">PHPUnit 5.3</a></h2>
+                <time datetime="2016-04-01">April 1, 2016</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.3. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.2.0/ChangeLog-5.2.md#520---2016-02-05" target="_blank" rel="noopener">PHPUnit 5.2</a></h2>
+                <time datetime="2016-02-05">February 5, 2016</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.2. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/5.1.0/ChangeLog-5.1.md#510---2015-12-04" target="_blank" rel="noopener">PHPUnit 5.1</a></h2>
+                <time datetime="2015-12-04">December 4, 2015</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5.1. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-5.html">PHPUnit 5</a></h2>
+                <time datetime="2015-10-02">October 2, 2015</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 5. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/4.8.0/ChangeLog-4.8.md#480---2015-08-07" target="_blank" rel="noopener">PHPUnit 4.8</a></h2>
+                <time datetime="2015-08-07">August 7, 2015</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 4.8. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/4.7.0/ChangeLog-4.7.md#phpunit-470" target="_blank" rel="noopener">PHPUnit 4.7</a></h2>
+                <time datetime="2015-06-05">June 5, 2015</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 4.7. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="https://github.com/sebastianbergmann/phpunit/blob/4.6.0/ChangeLog-4.6.md#phpunit-460" target="_blank" rel="noopener">PHPUnit 4.6</a></h2>
+                <time datetime="2015-04-03">April 3, 2015</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 4.6. This update introduces new features and improves existing functionality, while ensuring backward compatibility with the previous version.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/phpunit-4.html">PHPUnit 4</a></h2>
+                <time datetime="2014-03-07">March 7, 2014</time>
+                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 4. This release introduces new features and modifies or removes existing functionality.</p>
+            </article>
+
+            <article class="archive-entry">
+                <h2><a href="/announcements/end-of-life-for-pear-installation-method.html">End of Life for PEAR Installation Method</a></h2>
+                <time datetime="2014-04-21">April 21, 2014</time>
+                <p>PHPUnit can no longer be installed using the PEAR Installer.</p>
+            </article>
+        </main>
+
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </footer>
-        </div>
-
-        <script src="../js/bootstrap.bundle.min.js?v=3"></script>
+            </div>
+        </footer>
     </body>
 </html>

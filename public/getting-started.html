@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Getting Started with Version 13 of PHPUnit</title>
+        <meta name="description" content="This tutorial assumes that you use PHP 8.4 or PHP 8.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 13.">
+        <link rel="canonical" href="https://phpunit.de/getting-started.html">
+
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Getting Started with Version 13 of PHPUnit">
+        <meta property="og:description" content="This tutorial assumes that you use PHP 8.4 or PHP 8.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 13.">
+        <meta property="og:url" content="https://phpunit.de/getting-started.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Getting Started with Version 13 of PHPUnit">
+        <meta name="twitter:description" content="This tutorial assumes that you use PHP 8.4 or PHP 8.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 13.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Getting Started with Version 13 of PHPUnit"
+                        }
+                    ]
+                },
+                {
+                    "@type": "TechArticle",
+                    "headline": "Getting Started with Version 13 of PHPUnit",
+                    "description": "This tutorial assumes that you use PHP 8.4 or PHP 8.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit 13.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Sebastian Bergmann",
+                        "url": "https://sebastian-bergmann.de/"
+                    },
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "mainEntityOfPage": "https://phpunit.de/getting-started.html",
+                    "proficiencyLevel": "Beginner",
+                    "about": {
+                        "@type": "SoftwareApplication",
+                        "name": "PHPUnit 13"
+                    },
+                    "inLanguage": "en"
+                }
+            ]
+        }
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
+                </a>
+
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main" class="wrap">
+            <h1>Getting Started with PHPUnit 13</h1>
+
+            <p>
+                This tutorial assumes that you use PHP 8.4 or PHP 8.5. You will learn how to write simple unit tests as well as how to download and run PHPUnit.
+            </p>
+
+            <p>The documentation for PHPUnit 13 can be found <a href="/documentation.html">here</a>.</p>
+
+            <h2>Download</h2>
+
+            <div class="split">
+                <div>
+                    <h3>PHP Archive (PHAR)</h3>
+                    <p>
+                        We distribute a <a href="https://secure.php.net/phar" target="_blank" rel="noopener">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit 13. Simply download it from <a href="https://phar.phpunit.de/phpunit-13.phar" target="_blank" rel="noopener">here</a> and make it executable:
+                    </p>
+                    <pre><strong>➜ wget -O phpunit https://phar.phpunit.de/phpunit-13.phar
+
+➜ chmod +x phpunit
+
+➜ ./phpunit --version</strong>
+PHPUnit 13.0.0 by Sebastian Bergmann and contributors.</pre>
+                    <p>
+                        Please refer to the documentation for details on how to <a href="https://docs.phpunit.de/en/13.0/installation.html#manual-download-of-phar" target="_blank" rel="noopener">verify PHAR releases of PHPUnit</a>.
+                    </p>
+                </div>
+                <div>
+                    <h3>Composer</h3>
+                    <p>
+                        You can add PHPUnit as a local, per-project, development-time dependency to your project using <a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer</a>:
+                    </p>
+                    <pre><strong>➜ composer require --dev phpunit/phpunit ^13
+
+➜ ./vendor/bin/phpunit --version</strong>
+PHPUnit 13.0.0 by Sebastian Bergmann and contributors.
+
+
+</pre>
+                    <p>The example shown above assumes that <code>composer</code> is on your <code>$PATH</code>.</p>
+                    <p>Your <code>composer.json</code> should look similar to this:</p>
+                    <pre><code>{
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13"
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="split">
+                <div>
+                    <h2>Code</h2>
+                    <p><code>src/Email.php</code></p>
+                    <pre><code>&lt;?php declare(strict_types=1);
+final class Email
+{
+    private string $email;
+
+    private function __construct(string $email)
+    {
+        $this-&gt;ensureIsValidEmail($email);
+
+        $this-&gt;email = $email;
+    }
+
+    public static function fromString(string $email): self
+    {
+        return new self($email);
+    }
+
+    public function asString(): string
+    {
+        return $this-&gt;email;
+    }
+
+    private function ensureIsValidEmail(string $email): void
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    '"%s" is not a valid email address',
+                    $email
+                )
+            );
+        }
+    }
+}</code></pre>
+                </div>
+                <div>
+                    <h2>Test Code</h2>
+                    <p><code>tests/EmailTest.php</code></p>
+                    <pre><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class EmailTest extends TestCase
+{
+    public function testCanBeCreatedFromValidEmail(): void
+    {
+        $string = 'user@example.com';
+
+        $email = Email::fromString($string);
+
+        $this-&gt;assertSame($string, $email-&gt;asString());
+    }
+
+    public function testCannotBeCreatedFromInvalidEmail(): void
+    {
+        $this-&gt;expectException(InvalidArgumentException::class);
+
+        Email::fromString('invalid');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+                </div>
+            </div>
+
+            <h2>Test Execution</h2>
+
+            <div class="split">
+                <div>
+                    <h3>PHP Archive (PHAR)</h3>
+                    <pre><strong>➜ ./phpunit --bootstrap src/autoload.php tests</strong>
+PHPUnit 13.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (2 tests, 2 assertions)</pre>
+                    <p>
+                        The above assumes that you have downloaded <code>phpunit.phar</code> and put it into your <code>$PATH</code> as <code>phpunit</code> and that <code>src/autoload.php</code> is a script that sets up <a href="https://secure.php.net/manual/en/language.oop5.autoload.php" target="_blank" rel="noopener">autoloading</a> for the classes that are to be tested. Such a script is commonly generated using a tool such as <a href="https://github.com/theseer/Autoload/#readme" target="_blank" rel="noopener">phpab</a>.
+                    </p>
+                    <p>
+                        <code>--bootstrap src/autoload.php</code> instructs the PHPUnit command-line test runner to include <code>src/autoload.php</code> before the tests are run.
+                    </p>
+                    <p>
+                        <code>tests</code> instructs the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.
+                    </p>
+                </div>
+                <div>
+                    <h3>Composer</h3>
+                    <pre><strong>➜ ./vendor/bin/phpunit tests</strong>
+PHPUnit 13.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+OK (2 tests, 2 assertions)</pre>
+                    <p>
+                        The above assumes that <code>vendor/autoload.php</code>, the <a href="https://secure.php.net/manual/en/language.oop5.autoload.php" target="_blank" rel="noopener">autoloader</a> script managed by Composer, exists and is able to load the code for the <code>Email</code> class. Depending on how you set up autoloading, you may need to run <code>composer dump-autoload</code> now.
+                    </p>
+                    <p>
+                        <code>tests</code> instructs the PHPUnit command-line test runner to execute all tests found declared in <code>*Test.php</code> sourcecode files in the <code>tests</code> directory.
+                    </p>
+                </div>
+            </div>
+
+            <h2>TestDox</h2>
+
+            <p>
+                Below you see an alternative output which is based on the idea that the name of a test can be used to document the behavior that is verified by the test:
+            </p>
+
+            <div class="split">
+                <div>
+                    <pre><strong>➜ ./phpunit --bootstrap src/autoload.php --testdox tests</strong>
+PHPUnit 13.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+Email
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+
+OK (2 tests, 2 assertions)</pre>
+                </div>
+                <div>
+                    <pre><strong>➜ ./vendor/bin/phpunit --testdox tests</strong>
+PHPUnit 13.0.0 by Sebastian Bergmann and contributors.
+
+..                                        2 / 2 (100%)
+
+Time: 70 ms, Memory: 10.00MB
+
+Email
+ ✔ Can be created from valid email address
+ ✔ Cannot be created from invalid email address
+
+OK (2 tests, 2 assertions)</pre>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
+
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

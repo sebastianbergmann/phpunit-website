@@ -4,83 +4,138 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>Sponsoring PHPUnit</title>
-        <meta property="og:title" content="Sponsoring PHPUnit" />
-        <meta property="og:url" content="https://phpunit.de/sponsoring.html" />
-        <link rel="canonical" href="https://phpunit.de/sponsoring.html" />
-        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="PHPUnit is open-source software created and maintained by Sebastian Bergmann. Learn how you can support its continued development by becoming a sponsor." />
-        <meta name="description" content="PHPUnit is open-source software created and maintained by Sebastian Bergmann. Learn how you can support its continued development by becoming a sponsor." />
+        <meta name="description" content="PHPUnit is open-source software created and maintained by Sebastian Bergmann. Learn how you can support its continued development by becoming a sponsor.">
+        <link rel="canonical" href="https://phpunit.de/sponsoring.html">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Sponsoring PHPUnit">
+        <meta property="og:description" content="PHPUnit is open-source software created and maintained by Sebastian Bergmann. Learn how you can support its continued development by becoming a sponsor.">
+        <meta property="og:url" content="https://phpunit.de/sponsoring.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sponsoring PHPUnit">
+        <meta name="twitter:description" content="PHPUnit is open-source software created and maintained by Sebastian Bergmann. Learn how you can support its continued development by becoming a sponsor.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Sponsoring"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                </ul>
-            </header>
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-            <div class="px-4 py-5 my-5 text-center rounded-3 border shadow-sm" style="background: linear-gradient(180deg, #fbfbfb 0%, #ffffff 100%);">
-                <img class="d-block mx-auto mb-4" src="img/icons/heart-handshake.svg" alt="Sponsoring" width="72" height="72">
-                <h1 class="display-5 fw-bold">Sponsoring PHPUnit</h1>
+        <main id="main" class="wrap">
+            <div class="hero">
+                <img class="hero__icon" src="/img/icons/heart-handshake.svg" alt="" width="64" height="64">
+                <h1>Sponsoring PHPUnit</h1>
             </div>
 
-            <div class="row g-5">
-                <div class="col-md-8">
-                    <h2 class="pb-2 border-bottom">Why your support matters</h2>
-                    <p class="wrapped">
-                        PHPUnit is the most widely used testing framework in the PHP ecosystem.
-                        Its goal is to provide and maintain a solid, up-to-date foundation for developer-side testing in PHP.
+            <div class="sidebar-layout">
+                <div>
+                    <h2>Why your support matters</h2>
+                    <p>
+                        PHPUnit is the most widely used testing framework in the PHP ecosystem. Its goal is to provide and maintain a solid, up-to-date foundation for developer-side testing in PHP.
                     </p>
-
-                    <p class="wrapped">
+                    <p>
                         Ongoing work includes keeping pace with every new PHP release, fixing bugs promptly, improving the documentation, and implementing new features that enhance the developer experience and support modern testing practices.
                     </p>
-
-                    <div class="d-flex align-items-start gap-4 mb-3">
-                        <img src="img/sebastian-bergmann.jpg" alt="Sebastian Bergmann" class="rounded-3 shadow-sm flex-shrink-0 d-none d-sm-block" style="width: 160px; height: 160px;">
+                    <div class="with-portrait">
+                        <img src="/img/sebastian-bergmann.jpg" alt="Sebastian Bergmann" class="portrait">
                         <div>
-                            <p class="wrapped">
-                                I am Sebastian Bergmann, the creator and lead maintainer of PHPUnit and
-                                I review and validate every change that goes into PHPUnit.
-                                Each release is made with the knowledge that it will be installed hundreds or thousands of times within minutes.
+                            <p>
+                                I am Sebastian Bergmann, the creator and lead maintainer of PHPUnit and I review and validate every change that goes into PHPUnit. Each release is made with the knowledge that it will be installed hundreds or thousands of times within minutes.
                             </p>
-                            <p class="wrapped">
-                                Your support pays for this responsibility, not for code.
-                            </p>
+                            <p>Your support pays for this responsibility, not for code.</p>
                         </div>
                     </div>
-
-                    <p class="wrapped">
-                        I will continue maintaining and developing PHPUnit regardless of the level of sponsorship I receive.
-                        But your support allows me to dedicate focused time to the project instead of fitting it around evenings and weekends.
-                        If PHPUnit is part of your workflow, I would like to ask for that support.
+                    <p>
+                        I will continue maintaining and developing PHPUnit regardless of the level of sponsorship I receive. But your support allows me to dedicate focused time to the project instead of fitting it around evenings and weekends. If PHPUnit is part of your workflow, I would like to ask for that support.
                     </p>
-
-                    <h3 class="mt-5">Guiding Principles</h3>
-                    <p class="wrapped">
-                        A few things worth knowing before you sponsor:
-                    </p>
+                    <h3>Guiding Principles</h3>
+                    <p>A few things worth knowing before you sponsor:</p>
                     <ul>
                         <li>Sponsorship does not grant influence over the project's roadmap.</li>
                         <li>Features, bug fixes, and priorities are not for sale.</li>
@@ -88,81 +143,64 @@
                     </ul>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="p-4 mb-3 bg-light rounded border shadow-sm">
-                        <h4>Corporate Sponsorship</h4>
-                        <p class="wrapped">
+                <aside class="stack-lg">
+                    <section class="card">
+                        <h2 class="card__title">Corporate Sponsorship</h2>
+                        <p>
                             If you would like your company's logo displayed on this website and GitHub, please get in touch.
                         </p>
-                        <a href="mailto:sponsoring@phpunit.de" class="btn btn-sponsoring w-100">Contact via Email</a>
-                    </div>
-
-                    <div class="p-4 mb-3 bg-light rounded border shadow-sm">
-                        <h4>Logo Placement</h4>
-                        <p class="wrapped">
-                            Company logos are displayed on:
-                        </p>
+                        <a href="mailto:sponsoring@phpunit.de" class="btn btn--sponsor btn--block">Contact via Email</a>
+                    </section>
+                    <section class="card">
+                        <h2 class="card__title">Logo Placement</h2>
+                        <p>Company logos are displayed on:</p>
                         <ul>
-                            <li><a href="sponsors.html">phpunit.de/sponsors.html</a></li>
-                            <li><a href="https://github.com/sebastianbergmann/phpunit#sponsors" target="_blank">GitHub README</a></li>
+                            <li><a href="/sponsors.html">phpunit.de/sponsors.html</a></li>
+                            <li>
+                                <a href="https://github.com/sebastianbergmann/phpunit#sponsors" target="_blank" rel="noopener">GitHub README</a>
+                            </li>
                         </ul>
-                    </div>
+                    </section>
+                </aside>
+            </div>
+
+            <h2 class="section-heading">Funding Platforms</h2>
+            <p>You can support PHPUnit through any of these platforms:</p>
+
+            <div class="card-grid">
+                <div class="card card--center card--link">
+                    <h3 class="card__title">GitHub Sponsors</h3>
+                    <a class="btn btn--sponsor stretch" href="https://github.com/sponsors/sebastianbergmann" target="_blank" rel="noopener">Sponsor</a>
+                </div>
+                <div class="card card--center card--link">
+                    <h3 class="card__title">Liberapay</h3>
+                    <a class="btn btn--sponsor stretch" href="https://liberapay.com/sebastianbergmann" target="_blank" rel="noopener">Sponsor</a>
+                </div>
+                <div class="card card--center card--link">
+                    <h3 class="card__title">thanks.dev</h3>
+                    <a class="btn btn--sponsor stretch" href="https://thanks.dev/u/gh/sebastianbergmann" target="_blank" rel="noopener">Sponsor</a>
+                </div>
+                <div class="card card--center card--link">
+                    <h3 class="card__title">Tidelift</h3>
+                    <a class="btn btn--sponsor stretch" href="https://tidelift.com/funding/github/packagist/phpunit/phpunit" target="_blank" rel="noopener">Sponsor</a>
                 </div>
             </div>
 
-            <h2 class="pb-2 border-bottom mt-5">Funding Platforms</h2>
-            <p class="mb-4">You can support PHPUnit through any of these platforms:</p>
-
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">GitHub Sponsors</h5>
-                            <a href="https://github.com/sponsors/sebastianbergmann" class="btn btn-sponsoring stretched-link" target="_blank">Sponsor</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Liberapay</h5>
-                            <a href="https://liberapay.com/sebastianbergmann" class="btn btn-sponsoring stretched-link" target="_blank">Sponsor</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">thanks.dev</h5>
-                            <a href="https://thanks.dev/u/gh/sebastianbergmann" class="btn btn-sponsoring stretched-link" target="_blank">Sponsor</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Tidelift</h5>
-                            <a href="https://tidelift.com/funding/github/packagist/phpunit/phpunit" class="btn btn-sponsoring stretched-link" target="_blank">Sponsor</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="note">
+                <p>For tax reasons, I am unable to offer rewards or perks through these funding platforms.</p>
             </div>
+        </main>
 
-            <div class="alert alert-info" role="alert">
-                For tax reasons, I am unable to offer rewards or perks through these funding platforms.
-            </div>
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
 
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="impressum.html">Impressum</a> | <a class="text-muted" href="datenschutz.html">Datenschutz</a></p>
-
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="img/icons/newsletter.svg" width="24" height="24"/></a></li>
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </footer>
-        </div>
-
-        <script src="js/bootstrap.bundle.min.js?v=3"></script>
+            </div>
+        </footer>
     </body>
 </html>

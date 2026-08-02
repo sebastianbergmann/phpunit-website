@@ -4,140 +4,229 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="css/bootstrap.min.css?v=3" rel="stylesheet">
-        <link href="css/style.css?v=8" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
         <title>PHPUnit: The testing framework for PHP</title>
-        <meta property="og:title" content="PHPUnit: The testing framework for PHP" />
-        <meta property="og:url" content="https://phpunit.de/index.html" />
-        <link rel="canonical" href="https://phpunit.de/index.html" />
-        <meta property="og:image" content="https://phpunit.de/img/phpunit.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content="PHPUnit is the industry-leading test automation framework for software built using PHP." />
-        <meta name="description" content="PHPUnit is the industry-leading test automation framework for software built using PHP." />
+        <meta name="description" content="PHPUnit is the industry-leading test automation framework for software built using PHP.">
+        <link rel="canonical" href="https://phpunit.de/">
 
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="PHPUnit: The testing framework for PHP">
+        <meta property="og:description" content="PHPUnit is the industry-leading test automation framework for software built using PHP.">
+        <meta property="og:url" content="https://phpunit.de/">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="PHPUnit: The testing framework for PHP">
+        <meta name="twitter:description" content="PHPUnit is the industry-leading test automation framework for software built using PHP.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
         <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=1">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "SoftwareSourceCode",
+                    "@id": "https://phpunit.de/#phpunit",
+                    "name": "PHPUnit",
+                    "description": "PHPUnit is the industry-leading test automation framework for software built using PHP.",
+                    "url": "https://phpunit.de/",
+                    "codeRepository": "https://github.com/sebastianbergmann/phpunit",
+                    "programmingLanguage": {
+                        "@type": "ComputerLanguage",
+                        "name": "PHP"
+                    },
+                    "license": "https://opensource.org/licenses/BSD-3-Clause",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Sebastian Bergmann",
+                        "url": "https://sebastian-bergmann.de/"
+                    },
+                    "maintainer": {
+                        "@type": "Person",
+                        "name": "Sebastian Bergmann",
+                        "url": "https://sebastian-bergmann.de/"
+                    }
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "PHPUnit",
+                    "applicationCategory": "DeveloperApplication",
+                    "operatingSystem": "Linux, macOS, Windows",
+                    "softwareVersion": "13",
+                    "description": "PHPUnit is the industry-leading test automation framework for software built using PHP.",
+                    "url": "https://phpunit.de/",
+                    "downloadUrl": "https://phar.phpunit.de/",
+                    "softwareRequirements": "PHP 8.4 or later",
+                    "license": "https://opensource.org/licenses/BSD-3-Clause",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Sebastian Bergmann",
+                        "url": "https://sebastian-bergmann.de/"
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "EUR"
+                    }
+                }
+            ]
+        }
+        </script>
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <img alt="PHPUnit" src="img/phpunit.svg" style="height: 40px;"/>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="/">
+                    <picture>
+                        <source srcset="/img/phpunit-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="/img/phpunit.svg" alt="PHPUnit" width="152" height="36">
+                    </picture>
                 </a>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="documentation.html" class="nav-link">Documentation</a></li>
-                    <li class="nav-item"><a href="supported-versions.html" class="nav-link">Supported Versions</a></li>
-                    <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                </ul>
-            </header>
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="/" aria-current="page">Home</a></li>
+                        <li><a href="/documentation.html">Documentation</a></li>
+                        <li><a href="/supported-versions.html">Supported Versions</a></li>
+                        <li><a href="/sponsors.html">Sponsors</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-            <div class="px-4 py-5 my-5 text-center rounded-3 border shadow-sm" style="background: linear-gradient(180deg, #fbfbfb 0%, #ffffff 100%);">
-                <h1 class="display-5 fw-bold mb-3">PHPUnit: The testing framework for PHP</h1>
-                <div class="col-lg-8 mx-auto">
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a href="getting-started/phpunit-13.html" class="btn btn-start btn-lg px-4 me-sm-3 nobr">
-                            <img alt="Get started" src="img/icons/file-code.svg" width="24" height="24" class="inverted"/>
-                            Get started
-                        </a>
+        <main id="main" class="wrap">
+            <div class="hero">
+                <h1>PHPUnit<span class="tagline">The testing framework for PHP</span></h1>
 
-                        <a href="documentation.html" class="btn btn-start btn-lg px-4 me-sm-3 nobr">
-                            <img alt="Documentation" src="img/icons/book-open-text.svg" width="24" height="24" class="inverted"/>
-                            Documentation
-                        </a>
-
-                        <a href="https://github.com/sebastianbergmann/phpunit" class="btn btn-start btn-lg px-4 me-sm-3 nobr" target="_blank">
-                            <img alt="Code &amp; Issues" src="img/icons/git-compare-arrows.svg" width="24" height="24" class="inverted"/>
-                            Code &amp; Issues
-                        </a>
-
-                        <a href="https://phpunit.expert/consulting-and-coaching.html?ref=phpunit.de" class="btn btn-consulting btn-lg px-4 me-sm-3 nobr" target="_blank">
-                            <img alt="Code &amp; Issues" src="img/icons/life-buoy.svg" width="24" height="24" class="inverted"/>
-                            Consulting &amp; Coaching
-                        </a>
-
-                        <a href="sponsoring.html" class="btn btn-sponsoring btn-lg px-4 me-sm-3 nobr">
-                            <img alt="Sponsoring" src="img/icons/heart-handshake.svg" width="24" height="24" class="inverted"/>
-                            Sponsoring
-                        </a>
-                    </div>
+                <div class="hero__actions">
+                    <a class="btn btn--primary" href="/getting-started.html">
+                        <img src="/img/icons/file-code.svg" alt="" width="24" height="24">
+                        <span>Get started</span>
+                    </a>
+                    <a class="btn btn--primary" href="/documentation.html">
+                        <img src="/img/icons/book-open-text.svg" alt="" width="24" height="24">
+                        <span>Documentation</span>
+                    </a>
+                    <a class="btn btn--primary" href="https://github.com/sebastianbergmann/phpunit" target="_blank" rel="noopener">
+                        <img src="/img/icons/git-compare-arrows.svg" alt="" width="24" height="24">
+                        <span>Code &amp; Issues</span>
+                    </a>
+                    <a class="btn btn--consulting" href="https://phpunit.expert/consulting-and-coaching.html?ref=phpunit.de" target="_blank" rel="noopener">
+                        <img src="/img/icons/life-buoy.svg" alt="" width="24" height="24">
+                        <span>Consulting &amp; Coaching</span>
+                    </a>
+                    <a class="btn btn--sponsor" href="/sponsoring.html">
+                        <img src="/img/icons/heart-handshake.svg" alt="" width="24" height="24">
+                        <span>Sponsoring</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="row text-center" style="margin-top: 1rem;">
-                <div class="col-12">
+            <div class="card-grid">
+                <section class="card">
+                    <h2 class="card__title">Current version</h2>
                     <p>
-                        <strong><a href="announcements/phpunit-13.html">PHPUnit 13</a> is the <a href="supported-versions.html">current stable</a> version.</strong>
+                        <a href="/announcements/phpunit-13.html">PHPUnit 13</a> is the
+                        <a href="/supported-versions.html">current stable</a> version.
                     </p>
                     <p>
-                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/72" target="_blank">PHPUnit 13.3</a> will be the next minor version.
-                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/75" target="_blank">PHPUnit 14</a> will be the next major version.
+                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/72" target="_blank" rel="noopener">PHPUnit 13.3</a>
+                        will be the next minor version.
+                        <a href="https://github.com/sebastianbergmann/phpunit/milestone/75" target="_blank" rel="noopener">PHPUnit 14</a>
+                        will be the next major version.
                     </p>
-                </div>
-            </div>
+                </section>
 
-            <hr>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <h3><a href="announcements/index.html">Announcements</a></h3>
-                    <ul class="announcements">
+                <section class="card">
+                    <h2 class="card__title"><a href="/announcements/">Announcements</a></h2>
+                    <ul class="entry-list">
                         <li>
-                            <time datetime="2026-02-06" title="February 6, 2026">February 6, 2026</time>
-                            <p><a href="announcements/phpunit-13.html">PHPUnit 13 has been released</a></p>
+                            <time datetime="2026-02-06">February 6, 2026</time>
+                            <p><a href="/announcements/phpunit-13.html">PHPUnit 13 has been released</a></p>
                         </li>
                         <li>
-                            <time datetime="2025-02-07" title="February 7, 2025">February 7, 2025</time>
-                            <p><a href="announcements/phpunit-12.html">PHPUnit 12 has been released</a></p>
+                            <time datetime="2025-02-07">February 7, 2025</time>
+                            <p><a href="/announcements/phpunit-12.html">PHPUnit 12 has been released</a></p>
                         </li>
                         <li>
-                            <time datetime="2024-02-02" title="February 2, 2024">February 2, 2024</time>
-                            <p><a href="announcements/phpunit-11.html">PHPUnit 11 has been released</a></p>
+                            <time datetime="2024-02-02">February 2, 2024</time>
+                            <p><a href="/announcements/phpunit-11.html">PHPUnit 11 has been released</a></p>
                         </li>
                     </ul>
-                </div>
+                </section>
 
-                <div class="col-md-4">
-                </div>
-
-                <div class="col-md-4">
-                    <h3><a href="https://phpunit.expert/articles/?ref=phpunit.de" target="_blank">Articles</a></h3>
-                    <ul class="articles">
+                <section class="card">
+                    <h2 class="card__title"><a href="https://phpunit.expert/articles/?ref=phpunit.de" target="_blank" rel="noopener">Articles</a></h2>
+                    <ul class="entry-list">
                         <li>
-                            <time datetime="2026-07-01" title="July 1, 2026">July 1, 2026</time>
-                            <p><a href="https://phpunit.expert/articles/precision-and-clarity-what-is-new-in-phpunit-132.html?ref=phpunit.de" target="_blank">What is new in PHPUnit 13.2?</a></p>
+                            <time datetime="2026-07-01">July 1, 2026</time>
+                            <p><a href="https://phpunit.expert/articles/precision-and-clarity-what-is-new-in-phpunit-132.html?ref=phpunit.de" target="_blank" rel="noopener">What is new in PHPUnit 13.2?</a></p>
                         </li>
                         <li>
-                            <time datetime="2026-06-17" title="June 17, 2026">June 17, 2026</time>
-                            <p><a href="https://phpunit.expert/articles/what-your-test-run-already-knows.html?ref=phpunit.de" target="_blank">What your test run already knows</a></p>
+                            <time datetime="2026-06-17">June 17, 2026</time>
+                            <p><a href="https://phpunit.expert/articles/what-your-test-run-already-knows.html?ref=phpunit.de" target="_blank" rel="noopener">What your test run already knows</a></p>
                         </li>
                         <li>
-                            <time datetime="2026-06-11" title="June 11, 2026">June 11, 2026</time>
-                            <p><a href="https://phpunit.expert/articles/turbo-charging-your-phpunit-suite.html?ref=phpunit.de" target="_blank">Turbo-Charging Your PHPUnit Suite</a></p>
+                            <time datetime="2026-06-11">June 11, 2026</time>
+                            <p><a href="https://phpunit.expert/articles/turbo-charging-your-phpunit-suite.html?ref=phpunit.de" target="_blank" rel="noopener">Turbo-Charging Your PHPUnit Suite</a></p>
                         </li>
                     </ul>
-                </div>
+                </section>
             </div>
+        </main>
 
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0"><a class="text-muted" href="impressum.html">Impressum</a> | <a class="text-muted" href="datenschutz.html">Datenschutz</a></p>
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a><br>Copyright &copy; Sebastian Bergmann.</p>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-muted" href="https://github.com/sebastianbergmann/phpunit/"><img alt="GitHub" src="img/icons/github.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" rel="me" href="https://phpc.social/@phpunit/"><img alt="Mastodon" src="img/icons/mastodon.svg" width="24" height="24"/></a></li>
-                    <li class="ms-3"><a class="text-muted" href="/newsletter"><img alt="PHPUnit Updates" src="img/icons/newsletter.svg" width="24" height="24"/></a></li>
+                <ul class="social">
+                        <li><a href="https://github.com/sebastianbergmann/phpunit/" title="GitHub"><img src="/img/icons/github.svg" alt="GitHub" width="24" height="24"></a></li>
+                        <li><a href="https://phpc.social/@phpunit/" rel="me" title="Mastodon"><img src="/img/icons/mastodon.svg" alt="Mastodon" width="24" height="24"></a></li>
+                        <li><a href="/newsletter" title="PHPUnit Updates newsletter"><img src="/img/icons/newsletter.svg" alt="PHPUnit Updates newsletter" width="24" height="24"></a></li>
                 </ul>
-            </footer>
-        </div>
-
-        <script src="js/bootstrap.bundle.min.js?v=3"></script>
+            </div>
+        </footer>
     </body>
 </html>

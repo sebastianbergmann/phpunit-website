@@ -1,3 +1,9 @@
 User-agent: *
-Disallow: /manual
+Allow: /
 
+# /manual holds the archived manuals for PHPUnit 2.3 - 6.5. They are served
+# with "X-Robots-Tag: noindex, follow" instead of being disallowed here: a
+# crawler that is not allowed to fetch them can never see that header, and
+# would keep the URLs in the index on the strength of inbound links alone.
+
+Sitemap: https://phpunit.de/sitemap.xml
