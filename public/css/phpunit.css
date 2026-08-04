@@ -694,6 +694,49 @@ tr.is-eol       :is(th, td) { background: var(--danger-bg); color: var(--danger-
 
 :is(tr.is-supported, tr.is-security, tr.is-eol) a { color: inherit; }
 
+/* Collapsible table rows, toggled by a checkbox so that no JavaScript
+   is needed. The checkbox itself is hidden but stays focusable; the
+   <label> next to the table is what is seen and operated. */
+
+.table-toggle {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.table-toggle ~ .table-scroll .table-older { display: none; }
+
+.table-toggle:checked ~ .table-scroll .table-older { display: table-row-group; }
+
+/* The last visible row sits on the container's own border. */
+.table-toggle:checked ~ .table-scroll tbody:first-of-type tr:last-child :is(th, td) {
+    border-bottom: 1px solid var(--border);
+}
+
+.table-toggle-btn { margin-bottom: 1.5rem; }
+
+.table-toggle-btn__less { display: none; }
+
+.table-toggle:checked ~ .table-toggle-btn .table-toggle-btn__more { display: none; }
+.table-toggle:checked ~ .table-toggle-btn .table-toggle-btn__less { display: inline; }
+
+.table-toggle:focus-visible ~ .table-toggle-btn {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media print {
+    .table-toggle ~ .table-scroll .table-older { display: table-row-group; }
+
+    .table-toggle ~ .table-scroll tbody:first-of-type tr:last-child :is(th, td) {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .table-toggle-btn { display: none; }
+}
+
 .legend {
     display: flex;
     flex-wrap: wrap;
