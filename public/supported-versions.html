@@ -89,7 +89,7 @@
                         "@id": "https://phpunit.de/#organization"
                     },
                     "license": "https://opensource.org/licenses/BSD-3-Clause",
-                    "temporalCoverage": "2014-03-07/..",
+                    "temporalCoverage": "2004-03-15/..",
                     "variableMeasured": [
                         "Major Version",
                         "PHP Compatibility",
@@ -213,6 +213,27 @@
                             <td><time datetime="2017-02-03">February 3, 2017</time></td>
                             <td><time datetime="2017-02-03">February 3, 2017</time></td>
                         </tr>
+                        <tr class="is-eol">
+                            <th scope="row">PHPUnit 3</th>
+                            <td>PHP 5.1 - PHP 5.6</td>
+                            <td><time datetime="2006-11-19">November 19, 2006</time></td>
+                            <td><time datetime="2014-10-17">October 17, 2014</time></td>
+                            <td><time datetime="2014-10-17">October 17, 2014</time></td>
+                        </tr>
+                        <tr class="is-eol">
+                            <th scope="row">PHPUnit 2</th>
+                            <td>PHP 5.0 - PHP 5.1</td>
+                            <td><time datetime="2004-07-14">July 14, 2004</time></td>
+                            <td><time datetime="2006-05-31">May 31, 2006</time></td>
+                            <td><time datetime="2006-05-31">May 31, 2006</time></td>
+                        </tr>
+                        <tr class="is-eol">
+                            <th scope="row">PHPUnit 1</th>
+                            <td>PHP 4.1 - PHP 4.4</td>
+                            <td><time datetime="2004-03-15">March 15, 2004</time></td>
+                            <td><time datetime="2007-05-13">May 13, 2007</time></td>
+                            <td><time datetime="2007-05-13">May 13, 2007</time></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -230,6 +251,9 @@
             <p>When Bugfix Support ends for a major version, Life Support for this major version begins.</p>
             <p>
                 <strong>Life Support</strong> means that changes will be made for an otherwise unsupported version of PHPUnit to be compatible with new versions of PHP. Life Support ends when an old version of PHPUnit cannot be made compatible with a new version of PHP without breaking <a href="/backward-compatibility.html">backward compatibility</a>.
+            </p>
+            <p>
+                This support policy has been in effect since <span class="nowrap">PHPUnit 4</span>. For <span class="nowrap">PHPUnit 1</span>, <span class="nowrap">PHPUnit 2</span>, and <span class="nowrap">PHPUnit 3</span>, the dates shown above are those of their respective last releases. Note that <span class="nowrap">PHPUnit 1</span> (for <span class="nowrap">PHP 4</span>) and <span class="nowrap">PHPUnit 2</span> (for <span class="nowrap">PHP 5</span>) were developed in parallel and are not successive major versions.
             </p>
             <p>
                 The fact that a version of PHPUnit supports a specific PHP version means that this version of PHPUnit works on that PHP version for PHP code that is compatible with the version of PHP required by the PHPUnit version in question. For example, <span class="nowrap">PHPUnit 8.5</span> requires <span class="nowrap">PHP 7.2</span>. <span class="nowrap">PHPUnit 8.5</span> works for PHP code compatible with <span class="nowrap">PHP 7.2</span> on <span class="nowrap">PHP 8</span>. However, <span class="nowrap">PHPUnit 8.5</span>'s test double code generator does not support <span class="nowrap">PHP 8</span>'s union types syntax, for example.
