@@ -34,6 +34,13 @@ RewriteRule ^getting-started/phpunit-10\.html$ https://docs.phpunit.de/en/10.5/ 
 RewriteRule ^getting-started/phpunit-11\.html$ https://docs.phpunit.de/en/11.5/ [R=301,L]
 RewriteRule ^getting-started/phpunit-12\.html$ https://docs.phpunit.de/en/12.5/ [R=301,L]
 
+# The newsletter page keeps the extension-free URL that the former redirect to
+# the signup form had. Matching THE_REQUEST means the internal rewrite below
+# does not re-enter the redirect rule, so there is no redirect loop.
+RewriteCond %{THE_REQUEST} \s/+newsletter\.html[\s?] [NC]
+RewriteRule ^newsletter\.html$ /newsletter [R=301,L]
+RewriteRule ^newsletter$ newsletter.html [L]
+
 # /index.html -> /, /announcements/index.html -> /announcements/, and so on.
 # Matching THE_REQUEST means the internal DirectoryIndex lookup for "/" does
 # not re-enter this rule, so there is no redirect loop.
@@ -41,5 +48,4 @@ RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
 RewriteRule ^(.*/)?index\.html$ /%1 [R=301,L]
 
 RedirectPermanent /professional-services.html https://phpunit.expert/?ref=phpunit.de
-RedirectPermanent /newsletter https://t8cbf4509.emailsys1a.net/275/973/33ad04f4be/subscribe/form.html?_g=1752156344
 RedirectPermanent /test-smarter-not-harder.html https://thephpcc.academy/en/test-smarter-not-harder?ref=phpunit#dates
