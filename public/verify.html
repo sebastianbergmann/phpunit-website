@@ -121,6 +121,9 @@
                 Each PHAR is signed by Sebastian Bergmann. PGP signatures and SHA256 hashes are provided alongside every release for verification. The digital signatures can be used to verify that the PHARs were produced by Sebastian Bergmann and have not been tampered with.
             </p>
             <p>
+                Starting with PHPUnit 13.4.1, 12.5.38, 11.5.57, 10.5.66, 9.6.38, and 8.5.56, every PHAR is also accompanied by a signed <a href="#verifying-the-sbom">Software Bill of Materials (SBOM)</a> that describes the PHAR and the components it contains.
+            </p>
+            <p>
                 If the PHPUnit website or PHAR distribution server were breached and fake PHPUnit releases were provided, they could be detected using these signatures.
             </p>
             <p>
@@ -180,39 +183,65 @@ gpg:          There is no indication that the signature belongs to the owner.
             <h3><code>--manifest</code></h3>
             <p>Prints a list of every package bundled in the PHAR together with its exact version number:</p>
             <pre><code>php phpunit.phar --manifest
-phpunit/phpunit: 13.0.5
-myclabs/deep-copy: 1.13.4
-nikic/php-parser: v5.7.0
+phpunit/phpunit: 13.4.1
+myclabs/deep-copy: 1.14.0
+nikic/php-parser: v5.9.0
 phar-io/manifest: 2.0.4
 phar-io/version: 3.2.1
-phpunit/php-code-coverage: 13.0.1
+phpunit/php-code-coverage: 14.4.1
 ...</code></pre>
             <p>This is the quickest way to check which version of a particular dependency is bundled.</p>
             <h3><code>--sbom</code></h3>
             <p>
-                Prints a full Software Bill of Materials (SBOM) in CycloneDX XML format. For every bundled component, it includes the group, name, version, license, and a Package URL (purl):
+                Prints the Software Bill of Materials (SBOM) that is embedded in the PHAR. The SBOM uses the <a href="https://cyclonedx.org/" target="_blank" rel="noopener">CycloneDX</a> 1.7 XML format. It provides the <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom" target="_blank" rel="noopener">NTIA minimum elements</a> as well as the data fields that <a href="https://www.bsi.bund.de/dok/TR-03183" target="_blank" rel="noopener">BSI TR-03183-2</a> (version 2.1.0) requires.
+            </p>
+            <p>
+                For PHPUnit itself and for every bundled component, the SBOM includes its creators, name, version, description, licences, Package URL (purl), and where its source code can be found. The PHP runtime and the PHP extensions that PHPUnit requires are listed as external components, and the dependencies between all components are recorded as well:
             </p>
             <pre><code>php phpunit.phar --sbom
-&lt;?xml version="1.0"?&gt;
-&lt;bom xmlns="http://cyclonedx.org/schema/bom/1.4"&gt;
- &lt;components&gt;
-  &lt;component type="library"&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;bom xmlns="http://cyclonedx.org/schema/bom/1.7" version="1"&gt;
+ &lt;metadata&gt;
+  ...
+  &lt;component type="framework" bom-ref="pkg:composer/phpunit/phpunit@13.4.1"&gt;
+   ...
    &lt;group&gt;phpunit&lt;/group&gt;
    &lt;name&gt;phpunit&lt;/name&gt;
-   &lt;version&gt;13.0.5&lt;/version&gt;
+   &lt;version&gt;13.4.1&lt;/version&gt;
    &lt;description&gt;The PHP Unit Testing framework.&lt;/description&gt;
    &lt;licenses&gt;
-    &lt;license&gt;
-     &lt;id&gt;BSD-3-Clause&lt;/id&gt;
-    &lt;/license&gt;
+    &lt;expression acknowledgement="declared"&gt;BSD-3-Clause&lt;/expression&gt;
+    &lt;expression acknowledgement="concluded"&gt;BSD-3-Clause&lt;/expression&gt;
    &lt;/licenses&gt;
-   &lt;purl&gt;pkg:composer/phpunit/phpunit@13.0.5&lt;/purl&gt;
+   &lt;purl&gt;pkg:composer/phpunit/phpunit@13.4.1&lt;/purl&gt;
+   ...
   &lt;/component&gt;
   ...
+ &lt;/metadata&gt;
+ &lt;components&gt;
+  &lt;component type="library" bom-ref="pkg:composer/myclabs/deep-copy@1.14.0"&gt;
+   ...
+  &lt;/component&gt;
+  ...
+  &lt;component type="platform" bom-ref="php" isExternal="true"&gt;
+   &lt;manufacturer&gt;
+    &lt;url&gt;https://www.php.net/&lt;/url&gt;
+   &lt;/manufacturer&gt;
+   &lt;name&gt;php&lt;/name&gt;
+   &lt;version&gt;8.4.1&lt;/version&gt;
+   &lt;cpe&gt;cpe:2.3:a:php:php:8.4.1:*:*:*:*:*:*:*&lt;/cpe&gt;
+  &lt;/component&gt;
  &lt;/components&gt;
+ &lt;dependencies&gt;
+  ...
+ &lt;/dependencies&gt;
+ ...
 &lt;/bom&gt;</code></pre>
             <p>
                 The SBOM can be fed into supply-chain security tools that track known vulnerabilities across your dependency tree.
+            </p>
+            <p>
+                PHARs of PHPUnit releases prior to 13.4.1, 12.5.38, 11.5.57, 10.5.66, 9.6.38, and 8.5.56 embed a less detailed SBOM in CycloneDX 1.4 XML format.
             </p>
             <h3><code>--composer-lock</code></h3>
             <p>
@@ -225,7 +254,7 @@ phpunit/php-code-coverage: 13.0.1
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efcffb01d63d6a8a77320b50ca07079d",
+    "content-hash": "2241ffdbbe5e4379c21a3e012c3e2f34",
     ...
 }</code></pre>
             <p>
@@ -233,6 +262,50 @@ phpunit/php-code-coverage: 13.0.1
             </p>
             <p>
                 Together, these three options give you full transparency into what the PHAR contains and how it was built, complementing the signature-based verification described above.
+            </p>
+            <h2 id="verifying-the-sbom">Verifying the SBOM</h2>
+            <p>
+                Starting with PHPUnit 13.4.1, 12.5.38, 11.5.57, 10.5.66, 9.6.38, and 8.5.56, an SBOM is published on <a href="https://phar.phpunit.de/" target="_blank" rel="noopener">https://phar.phpunit.de/</a> alongside every PHAR, together with a detached PGP signature of the SBOM. For <code>phpunit-13.4.1.phar</code>, for example, these are <code>phpunit-13.4.1.phar.cdx.xml</code> and <code>phpunit-13.4.1.phar.cdx.xml.asc</code>.
+            </p>
+            <p>
+                This SBOM contains everything that the SBOM embedded in the PHAR contains. In addition, it describes the PHAR file itself: its filename, its download URL, and its SHA-512 hash. Because you do not have to run the PHAR to read this SBOM, you can inspect it, or feed it into supply-chain security tools, before you execute any of the code it describes.
+            </p>
+            <h3>Step 1: Download the PHAR, its SBOM, and the SBOM's signature</h3>
+            <p>
+                Just like <code>phpunit-13.phar</code> always points to the PHAR of the most recent PHPUnit 13 release, <code>phpunit-13.phar.cdx.xml</code> and <code>phpunit-13.phar.cdx.xml.asc</code> always point to its SBOM and the SBOM's signature:
+            </p>
+            <pre><code>wget -O phpunit.phar https://phar.phpunit.de/phpunit-13.phar
+wget -O phpunit.phar.cdx.xml https://phar.phpunit.de/phpunit-13.phar.cdx.xml
+wget -O phpunit.phar.cdx.xml.asc https://phar.phpunit.de/phpunit-13.phar.cdx.xml.asc</code></pre>
+            <h3>Step 2: Verify the signature of the SBOM</h3>
+            <p>
+                The SBOM is signed with the same key as the PHAR. After you have <a href="#verifying-phar-releases-with-gpg">imported the public key</a>, verify the signature:
+            </p>
+            <pre><code>gpg --verify phpunit.phar.cdx.xml.asc phpunit.phar.cdx.xml</code></pre>
+            <p>
+                As for the PHAR, GPG must report a good signature made with the key that has the fingerprint <code>D840 6D0D 8294 7747 2937 7831 4AA3 9408 6372 C20A</code>.
+            </p>
+            <h3>Step 3: Check that the SBOM describes the PHAR you downloaded</h3>
+            <p>Calculate the SHA-512 hash of the PHAR:</p>
+            <pre><code>sha512sum phpunit.phar
+1112455d8e2a5650c9747b4146af425f02d14c9fcea99f974a420a25d49066ffce3569ee22804aff8e8b4f70c3d7bd04a16453b84e9c02e8d9e29a015d8a9ae9  phpunit.phar</code></pre>
+            <p>
+                Compare it against the hash that the SBOM records for the PHAR. The SBOM also records the original filename of the PHAR, which tells you which release you downloaded:
+            </p>
+            <pre><code>&lt;component type="framework" bom-ref="pkg:composer/phpunit/phpunit@13.4.1"&gt;
+  ...
+  &lt;hashes&gt;
+    &lt;hash alg="SHA-512"&gt;1112455d8e2a5650c9747b4146af425f02d14c9fcea99f974a420a25d49066ffce3569ee22804aff8e8b4f70c3d7bd04a16453b84e9c02e8d9e29a015d8a9ae9&lt;/hash&gt;
+  &lt;/hashes&gt;
+  ...
+  &lt;properties&gt;
+    ...
+    &lt;property name="bsi:component:filename"&gt;phpunit-13.4.1.phar&lt;/property&gt;
+    ...
+  &lt;/properties&gt;
+&lt;/component&gt;</code></pre>
+            <p>
+                If the signature of the SBOM is good and the hashes match, then the PHAR you downloaded is exactly the file that the signed SBOM describes.
             </p>
             <h2 id="using-phive-for-automatic-verification">Using PHIVE for automatic verification</h2>
             <p>
