@@ -24,6 +24,7 @@ use PHPUnit\Framework\TestCase;
  */
 #[CoversClass(AnnouncementsRenderer::class)]
 #[CoversClass(BackwardCompatibilityRenderer::class)]
+#[CoversClass(CodeSprintsRenderer::class)]
 #[CoversClass(DocumentationRenderer::class)]
 #[CoversClass(Factory::class)]
 #[CoversClass(GettingStartedRenderer::class)]
@@ -38,6 +39,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversTrait(Formatting::class)]
 #[UsesClass(Announcement::class)]
 #[UsesClass(Article::class)]
+#[UsesClass(CodeSprint::class)]
 #[UsesClass(ConfigurationLoader::class)]
 #[UsesClass(MajorVersion::class)]
 #[UsesClass(MajorVersionCollection::class)]
@@ -58,6 +60,7 @@ final class BuildTest extends TestCase
 
         mkdir($this->publicDirectory . '/announcements', 0o777, true);
         mkdir($this->publicDirectory . '/img/sponsors', 0o777, true);
+        mkdir($this->publicDirectory . '/code-sprints');
 
         file_put_contents($this->publicDirectory . '/announcements/phpunit-2.html', '');
         file_put_contents($this->publicDirectory . '/announcements/notice.html', '');
@@ -80,7 +83,7 @@ final class BuildTest extends TestCase
     {
         $this->build('2022-05-01');
 
-        foreach (['backward-compatibility', 'datenschutz', 'documentation', 'getting-started', 'impressum', 'index', 'newsletter', 'sponsoring', 'sponsors', 'supported-versions', 'verify', 'announcements/index'] as $page) {
+        foreach (['backward-compatibility', 'datenschutz', 'documentation', 'getting-started', 'impressum', 'index', 'newsletter', 'sponsoring', 'sponsors', 'supported-versions', 'verify', 'announcements/index', 'code-sprints/index', 'code-sprints/october-2022', 'code-sprints/may-2021', 'code-sprints/march-2017'] as $page) {
             $html = $this->page($page);
 
             $this->assertStringContainsString('<header class="site-header">', $html, $page);
@@ -234,6 +237,70 @@ final class BuildTest extends TestCase
         $this->assertStringContainsString('<li><a href="/sponsors.html" aria-current="page">Sponsors</a></li>', $html);
     }
 
+    public function testCodeSprintThatIsNotOverIsTheNextEvent(): void
+    {
+        $this->build('2022-05-01');
+
+        $html = $this->page('code-sprints/index');
+
+        $this->assertStringContainsString('<p>The next Code Sprint for PHPUnit will take place <a href="/code-sprints/october-2022.html">October 14-15, 2022 in Köln, Germany</a>.</p>', $html);
+        $this->assertStringContainsString("            <ul>\n                <li><a href=\"/code-sprints/may-2021.html\">May 7-8, 2021</a></li>\n                <li><a href=\"/code-sprints/march-2017.html\">March 31, 2017 - April 1, 2017</a></li>\n            </ul>", $html);
+        $this->assertStringContainsString('On October 14-15, 2022, there will be a code sprint in Köln, Germany to work on PHPUnit', $this->page('code-sprints/october-2022'));
+    }
+
+    public function testCodeSprintIsTheNextEventUntilItsLastDay(): void
+    {
+        $this->build('2022-10-15');
+
+        $this->assertStringContainsString('will take place <a href="/code-sprints/october-2022.html">', $this->page('code-sprints/index'));
+    }
+
+    public function testCodeSprintThatIsOverIsAPastEvent(): void
+    {
+        $this->build('2022-10-16');
+
+        $html = $this->page('code-sprints/index');
+
+        $this->assertStringContainsString('<p>The next Code Sprint for PHPUnit is currently being planned and will be announced soon.</p>', $html);
+        $this->assertStringContainsString("            <ul>\n                <li><a href=\"/code-sprints/october-2022.html\">October 14-15, 2022</a></li>\n                <li><a href=\"/code-sprints/may-2021.html\">", $html);
+        $this->assertStringContainsString('On October 14-15, 2022, there was a code sprint in Köln, Germany to work on PHPUnit', $this->page('code-sprints/october-2022'));
+    }
+
+    public function testPageOfCodeSprintIsRenderedFromItsData(): void
+    {
+        $this->build('2022-05-01');
+
+        $html = $this->page('code-sprints/october-2022');
+
+        $this->assertStringContainsString('<title>October 2022 Code Sprint for PHPUnit</title>', $html);
+        $this->assertStringContainsString('<link rel="canonical" href="https://phpunit.de/code-sprints/october-2022.html">', $html);
+        $this->assertStringContainsString('<h1>PHPUnit Code Sprint in Köln, Germany</h1>', $html);
+        $this->assertStringContainsString('<p><time datetime="2022-10-14/2022-10-15">October 14-15, 2022</time></p>', $html);
+        $this->assertStringContainsString('<p><a href="https://example.org/acme" target="_blank" rel="noopener"><img src="/img/sponsors/acme.svg" alt="Acme Inc." width="200" loading="lazy"></a></p>', $html);
+        $this->assertStringContainsString('<p><a href="https://example.org/hoster" target="_blank" rel="noopener"><img src="/img/sponsors/hoster.svg" alt="Hoster" width="100" loading="lazy"></a></p>', $html);
+        $this->assertStringContainsString("                <div>\n                </div>", $html);
+    }
+
+    public function testPageOfCodeSprintShowsItsImpressionsWhenThereAreSome(): void
+    {
+        $this->build('2022-05-01');
+
+        $html = $this->page('code-sprints/march-2017');
+
+        $this->assertStringContainsString("                <div>\n                    <ul class=\"photo-grid\">", $html);
+        $this->assertStringContainsString('<p><time datetime="2017-03-31/2017-04-01">March 31, 2017 - April 1, 2017</time></p>', $html);
+    }
+
+    public function testOrganizerOfCodeSprintNeedsLogoThatExists(): void
+    {
+        unlink($this->publicDirectory . '/img/sponsors/hoster.svg');
+
+        $this->expectException(InvalidConfigurationException::class);
+        $this->expectExceptionMessageIsOrContains('The logo hoster.svg of Hoster does not exist in public/img/sponsors/');
+
+        $this->build('2022-05-01');
+    }
+
     public function testSitemapListsPagesThatAreNotExcluded(): void
     {
         $this->build('2022-05-01');
@@ -247,7 +314,9 @@ final class BuildTest extends TestCase
         $this->assertStringContainsString('<loc>https://phpunit.de/impressum.html</loc>', $sitemap);
         $this->assertStringNotContainsString('index.html', $sitemap);
         $this->assertStringNotContainsString('excluded', $sitemap);
-        $this->assertSame(15, substr_count($sitemap, '<url>'));
+        $this->assertStringContainsString('<loc>https://phpunit.de/code-sprints/</loc>', $sitemap);
+        $this->assertStringContainsString('<loc>https://phpunit.de/code-sprints/may-2021.html</loc>', $sitemap);
+        $this->assertSame(19, substr_count($sitemap, '<url>'));
     }
 
     public function testSponsorNeedsLogoThatExists(): void
@@ -255,7 +324,7 @@ final class BuildTest extends TestCase
         unlink($this->publicDirectory . '/img/sponsors/acme.svg');
 
         $this->expectException(InvalidConfigurationException::class);
-        $this->expectExceptionMessageIsOrContains('The logo acme.svg of sponsor Acme Inc. does not exist in public/img/sponsors/');
+        $this->expectExceptionMessageIsOrContains('The logo acme.svg of Acme Inc. does not exist in public/img/sponsors/');
 
         $this->build('2022-05-01');
     }

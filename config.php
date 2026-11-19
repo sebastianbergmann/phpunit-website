@@ -2,7 +2,7 @@
 
 /*
  * The single source of truth for everything on phpunit.de that changes with
- * a release, an announcement, a sponsor, or an article. Run bin/build.php
+ * a release, an announcement, a code sprint, a sponsor, or an article. Run bin/build.php
  * after changing it.
  *
  * majorVersions
@@ -260,6 +260,117 @@ return [
             'date'  => '2026-09-09',
             'title' => 'What is new in PHPUnit 13.3?',
             'url'   => 'https://phpunit.expert/articles/repetition-and-insight-what-is-new-in-phpunit-133.html?ref=phpunit.de',
+        ],
+    ],
+
+    /*
+     * A code sprint that is not over on the day of the build is the next
+     * event. Its page is named after the month and the year it starts in,
+     * for instance april-2025.html. The photos and quotes of that page are
+     * not configured here: they are the optional template
+     * templates/code-sprints/impressions/april-2025.html.
+     *
+     * A logo is the name of a file in public/img/sponsors/.
+     */
+    'codeSprints' => [
+        [
+            'start'      => '2025-04-25',
+            'end'        => '2025-04-26',
+            'location'   => 'Berlin, Germany',
+            'organizers' => [
+                ['name' => 'CHECK24', 'url' => 'https://opensource.check24.de/', 'logo' => 'check24.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2024-10-18',
+            'end'        => '2024-10-19',
+            'location'   => 'Munich, Germany',
+            'organizers' => [
+                ['name' => 'celebrate company', 'url' => 'https://celebrate.company/', 'logo' => 'celebrate_company.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2024-03-08',
+            'end'        => '2024-03-09',
+            'location'   => 'Hamburg, Germany',
+            'organizers' => [
+                ['name' => 'celebrate company', 'url' => 'https://celebrate.company/', 'logo' => 'celebrate_company.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2019-09-06',
+            'end'        => '2019-09-07',
+            'location'   => 'Mannheim, Germany',
+            'organizers' => [
+                ['name' => 'bitExpert', 'url' => 'https://www.bitexpert.de/', 'logo' => 'bitexpert.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2019-04-26',
+            'end'        => '2019-04-27',
+            'location'   => 'Würzburg, Germany',
+            'organizers' => [
+                ['name' => 'FLYERALARM', 'url' => 'https://www.flyeralarm.de/', 'logo' => 'flyeralarm.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2018-09-07',
+            'end'        => '2018-09-08',
+            'location'   => 'Munich, Germany',
+            'organizers' => [
+                ['name' => 'CHECK24', 'url' => 'https://opensource.check24.de/', 'logo' => 'check24.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2018-04-06',
+            'end'        => '2018-04-07',
+            'location'   => 'Hamburg, Germany',
+            'organizers' => [
+                ['name' => 'Kartenmacherei', 'url' => 'https://www.kartenmacherei.de/', 'logo' => 'kartenmacherei.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2017-10-13',
+            'end'        => '2017-10-14',
+            'location'   => 'Düsseldorf, Germany',
+            'organizers' => [
+                ['name' => 'Trivago', 'url' => 'https://www.trivago.de/', 'logo' => 'trivago.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
+        ],
+        [
+            'start'      => '2017-03-31',
+            'end'        => '2017-04-01',
+            'location'   => 'Hamburg, Germany',
+            'organizers' => [
+                ['name' => 'Kartenmacherei', 'url' => 'https://www.kartenmacherei.de/', 'logo' => 'kartenmacherei.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
+            ],
         ],
     ],
 

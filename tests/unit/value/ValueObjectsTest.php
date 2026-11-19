@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(MinorVersion::class)]
 #[CoversClass(Site::class)]
 #[CoversClass(Sponsor::class)]
+#[UsesClass(CodeSprint::class)]
 #[UsesClass(MajorVersion::class)]
 #[UsesClass(MajorVersionCollection::class)]
 final class ValueObjectsTest extends TestCase
@@ -80,14 +81,16 @@ final class ValueObjectsTest extends TestCase
 
         $announcements  = [new Announcement(new DateTimeImmutable('2014-04-21'), 'Title', 'page.html', 'Text')];
         $articles       = [new Article(new DateTimeImmutable('2026-11-04'), 'Title', 'https://example.org/')];
+        $codeSprints    = [new CodeSprint(new DateTimeImmutable('2025-04-25'), new DateTimeImmutable('2025-04-26'), 'Berlin, Germany', [], [])];
         $business       = [new Sponsor('Acme Inc.', 'https://example.org/', 'acme.svg')];
         $infrastructure = [new Sponsor('Hoster', 'https://example.org/', 'hoster.svg')];
 
-        $site = new Site($majorVersions, $announcements, $articles, $business, $infrastructure, ['impressum.html', 'manual/']);
+        $site = new Site($majorVersions, $announcements, $articles, $codeSprints, $business, $infrastructure, ['impressum.html', 'manual/']);
 
         $this->assertSame($majorVersions, $site->majorVersions());
         $this->assertSame($announcements, $site->announcements());
         $this->assertSame($articles, $site->articles());
+        $this->assertSame($codeSprints, $site->codeSprints());
         $this->assertSame($business, $site->businessSponsors());
         $this->assertSame($infrastructure, $site->infrastructureSponsors());
         $this->assertSame(['impressum.html', 'manual/'], $site->pagesExcludedFromSitemap());

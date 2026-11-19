@@ -45,7 +45,7 @@ final readonly class SponsorsRenderer implements PageRenderer
             if (!$this->publicDirectory->has('img/sponsors/' . $sponsor->logo())) {
                 throw new InvalidConfigurationException(
                     sprintf(
-                        'The logo %s of sponsor %s does not exist in public/img/sponsors/',
+                        'The logo %s of %s does not exist in public/img/sponsors/',
                         $sponsor->logo(),
                         $sponsor->name(),
                     ),

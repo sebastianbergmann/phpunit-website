@@ -52,7 +52,7 @@ final readonly class ConfigurationLoader
             );
         }
 
-        $this->ensureOnlyKnownKeys($configuration, ['majorVersions', 'announcements', 'articles', 'sponsors', 'sitemap'], 'configuration');
+        $this->ensureOnlyKnownKeys($configuration, ['majorVersions', 'announcements', 'articles', 'codeSprints', 'sponsors', 'sitemap'], 'configuration');
 
         $sponsors = $this->map($configuration, 'sponsors', 'sponsors');
 
@@ -62,8 +62,9 @@ final readonly class ConfigurationLoader
             $this->majorVersions($configuration),
             $this->announcements($configuration),
             $this->articles($configuration),
-            $this->sponsors($sponsors, 'business'),
-            $this->sponsors($sponsors, 'infrastructure'),
+            $this->codeSprints($configuration),
+            $this->sponsors($sponsors, 'business', 'sponsors'),
+            $this->sponsors($sponsors, 'infrastructure', 'sponsors'),
             $this->pagesExcludedFromSitemap($configuration),
         );
     }
@@ -281,19 +282,70 @@ final readonly class ConfigurationLoader
     }
 
     /**
+     * @param array<mixed> $configuration
+     *
+     * @throws InvalidConfigurationException
+     *
+     * @return list<CodeSprint>
+     */
+    private function codeSprints(array $configuration): array
+    {
+        $codeSprints = [];
+
+        foreach ($this->listOfMaps($configuration, 'codeSprints', 'codeSprints') as $index => $data) {
+            $path = sprintf('codeSprints[%d]', $index);
+
+            $this->ensureOnlyKnownKeys($data, ['start', 'end', 'location', 'organizers', 'supporters'], $path);
+
+            $codeSprint = new CodeSprint(
+                $this->date($data, 'start', $path),
+                $this->date($data, 'end', $path),
+                $this->string($data, 'location', $path),
+                $this->sponsors($data, 'organizers', $path),
+                $this->sponsors($data, 'supporters', $path),
+            );
+
+            if ($codeSprint->end() < $codeSprint->start()) {
+                throw new InvalidConfigurationException(
+                    sprintf(
+                        '%s.end must not be before %s.start',
+                        $path,
+                        $path,
+                    ),
+                );
+            }
+
+            if (array_key_exists($codeSprint->slug(), $codeSprints)) {
+                throw new InvalidConfigurationException(
+                    sprintf(
+                        'More than one code sprint starts in %s: both would be rendered as %s.html',
+                        $codeSprint->start()->format('F Y'),
+                        $codeSprint->slug(),
+                    ),
+                );
+            }
+
+            $codeSprints[$codeSprint->slug()] = $codeSprint;
+        }
+
+        return array_values($codeSprints);
+    }
+
+    /**
      * @param array<mixed>     $sponsors
      * @param non-empty-string $kind
+     * @param non-empty-string $parentPath
      *
      * @throws InvalidConfigurationException
      *
      * @return list<Sponsor>
      */
-    private function sponsors(array $sponsors, string $kind): array
+    private function sponsors(array $sponsors, string $kind, string $parentPath): array
     {
         $result = [];
 
-        foreach ($this->listOfMaps($sponsors, $kind, 'sponsors.' . $kind) as $index => $data) {
-            $path = sprintf('sponsors.%s[%d]', $kind, $index);
+        foreach ($this->listOfMaps($sponsors, $kind, $parentPath . '.' . $kind) as $index => $data) {
+            $path = sprintf('%s.%s[%d]', $parentPath, $kind, $index);
 
             $this->ensureOnlyKnownKeys($data, ['name', 'url', 'logo'], $path);
 

@@ -37,6 +37,14 @@ final readonly class TemplateRenderer
     }
 
     /**
+     * @param non-empty-string $template
+     */
+    public function has(string $template): bool
+    {
+        return is_file($this->directory . '/' . $template);
+    }
+
+    /**
      * @param non-empty-string                $template
      * @param array<non-empty-string, string> $values
      *

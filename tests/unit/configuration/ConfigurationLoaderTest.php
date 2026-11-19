@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(ConfigurationLoader::class)]
 #[UsesClass(Announcement::class)]
 #[UsesClass(Article::class)]
+#[UsesClass(CodeSprint::class)]
 #[UsesClass(MajorVersion::class)]
 #[UsesClass(MajorVersionCollection::class)]
 #[UsesClass(MinorVersion::class)]
@@ -26,7 +27,7 @@ final class ConfigurationLoaderTest extends TestCase
         return [
             'file does not exist'                  => ['does-not-exist', 'does-not-exist.php does not exist'],
             'file does not return an array'        => ['not-an-array', 'does not return an array'],
-            'unknown key'                          => ['unknown-key', 'configuration has the unknown key "sponsor" (known keys: majorVersions, announcements, articles, sponsors, sitemap)'],
+            'unknown key'                          => ['unknown-key', 'configuration has the unknown key "sponsor" (known keys: majorVersions, announcements, articles, codeSprints, sponsors, sitemap)'],
             'no major versions'                    => ['no-major-versions', 'majorVersions must not be empty'],
             'unknown key in major version'         => ['unknown-key-in-major-version', 'majorVersions[0] has the unknown key "endOfLive"'],
             'invalid date'                         => ['invalid-date', 'majorVersions[0].released must be a date in the format YYYY-MM-DD, "2019-02-30" is not'],
@@ -37,6 +38,9 @@ final class ConfigurationLoaderTest extends TestCase
             'invalid PHP version'                  => ['invalid-php-version', 'majorVersions[0].minimumPhpVersion must be a version number such as "8.4", "7" is not'],
             'duplicate major version'              => ['duplicate-major-version', 'PHPUnit 1 is configured more than once'],
             'missing sponsors'                     => ['missing-sponsors', 'sponsors must be an array'],
+            'code sprint ends before it starts'    => ['code-sprint-ends-before-it-starts', 'codeSprints[0].end must not be before codeSprints[0].start'],
+            'two code sprints in the same month'   => ['two-code-sprints-in-the-same-month', 'More than one code sprint starts in April 2025: both would be rendered as april-2025.html'],
+            'organizer without logo'               => ['organizer-without-logo', 'codeSprints[0].organizers[0].logo must be a non-empty string'],
             'missing sitemap'                      => ['missing-sitemap', 'sitemap must be an array'],
             'exclusion from sitemap is not a path' => ['invalid-sitemap-exclusion', 'sitemap.exclude must be a list of paths'],
             'announcement without page'            => ['announcement-without-page', 'announcements[0].page must be a non-empty string'],
@@ -138,6 +142,21 @@ final class ConfigurationLoaderTest extends TestCase
         $this->assertSame('2022-03-01', $articles[1]->date()->format('Y-m-d'));
         $this->assertSame('Tips & tricks', $articles[1]->title());
         $this->assertSame('https://example.org/tips.html?a=1&b=2', $articles[1]->url());
+    }
+
+    public function testLoadsCodeSprints(): void
+    {
+        $codeSprints = $this->load('valid')->codeSprints();
+
+        $this->assertCount(3, $codeSprints);
+        $this->assertSame('2022-10-14', $codeSprints[0]->start()->format('Y-m-d'));
+        $this->assertSame('2022-10-15', $codeSprints[0]->end()->format('Y-m-d'));
+        $this->assertSame('Köln, Germany', $codeSprints[0]->location());
+        $this->assertCount(1, $codeSprints[0]->organizers());
+        $this->assertSame('Acme Inc.', $codeSprints[0]->organizers()[0]->name());
+        $this->assertCount(1, $codeSprints[0]->supporters());
+        $this->assertSame('hoster.svg', $codeSprints[0]->supporters()[0]->logo());
+        $this->assertSame([], $codeSprints[2]->organizers());
     }
 
     public function testLoadsSponsors(): void

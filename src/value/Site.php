@@ -19,6 +19,11 @@ final readonly class Site
     private array $articles;
 
     /**
+     * @var list<CodeSprint>
+     */
+    private array $codeSprints;
+
+    /**
      * @var list<Sponsor>
      */
     private array $businessSponsors;
@@ -36,15 +41,17 @@ final readonly class Site
     /**
      * @param list<Announcement>     $announcements
      * @param list<Article>          $articles
+     * @param list<CodeSprint>       $codeSprints
      * @param list<Sponsor>          $businessSponsors
      * @param list<Sponsor>          $infrastructureSponsors
      * @param list<non-empty-string> $pagesExcludedFromSitemap
      */
-    public function __construct(MajorVersionCollection $majorVersions, array $announcements, array $articles, array $businessSponsors, array $infrastructureSponsors, array $pagesExcludedFromSitemap)
+    public function __construct(MajorVersionCollection $majorVersions, array $announcements, array $articles, array $codeSprints, array $businessSponsors, array $infrastructureSponsors, array $pagesExcludedFromSitemap)
     {
         $this->majorVersions            = $majorVersions;
         $this->announcements            = $announcements;
         $this->articles                 = $articles;
+        $this->codeSprints              = $codeSprints;
         $this->businessSponsors         = $businessSponsors;
         $this->infrastructureSponsors   = $infrastructureSponsors;
         $this->pagesExcludedFromSitemap = $pagesExcludedFromSitemap;
@@ -71,6 +78,14 @@ final readonly class Site
     public function articles(): array
     {
         return $this->articles;
+    }
+
+    /**
+     * @return list<CodeSprint>
+     */
+    public function codeSprints(): array
+    {
+        return $this->codeSprints;
     }
 
     /**

@@ -45,6 +45,35 @@ return [
         ['date' => '2022-03-01', 'title' => 'Tips & tricks', 'url' => 'https://example.org/tips.html?a=1&b=2'],
         ['date' => '2022-09-01', 'title' => 'Not published yet', 'url' => 'https://example.org/future.html'],
     ],
+    'codeSprints' => [
+        [
+            'start'      => '2022-10-14',
+            'end'        => '2022-10-15',
+            'location'   => 'Köln, Germany',
+            'organizers' => [
+                ['name' => 'Acme Inc.', 'url' => 'https://example.org/acme', 'logo' => 'acme.svg'],
+            ],
+            'supporters' => [
+                ['name' => 'Hoster', 'url' => 'https://example.org/hoster', 'logo' => 'hoster.svg'],
+            ],
+        ],
+        [
+            'start'      => '2017-03-31',
+            'end'        => '2017-04-01',
+            'location'   => 'Hamburg, Germany',
+            'organizers' => [
+                ['name' => 'Acme Inc.', 'url' => 'https://example.org/acme', 'logo' => 'acme.svg'],
+            ],
+            'supporters' => [],
+        ],
+        [
+            'start'      => '2021-05-07',
+            'end'        => '2021-05-08',
+            'location'   => 'Bonn, Germany',
+            'organizers' => [],
+            'supporters' => [],
+        ],
+    ],
     'sponsors' => [
         'business' => [
             ['name' => 'Acme Inc.', 'url' => 'https://example.org/acme', 'logo' => 'acme.svg'],
