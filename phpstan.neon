@@ -1,0 +1,49 @@
+parameters:
+    level: 10
+
+    paths:
+        - bin
+        - src
+        - tests
+        - config.php
+
+    excludePaths:
+        - tests/fixtures
+
+    resultCachePath: %tmpDir%/phpunit.de.php
+
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    reportAlwaysTrueInLastCondition: true
+    reportPossiblyNonexistentConstantArrayOffset: true
+    reportPossiblyNonexistentGeneralArrayOffset: true
+    treatPhpDocTypesAsCertain: false
+
+    strictRules:
+        allRules: false
+        booleansInConditions: true
+        closureUsesThis: true
+        disallowedBacktick: true
+        disallowedEmpty: true
+        disallowedImplicitArrayCreation: true
+        disallowedLooseComparison: true
+        disallowedShortTernary: true
+        illegalConstructorMethodCall: true
+        matchingInheritedMethodNames: true
+        noVariableVariables: true
+        numericOperandsInArithmeticOperators: true
+        overwriteVariablesWithLoop: true
+        requireParentConstructorCall: true
+        strictArrayFilter: true
+        strictFunctionCalls: true
+        switchConditionsMatchingType: true
+        uselessCast: true
+
+    ergebnis:
+        allRules: false
+        final:
+            enabled: true
+        privateInFinalClass:
+            enabled: true
+
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon

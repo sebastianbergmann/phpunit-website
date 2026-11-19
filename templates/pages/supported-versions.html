@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Supported Versions of PHPUnit</title>
+        <meta name="description" content="Details about Bugfix Support and Life Support for PHPUnit versions.">
+        <link rel="canonical" href="https://phpunit.de/supported-versions.html">
+
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Supported Versions of PHPUnit">
+        <meta property="og:description" content="Details about Bugfix Support and Life Support for PHPUnit versions.">
+        <meta property="og:url" content="https://phpunit.de/supported-versions.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Supported Versions of PHPUnit">
+        <meta name="twitter:description" content="Details about Bugfix Support and Life Support for PHPUnit versions.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=2">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Supported Versions"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Dataset",
+                    "name": "PHPUnit version support schedule",
+                    "description": "Release date, PHP compatibility, end of bugfix support and end of life for every major version of PHPUnit.",
+                    "url": "https://phpunit.de/supported-versions.html",
+                    "creator": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "license": "https://opensource.org/licenses/BSD-3-Clause",
+                    "temporalCoverage": "2004-03-15/..",
+                    "variableMeasured": [
+                        "Major Version",
+                        "PHP Compatibility",
+                        "Initial Release",
+                        "End of Bugfix Support",
+                        "End of Life"
+                    ]
+                }
+            ]
+        }
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+{{header}}
+
+        <main id="main" class="wrap">
+            <h1>Supported Versions</h1>
+
+            <input type="checkbox" id="show-older-versions" class="table-toggle">
+
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">
+                        Support status, supported minor version, PHP compatibility, and end-of-life dates for each major version of PHPUnit
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Major Version</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Supported Minor</th>
+                            <th scope="col">PHP Compatibility</th>
+                            <th scope="col">Initial Release</th>
+                            <th scope="col">End of Bugfix Support</th>
+                            <th scope="col">End of Life</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+{{supportedVersions}}
+                    </tbody>
+                    <tbody class="table-older">
+{{unsupportedVersions}}
+                    </tbody>
+                </table>
+            </div>
+
+            <label class="btn table-toggle-btn" for="show-older-versions">
+                <span class="table-toggle-btn__more">Show older versions</span>
+                <span class="table-toggle-btn__less">Hide older versions</span>
+            </label>
+{{nextMajorVersion}}
+
+            <h2 id="bugfix-support">Bugfix Support</h2>
+            <p>
+                <strong>Bugfix Support</strong> means that bugs will be fixed for a version of PHPUnit. Bugfix Support for major version <code>X</code> ends two years after its initial release (when major version <code>(X+2)</code> is released). Bugfix Support for minor version <code>X.Y</code> ends when minor version <code>X.(Y+1)</code> is released.
+            </p>
+            <p>
+                The table above therefore names one minor version for each major version: this is the only one that changes are still made for. New major and minor versions are released according to a fixed <a href="/backward-compatibility.html#release-schedule">release schedule</a>.
+            </p>
+
+            <h2 id="life-support">Life Support</h2>
+            <p>When Bugfix Support ends for a major version, Life Support for this major version begins.</p>
+            <p>
+                <strong>Life Support</strong> means that changes will be made for an otherwise unsupported version of PHPUnit to be compatible with new versions of PHP. Life Support ends when an old version of PHPUnit cannot be made compatible with a new version of PHP without breaking <a href="/backward-compatibility.html">backward compatibility</a>.
+            </p>
+
+            <h2 id="php-compatibility">PHP Compatibility</h2>
+            <p>
+                A version of PHPUnit that is compatible with a newer version of PHP runs on that version of PHP. It does not support the language features that were introduced after the version of PHP that it requires.
+            </p>
+            <p>
+                For example, <span class="nowrap">PHPUnit 8.5</span> requires <span class="nowrap">PHP 7.2</span> and runs on <span class="nowrap">PHP 8</span>, where it works for PHP code that is compatible with <span class="nowrap">PHP 7.2</span>. Its test double code generator does not support union types, however, which were introduced in <span class="nowrap">PHP 8</span>.
+            </p>
+
+            <h2 id="older-versions">Older Versions</h2>
+            <p>
+                This support policy has been in effect since <span class="nowrap">PHPUnit 4</span>. For <span class="nowrap">PHPUnit 1</span>, <span class="nowrap">PHPUnit 2</span>, and <span class="nowrap">PHPUnit 3</span>, the dates shown above are those of their respective last releases. Note that <span class="nowrap">PHPUnit 1</span> (for <span class="nowrap">PHP 4</span>) and <span class="nowrap">PHPUnit 2</span> (for <span class="nowrap">PHP 5</span>) were developed in parallel and are not successive major versions.
+            </p>
+
+            <h2 id="upgrading">Upgrading</h2>
+            <p>
+                The article <a href="https://phpunit.expert/articles/upgrading-phpunit-should-be-boring.html?ref=phpunit.de" target="_blank" rel="noopener">Upgrading PHPUnit should be boring</a> explains how to get from one major version of PHPUnit to the next: in which order to work, and which of PHPUnit's two lists of deprecations to read along the way.
+            </p>
+        </main>
+
+{{footer}}
+    </body>
+</html>

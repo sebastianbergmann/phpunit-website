@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Backward Compatibility of PHPUnit</title>
+        <meta name="description" content="How PHPUnit handles backward compatibility">
+        <link rel="canonical" href="https://phpunit.de/backward-compatibility.html">
+
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Backward Compatibility of PHPUnit">
+        <meta property="og:description" content="How PHPUnit handles backward compatibility">
+        <meta property="og:url" content="https://phpunit.de/backward-compatibility.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Backward Compatibility of PHPUnit">
+        <meta name="twitter:description" content="How PHPUnit handles backward compatibility">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=2">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Backward Compatibility"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+{{header}}
+
+        <main id="main" class="wrap">
+            <h1>Backward Compatibility</h1>
+
+            <p class="lead">
+                PHPUnit follows <a href="https://semver.org/" target="_blank" rel="noopener">Semantic Versioning</a>. Tests, configuration files, and extensions that only use what this page lists as covered keep working until the next major version.
+            </p>
+
+            <h2 id="release-schedule">Release Schedule</h2>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">
+                        When major, minor, and patch versions of PHPUnit are released and what they may change
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Version</th>
+                            <th scope="col">Released</th>
+                            <th scope="col">What it may change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Major</th>
+                            <td>Each year on the first Friday of February</td>
+                            <td>Makes incompatible changes: removes features that were <a href="#hard-deprecation">hard-deprecated</a>, hard-deprecates features that were <a href="#soft-deprecation">soft-deprecated</a>, and may raise the minimum required version of PHP</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Minor</th>
+                            <td>On the first Friday of April, June, August, October, and December</td>
+                            <td>Adds functionality in a backward compatible manner and may deprecate features</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Patch</th>
+                            <td>As needed</td>
+                            <td>Addresses issues in a backward compatible manner</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                The <a href="/supported-versions.html">Supported Versions</a> page shows which versions of PHPUnit currently receive bug fixes.
+            </p>
+
+            <h2 id="covered">What is covered</h2>
+            <p>The backward compatibility promise for PHPUnit covers the following. None of it changes in an incompatible manner in a minor or patch version.</p>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">
+                        What the backward compatibility promise for PHPUnit covers
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">What</th>
+                            <th scope="col">Promise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">PHP code</th>
+                            <td>Classes, interfaces, traits, enumerations, and methods that are not annotated with <code>@internal</code> can be used in the same way. The <a href="#not-covered">exceptions</a> are listed below</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">XML configuration file</th>
+                            <td>Elements and attributes keep their name and their meaning</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">CLI options</th>
+                            <td>Options of the test runner keep their name and their meaning</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Exit codes</th>
+                            <td>The shell exit codes of the test runner keep their meaning</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Logfiles</th>
+                            <td>What is written to a logfile in JUnit XML, Open Test Reporting XML, or TeamCity format keeps its meaning. A minor version may add information</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Events</th>
+                            <td>Events and subscriber interfaces that exist keep working. A minor version may add events, see <a href="#sequence-of-events">Sequence of events</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PHP</th>
+                            <td>The minimum required version of PHP is only raised in a major version</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="not-covered">What is not covered</h2>
+            <h3 id="internal-code">Internal Code</h3>
+            <p>
+                PHPUnit's units of code that are annotated with <code>@internal</code> are not covered by the backward compatibility promise for PHPUnit. This annotation is used on classes, interfaces, traits, and enumerations as well as on individual methods of a class that itself is not internal.
+            </p>
+            <div class="note note--warn">
+                <p>
+                    Internal code is subject to change or removal even in minor or patch versions. It must not be used in third-party code: not in test code, not in extensions for PHPUnit, and not in wrappers around PHPUnit.
+                </p>
+            </div>
+
+            <h3 id="named-arguments">Named Arguments</h3>
+            <p>
+                Parameter names are not covered by the backward compatibility promise for PHPUnit: a parameter may be renamed in a minor or patch version. The <code>@no-named-arguments</code> annotation on PHPUnit's classes, interfaces, traits, and enumerations documents this. Use positional arguments when you call a method of PHPUnit or use one of its attributes.
+            </p>
+            <p>
+                The only exception is the <code>PHPUnit\Framework\PropertyBased\Generators</code> class of PHPUnit 14 and newer. Its methods have several optional parameters and are meant to be called with named arguments. Their parameter names are covered.
+            </p>
+
+            <h3 id="objects-created-by-phpunit">Objects created by PHPUnit</h3>
+            <p>
+                PHPUnit passes objects to third-party code: subscribers receive events and the value objects that describe a test or a test suite, including its metadata, and extensions receive the configuration of the test runner. For these objects, only the public methods for querying information are covered by the backward compatibility promise for PHPUnit. How these objects are created is not covered: their constructors and static factory methods are internal.
+            </p>
+            <p>
+                Since there is no point in extending these classes outside of PHPUnit's own code, making an <code>abstract</code> class of such a value object <code>abstract readonly</code>, for example, is not considered to be a break of backward compatibility.
+            </p>
+
+            <h3 id="interfaces-implemented-by-phpunit">Interfaces implemented only by PHPUnit</h3>
+            <p>
+                Some interfaces exist so that third-party code can use objects that PHPUnit creates, not so that third-party code can implement them. Examples are <code>MockObject</code> and <code>Stub</code> for test doubles, <code>InvocationStubber</code> and <code>InvocationMocker</code> for configuring them, and the <code>Facade</code> that an extension receives when it is bootstrapped. Some of these interfaces are annotated with <code>@phpstan-sealed</code>, so that static analysis reports a class that implements them outside of PHPUnit.
+            </p>
+            <p>
+                Adding a method to such an interface in a minor version is not considered to be a break of backward compatibility.
+            </p>
+
+            <h3 id="sequence-of-events">Sequence of events</h3>
+            <p>
+                Which events are emitted during a test run, and in which order, is not fixed for a major version. A minor version may emit events that did not exist before. Any version, including a patch version, may correct the sequence of events when it was wrong.
+            </p>
+            <p>
+                Subscribers depend on the sequence of events, though. A change to it that existing subscribers have to be adapted to may therefore have to wait until the next major version, even when the current sequence is flawed. For example, the guarantee that a test or a test suite that is started is also finished, and that the event for a hook method is emitted before that method is called, changes when events that already exist are emitted. This change was <a href="https://github.com/sebastianbergmann/phpunit/issues/7004" target="_blank" rel="noopener">made in PHPUnit 14</a> and not in a minor version of PHPUnit 13.
+            </p>
+
+            <h3 id="output">Output of the test runner</h3>
+            <p>
+                What the test runner prints, for instance the progress, the result, the details about issues, and the TestDox output, is meant to be read by humans and may change in any version. Do not parse it. A tool that needs to process the result of a test run should read a logfile or subscribe to events instead.
+            </p>
+
+            <h2 id="deprecation">Deprecation and Removal</h2>
+            <p>A feature is removed in three steps:</p>
+            <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">
+                        The steps in which a feature of PHPUnit is deprecated and removed
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Step</th>
+                            <th scope="col">When</th>
+                            <th scope="col">What you notice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><a href="#soft-deprecation">Soft deprecation</a></th>
+                            <td>In a minor version</td>
+                            <td>IDEs and static analysis tools report the use of the feature. Tests work as before</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><a href="#hard-deprecation">Hard deprecation</a></th>
+                            <td>In the next major version</td>
+                            <td>PHPUnit reports the use of the feature. Tests work as before</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><a href="#removal">Removal</a></th>
+                            <td>In the major version after that</td>
+                            <td>Tests that use the feature no longer work</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                For example, <code>assertContainsOnly()</code> was soft-deprecated in PHPUnit 11.5, hard-deprecated in PHPUnit 12, and removed in PHPUnit 13.
+            </p>
+
+            <h3 id="soft-deprecation">Soft Deprecation</h3>
+            <p>
+                The <code>@deprecated</code> annotation is added to the unit of code through which the feature is used, for instance a method. IDEs and static analysis tools can now report that deprecated functionality is used.
+            </p>
+            <p>
+                Tests that use a soft-deprecated assertion method, for example, will continue to work in exactly the same way.
+            </p>
+
+            <h3 id="hard-deprecation">Hard Deprecation</h3>
+            <p>The feature is hard-deprecated in the next major version after it was soft-deprecated.</p>
+            <p>
+                Tests that use a hard-deprecated assertion method, for example, will continue to work in exactly the same way. The only difference is that PHPUnit now reports that a hard-deprecated feature is used. This does not make the test run fail unless the test runner is configured to fail on PHPUnit deprecations, for instance with the <code>--fail-on-phpunit-deprecation</code> CLI option.
+            </p>
+
+            <h3 id="direct-hard-deprecation">Hard Deprecation without Soft Deprecation</h3>
+            <p>
+                A soft deprecation needs a unit of code that the <code>@deprecated</code> annotation can be added to. Where there is none, the feature is hard-deprecated directly, in a minor or patch version. This applies to:
+            </p>
+            <ul>
+                <li>a CLI option of the test runner</li>
+                <li>an element, an attribute, or the value of an attribute of the XML configuration file</li>
+                <li>a value that is passed as an argument to a method that itself is not deprecated</li>
+                <li>calling a method in a situation in which this will no longer be supported</li>
+            </ul>
+            <p>
+                For example, the <code>--dont-report-useless-tests</code> CLI option was hard-deprecated in PHPUnit 12.2.3 and removed in PHPUnit 13.
+            </p>
+
+            <h3 id="removal">Removal</h3>
+            <p>The feature is removed in the next major version after it was hard-deprecated.</p>
+            <p>Tests that use an assertion method that was removed, for example, will no longer work.</p>
+
+            <h2 id="deprecations">Deprecations</h2>
+            <p>The following pages list the features that are deprecated in each major version of PHPUnit:</p>
+            <ul>
+{{deprecations}}
+            </ul>
+
+            <h2 id="version-control">Version Control</h2>
+            <h3 id="tags">Tags</h3>
+            <p>
+                <a href="https://github.com/sebastianbergmann/phpunit/tags" target="_blank" rel="noopener">Tags</a> in PHPUnit's <a href="https://github.com/sebastianbergmann/phpunit/" target="_blank" rel="noopener">Git</a> repository are immutable. We do not change published tags to point to a different revision, for example.
+            </p>
+            <p>
+                In very rare cases we may delete a tag in order to unpublish a broken release. The new release that fixes what was broken will always have a different tag than the one that was unpublished.
+            </p>
+            <h3 id="branches">Branches</h3>
+            <p>
+                <a href="https://github.com/sebastianbergmann/phpunit/branches" target="_blank" rel="noopener">Branches</a> in PHPUnit's <a href="https://github.com/sebastianbergmann/phpunit/" target="_blank" rel="noopener">Git</a> repository are private implementation details. For example, we delete branches for versions of PHPUnit that are no longer supported.
+            </p>
+        </main>
+
+{{footer}}
+    </body>
+</html>

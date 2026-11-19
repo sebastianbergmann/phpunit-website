@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Sponsors of PHPUnit</title>
+        <meta name="description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit.">
+        <link rel="canonical" href="https://phpunit.de/sponsors.html">
+
+        <meta property="og:site_name" content="PHPUnit">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Sponsors of PHPUnit">
+        <meta property="og:description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit.">
+        <meta property="og:url" content="https://phpunit.de/sponsors.html">
+        <meta property="og:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="The PHPUnit logo">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sponsors of PHPUnit">
+        <meta name="twitter:description" content="These businesses and individuals support Sebastian Bergmann's work on PHPUnit.">
+        <meta name="twitter:image" content="https://phpunit.de/img/phpunit-og.jpg">
+        <meta name="fediverse:creator" content="@phpunit@phpc.social">
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f151b">
+
+        <link rel="preload" href="/fonts/OpenSans.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/phpunit.css?v=2">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://phpunit.de/#organization",
+                    "name": "PHPUnit",
+                    "url": "https://phpunit.de/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://phpunit.de/img/phpunit.svg"
+                    },
+                    "sameAs": [
+                        "https://github.com/sebastianbergmann/phpunit",
+                        "https://phpc.social/@phpunit"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://phpunit.de/#website",
+                    "url": "https://phpunit.de/",
+                    "name": "PHPUnit",
+                    "publisher": {
+                        "@id": "https://phpunit.de/#organization"
+                    },
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://phpunit.de/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Sponsors"
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+{{header}}
+
+        <main id="main" class="wrap">
+            <h1>Sponsors of PHPUnit</h1>
+
+            <h2>Business Sponsors</h2>
+            <p>These businesses support Sebastian Bergmann's work on PHPUnit:</p>
+
+            <ul class="sponsor-grid">
+{{businessSponsors}}
+            </ul>
+
+            <p>
+                Would you like to see your logo here?
+                Please see the <a href="/sponsoring.html">sponsoring information page</a> for more details.
+            </p>
+
+            <h2>Infrastructure Sponsors</h2>
+            <p>These businesses sponsor infrastructure for the PHPUnit project:</p>
+
+            <ul class="sponsor-grid">
+{{infrastructureSponsors}}
+            </ul>
+
+            <h2>Funding Platforms</h2>
+            <p>
+                You can also sponsor Sebastian Bergmann's work on PHPUnit using various funding platforms.
+                Please see the <a href="/sponsoring.html">sponsoring information page</a> for more details.
+            </p>
+        </main>
+
+{{footer}}
+    </body>
+</html>
