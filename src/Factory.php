@@ -39,6 +39,7 @@ final readonly class Factory
     {
         return new Renderer(
             [
+                new AnnouncementPagesRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new HomepageRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new AnnouncementsRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new CodeSprintsRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),

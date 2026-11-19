@@ -1,0 +1,42 @@
+            <h1>End of Life for PEAR Installation Method</h1>
+            <p><time datetime="2014-04-21">April 21, 2014</time></p>
+            <p>
+                PHPUnit was developed in <span class="nowrap">cvs.php.net</span> and released on <span class="nowrap">pear.php.net</span> from its inception in 2001 until July 2006. PHPUnit was developed in <span class="nowrap">svn.phpunit.de</span> from July 2006 until December 2009 when its development moved to GitHub. Until today, every PHPUnit release was made available as a PEAR package. These PEAR packages were hosted on <span class="nowrap">pear.phpunit.de</span> since July 2006.
+            </p>
+            <p>
+                Since <span class="nowrap">PHPUnit 3.7</span>, released in the fall of 2012, using the PEAR Installer was no longer the only installation method for PHPUnit. Today most users prefer to use a PHP Archive (PHAR) of PHPUnit or Composer to download and install PHPUnit.
+            </p>
+            <p>
+                Starting with <span class="nowrap">PHPUnit 4.0</span>, the PEAR package of PHPUnit was merely a distribution mechanism for the PHP Archive (PHAR) and many of PHPUnit's dependencies were no longer released as PEAR packages. Furthermore, the PEAR installation method has been removed from the documentation.
+            </p>
+            <p>
+                We are taking the next step in retiring the PEAR installation method with today's release of <span class="nowrap">PHPUnit 3.7.35</span> and <span class="nowrap">PHPUnit 4.0.17</span>. These two releases are the last versions of PHPUnit released as PEAR packages. Installing them using the PEAR Installer will trigger a deprecation message on every execution of the commandline test runner.
+            </p>
+            <p>
+                If you have installed <span class="nowrap">PHPUnit 3.7</span> using the PEAR Installer then you need to uninstall at least the PHPUnit, PHPUnit_MockObject, and PHP_CodeCoverage PEAR packages:
+            </p>
+            <pre>$ pear uninstall phpunit/PHPUnit \
+phpunit/PHPUnit_MockObject \
+phpunit/PHP_CodeCoverage</pre>
+            <p>
+                If you have installed <span class="nowrap">PHPUnit 4.0</span> using the PEAR Installer then you only need to uninstall the PHPUnit PEAR package:
+            </p>
+            <pre>$ pear uninstall phpunit/PHPUnit</pre>
+            <p>
+                You may have other packages from the <span class="nowrap">pear.phpunit.de</span> channel installed, for instance as dependencies for other tools that you may have installed. If "pear list -c phpunit" shows that you still have packages from the <span class="nowrap">pear.phpunit.de</span> channel installed then you should uninstall those packages, too. Please make sure, though, that these packages are not required by other tools that you may have installed.
+            </p>
+            <p>
+                The shutdown of <span class="nowrap">pear.phpunit.de</span> also means that all other packages that were hosted on this PEAR channel can no longer be installed via PEAR. These packages include dependencies of PHPUnit such as PHP_CodeCoverage and PHPUnit_MockObject as well as tools such as PHPCPD and PHPLOC.
+            </p>
+            <p>
+                You can download PHP Archives (PHARs) of these tools at <a href="https://phar.phpunit.de/" target="_blank" rel="noopener">phar.phpunit.de</a>.
+            </p>
+            <p>
+                We would like to use this opportunity to thank Stig Bakken for his work on PEAR in the early days of PHP 4, Greg Beaver for his work on the PEAR Installer, and Fabien Potencier for his work on Pirum without which maintaining a PEAR channel server this long would have been unbearable.
+            </p>
+            <p>
+                <strong>Update (December 1, 2014):</strong> We have released <span class="nowrap">PHPUnit 3.7.36</span> and <span class="nowrap">PHPUnit 4.0.18</span> as PEAR packages. These PEAR packages do not install a working version of PHPUnit. They merely install a script that prints an error message.
+            </p>
+            <p>
+                <strong>Update (December 31, 2014):</strong> The process of retiring <span class="nowrap">pear.phpunit.de</span> was tracked in <a href="https://github.com/sebastianbergmann/phpunit/issues/1229" target="_blank" rel="noopener">ticket #1229</a>. The final step was the shutdown of <span class="nowrap">pear.phpunit.de</span>.
+            </p>

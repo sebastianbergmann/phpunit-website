@@ -1,0 +1,72 @@
+            <section class="announcement-hero">
+                <div class="announcement-hero__head">
+                    <h1><span class="nowrap">PHPUnit 9</span></h1>
+                    <span class="badge badge--major">Major Release</span>
+                </div>
+                <time datetime="2020-02-07">February 7, 2020</time>
+                <p class="lead">
+                    The PHPUnit development team is pleased to announce the release of <span class="nowrap">PHPUnit 9</span>. This release introduces new features and modifies or removes existing functionality.
+                </p>
+                <p>
+                    A detailed list of changes is available <a href="https://github.com/sebastianbergmann/phpunit/blob/9.0.0/ChangeLog-9.0.md#800---2020-02-07" target="_blank" rel="noopener">here</a>. More background on some of these changes is given <a href="https://phpunit.expert/articles/migrating-to-phpunit-9.html?ref=phpunit.de" target="_blank" rel="noopener">here</a>.
+                </p>
+            </section>
+            <h2>PHPUnit now requires <span class="nowrap">PHP 7.3</span> (or newer)</h2>
+            <p>
+                <a href="https://secure.php.net/supported-versions.php" target="_blank" rel="noopener">Active support for <span class="nowrap">PHP 7.2</span> ended on November 30, 2019.</a> The only actively supported versions of PHP as of February 7, 2020 are <span class="nowrap">PHP 7.3</span> and <span class="nowrap">PHP 7.4</span>.
+            </p>
+            <h2>PHPUnit now uses (more) PHP 7 syntax</h2>
+            <p>
+                The first lines of code for PHPUnit were written back when PHP 4 was the "latest and greatest". In order to keep PHPUnit compatible with new versions of PHP and to make new features possible, the codebase of PHPUnit needs constant modernization.
+            </p>
+            <div class="note note--neutral">
+                <p class="center">
+                    It has taken <a href="https://phpunit.expert/?ref=phpunit.de" target="_blank" rel="noopener">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.
+                </p>
+                <p class="center">
+                    Perhaps now is the time to <a href="/sponsoring.html">sponsor Sebastian's work</a>.
+                </p>
+            </div>
+            <p>
+                A lot of time and effort went into the development of PHPUnit 9 to make better use of language features such as strict interpretation of scalar type declarations, for instance, that were introduced in <span class="nowrap">PHP 7</span>.
+            </p>
+            <h3>Backward Incompatible Changes</h3>
+            <p>The following functionality was removed:</p>
+            <ul>
+                <li>Annotation(s) for expecting exceptions</li>
+                <li>Assertions (and helper methods) that operate on (non-public) attributes</li>
+                <li>Optional parameters of <code>assertEquals()</code> and <code>assertNotEquals()</code></li>
+                <li>Optional parameters of <code>assertContains()</code> and <code>assertNotContains()</code></li>
+                <li>Optional parameters of <code>assertFileEquals()</code> etc.</li>
+                <li><code>assertInternalType()</code> and <code>assertNotInternalType()</code></li>
+                <li><code>assertArraySubset()</code></li>
+                <li><code>setUseErrorHandler()</code></li>
+                <li><code>expectExceptionMessageRegExp()</code></li>
+                <li>Support for doubling multiple interfaces</li>
+                <li>Support for using class name as CLI argument</li>
+                <li>Support for declaring more that one test case class in test source file</li>
+            </ul>
+            <h3>Looking Forward</h3>
+            <p>The following features have been deprecated in PHPUnit 9:</p>
+            <ul>
+                <li><code>expectException(PHPUnit\Framework\Error\*)</code></li>
+                <li><code>MockBuilder::setMethods()</code></li>
+                <li>
+                    Support for <code>ClassName&lt;*&gt;</code> as values for <code>@covers</code> and <code>@uses</code> annotations
+                </li>
+            </ul>
+            <p>The features deprecated in PHPUnit 9 will be removed in PHPUnit 10.</p>
+            <h2>Getting PHPUnit 9</h2>
+            <p>
+                We distribute a <a href="https://secure.php.net/phar" target="_blank" rel="noopener">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.
+            </p>
+            <p><a href="/getting-started/phpunit-9.html">Here is a tutorial that gets you started.</a></p>
+            <h2>Supported Versions</h2>
+            <p>
+                Detailed information on supported versions of PHPUnit is available <a href="/supported-versions.html">here</a>. Below is a summary as of February 7, 2020:
+            </p>
+            <ul>
+                <li>PHPUnit 9 receives bug fixes until February 4, 2022</li>
+                <li>PHPUnit 8 receives bug fixes until February 5, 2021</li>
+                <li>PHPUnit 7 has reached its End of Life on February 7, 2020 and no longer receives bug fixes</li>
+            </ul>

@@ -1,0 +1,179 @@
+            <section class="announcement-hero">
+                <div class="announcement-hero__head">
+                    <h1><span class="nowrap">PHPUnit 13</span></h1>
+                    <span class="badge badge--major">Major Release</span>
+                </div>
+                <time datetime="2026-02-06">February 6, 2026</time>
+                <p class="lead">
+                    The PHPUnit development team is pleased to announce the release of <span class="nowrap">PHPUnit 13</span>. This release introduces new features and modifies or removes existing functionality.
+                </p>
+                <p>
+                    A detailed list of changes can be found <a href="https://github.com/sebastianbergmann/phpunit/blob/13.0.0/ChangeLog-13.0.md#1300---2026-02-06" target="_blank" rel="noopener">here</a>. The most significant changes are discussed below.
+                </p>
+            </section>
+            <h2 id="omgwtfbbq">OMGWTFBBQ? I must upgrade to <span class="nowrap">PHPUnit 13</span> immediately!</h2>
+            <p><strong>No, you do not.</strong></p>
+            <p>
+                Just because <span class="nowrap">PHPUnit 13</span> has been released today does not mean that <span class="nowrap">PHPUnit 11</span> or <span class="nowrap">PHPUnit 12</span> will no longer work. While old versions of PHPUnit will eventually stop receiving bug fixes, <a href="/supported-versions.html">we will keep them compatible with new versions of PHP for as long as possible</a>.
+            </p>
+            <p>
+                We sincerely hope that you do not use the <a href="https://phpunit.expert/articles/the-death-star.html?ref=phpunit.de" target="_blank" rel="noopener">Death Star Version Constraint</a> and therefore do not automatically and unintentionally upgrade to a new major version of PHPUnit.
+            </p>
+            <p>
+                Upgrading a dependency to a new major release must be a conscious decision that is part of a defined process. This process should include, at a minimum, reading an announcement like this and the <a href="https://github.com/sebastianbergmann/phpunit/blob/13.0.0/ChangeLog-13.0.md#1300---2026-02-06" target="_blank" rel="noopener">ChangeLog</a>.
+            </p>
+            <p>
+                <span class="nowrap">PHPUnit 13</span> requires <span class="nowrap">PHP 8.4</span> or later. If you are not using <span class="nowrap">PHP 8.4</span> or <span class="nowrap">PHP 8.5</span>, you will not be able to use <span class="nowrap">PHPUnit 13</span> right away.
+            </p>
+            <div class="note note--neutral">
+                <p class="center"><strong>Need more reasons to upgrade your PHP?</strong></p>
+                <p class="center">
+                    The only <a href="https://www.php.net/supported-versions.php" target="_blank" rel="noopener">actively supported</a> versions of PHP as of February 6, 2026 are <span class="nowrap">PHP 8.4</span> and <span class="nowrap">PHP 8.5</span>.
+                </p>
+            </div>
+            <p>
+                We are confident that <span class="nowrap">PHPUnit 13</span> works as intended, but in some respects it works differently than previous versions.
+            </p>
+            <p>
+                For example, functionality that was only <a href="/backward-compatibility.html">soft-deprecated</a> in <span class="nowrap">PHPUnit 12</span> is now <a href="/backward-compatibility.html">hard-deprecated</a> in <span class="nowrap">PHPUnit 13</span>. And functionality that was hard-deprecated in <span class="nowrap">PHPUnit 12</span> has been removed in <span class="nowrap">PHPUnit 13</span>. You can find details about deprecations here:
+            </p>
+            <ul>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/blob/12.5/DEPRECATIONS.md#deprecations" target="_blank" rel="noopener">Deprecations in PHPUnit 12</a>
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/blob/13.0/DEPRECATIONS.md#deprecations" target="_blank" rel="noopener">Deprecations in PHPUnit 13</a>
+                </li>
+            </ul>
+            <p>
+                You should not even try to upgrade to <span class="nowrap">PHPUnit 13</span> if you cannot run your test suite using <span class="nowrap">PHPUnit 12.5</span> without getting deprecation warnings.
+            </p>
+            <p>
+                If the above does not put you off, then please: go ahead and upgrade! And should you encounter a problem, <a href="https://github.com/sebastianbergmann/phpunit/issues/new/choose" target="_blank" rel="noopener">please report it</a>.
+            </p>
+            <p><a href="/getting-started.html">Here is a tutorial that gets you started.</a></p>
+            <div class="note note--neutral">
+                <p class="center">
+                    It has taken <a href="https://phpunit.expert/?ref=phpunit.de" target="_blank" rel="noopener">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.
+                </p>
+                <p class="center">
+                    Perhaps now is the time to <a href="/sponsoring.html">sponsor Sebastian's work</a>.
+                </p>
+            </div>
+            <h2 id="major-changes">Major Changes in PHPUnit 13</h2>
+            <h3 id="new-array-assertions">New array assertions</h3>
+            <p>
+                <span class="nowrap">PHPUnit 13</span> introduces new assertions to address a long-standing need for more precise array comparison semantics beyond the general-purpose <code>assertSame()</code> and <code>assertEquals()</code> methods.
+            </p>
+            <p>These new assertions operate along three distinct dimensions:</p>
+            <ul>
+                <li>
+                    comparison strictness (identical using strict type checking versus equal using loose comparison)
+                </li>
+                <li>key consideration (whether array keys must match or only values matter)</li>
+                <li>order sensitivity (whether element order is significant or can be ignored)</li>
+            </ul>
+            <p>
+                This systematic approach eliminates the ambiguity that often arose when developers needed to compare arrays with specific requirements, such as verifying that two arrays contain the same values regardless of key names or order, or ensuring that associative arrays are strictly identical including key ordering.
+            </p>
+            <p>
+                Each method name encodes all three dimensions directly, making intent immediately clear at the call site. The eight new methods are (<a href="https://github.com/sebastianbergmann/phpunit/pull/6477" target="_blank" rel="noopener">#6477</a>):
+            </p>
+            <ul>
+                <li><code>assertArraysAreIdentical()</code> — strict, keys considered, order significant</li>
+                <li><code>assertArraysAreIdenticalIgnoringOrder()</code> — strict, keys considered, order ignored</li>
+                <li><code>assertArraysHaveIdenticalValues()</code> — strict, keys ignored, order significant</li>
+                <li>
+                    <code>assertArraysHaveIdenticalValuesIgnoringOrder()</code> — strict, keys ignored, order ignored
+                </li>
+                <li><code>assertArraysAreEqual()</code> — loose, keys considered, order significant</li>
+                <li><code>assertArraysAreEqualIgnoringOrder()</code> — loose, keys considered, order ignored</li>
+                <li><code>assertArraysHaveEqualValues()</code> — loose, keys ignored, order significant</li>
+                <li><code>assertArraysHaveEqualValuesIgnoringOrder()</code> — loose, keys ignored, order ignored</li>
+            </ul>
+            <h3 id="replacement-for-withconsecutive">A replacement for <code>withConsecutive()</code></h3>
+            <p>
+                <span class="nowrap">PHPUnit 13</span> introduces two new methods as a replacement for the long-removed <code>withConsecutive()</code> (<a href="https://github.com/sebastianbergmann/phpunit/issues/6455" target="_blank" rel="noopener">#6455</a>):
+            </p>
+            <ul>
+                <li>
+                    <code>withParameterSetsInOrder(...)</code> validates that the mock object is called with each parameter set in the exact order configured
+                </li>
+                <li>
+                    <code>withParameterSetsInAnyOrder(...)</code> validates that the mock object is called with each parameter set in any order
+                </li>
+            </ul>
+            <p>
+                For an in-depth discussion of these new methods, please refer to this <a href="https://phpunit.expert/articles/better-than-withconsecutive.html?ref=phpunit.de" target="_blank" rel="noopener">article</a>.
+            </p>
+            <h3 id="sealed-test-doubles">Sealed test doubles</h3>
+            <p>
+                <span class="nowrap">PHPUnit 13</span> introduces sealed test doubles, a powerful new feature that prevents common mocking pitfalls by finalising a test double's configuration and enforcing strict expectations.
+            </p>
+            <p>
+                When a test double is sealed using the new <code>seal()</code> method, it disallows any further configuration through <code>expects()</code> or <code>method()</code> calls, ensuring that mock objects are fully configured before the system under test is exercised.
+            </p>
+            <p>
+                On mock objects specifically, sealing implicitly configures all methods without explicit expectations to reject invocations that were not explicitly configured as expected. This feature addresses long-standing testing challenges where developers inadvertently configured mock objects after using them, or where tests passed despite unexpected method calls because unconfigured methods simply returned <code>null</code>.
+            </p>
+            <p>
+                Sealed test doubles provide a clear contract: once the configuration is finalised, the test double becomes a reliable, immutable fixture that accurately reflects the intended behavior of dependencies, making tests more robust and maintainable while catching unintended interactions that would otherwise go unnoticed.
+            </p>
+            <p>
+                <code>seal()</code> is called directly on the mock or stub object after all configuration is complete. Additionally, the <code>requireSealedMockObjects</code> XML configuration option (<a href="https://github.com/sebastianbergmann/phpunit/issues/6468" target="_blank" rel="noopener">#6468</a>) can be used to enforce sealing globally across an entire test suite, turning any unsealed mock object into a test failure.
+            </p>
+            <p>
+                This purely additive feature requires no changes to existing test suites, allowing developers to opt in where stricter test double behavior provides value (<a href="https://github.com/sebastianbergmann/phpunit/issues/6466" target="_blank" rel="noopener">#6466</a>).
+            </p>
+            <h3 id="any-matcher-hard-deprecated">The <code>any()</code> matcher is now hard-deprecated</h3>
+            <p>
+                The deprecation of the <code>any()</code> matcher reinforces a fundamental principle: mock objects are verification tools designed to assert that specific interactions occur, not to silently ignore them.
+            </p>
+            <p>
+                By eliminating the conceptual contradiction inherent in creating a mock object while declaring indifference to its invocation, <span class="nowrap">PHPUnit 13</span> encourages developers to make deliberate choices: either using specific matchers like <code>once()</code> or <code>exactly()</code> for true verification concerns, or migrating to test stubs when no verification is needed.
+            </p>
+            <p>
+                This shift promotes clearer test intent and eliminates the performance overhead of mock objects in scenarios where they provide no actual verification value (<a href="https://github.com/sebastianbergmann/phpunit/issues/6461" target="_blank" rel="noopener">#6461</a>).
+            </p>
+            <p>
+                When invocation count does matter, use a specific matcher: <code>once()</code>, <code>exactly(N)</code>, <code>atLeast(1)</code>, <code>atMostOnce()</code>, <code>atMost(N)</code>, or <code>never()</code>. When no invocation verification is needed at all, switch from <code>createMock()</code> to <code>createStub()</code> to use a test stub instead.
+            </p>
+            <h2 id="supported-versions">Supported Versions</h2>
+            <p>
+                Detailed information on supported versions of PHPUnit is available <a href="/supported-versions.html">here</a>. Below is a summary as of February 6, 2026:
+            </p>
+            <ul>
+                <li><span class="nowrap">PHPUnit 13</span> receives bug fixes until February 4, 2028</li>
+                <li><span class="nowrap">PHPUnit 12</span> receives bug fixes until February 5, 2027</li>
+                <li><span class="nowrap">PHPUnit 11</span> and older versions no longer receive bug fixes</li>
+            </ul>
+            <p>The versions listed above will be kept compatible with new PHP versions as long as possible.</p>
+            <h2 id="looking-forward">Looking Forward</h2>
+            <p>Here is the roadmap for the next year:</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/70" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 13.1</span></a> is planned for April 3, 2026
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/71" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 13.2</span></a> is planned for June 5, 2026
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/72" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 13.3</span></a> is planned for August 7, 2026
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/73" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 13.4</span></a> is planned for October 2, 2026
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/74" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 13.5</span></a> is planned for December 4, 2026
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/75" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 14</span></a> is planned for February 5, 2027
+                </li>
+            </ul>
+            <h2 id="keep-up-to-date">Keep up to date with PHPUnit</h2>
+            <p>
+                You can follow <a rel="me" href="https://phpc.social/@phpunit/">@phpunit@phpc.social</a> to stay up to date with PHPUnit's development.
+            </p>
+            <p>
+                You can subscribe to the <a href="/newsletter">PHPUnit Updates</a> newsletter to receive updates about and tips for PHPUnit.
+            </p>

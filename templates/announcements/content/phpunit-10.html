@@ -1,0 +1,354 @@
+            <section class="announcement-hero">
+                <div class="announcement-hero__head">
+                    <h1><span class="nowrap">PHPUnit 10</span></h1>
+                    <span class="badge badge--major">Major Release</span>
+                </div>
+                <time datetime="2023-02-03">February 3, 2023</time>
+                <p class="lead">
+                    The PHPUnit development team is pleased to announce the release of <span class="nowrap">PHPUnit 10</span>. This release introduces new features and modifies or removes existing functionality.
+                </p>
+                <p>
+                    <span class="nowrap">PHPUnit 10</span> was scheduled to be released on February 5, 2021. Due to various reasons, including a pandemic, this was simply not possible. This does not mean that nothing has been achieved since <span class="nowrap">PHPUnit 9</span> was released in February 2020. Quite the opposite, especially "under the hood".
+                </p>
+                <p>
+                    <span class="nowrap">PHPUnit 10</span> is the most significant release in the history of the PHPUnit project (<a href="https://thephp.cc/presentations/phpunit-past-present-future?ref=phpunit.de" target="_blank" rel="noopener">which began 23 years ago</a>). This release is to PHPUnit what <span class="nowrap">PHP 7</span> was to PHP: a massive cleanup, refactoring, and modernisation that lays the groundwork for future development.
+                </p>
+                <p>
+                    A detailed list of changes can be found <a href="https://github.com/sebastianbergmann/phpunit/blob/10.0.0/ChangeLog-10.0.md#1000---2023-02-03" target="_blank" rel="noopener">here</a>. The most significant changes are discussed below.
+                </p>
+            </section>
+            <h2 id="omgwtfbbq">OMGWTFBBQ? I must upgrade to <span class="nowrap">PHPUnit 10</span> immediately!</h2>
+            <p><strong>No, you do not.</strong></p>
+            <p>
+                Just because <span class="nowrap">PHPUnit 10</span> has been released today does not mean that <span class="nowrap">PHPUnit 8</span> or <span class="nowrap">PHPUnit 9</span> will no longer work. While old versions of PHPUnit will eventually stop receiving bug fixes, <a href="/supported-versions.html">we will keep them compatible with new versions of PHP for as long as possible</a>.
+            </p>
+            <p>
+                We sincerely hope that you do not use the <a href="https://phpunit.expert/articles/the-death-star.html?ref=phpunit.de" target="_blank" rel="noopener">Death Star Version Constraint</a> and therefore do not automatically and unintentionally upgrade to a new major version of PHPUnit.
+            </p>
+            <p>
+                Upgrading a dependency to a new major release must be a conscious decision that is part of a defined process. This process should include, at a minimum, reading an announcement like this and the <a href="https://github.com/sebastianbergmann/phpunit/blob/10.0.0/ChangeLog-10.0.md#1000---2023-02-03" target="_blank" rel="noopener">ChangeLog</a>.
+            </p>
+            <p>
+                <span class="nowrap">PHPUnit 10</span> requires <span class="nowrap">PHP 8.1</span> or later. If you are not using <span class="nowrap">PHP 8.1</span> or <span class="nowrap">PHP 8.2</span>, you will not be able to use <span class="nowrap">PHPUnit 10</span> right away.
+            </p>
+            <div class="note note--neutral">
+                <p class="center"><strong>Need more reasons to upgrade your PHP?</strong></p>
+                <p class="center">
+                    <a href="https://phpunit.expert/articles/php-7-security-support-ends-now-what.html?ref=phpunit.de" target="_blank" rel="noopener">Security support for <span class="nowrap">PHP 7</span> ended in November 2022</a>, and so did the <a href="https://secure.php.net/supported-versions.php">active support for <span class="nowrap">PHP 8.0</span>.</a>
+                </p>
+                <p class="center">
+                    The only actively supported versions of PHP as of February 3, 2023 are <span class="nowrap">PHP 8.1</span> and <span class="nowrap">PHP 8.2</span>.
+                </p>
+            </div>
+            <p>
+                Also note that <a href="https://github.com/sebastianbergmann/php-code-coverage/blob/10.0.0/ChangeLog.md#1000---2023-02-03" target="_blank" rel="noopener">PHPDBG and <span class="nowrap">Xdebug 2</span> are no longer supported sources of code coverage information</a>. You now need either PCOV or <span class="nowrap">Xdebug 3</span> to collect, process, and report code coverage information.
+            </p>
+            <p>
+                We are confident that <span class="nowrap">PHPUnit 10</span> works as intended, but in some respects it works differently than previous versions. For example, functionality marked as deprecated in <span class="nowrap">PHPUnit 9</span> has been removed in <span class="nowrap">PHPUnit 10</span>. You should not even try to upgrade to <span class="nowrap">PHPUnit 10</span> if you cannot run your test suite with <span class="nowrap">PHPUnit 9.6</span> without getting deprecation warnings.
+            </p>
+            <p>
+                If you use a third-party test double library such as Prophecy, for instance, you will need to either rewrite your tests or wait for a version of the third-party test double library you use that is compatible with <span class="nowrap">PHPUnit 10</span>. The out-of-the-box support for Prophecy in PHPUnit was deprecated in <span class="nowrap">PHPUnit 9</span> and has now been removed for <span class="nowrap">PHPUnit 10</span>.
+            </p>
+            <p>
+                If you use a third-party extension for PHPUnit's test runner then you will have to wait for a version of the third-party extension that is compatible with <span class="nowrap">PHPUnit 10</span>. The vendors of such extensions need to migrate their code from the old <code>TestListener</code> and <code>Hook</code> systems to the new event system.
+            </p>
+            <p>
+                If you use a tool such as Infection or ParaTest that wraps PHPUnit's test runner then you will have to wait for a version of that tool that is compatible with <span class="nowrap">PHPUnit 10</span>. The same holds true for alternative test runners such as Pest.
+            </p>
+            <p>
+                Please note that the documentation has not been updated for <span class="nowrap">PHPUnit 10</span> yet. We are in the process of reviewing, updating, and in some cases rewriting the documentation for <span class="nowrap">PHPUnit 10</span>. We do this chapter by chapter and hope to complete this task soon.
+            </p>
+            <p>
+                If the above points do not put you off, then please: go ahead and upgrade! And if you do encounter a problem, <a href="https://github.com/sebastianbergmann/phpunit/issues/new/choose" target="_blank" rel="noopener">please report it</a>.
+            </p>
+            <div class="note note--neutral">
+                <p class="center">
+                    It has taken <a href="https://phpunit.expert/?ref=phpunit.de" target="_blank" rel="noopener">Sebastian Bergmann</a> thousands of hours to develop, test, and support PHPUnit.
+                </p>
+                <p class="center">
+                    Perhaps now is the time to <a href="/sponsoring.html">sponsor Sebastian's work</a>.
+                </p>
+            </div>
+            <p>
+                Apart from functionality that was <a href="https://github.com/sebastianbergmann/phpunit/blob/9.6/DEPRECATIONS.md" target="_blank" rel="noopener">deprecated in <span class="nowrap">PHPUnit 9</span></a> and that has now been removed in <span class="nowrap">PHPUnit 10</span>, most of the changes are "under the hood" and should not affect end users. However, they do affect developers of extensions for and/or wrappers around PHPUnit's test runner, such as Infection, ParaTest or Pest.
+            </p>
+            <p>
+                These changes were necessary to make life easier for those working on PHPUnit and to allow for the development of new features in the future.
+            </p>
+            <h3 id="event-system">Event System</h3>
+            <p>
+                Previous versions of PHPUnit provided the <code>TestListener</code> interface as well as the <code>TestHook</code> interfaces for developers of extensions for PHPUnit's test runner. Both of these approaches for extending PHPUnit's test runner had <a href="https://github.com/sebastianbergmann/phpunit/issues/4676" target="_blank" rel="noopener">severe drawbacks</a>. <span class="nowrap">PHPUnit 10</span> replaces the <code>TestListener</code> and <code>TestHook</code> interfaces with an event system: (almost) everything is an event now. All output, both to the console and to log files, is now based on events.
+            </p>
+            <p>
+                The development of this event system has been led by <a href="https://thephp.cc/company/consultants/arne-blankerts?ref=phpunit.de" target="_blank" rel="noopener">Arne Blankerts</a> and <a href="https://localheinz.com/" target="_blank" rel="noopener">Andreas Möller</a>. It was started at the <a href="https://github.com/eufossa/eu-hackathon-2019/blob/master/achievements/phpunit.md" target="_blank" rel="noopener">EU-FOSSA Cyber Security Hackathon</a> in October 2019, together with <a href="https://thephp.cc/company/consultants/stefan-priebsch?ref=phpunit.de" target="_blank" rel="noopener">Stefan Priebsch</a> and Ewout Pieter den Ouden.
+            </p>
+            <hr>
+            <p class="center">
+                <img alt="Arne Blankerts, Andreas Möller, and Ewout Pieter den Ouden work on the new event system for PHPUnit" src="/img/arne-andreas-ewout.jpg">
+            </p>
+            <p class="center small">
+                Photo: Arne Blankerts, Andreas Möller, and Ewout Pieter den Ouden work on the new event system for PHPUnit
+            </p>
+            <hr>
+            <p>
+                Following the best practice of "eating your own dog food", we refactored (and in some cases rewrote) PHPUnit's internal code that used to use the <code>TestListener</code> interface and <code>ResultPrinter</code> classes to use the event system instead. By forcing ourselves to use events for all output, to the console as well as to logfiles, we discovered many confusing and/or missing events early on.
+            </p>
+            <p>
+                The new event system is not only superior to the previous <code>TestListener</code> and <code>Hook</code> approaches. The work on the event system had a ripple effect throughout PHPUnit's entire codebase. A lot of technical debt was finally paid off. Finding the right places to emit the right events revealed countless previously hidden inconsistencies and problems.
+            </p>
+            <p>
+                For example, for the <code>TestRunner\Configured</code> event, we needed a canonical and immutable representation of the configuration. As a result, the code that loads the XML configuration is now better. And the code that handles the CLI arguments is better. And most importantly, the code that combines these two configuration sources into "the configuration" is now better. Once we had "the configuration", we realised that we could now implement large parts of the CLI test runner much more easily. This allowed us to clean up other parts, and so on and so forth.
+            </p>
+            <p>
+                The event system is "read only". Developers can write extensions for PHPUnit's test runner and subscribe to events. The <code>Event</code> objects passed to subscribers as well as any value object aggregated in such an <code>Event</code> object is immutable.
+            </p>
+            <p>
+                We regret that <span class="nowrap">PHPUnit 10</span> and its new event system require significant changes to extensions for and/or wrappers around PHPUnit's test runner. We are confident that in the long run, the developers of such extensions or wrappers will appreciate the benefits of the new event system over its predecessors.
+            </p>
+            <p>
+                The feedback we have received so far is very promising: Already in October 2021, <a href="https://github.com/sebastianbergmann/phpunit/issues/4807#issuecomment-953671212" target="_blank" rel="noopener">Nuno Maduro</a> informed us that the migration of Pest from the old test listeners to the new event system was a "great" experience. The discussions we had with <a href="https://github.com/sebastianbergmann/phpunit/issues/4993" target="_blank" rel="noopener">Filippo Tessarotto</a> were crucial in ensuring that solutions like ParaTest can be updated to work with <span class="nowrap">PHPUnit 10</span>.
+            </p>
+            <p>
+                The <a href="https://docs.phpunit.de/en/10.5/extending-phpunit.html#phpunit-s-event-system" target="_blank" rel="noopener">documentation</a> for the new event system is not yet as complete or as understandable as we would like it to be. In the meantime, this <a href="https://thephp.cc/presentations/phpunit-10-why-it-is-delayed-and-what-it-brings?ref=phpunit.de" target="_blank" rel="noopener">video</a> of a presentation from 2022 gives a good overview of the concepts and ideas behind the new event system. It also sheds some light on why <span class="nowrap">PHPUnit 10</span> was delayed.
+            </p>
+            <h3 id="test-outcome-vs-issues">Test Outcome versus Test Issues</h3>
+            <p>
+                <span class="nowrap">PHPUnit 10</span> introduces a clear separation between the <em>outcome</em> (errored, failed, incomplete, skipped, or passed) of a test and the <em>issues</em> (considered risky, triggered a warning, ...) of a test.
+            </p>
+            <p>
+                The error handler of <span class="nowrap">PHPUnit 9</span> (optionally) converted <code>E_(USER_)WARNING</code>, <code>E_(USER_)NOTICE</code>, <code>E_(USER_)DEPRECATED</code>, etc. to exceptions. These exceptions aborted the execution of a test and made PHPUnit consider the test to have errored.
+            </p>
+            <p>
+                The error handler of <span class="nowrap">PHPUnit 10</span> no longer converts <code>E_(USER_)WARNING</code>, <code>E_(USER_)NOTICE</code>, <code>E_(USER_)DEPRECATED</code>, etc. to exceptions. Therefore, the execution of a test is no longer aborted when an <code>E_USER_NOTICE</code> is triggered, for instance. Consequently, such a test is no longer considered to have errored.
+            </p>
+            <p>The example shown below triggers an <code>E_USER_NOTICE</code> during the execution of a test:</p>
+            <pre><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class ExampleTest extends TestCase
+{
+    public function testSomething(): void
+    {
+        $example = new Example;
+
+        $this-&gt;assertTrue($example-&gt;doSomething());
+    }
+
+    public function testSomethingElse(): void
+    {
+        $example = new Example;
+
+        $this-&gt;assertFalse($example-&gt;doSomething());
+    }
+}</code></pre>
+            <pre><code>&lt;?php declare(strict_types=1);
+final class Example
+{
+    public function doSomething(): bool
+    {
+        // ...
+
+        trigger_error('message', E_USER_NOTICE);
+
+        // ...
+
+        return false;
+    }
+}
+
+
+
+
+
+</code></pre>
+            <p>
+                <strong><span class="nowrap">PHPUnit 10</span></strong> does not convert the <code>E_USER_NOTICE</code> into an exception and the execution of the test is therefore not aborted:
+            </p>
+            <p>
+                <strong>PHPUnit 9</strong> converted the <code>E_USER_NOTICE</code> into an exception and the execution of the test was aborted:
+            </p>
+            <pre><strong>➜ php phpunit-10.0.phar --display-notices ExampleTest.php</strong>
+<span class="nowrap">PHPUnit 10</span>.0.0 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.2
+
+FN                                        2 / 2 (100%)
+
+Time: 00:00.015, Memory: 6.00 MB
+
+There was 1 failure:
+
+1) ExampleTest::testSomething
+Failed asserting that false is true.
+
+/path/to/ExampleTest.php:10
+
+--
+
+There were 2 notices:
+
+1) ExampleTest::testSomething
+message
+
+/path/to/ExampleTest.php:6
+
+2) ExampleTest::testSomethingElse
+message
+
+/path/to/ExampleTest.php:13
+
+FAILURES!
+Tests: 2, Assertions: 2, Failures: 1, Notices: 2.</pre>
+            <pre><strong>➜ php phpunit-9.6.phar --verbose ExampleTest.php</strong>
+PHPUnit 9.6.0 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.2
+
+EE                                        2 / 2 (100%)
+
+Time: 00:00.015, Memory: 6.00 MB
+
+There were 2 errors:
+
+1) ExampleTest::testSomething
+message
+
+/path/to/Example.php:8
+/path/to/ExampleTest.php:10
+
+2) ExampleTest::testSomethingElse
+message
+
+/path/to/Example.php:8
+/path/to/ExampleTest.php:17
+
+ERRORS!
+Tests: 2, Assertions: 0, Errors: 2.
+
+
+
+
+
+
+
+</pre>
+            <p>
+                This means that using PHP functionality which triggers <code>E_DEPRECATED</code>, <code>E_NOTICE</code>, <code>E_STRICT</code>, or <code>E_WARNING</code> or calling code which triggers <code>E_USER_DEPRECATED</code>, <code>E_USER_NOTICE</code>, or <code>E_USER_WARNING</code> can no longer hide a bug in your code. In the example shown above, the line of code with the assertion is never reached when <span class="nowrap">PHPUnit 9</span> is used and the code under test triggers <code>E_USER_NOTICE</code>.
+            </p>
+            <p>
+                PHPUnit's test runner does not display details about deprecations, notices, or warnings by default. You have to use the CLI options <code>--display-deprecations</code>, <code>--display-notices</code>, and <code>--display-warnings</code> (or their XML configuration file counterparts) when you want these details displayed.
+            </p>
+            <h3 id="metadata">Metadata</h3>
+            <p>
+                <span class="nowrap">PHPUnit 10</span> introduces <a href="https://github.com/sebastianbergmann/phpunit/issues/4502" target="_blank" rel="noopener">support for <span class="nowrap">PHP 8</span> attributes for adding metadata to test classes and test methods as well as tested code units</a>. We could have made our lives easier here, if we had removed support for annotations in code comments at the same time. However, that was out of the question.
+            </p>
+            <p>
+                The example on the left uses <span class="nowrap">PHP 8 attributes</span> and the example on the right uses annotations in code comments:
+            </p>
+            <pre><code>&lt;?php declare(strict_types=1);
+namespace vendor\project;
+
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+
+#[CoversClass(Example::class)]
+final class ExampleTest extends TestCase
+{
+    #[DataProvider('provider')]
+    public function testSomething
+    (string $expected, string $input): void
+    {
+        $example = new Example;
+
+        $this-&gt;assertSame(
+            $expected,
+            $example-&gt;doSomething($input)
+        );
+    }
+
+    public static function provider(): array
+    {
+        return [['foo', 'bar']];
+    }
+}</code></pre>
+            <pre><code>&lt;?php declare(strict_types=1);
+namespace vendor\project;
+
+use PHPUnit\Framework\TestCase;
+
+
+
+/** @covers \vendor\project\Example */
+final class ExampleTest extends TestCase
+{
+    /** @dataProvider provider */
+    public function testSomething
+    (string $expected, string $input): void
+    {
+        $example = new Example;
+
+        $this-&gt;assertSame(
+            $expected,
+            $example-&gt;doSomething($input)
+        );
+    }
+
+    public static function provider(): array
+    {
+        return [['foo', 'bar']];
+    }
+}</code></pre>
+            <p>
+                <span class="nowrap">PHPUnit 10</span> still supports both old-fashioned annotations in code comments and modern attributes to attach metadata to code units. The two test classes shown above are treated the same by <span class="nowrap">PHPUnit 10</span>.
+            </p>
+            <p>
+                <span class="nowrap">PHPUnit 10</span> looks for <span class="nowrap">PHP 8 attributes</span> on a code unit first. It falls back to annotations in code comments when no <span class="nowrap">PHP 8 attributes</span> are found on a code unit.
+            </p>
+            <p>
+                Rector supports the <a href="https://github.com/rectorphp/rector-phpunit/blob/main/docs/rector_rules_overview.md" target="_blank" rel="noopener">migration from annotations in comments to attributes in code</a>.
+            </p>
+            <h2 id="getting-phpunit-10">Getting <span class="nowrap">PHPUnit 10</span></h2>
+            <p>
+                We distribute a <a href="https://secure.php.net/phar" target="_blank" rel="noopener">PHP Archive (PHAR)</a> that contains everything you need in order to use PHPUnit. Alternatively, you may use Composer to download and install PHPUnit as well as its dependencies.
+            </p>
+            <p><a href="/getting-started/phpunit-10.html">Here is a tutorial that gets you started.</a></p>
+            <h2 id="supported-versions">Supported Versions</h2>
+            <p>
+                Detailed information on supported versions of PHPUnit is available <a href="/supported-versions.html">here</a>. Below is a summary as of February 3, 2023:
+            </p>
+            <ul>
+                <li><span class="nowrap">PHPUnit 10</span> receives bug fixes until February 7, 2025</li>
+                <li><span class="nowrap">PHPUnit 9</span> receives bug fixes until February 2, 2024</li>
+                <li><span class="nowrap">PHPUnit 8</span> no longer receives bug fixes</li>
+            </ul>
+            <p>The versions listed above will be kept compatible with new PHP versions as long as possible.</p>
+            <h2 id="looking-forward">Looking Forward</h2>
+            <p>Here is the roadmap for the next year:</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/54" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 10.1</span></a> is planned for April 14, 2023
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/55" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 10.2</span></a> is planned for June 2, 2023
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/56" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 10.3</span></a> is planned for August 4, 2023
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/57" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 10.4</span></a> is planned for October 6, 2023
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/58" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 10.5</span></a> is planned for December 1, 2023
+                </li>
+                <li>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/46" target="_blank" rel="noopener"><span class="nowrap">PHPUnit 11</span></a> is planned for February 2, 2024
+                </li>
+            </ul>
+            <h2 id="keep-up-to-date">Keep up to date with PHPUnit</h2>
+            <p>
+                You can follow <a rel="me noopener" href="https://phpc.social/@phpunit/" target="_blank">@phpunit@phpc.social</a> to stay up to date with PHPUnit's development.
+            </p>
+            <p>
+                You can subscribe to the <a href="/newsletter">PHPUnit Updates</a> newsletter to receive updates about and tips for PHPUnit.
+            </p>

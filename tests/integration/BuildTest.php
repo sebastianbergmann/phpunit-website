@@ -22,6 +22,7 @@ use PHPUnit\Framework\TestCase;
  * Renders the templates of the website with a configuration of its own into
  * a temporary directory.
  */
+#[CoversClass(AnnouncementPagesRenderer::class)]
 #[CoversClass(AnnouncementsRenderer::class)]
 #[CoversClass(BackwardCompatibilityRenderer::class)]
 #[CoversClass(CodeSprintsRenderer::class)]
@@ -335,6 +336,58 @@ final class BuildTest extends TestCase
         $this->expectExceptionMessageIsOrContains('No major version is released on 2018-01-01');
 
         $this->build('2018-01-01');
+    }
+
+    public function testReleaseOfMajorVersionGetsPageWhenItsTextExists(): void
+    {
+        $this->build('2026-03-01', 'announcement-pages');
+
+        $html = $this->page('announcements/phpunit-13');
+
+        $this->assertStringContainsString('<title>Release Announcement for Version 13 of PHPUnit</title>', $html);
+        $this->assertStringContainsString('<meta name="description" content="The PHPUnit development team is pleased to announce the immediate availability of PHPUnit 13. This release adds new features, changes and removes existing features, and fixes bugs.">', $html);
+        $this->assertStringContainsString('<link rel="canonical" href="https://phpunit.de/announcements/phpunit-13.html">', $html);
+        $this->assertStringContainsString('<meta property="article:published_time" content="2026-02-06">', $html);
+        $this->assertStringContainsString('"datePublished": "2026-02-06",', $html);
+        $this->assertStringContainsString("        <main id=\"main\" class=\"wrap\">\n            <section class=\"announcement-hero\">", $html);
+        $this->assertStringContainsString('<header class="site-header">', $html);
+        $this->assertStringNotContainsString('{{', $html);
+    }
+
+    public function testPageForReleaseOfMajorVersionIsLinkedOnceItIsRendered(): void
+    {
+        $this->build('2026-03-01', 'announcement-pages');
+
+        $this->assertStringContainsString('<a href="/announcements/phpunit-13.html">PHPUnit 13</a> is the', $this->page('index'));
+        $this->assertStringContainsString('<h2><a href="/announcements/phpunit-13.html">PHPUnit 13</a></h2>', $this->page('announcements/index'));
+    }
+
+    public function testReleaseOfMajorVersionGetsNoPageBeforeTheDayOfTheRelease(): void
+    {
+        $this->build('2026-02-05', 'announcement-pages');
+
+        $this->assertFileExists($this->publicDirectory . '/announcements/phpunit-12.html');
+        $this->assertFileDoesNotExist($this->publicDirectory . '/announcements/phpunit-13.html');
+    }
+
+    public function testReleaseOfMajorVersionGetsNoPageWithoutText(): void
+    {
+        $this->build('2022-05-01');
+
+        $this->assertFileDoesNotExist($this->publicDirectory . '/announcements/phpunit-1.html');
+        $this->assertSame('', $this->page('announcements/phpunit-2'));
+    }
+
+    public function testOtherAnnouncementGetsPageWhenItsTextExists(): void
+    {
+        $this->build('2026-03-01', 'announcement-pages');
+
+        $html = $this->page('announcements/end-of-life-for-pear-installation-method');
+
+        $this->assertStringContainsString('<title>End of Life for PEAR Installation Method PHPUnit</title>', $html);
+        $this->assertStringContainsString('<meta name="description" content="PHPUnit can no longer be installed using the PEAR Installer.">', $html);
+        $this->assertStringContainsString('<meta property="article:published_time" content="2014-04-21">', $html);
+        $this->assertStringContainsString('<h1>End of Life for PEAR Installation Method</h1>', $html);
     }
 
     public function testAnnouncementsAreListedNewestFirst(): void
