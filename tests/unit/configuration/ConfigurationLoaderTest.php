@@ -41,7 +41,6 @@ final class ConfigurationLoaderTest extends TestCase
             'article without title'                => ['article-without-title', 'articles[0].title must be a non-empty string'],
             'milestone is not an integer'          => ['milestone-is-not-an-integer', 'majorVersions[0].milestone must be a positive integer'],
             'deprecations is not boolean'          => ['deprecations-is-not-boolean', 'majorVersions[0].deprecations must be true or false'],
-            'invalid PHP version for tutorial'     => ['invalid-tutorial-php-version', 'majorVersions[0].tutorialPhpVersions must be a list of PHP versions such as "8.4"'],
             'major version is not an array'        => ['major-version-is-not-an-array', 'majorVersions must be a list of arrays'],
         ];
     }
@@ -61,7 +60,6 @@ final class ConfigurationLoaderTest extends TestCase
         $this->assertNull($current->endOfLife());
         $this->assertTrue($current->hasDeprecationList());
         $this->assertNull($current->milestone());
-        $this->assertSame(['8.0', '8.1'], $current->tutorialPhpVersions());
         $this->assertSame('https://docs.phpunit.de/en/2.3/', $current->documentationUrl($today));
     }
 
@@ -108,7 +106,6 @@ final class ConfigurationLoaderTest extends TestCase
         $this->assertCount(2, $minorVersions);
         $this->assertSame('https://example.org/1.2.html', $minorVersions[1]->configuredAnnouncementUrl());
         $this->assertFalse($oldest->hasDeprecationList());
-        $this->assertSame([], $oldest->tutorialPhpVersions());
         $this->assertSame(9, $newest->milestone());
         $this->assertSame([], $newest->releasedMinorVersions(new DateTimeImmutable('2099-01-01')));
     }

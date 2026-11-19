@@ -129,23 +129,20 @@ final class MajorVersionTest extends TestCase
             endOfBugfixSupport: $endOfBugfixSupport,
             hasDeprecationList: true,
             milestone: 75,
-            tutorialPhpVersions: ['8.4', '8.5'],
         );
 
         $this->assertSame($endOfBugfixSupport, $majorVersion->configuredEndOfBugfixSupport());
         $this->assertTrue($majorVersion->hasDeprecationList());
         $this->assertSame(75, $majorVersion->milestone());
-        $this->assertSame(['8.4', '8.5'], $majorVersion->tutorialPhpVersions());
     }
 
     /**
-     * @param ?non-empty-string      $maximumPhpVersion
-     * @param ?list<MinorVersion>    $minorVersions
-     * @param ?non-empty-string      $documentationUrl
-     * @param ?positive-int          $milestone
-     * @param list<non-empty-string> $tutorialPhpVersions
+     * @param ?non-empty-string   $maximumPhpVersion
+     * @param ?list<MinorVersion> $minorVersions
+     * @param ?non-empty-string   $documentationUrl
+     * @param ?positive-int       $milestone
      */
-    private function majorVersion(?string $maximumPhpVersion = null, ?array $minorVersions = null, ?DateTimeImmutable $endOfBugfixSupport = null, ?DateTimeImmutable $endOfLife = null, bool $hasDocumentation = true, ?string $documentationUrl = null, bool $hasDeprecationList = false, ?int $milestone = null, array $tutorialPhpVersions = []): MajorVersion
+    private function majorVersion(?string $maximumPhpVersion = null, ?array $minorVersions = null, ?DateTimeImmutable $endOfBugfixSupport = null, ?DateTimeImmutable $endOfLife = null, bool $hasDocumentation = true, ?string $documentationUrl = null, bool $hasDeprecationList = false, ?int $milestone = null): MajorVersion
     {
         if ($minorVersions === null) {
             $minorVersions = [
@@ -167,7 +164,6 @@ final class MajorVersionTest extends TestCase
             $documentationUrl,
             $hasDeprecationList,
             $milestone,
-            $tutorialPhpVersions,
         );
     }
 }

@@ -85,7 +85,7 @@ The pages use this as follows:
 | `announcements/index.html` | The releases of the major versions that have an announcement, the releases of all configured minor versions, and the other announcements, the newest one first |
 | `documentation.html` | The links to the documentation of supported versions and the URLs for unsupported ones |
 | `backward-compatibility.html` | The links to `DEPRECATIONS.md` |
-| `getting-started.html` | Name of the current major version, name of its PHAR, version constraint for Composer, versions of PHP, newest minor version in the sample output and in the link to the documentation |
+| `getting-started.html` | Name of the current major version, name of its PHAR, version constraint for Composer, oldest version of PHP it runs on, newest minor version in the sample output and in the link to the documentation |
 | `verify.html` | Name of the current major version and of its PHAR |
 | `sponsors.html` | The sponsors |
 
@@ -134,11 +134,10 @@ Example: PHPUnit 14 is released on February 5, 2027.
     'milestone'           => 75,
     'endOfLife'           => null,
     'deprecations'        => true,
-    'tutorialPhpVersions' => ['8.5'],
 ],
 ```
 
-From the next build on, the homepage says that PHPUnit 14 will be the next major version, and the page about supported versions says when it is planned and which major version loses its Bugfix Support on that day. `milestone` is required for as long as the version is not released. `tutorialPhpVersions` is required from the day it is the current major version.
+From the next build on, the homepage says that PHPUnit 14 will be the next major version, and the page about supported versions says when it is planned and which major version loses its Bugfix Support on that day. `milestone` is required for as long as the version is not released.
 
 **On the day of the release**, after the release is done:
 

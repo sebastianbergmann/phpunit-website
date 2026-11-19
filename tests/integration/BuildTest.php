@@ -192,18 +192,18 @@ final class BuildTest extends TestCase
         $html = $this->page('getting-started');
 
         $this->assertStringContainsString('<h1>Getting Started with PHPUnit 2</h1>', $html);
-        $this->assertStringContainsString('This tutorial assumes that you use PHP 8.0 or PHP 8.1.', $html);
+        $this->assertStringContainsString('This tutorial assumes that you use at least PHP 8.0.', $html);
         $this->assertStringContainsString('https://phar.phpunit.de/phpunit-2.phar', $html);
         $this->assertStringContainsString('PHPUnit 2.3.0 by Sebastian Bergmann and contributors.', $html);
         $this->assertStringContainsString('https://docs.phpunit.de/en/2.3/installation.html', $html);
         $this->assertStringContainsString('composer require --dev phpunit/phpunit ^2', $html);
     }
 
-    public function testTutorialNamesSingleVersionOfPhp(): void
+    public function testTutorialNamesTheOldestVersionOfPhpTheCurrentMajorVersionRunsOn(): void
     {
         $this->build('2023-02-03');
 
-        $this->assertStringContainsString('This tutorial assumes that you use PHP 8.2.', $this->page('getting-started'));
+        $this->assertStringContainsString('This tutorial assumes that you use at least PHP 8.2.', $this->page('getting-started'));
     }
 
     public function testVerificationUsesTheCurrentMajorVersionAsExample(): void
@@ -366,14 +366,6 @@ final class BuildTest extends TestCase
         $this->expectExceptionMessageIsOrContains('PHPUnit 2 is not released on 2020-06-01 and needs a milestone');
 
         $renderer->render();
-    }
-
-    public function testTutorialNeedsVersionsOfPhpForTheCurrentMajorVersion(): void
-    {
-        $this->expectException(InvalidConfigurationException::class);
-        $this->expectExceptionMessageIsOrContains('PHPUnit 1 is the current major version and needs tutorialPhpVersions');
-
-        $this->build('2020-06-01', 'no-tutorial-php-versions');
     }
 
     public function testPageCannotBeWrittenToDirectoryThatDoesNotExist(): void

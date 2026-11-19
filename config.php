@@ -36,8 +36,6 @@
  *                        null when there is none
  *   deprecations         true when the branch of the newest minor version
  *                        has a DEPRECATIONS.md
- *   tutorialPhpVersions  versions of PHP the "Getting Started" tutorial
- *                        names (required for the current major version)
  *
  * The status of a major version, the end of its Bugfix Support, the current
  * major version, the newest minor version of a major version, the next minor
@@ -47,13 +45,12 @@
 return [
     'majorVersions' => [
         [
-            'version'             => 14,
-            'released'            => '2027-02-05',
-            'minimumPhpVersion'   => '8.5',
-            'milestone'           => 75,
-            'endOfLife'           => null,
-            'deprecations'        => true,
-            'tutorialPhpVersions' => ['8.5'],
+            'version'           => 14,
+            'released'          => '2027-02-05',
+            'minimumPhpVersion' => '8.5',
+            'milestone'         => 75,
+            'endOfLife'         => null,
+            'deprecations'      => true,
         ],
         [
             'version'           => 13,
@@ -66,9 +63,8 @@ return [
                 ['version' => '13.4', 'released' => '2026-10-02'],
                 ['version' => '13.5', 'released' => '2026-12-04', 'milestone' => 74],
             ],
-            'endOfLife'           => null,
-            'deprecations'        => true,
-            'tutorialPhpVersions' => ['8.4', '8.5'],
+            'endOfLife'    => null,
+            'deprecations' => true,
         ],
         [
             'version'           => 12,

@@ -168,7 +168,6 @@ final class MajorVersionCollectionTest extends TestCase
             null,
             false,
             null,
-            [],
         );
     }
 

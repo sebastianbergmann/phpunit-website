@@ -108,7 +108,6 @@ final readonly class ConfigurationLoader
                 'documentation',
                 'deprecations',
                 'milestone',
-                'tutorialPhpVersions',
             ],
             $path,
         );
@@ -143,12 +142,6 @@ final readonly class ConfigurationLoader
             $milestone = $this->positiveInteger($data, 'milestone', $path);
         }
 
-        $tutorialPhpVersions = [];
-
-        if (array_key_exists('tutorialPhpVersions', $data)) {
-            $tutorialPhpVersions = $this->phpVersions($data, 'tutorialPhpVersions', $path);
-        }
-
         return new MajorVersion(
             $version,
             $this->date($data, 'released', $path),
@@ -161,7 +154,6 @@ final readonly class ConfigurationLoader
             $documentation,
             $this->boolean($data, 'deprecations', $path),
             $milestone,
-            $tutorialPhpVersions,
         );
     }
 
@@ -521,38 +513,6 @@ final readonly class ConfigurationLoader
         $this->ensureIsMinorVersionNumber($value, $path . '.' . $key);
 
         return $value;
-    }
-
-    /**
-     * @param array<mixed>     $data
-     * @param non-empty-string $key
-     * @param non-empty-string $path
-     *
-     * @throws InvalidConfigurationException
-     *
-     * @return list<non-empty-string>
-     */
-    private function phpVersions(array $data, string $key, string $path): array
-    {
-        $result = [];
-
-        foreach ($this->map($data, $key, $path . '.' . $key) as $value) {
-            if (!is_string($value) || $value === '') {
-                throw new InvalidConfigurationException(
-                    sprintf(
-                        '%s.%s must be a list of PHP versions such as "8.4"',
-                        $path,
-                        $key,
-                    ),
-                );
-            }
-
-            $this->ensureIsMinorVersionNumber($value, $path . '.' . $key);
-
-            $result[] = $value;
-        }
-
-        return $result;
     }
 
     /**

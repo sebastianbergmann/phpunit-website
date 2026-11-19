@@ -42,33 +42,26 @@ final readonly class MajorVersion
     private ?int $milestone;
 
     /**
-     * @var list<non-empty-string>
+     * @param positive-int       $version
+     * @param non-empty-string   $minimumPhpVersion
+     * @param ?non-empty-string  $maximumPhpVersion
+     * @param list<MinorVersion> $minorVersions     the oldest one first
+     * @param ?non-empty-string  $documentationUrl
+     * @param ?positive-int      $milestone
      */
-    private array $tutorialPhpVersions;
-
-    /**
-     * @param positive-int           $version
-     * @param non-empty-string       $minimumPhpVersion
-     * @param ?non-empty-string      $maximumPhpVersion
-     * @param list<MinorVersion>     $minorVersions       the oldest one first
-     * @param ?non-empty-string      $documentationUrl
-     * @param ?positive-int          $milestone
-     * @param list<non-empty-string> $tutorialPhpVersions
-     */
-    public function __construct(int $version, DateTimeImmutable $released, string $minimumPhpVersion, ?string $maximumPhpVersion, array $minorVersions, ?DateTimeImmutable $endOfBugfixSupport, ?DateTimeImmutable $endOfLife, bool $hasDocumentation, ?string $documentationUrl, bool $hasDeprecationList, ?int $milestone, array $tutorialPhpVersions)
+    public function __construct(int $version, DateTimeImmutable $released, string $minimumPhpVersion, ?string $maximumPhpVersion, array $minorVersions, ?DateTimeImmutable $endOfBugfixSupport, ?DateTimeImmutable $endOfLife, bool $hasDocumentation, ?string $documentationUrl, bool $hasDeprecationList, ?int $milestone)
     {
-        $this->version             = $version;
-        $this->released            = $released;
-        $this->minimumPhpVersion   = $minimumPhpVersion;
-        $this->maximumPhpVersion   = $maximumPhpVersion;
-        $this->minorVersions       = $minorVersions;
-        $this->endOfBugfixSupport  = $endOfBugfixSupport;
-        $this->endOfLife           = $endOfLife;
-        $this->hasDocumentation    = $hasDocumentation;
-        $this->documentationUrl    = $documentationUrl;
-        $this->hasDeprecationList  = $hasDeprecationList;
-        $this->milestone           = $milestone;
-        $this->tutorialPhpVersions = $tutorialPhpVersions;
+        $this->version            = $version;
+        $this->released           = $released;
+        $this->minimumPhpVersion  = $minimumPhpVersion;
+        $this->maximumPhpVersion  = $maximumPhpVersion;
+        $this->minorVersions      = $minorVersions;
+        $this->endOfBugfixSupport = $endOfBugfixSupport;
+        $this->endOfLife          = $endOfLife;
+        $this->hasDocumentation   = $hasDocumentation;
+        $this->documentationUrl   = $documentationUrl;
+        $this->hasDeprecationList = $hasDeprecationList;
+        $this->milestone          = $milestone;
     }
 
     /**
@@ -225,13 +218,5 @@ final readonly class MajorVersion
     public function milestone(): ?int
     {
         return $this->milestone;
-    }
-
-    /**
-     * @return list<non-empty-string>
-     */
-    public function tutorialPhpVersions(): array
-    {
-        return $this->tutorialPhpVersions;
     }
 }

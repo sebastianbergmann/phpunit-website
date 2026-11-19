@@ -74,7 +74,7 @@ final class ValueObjectsTest extends TestCase
     {
         $majorVersions = MajorVersionCollection::fromList(
             [
-                new MajorVersion(13, new DateTimeImmutable('2026-02-06'), '8.4', null, [], null, null, true, null, false, null, []),
+                new MajorVersion(13, new DateTimeImmutable('2026-02-06'), '8.4', null, [], null, null, true, null, false, null),
             ],
         );
 
