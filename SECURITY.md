@@ -2,6 +2,8 @@
 
 This is the repository for the website that is hosted at `https://phpunit.de/`. It is served entirely as static files: there is no server-side application, no database, and no user input is processed.
 
+Only the `public/` directory of this repository exists on the web server, and only its content is served. Some of the pages in `public/` are generated from `templates/` and `config.php` by a small PHP program (`bin/build.php` and the code in `src/`). This program is only run on a developer's machine, and the pages it generates are committed to this repository. Neither this program nor its tests (`tests/`), the dependencies that Composer installs for development (`vendor/`), or the development tools (`tools/`) are available on the web server. No PHP code is executed in production.
+
 The maintained pages use **no JavaScript**. They consist of static HTML, one stylesheet, two web fonts, and images. They are served with `Content-Security-Policy: default-src 'none'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'`, so no script executes even if one were injected into the markup. The `<script type="application/ld+json">` elements these pages contain hold [structured data](https://schema.org/); browsers parse them as data and never execute them.
 
 The archived manuals below `/manual/` (covering PHPUnit 2.3 through 6.5) are kept online unchanged for historical reference. They still load jQuery, Bootstrap 3, and highlight.js, and are therefore served with a separate, less restrictive policy that permits `script-src 'self'`. They are served with `X-Robots-Tag: noindex`.
