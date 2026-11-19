@@ -133,11 +133,13 @@
             <div class="table-scroll">
                 <table>
                     <caption class="visually-hidden">
-                        Support status, PHP compatibility and end-of-life dates for each major version of PHPUnit
+                        Support status, supported minor version, PHP compatibility, and end-of-life dates for each major version of PHPUnit
                     </caption>
                     <thead>
                         <tr>
                             <th scope="col">Major Version</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Supported Minor</th>
                             <th scope="col">PHP Compatibility</th>
                             <th scope="col">Initial Release</th>
                             <th scope="col">End of Bugfix Support</th>
@@ -147,6 +149,8 @@
                     <tbody>
                         <tr class="is-supported">
                             <th scope="row"><a href="/announcements/phpunit-13.html">PHPUnit 13</a></th>
+                            <td><span class="badge badge--ok">Bugfix Support</span></td>
+                            <td>13.4</td>
                             <td>&gt;= PHP 8.4</td>
                             <td><time datetime="2026-02-06">February 6, 2026</time></td>
                             <td><time datetime="2028-02-04">February 4, 2028</time></td>
@@ -154,6 +158,8 @@
                         </tr>
                         <tr class="is-supported">
                             <th scope="row"><a href="/announcements/phpunit-12.html">PHPUnit 12</a></th>
+                            <td><span class="badge badge--ok">Bugfix Support</span></td>
+                            <td>12.5</td>
                             <td>&gt;= PHP 8.3</td>
                             <td><time datetime="2025-02-07">February 7, 2025</time></td>
                             <td><time datetime="2027-02-05">February 5, 2027</time></td>
@@ -161,6 +167,8 @@
                         </tr>
                         <tr class="is-security">
                             <th scope="row"><a href="/announcements/phpunit-11.html">PHPUnit 11</a></th>
+                            <td><span class="badge badge--warn">Life Support</span></td>
+                            <td>11.5</td>
                             <td>&gt;= PHP 8.2</td>
                             <td><time datetime="2024-02-02">February 2, 2024</time></td>
                             <td><time datetime="2026-02-06">February 6, 2026</time></td>
@@ -168,6 +176,8 @@
                         </tr>
                         <tr class="is-security">
                             <th scope="row"><a href="/announcements/phpunit-10.html">PHPUnit 10</a></th>
+                            <td><span class="badge badge--warn">Life Support</span></td>
+                            <td>10.5</td>
                             <td>&gt;= PHP 8.1</td>
                             <td><time datetime="2023-02-03">February 3, 2023</time></td>
                             <td><time datetime="2025-02-07">February 7, 2025</time></td>
@@ -175,6 +185,8 @@
                         </tr>
                         <tr class="is-security">
                             <th scope="row"><a href="/announcements/phpunit-9.html">PHPUnit 9</a></th>
+                            <td><span class="badge badge--warn">Life Support</span></td>
+                            <td>9.6</td>
                             <td>&gt;= PHP 7.3</td>
                             <td><time datetime="2020-02-07">February 7, 2020</time></td>
                             <td><time datetime="2024-02-02">February 2, 2024</time></td>
@@ -182,6 +194,8 @@
                         </tr>
                         <tr class="is-security">
                             <th scope="row"><a href="/announcements/phpunit-8.html">PHPUnit 8</a></th>
+                            <td><span class="badge badge--warn">Life Support</span></td>
+                            <td>8.5</td>
                             <td>&gt;= PHP 7.2</td>
                             <td><time datetime="2019-02-01">February 1, 2019</time></td>
                             <td><time datetime="2023-02-03">February 3, 2023</time></td>
@@ -191,6 +205,8 @@
                     <tbody class="table-older">
                         <tr class="is-eol">
                             <th scope="row"><a href="/announcements/phpunit-7.html">PHPUnit 7</a></th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 7.1 - PHP 7.3</td>
                             <td><time datetime="2018-02-02">February 2, 2018</time></td>
                             <td><time datetime="2020-02-07">February 7, 2020</time></td>
@@ -198,6 +214,8 @@
                         </tr>
                         <tr class="is-eol">
                             <th scope="row"><a href="/announcements/phpunit-6.html">PHPUnit 6</a></th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 7.0 - PHP 7.2</td>
                             <td><time datetime="2017-02-03">February 3, 2017</time></td>
                             <td><time datetime="2019-02-01">February 1, 2019</time></td>
@@ -205,6 +223,8 @@
                         </tr>
                         <tr class="is-eol">
                             <th scope="row"><a href="/announcements/phpunit-5.html">PHPUnit 5</a></th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 5.6 - PHP 7.1</td>
                             <td><time datetime="2015-10-02">October 2, 2015</time></td>
                             <td><time datetime="2018-02-02">February 2, 2018</time></td>
@@ -212,6 +232,8 @@
                         </tr>
                         <tr class="is-eol">
                             <th scope="row"><a href="/announcements/phpunit-4.html">PHPUnit 4</a></th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 5.3 - PHP 5.6</td>
                             <td><time datetime="2014-03-07">March 7, 2014</time></td>
                             <td><time datetime="2017-02-03">February 3, 2017</time></td>
@@ -219,6 +241,8 @@
                         </tr>
                         <tr class="is-eol">
                             <th scope="row">PHPUnit 3</th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 5.1 - PHP 5.6</td>
                             <td><time datetime="2006-11-19">November 19, 2006</time></td>
                             <td><time datetime="2014-10-17">October 17, 2014</time></td>
@@ -226,6 +250,8 @@
                         </tr>
                         <tr class="is-eol">
                             <th scope="row">PHPUnit 2</th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 5.0 - PHP 5.1</td>
                             <td><time datetime="2004-07-14">July 14, 2004</time></td>
                             <td><time datetime="2006-05-31">May 31, 2006</time></td>
@@ -233,6 +259,8 @@
                         </tr>
                         <tr class="is-eol">
                             <th scope="row">PHPUnit 1</th>
+                            <td><span class="badge badge--danger">End of Life</span></td>
+                            <td>None</td>
                             <td>PHP 4.1 - PHP 4.4</td>
                             <td><time datetime="2004-03-15">March 15, 2004</time></td>
                             <td><time datetime="2007-05-13">May 13, 2007</time></td>
@@ -247,29 +275,42 @@
                 <span class="table-toggle-btn__less">Hide older versions</span>
             </label>
 
-            <ul class="legend">
-                <li><span class="badge badge--ok">Bugfix Support</span></li>
-                <li><span class="badge badge--warn">Life Support</span></li>
-                <li><span class="badge badge--danger">End-of-Life</span></li>
-            </ul>
+            <div class="note">
+                <p>
+                    <a href="https://github.com/sebastianbergmann/phpunit/milestone/75" target="_blank" rel="noopener">PHPUnit 14</a> is planned for <time datetime="2027-02-05">February 5, 2027</time>. Bugfix Support for <span class="nowrap">PHPUnit 12</span> ends on that day.
+                </p>
+            </div>
 
-            <hr>
+            <h2 id="bugfix-support">Bugfix Support</h2>
             <p>
                 <strong>Bugfix Support</strong> means that bugs will be fixed for a version of PHPUnit. Bugfix Support for major version <code>X</code> ends two years after its initial release (when major version <code>(X+2)</code> is released). Bugfix Support for minor version <code>X.Y</code> ends when minor version <code>X.(Y+1)</code> is released.
             </p>
+            <p>
+                The table above therefore names one minor version for each major version: this is the only one that changes are still made for. New major and minor versions are released according to a fixed <a href="/backward-compatibility.html#release-schedule">release schedule</a>.
+            </p>
+
+            <h2 id="life-support">Life Support</h2>
             <p>When Bugfix Support ends for a major version, Life Support for this major version begins.</p>
             <p>
                 <strong>Life Support</strong> means that changes will be made for an otherwise unsupported version of PHPUnit to be compatible with new versions of PHP. Life Support ends when an old version of PHPUnit cannot be made compatible with a new version of PHP without breaking <a href="/backward-compatibility.html">backward compatibility</a>.
             </p>
+
+            <h2 id="php-compatibility">PHP Compatibility</h2>
+            <p>
+                A version of PHPUnit that is compatible with a newer version of PHP runs on that version of PHP. It does not support the language features that were introduced after the version of PHP that it requires.
+            </p>
+            <p>
+                For example, <span class="nowrap">PHPUnit 8.5</span> requires <span class="nowrap">PHP 7.2</span> and runs on <span class="nowrap">PHP 8</span>, where it works for PHP code that is compatible with <span class="nowrap">PHP 7.2</span>. Its test double code generator does not support union types, however, which were introduced in <span class="nowrap">PHP 8</span>.
+            </p>
+
+            <h2 id="older-versions">Older Versions</h2>
             <p>
                 This support policy has been in effect since <span class="nowrap">PHPUnit 4</span>. For <span class="nowrap">PHPUnit 1</span>, <span class="nowrap">PHPUnit 2</span>, and <span class="nowrap">PHPUnit 3</span>, the dates shown above are those of their respective last releases. Note that <span class="nowrap">PHPUnit 1</span> (for <span class="nowrap">PHP 4</span>) and <span class="nowrap">PHPUnit 2</span> (for <span class="nowrap">PHP 5</span>) were developed in parallel and are not successive major versions.
             </p>
+
+            <h2 id="upgrading">Upgrading</h2>
             <p>
-                The fact that a version of PHPUnit supports a specific PHP version means that this version of PHPUnit works on that PHP version for PHP code that is compatible with the version of PHP required by the PHPUnit version in question. For example, <span class="nowrap">PHPUnit 8.5</span> requires <span class="nowrap">PHP 7.2</span>. <span class="nowrap">PHPUnit 8.5</span> works for PHP code compatible with <span class="nowrap">PHP 7.2</span> on <span class="nowrap">PHP 8</span>. However, <span class="nowrap">PHPUnit 8.5</span>'s test double code generator does not support <span class="nowrap">PHP 8</span>'s union types syntax, for example.
-            </p>
-            <hr>
-            <p>
-                Juliette Reinders Folmer maintains <a href="https://github.com/Yoast/PHPUnit-Polyfills" target="_blank" rel="noopener">phpunit-polyfills</a>, a library that "offers a number of polyfills for functionality which was introduced, split up or renamed in PHPUnit". Use this if you must be able to run your tests using <span class="nowrap">PHPUnit 4</span> through <span class="nowrap">PHPUnit 9</span>, for instance.
+                The article <a href="https://phpunit.expert/articles/upgrading-phpunit-should-be-boring.html?ref=phpunit.de" target="_blank" rel="noopener">Upgrading PHPUnit should be boring</a> explains how to get from one major version of PHPUnit to the next: in which order to work, and which of PHPUnit's two lists of deprecations to read along the way.
             </p>
         </main>
 
