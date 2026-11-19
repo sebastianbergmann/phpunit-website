@@ -1,0 +1,50 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        ":configMigration"
+    ],
+    "timezone": "Europe/Berlin",
+    "baseBranchPatterns": [
+        "main",
+        "/^\\d+\\.\\d+$/"
+    ],
+    "rebaseWhen": "conflicted",
+    "prHourlyLimit": 2,
+    "prConcurrentLimit": 10,
+    "dependencyDashboard": {
+        "enabled": true,
+        "osvVulnerabilitySummary": "all"
+    },
+    "labels": ["type/dependencies"],
+    "platformAutomerge": true,
+    "osvVulnerabilityAlerts": true,
+    "vulnerabilityAlerts": {
+        "enabled": true,
+        "labels": ["type/security", "type/dependencies"]
+    },
+    "packageRules": [
+        {
+            "description": "Automerge minor and patch updates after they have settled",
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+            "automerge": true
+        },
+        {
+            "description": "Do not update the PHP platform requirement in composer.json",
+            "matchManagers": ["composer"],
+            "matchDepNames": ["php"],
+            "enabled": false
+        },
+        {
+            "description": "Do not suggest major updates for Composer dependencies",
+            "matchManagers": ["composer"],
+            "matchUpdateTypes": ["major"],
+            "enabled": false
+        },
+        {
+            "description": "Bump composer.json ranges when updating dependencies",
+            "matchManagers": ["composer"],
+            "rangeStrategy": "bump"
+        }
+    ]
+}
