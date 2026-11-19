@@ -23,12 +23,12 @@ final readonly class MajorVersion
     private ?string $maximumPhpVersion;
 
     /**
-     * @var ?non-empty-string
+     * @var list<MinorVersion>
      */
-    private ?string $minorVersion;
-    private ?PlannedMinorVersion $nextMinorVersion;
+    private array $minorVersions;
     private ?DateTimeImmutable $endOfBugfixSupport;
     private ?DateTimeImmutable $endOfLife;
+    private bool $hasDocumentation;
 
     /**
      * @var ?non-empty-string
@@ -50,21 +50,21 @@ final readonly class MajorVersion
      * @param positive-int           $version
      * @param non-empty-string       $minimumPhpVersion
      * @param ?non-empty-string      $maximumPhpVersion
-     * @param ?non-empty-string      $minorVersion
+     * @param list<MinorVersion>     $minorVersions       the oldest one first
      * @param ?non-empty-string      $documentationUrl
      * @param ?positive-int          $milestone
      * @param list<non-empty-string> $tutorialPhpVersions
      */
-    public function __construct(int $version, DateTimeImmutable $released, string $minimumPhpVersion, ?string $maximumPhpVersion, ?string $minorVersion, ?PlannedMinorVersion $nextMinorVersion, ?DateTimeImmutable $endOfBugfixSupport, ?DateTimeImmutable $endOfLife, ?string $documentationUrl, bool $hasDeprecationList, ?int $milestone, array $tutorialPhpVersions)
+    public function __construct(int $version, DateTimeImmutable $released, string $minimumPhpVersion, ?string $maximumPhpVersion, array $minorVersions, ?DateTimeImmutable $endOfBugfixSupport, ?DateTimeImmutable $endOfLife, bool $hasDocumentation, ?string $documentationUrl, bool $hasDeprecationList, ?int $milestone, array $tutorialPhpVersions)
     {
         $this->version             = $version;
         $this->released            = $released;
         $this->minimumPhpVersion   = $minimumPhpVersion;
         $this->maximumPhpVersion   = $maximumPhpVersion;
-        $this->minorVersion        = $minorVersion;
-        $this->nextMinorVersion    = $nextMinorVersion;
+        $this->minorVersions       = $minorVersions;
         $this->endOfBugfixSupport  = $endOfBugfixSupport;
         $this->endOfLife           = $endOfLife;
+        $this->hasDocumentation    = $hasDocumentation;
         $this->documentationUrl    = $documentationUrl;
         $this->hasDeprecationList  = $hasDeprecationList;
         $this->milestone           = $milestone;
@@ -118,52 +118,56 @@ final readonly class MajorVersion
     }
 
     /**
-     * @phpstan-assert-if-true !null $this->minorVersion
-     */
-    public function hasMinorVersion(): bool
-    {
-        return $this->minorVersion !== null;
-    }
-
-    /**
-     * The newest minor version that is released on the given day.
-     *
-     * @throws InvalidConfigurationException
+     * The newest minor version that is released on the given day. This is
+     * the first one, such as 13.0, as long as no other one is released.
      *
      * @return non-empty-string
      */
     public function minorVersion(DateTimeImmutable $today): string
     {
-        if ($this->nextMinorVersion !== null && $this->nextMinorVersion->isReleased($today)) {
-            return $this->nextMinorVersion->version();
+        $version = sprintf('%d.0', $this->version);
+
+        foreach ($this->minorVersions as $minorVersion) {
+            if ($minorVersion->isReleased($today)) {
+                $version = $minorVersion->version();
+            }
         }
 
-        if ($this->minorVersion === null) {
-            throw new InvalidConfigurationException(
-                sprintf(
-                    'No minor version is configured for %s',
-                    $this->name(),
-                ),
-            );
-        }
-
-        return $this->minorVersion;
+        return $version;
     }
 
     /**
-     * The minor version that is planned but not released on the given day.
+     * The minor version that is released next after the given day, null when
+     * none is configured.
      */
-    public function nextMinorVersion(DateTimeImmutable $today): ?PlannedMinorVersion
+    public function nextMinorVersion(DateTimeImmutable $today): ?MinorVersion
     {
-        if ($this->nextMinorVersion === null) {
-            return null;
+        foreach ($this->minorVersions as $minorVersion) {
+            if (!$minorVersion->isReleased($today)) {
+                return $minorVersion;
+            }
         }
 
-        if ($this->nextMinorVersion->isReleased($today)) {
-            return null;
+        return null;
+    }
+
+    /**
+     * The minor versions that are released on the given day, the oldest one
+     * first.
+     *
+     * @return list<MinorVersion>
+     */
+    public function releasedMinorVersions(DateTimeImmutable $today): array
+    {
+        $released = [];
+
+        foreach ($this->minorVersions as $minorVersion) {
+            if ($minorVersion->isReleased($today)) {
+                $released[] = $minorVersion;
+            }
         }
 
-        return $this->nextMinorVersion;
+        return $released;
     }
 
     /**
@@ -197,12 +201,12 @@ final readonly class MajorVersion
      */
     public function documentationUrl(DateTimeImmutable $today): ?string
     {
-        if ($this->documentationUrl !== null) {
-            return $this->documentationUrl;
+        if (!$this->hasDocumentation) {
+            return null;
         }
 
-        if ($this->minorVersion === null) {
-            return null;
+        if ($this->documentationUrl !== null) {
+            return $this->documentationUrl;
         }
 
         return sprintf('https://docs.phpunit.de/en/%s/', $this->minorVersion($today));
@@ -214,6 +218,8 @@ final readonly class MajorVersion
     }
 
     /**
+     * The number of the milestone on GitHub.
+     *
      * @return ?positive-int
      */
     public function milestone(): ?int

@@ -21,6 +21,7 @@ use PHPUnit\Framework\TestCase;
  * Renders the templates of the website with a configuration of its own into
  * a temporary directory.
  */
+#[CoversClass(AnnouncementsRenderer::class)]
 #[CoversClass(BackwardCompatibilityRenderer::class)]
 #[CoversClass(DocumentationRenderer::class)]
 #[CoversClass(Factory::class)]
@@ -33,11 +34,12 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(SupportedVersionsRenderer::class)]
 #[CoversClass(VerifyRenderer::class)]
 #[CoversTrait(Formatting::class)]
+#[UsesClass(Announcement::class)]
 #[UsesClass(Article::class)]
 #[UsesClass(ConfigurationLoader::class)]
 #[UsesClass(MajorVersion::class)]
 #[UsesClass(MajorVersionCollection::class)]
-#[UsesClass(PlannedMinorVersion::class)]
+#[UsesClass(MinorVersion::class)]
 #[UsesClass(Site::class)]
 #[UsesClass(Sponsor::class)]
 #[UsesClass(TemplateRenderer::class)]
@@ -56,6 +58,8 @@ final class BuildTest extends TestCase
         mkdir($this->publicDirectory . '/img/sponsors', 0o777, true);
 
         file_put_contents($this->publicDirectory . '/announcements/phpunit-2.html', '');
+        file_put_contents($this->publicDirectory . '/announcements/notice.html', '');
+        file_put_contents($this->publicDirectory . '/announcements/later.html', '');
         file_put_contents($this->publicDirectory . '/img/sponsors/acme.svg', '');
         file_put_contents($this->publicDirectory . '/img/sponsors/hoster.svg', '');
     }
@@ -69,10 +73,10 @@ final class BuildTest extends TestCase
     {
         $this->build('2022-05-01');
 
-        foreach (['backward-compatibility', 'datenschutz', 'documentation', 'getting-started', 'impressum', 'index', 'newsletter', 'sponsoring', 'sponsors', 'supported-versions', 'verify'] as $page) {
+        foreach (['backward-compatibility', 'datenschutz', 'documentation', 'getting-started', 'impressum', 'index', 'newsletter', 'sponsoring', 'sponsors', 'supported-versions', 'verify', 'announcements/index'] as $page) {
             $html = $this->page($page);
 
-            $this->assertStringContainsString('<header class="site-header">', $html);
+            $this->assertStringContainsString('<header class="site-header">', $html, $page);
             $this->assertStringContainsString('<footer class="site-footer">', $html);
             $this->assertStringNotContainsString('{{', $html);
         }
@@ -154,7 +158,7 @@ final class BuildTest extends TestCase
         $html = $this->page('supported-versions');
 
         $this->assertStringContainsString('<th scope="row">PHPUnit 3</th>', $html);
-        $this->assertMatchesRegularExpression('~<tr class="is-security">\s+<th scope="row"><a href="/announcements/phpunit-2.html">PHPUnit 2</a></th>\s+<td><span class="badge badge--warn">Life Support</span></td>\s+<td>2.4</td>~', $html);
+        $this->assertMatchesRegularExpression('~<tr class="is-security">\s+<th scope="row"><a href="/announcements/phpunit-2.html">PHPUnit 2</a></th>\s+<td><span class="badge badge--warn">Life Support</span></td>\s+<td>2.10</td>~', $html);
         $this->assertStringNotContainsString('is planned for', $html);
         $this->assertStringContainsString("</label>\n\n            <h2 id=\"bugfix-support\">", $html);
     }
@@ -166,7 +170,7 @@ final class BuildTest extends TestCase
         $html = $this->page('documentation');
 
         $this->assertStringContainsString('<li><a href="https://docs.phpunit.de/en/2.3/" target="_blank" rel="noopener">PHPUnit 2.3</a></li>', $html);
-        $this->assertStringContainsString('<li><code>https://example.org/manual/1.5/</code></li>', $html);
+        $this->assertStringContainsString('<li><code>https://example.org/manual/1.2/</code></li>', $html);
         $this->assertStringNotContainsString('https://docs.phpunit.de/en/3.0/', $html);
     }
 
@@ -239,6 +243,106 @@ final class BuildTest extends TestCase
         $this->expectExceptionMessageIsOrContains('No major version is released on 2018-01-01');
 
         $this->build('2018-01-01');
+    }
+
+    public function testAnnouncementsAreListedNewestFirst(): void
+    {
+        $this->build('2022-05-01');
+
+        $html = $this->page('announcements/index');
+
+        $this->assertMatchesRegularExpression('~>PHPUnit 2\.3</a>.*>Notice &amp; news</a>.*>PHPUnit 2</a>.*>PHPUnit 1\.2</a>.*>PHPUnit 1\.1</a>~s', $html);
+        $this->assertStringNotContainsString('PHPUnit 2.4', $html);
+        $this->assertStringNotContainsString('Not announced yet', $html);
+        $this->assertStringNotContainsString('>PHPUnit 1</a>', $html);
+        $this->assertStringContainsString("            </article>\n\n            <article class=\"archive-entry\">", $html);
+        $this->assertStringContainsString("            </article>\n        </main>", $html);
+    }
+
+    public function testReleaseOfMajorVersionIsAnnouncedWithItsPage(): void
+    {
+        $this->build('2022-05-01');
+
+        $this->assertStringContainsString(
+            "<h2><a href=\"/announcements/phpunit-2.html\">PHPUnit 2</a></h2>\n                <time datetime=\"2021-02-05\">February 5, 2021</time>\n                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 2. This release introduces",
+            $this->page('announcements/index'),
+        );
+    }
+
+    public function testReleaseOfMinorVersionIsAnnouncedWithSectionOfChangeLog(): void
+    {
+        $this->build('2022-05-01');
+
+        $this->assertStringContainsString(
+            "<h2><a href=\"https://github.com/sebastianbergmann/phpunit/blob/2.3.0/ChangeLog-2.3.md#230---2021-08-06\" target=\"_blank\" rel=\"noopener\">PHPUnit 2.3</a></h2>\n                <time datetime=\"2021-08-06\">August 6, 2021</time>\n                <p>The PHPUnit development team is pleased to announce the release of PHPUnit 2.3. This update introduces",
+            $this->page('announcements/index'),
+        );
+    }
+
+    public function testReleaseOfMinorVersionIsAnnouncedWithReleaseOnGitHubAsOfPhpunit11(): void
+    {
+        $this->build('2024-05-01', 'releases-on-github');
+
+        $this->assertStringContainsString(
+            '<h2><a href="https://github.com/sebastianbergmann/phpunit/releases/tag/11.1.0" target="_blank" rel="noopener">PHPUnit 11.1</a></h2>',
+            $this->page('announcements/index'),
+        );
+    }
+
+    public function testConfiguredAnnouncementOfMinorVersionWins(): void
+    {
+        $this->build('2022-05-01');
+
+        $this->assertStringContainsString(
+            '<h2><a href="https://example.org/1.2.html" target="_blank" rel="noopener">PHPUnit 1.2</a></h2>',
+            $this->page('announcements/index'),
+        );
+    }
+
+    public function testOtherAnnouncementIsListedWithItsPage(): void
+    {
+        $this->build('2022-05-01');
+
+        $this->assertStringContainsString(
+            "<h2><a href=\"/announcements/notice.html\">Notice &amp; news</a></h2>\n                <time datetime=\"2021-06-01\">June 1, 2021</time>\n                <p>Something was announced.</p>",
+            $this->page('announcements/index'),
+        );
+    }
+
+    public function testAnnouncementsAppearOnTheirDay(): void
+    {
+        $this->build('2022-12-02');
+
+        $html = $this->page('announcements/index');
+
+        $this->assertMatchesRegularExpression('~>PHPUnit 2\.10</a>.*>Not announced yet</a>.*>PHPUnit 2\.4</a>.*>PHPUnit 2\.3</a>~s', $html);
+    }
+
+    public function testOfTwoReleasesOnTheSameDayTheOneOfTheNewerVersionComesFirst(): void
+    {
+        file_put_contents($this->publicDirectory . '/announcements/phpunit-3.html', '');
+
+        $this->build('2023-02-03', 'releases-on-the-same-day');
+
+        $this->assertMatchesRegularExpression('~>PHPUnit 3</a>.*>PHPUnit 2\.1</a>~s', $this->page('announcements/index'));
+    }
+
+    public function testOtherAnnouncementNeedsPageThatExists(): void
+    {
+        unlink($this->publicDirectory . '/announcements/notice.html');
+
+        $this->expectException(InvalidConfigurationException::class);
+        $this->expectExceptionMessageIsOrContains('The page notice.html of the announcement "Notice & news" does not exist in public/announcements/');
+
+        $this->build('2022-05-01');
+    }
+
+    public function testHomepageNeedsMilestoneOfMinorVersionThatIsNotReleased(): void
+    {
+        $this->expectException(InvalidConfigurationException::class);
+        $this->expectExceptionMessageIsOrContains('PHPUnit 1.1 is not released on 2019-03-01 and needs a milestone');
+
+        $this->build('2019-03-01', 'no-milestone-for-minor-version');
     }
 
     public function testHomepageNeedsMilestoneOfMajorVersionThatIsNotReleased(): void

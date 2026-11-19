@@ -38,6 +38,7 @@ final readonly class Factory
         return new Renderer(
             [
                 new HomepageRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
+                new AnnouncementsRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new SupportedVersionsRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new DocumentationRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new BackwardCompatibilityRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),

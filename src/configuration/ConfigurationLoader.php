@@ -3,6 +3,7 @@ namespace SebastianBergmann\PhpunitWebsite;
 
 use function array_key_exists;
 use function array_keys;
+use function array_values;
 use function implode;
 use function in_array;
 use function is_array;
@@ -13,6 +14,8 @@ use function is_string;
 use function preg_match;
 use function sprintf;
 use function str_starts_with;
+use function uksort;
+use function version_compare;
 use DateTimeImmutable;
 
 /**
@@ -49,7 +52,7 @@ final readonly class ConfigurationLoader
             );
         }
 
-        $this->ensureOnlyKnownKeys($configuration, ['majorVersions', 'articles', 'sponsors'], 'configuration');
+        $this->ensureOnlyKnownKeys($configuration, ['majorVersions', 'announcements', 'articles', 'sponsors'], 'configuration');
 
         $sponsors = $this->map($configuration, 'sponsors', 'sponsors');
 
@@ -57,6 +60,7 @@ final readonly class ConfigurationLoader
 
         return new Site(
             $this->majorVersions($configuration),
+            $this->announcements($configuration),
             $this->articles($configuration),
             $this->sponsors($sponsors, 'business'),
             $this->sponsors($sponsors, 'infrastructure'),
@@ -98,8 +102,7 @@ final readonly class ConfigurationLoader
                 'released',
                 'minimumPhpVersion',
                 'maximumPhpVersion',
-                'minorVersion',
-                'nextMinorVersion',
+                'minorVersions',
                 'endOfBugfixSupport',
                 'endOfLife',
                 'documentation',
@@ -110,22 +113,11 @@ final readonly class ConfigurationLoader
             $path,
         );
 
-        $version      = $this->positiveInteger($data, 'version', $path);
-        $minorVersion = null;
+        $version       = $this->positiveInteger($data, 'version', $path);
+        $minorVersions = [];
 
-        if (array_key_exists('minorVersion', $data)) {
-            $minorVersion = $this->minorVersionOf($version, $data, 'minorVersion', $path);
-        }
-
-        $endOfLife = $this->optionalDate($data, 'endOfLife', $path);
-
-        if ($minorVersion === null && $endOfLife === null) {
-            throw new InvalidConfigurationException(
-                sprintf(
-                    '%s.minorVersion is required for a major version that has no endOfLife',
-                    $path,
-                ),
-            );
+        if (array_key_exists('minorVersions', $data)) {
+            $minorVersions = $this->minorVersions($version, $data, $path);
         }
 
         $maximumPhpVersion = null;
@@ -134,20 +126,15 @@ final readonly class ConfigurationLoader
             $maximumPhpVersion = $this->phpVersion($data, 'maximumPhpVersion', $path);
         }
 
-        $nextMinorVersion = null;
-
-        if (array_key_exists('nextMinorVersion', $data)) {
-            $nextMinorVersion = $this->plannedMinorVersion(
-                $version,
-                $this->map($data, 'nextMinorVersion', $path . '.nextMinorVersion'),
-                $path . '.nextMinorVersion',
-            );
-        }
-
-        $documentation = null;
+        $hasDocumentation = true;
+        $documentation    = null;
 
         if (array_key_exists('documentation', $data)) {
-            $documentation = $this->string($data, 'documentation', $path);
+            if ($data['documentation'] === null) {
+                $hasDocumentation = false;
+            } else {
+                $documentation = $this->string($data, 'documentation', $path);
+            }
         }
 
         $milestone = null;
@@ -167,10 +154,10 @@ final readonly class ConfigurationLoader
             $this->date($data, 'released', $path),
             $this->phpVersion($data, 'minimumPhpVersion', $path),
             $maximumPhpVersion,
-            $minorVersion,
-            $nextMinorVersion,
+            $minorVersions,
             $this->optionalDate($data, 'endOfBugfixSupport', $path),
-            $endOfLife,
+            $this->optionalDate($data, 'endOfLife', $path),
+            $hasDocumentation,
             $documentation,
             $this->boolean($data, 'deprecations', $path),
             $milestone,
@@ -179,21 +166,99 @@ final readonly class ConfigurationLoader
     }
 
     /**
+     * The minor versions of a major version, the oldest one first.
+     *
      * @param positive-int     $majorVersion
-     * @param array<mixed>     $data
-     * @param non-empty-string $path
+     * @param array<mixed>     $majorVersionData
+     * @param non-empty-string $majorVersionPath
      *
      * @throws InvalidConfigurationException
+     *
+     * @return list<MinorVersion>
      */
-    private function plannedMinorVersion(int $majorVersion, array $data, string $path): PlannedMinorVersion
+    private function minorVersions(int $majorVersion, array $majorVersionData, string $majorVersionPath): array
     {
-        $this->ensureOnlyKnownKeys($data, ['version', 'released', 'milestone'], $path);
+        $minorVersions = [];
 
-        return new PlannedMinorVersion(
-            $this->minorVersionOf($majorVersion, $data, 'version', $path),
-            $this->date($data, 'released', $path),
-            $this->positiveInteger($data, 'milestone', $path),
+        foreach ($this->listOfMaps($majorVersionData, 'minorVersions', $majorVersionPath . '.minorVersions') as $index => $data) {
+            $path = sprintf('%s.minorVersions[%d]', $majorVersionPath, $index);
+
+            $this->ensureOnlyKnownKeys($data, ['version', 'released', 'milestone', 'announcement'], $path);
+
+            $version = $this->minorVersionOf($majorVersion, $data, 'version', $path);
+
+            if ($version === $majorVersion . '.0') {
+                throw new InvalidConfigurationException(
+                    sprintf(
+                        '%s.version must not be "%s": this is the release of the major version itself',
+                        $path,
+                        $version,
+                    ),
+                );
+            }
+
+            if (array_key_exists($version, $minorVersions)) {
+                throw new InvalidConfigurationException(
+                    sprintf(
+                        'PHPUnit %s is configured more than once',
+                        $version,
+                    ),
+                );
+            }
+
+            $milestone = null;
+
+            if (array_key_exists('milestone', $data)) {
+                $milestone = $this->positiveInteger($data, 'milestone', $path);
+            }
+
+            $announcement = null;
+
+            if (array_key_exists('announcement', $data)) {
+                $announcement = $this->string($data, 'announcement', $path);
+            }
+
+            $minorVersions[$version] = new MinorVersion(
+                $version,
+                $this->date($data, 'released', $path),
+                $milestone,
+                $announcement,
+            );
+        }
+
+        uksort(
+            $minorVersions,
+            static fn (string $a, string $b): int => version_compare($a, $b),
         );
+
+        return array_values($minorVersions);
+    }
+
+    /**
+     * @param array<mixed> $configuration
+     *
+     * @throws InvalidConfigurationException
+     *
+     * @return list<Announcement>
+     */
+    private function announcements(array $configuration): array
+    {
+        $announcements = [];
+
+        foreach ($this->listOfMaps($configuration, 'announcements', 'announcements') as $index => $data) {
+            $path = sprintf('announcements[%d]', $index);
+
+            $this->ensureOnlyKnownKeys($data, ['date', 'title', 'page', 'text'], $path);
+
+            $announcements[] = new Announcement(
+                $this->date($data, 'date', $path),
+                $this->string($data, 'title', $path),
+                $this->string($data, 'page', $path),
+                $this->string($data, 'text', $path),
+            );
+        }
+
+        return $announcements;
     }
 
     /**

@@ -58,6 +58,7 @@ final readonly class HomepageRenderer implements PageRenderer
     }
 
     /**
+     * @throws InvalidConfigurationException
      * @throws TemplateException
      */
     private function nextMinorVersion(MajorVersion $current): string
@@ -68,10 +69,22 @@ final readonly class HomepageRenderer implements PageRenderer
             return '';
         }
 
+        $milestone = $next->milestone();
+
+        if ($milestone === null) {
+            throw new InvalidConfigurationException(
+                sprintf(
+                    'PHPUnit %s is not released on %s and needs a milestone',
+                    $next->version(),
+                    $this->isoDate($this->today),
+                ),
+            );
+        }
+
         return $this->templates->render(
             'homepage/next-version.html',
             [
-                'milestone' => (string) $next->milestone(),
+                'milestone' => (string) $milestone,
                 'version'   => $next->version(),
                 'kind'      => 'minor',
             ],
