@@ -283,4 +283,17 @@ return [
             ['name' => 'thePHP.cc', 'url' => 'https://thephp.cc/?ref=phpunit.de', 'logo' => 'thephpcc.svg'],
         ],
     ],
+
+    /*
+     * The sitemap lists every HTML page below public/ with the day Git says
+     * it was last changed. An exclusion is a page, or a directory when it
+     * ends with a slash, relative to public/.
+     */
+    'sitemap' => [
+        'exclude' => [
+            'googleee2ea42e74d868fa.html',
+            'manual/',
+            'newsletter.html',
+        ],
+    ],
 ];

@@ -83,12 +83,13 @@ final class ValueObjectsTest extends TestCase
         $business       = [new Sponsor('Acme Inc.', 'https://example.org/', 'acme.svg')];
         $infrastructure = [new Sponsor('Hoster', 'https://example.org/', 'hoster.svg')];
 
-        $site = new Site($majorVersions, $announcements, $articles, $business, $infrastructure);
+        $site = new Site($majorVersions, $announcements, $articles, $business, $infrastructure, ['impressum.html', 'manual/']);
 
         $this->assertSame($majorVersions, $site->majorVersions());
         $this->assertSame($announcements, $site->announcements());
         $this->assertSame($articles, $site->articles());
         $this->assertSame($business, $site->businessSponsors());
         $this->assertSame($infrastructure, $site->infrastructureSponsors());
+        $this->assertSame(['impressum.html', 'manual/'], $site->pagesExcludedFromSitemap());
     }
 }

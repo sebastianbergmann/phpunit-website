@@ -1,3 +1,3 @@
 <?php declare(strict_types=1);
 
-return ['majorVersions' => [['version' => 1, 'released' => '2019-02-01', 'minimumPhpVersion' => '7.2'], ['version' => 1, 'released' => '2020-02-07', 'minimumPhpVersion' => '7.3']], 'announcements' => [], 'articles' => [], 'sponsors' => ['business' => [], 'infrastructure' => []]];
+return ['majorVersions' => [['version' => 1, 'released' => '2019-02-01', 'minimumPhpVersion' => '7.2'], ['version' => 1, 'released' => '2020-02-07', 'minimumPhpVersion' => '7.3']], 'announcements' => [], 'articles' => [], 'sponsors' => ['business' => [], 'infrastructure' => []], 'sitemap' => ['exclude' => []]];

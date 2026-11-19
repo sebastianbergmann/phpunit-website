@@ -53,4 +53,7 @@ return [
             ['name' => 'Hoster', 'url' => 'https://example.org/hoster', 'logo' => 'hoster.svg'],
         ],
     ],
+    'sitemap' => [
+        'exclude' => ['excluded.html', 'excluded/'],
+    ],
 ];

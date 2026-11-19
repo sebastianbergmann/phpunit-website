@@ -8,6 +8,7 @@ use function is_dir;
 use function mkdir;
 use function rmdir;
 use function scandir;
+use function substr_count;
 use function sys_get_temp_dir;
 use function uniqid;
 use function unlink;
@@ -29,6 +30,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(HomepageRenderer::class)]
 #[CoversClass(PublicDirectory::class)]
 #[CoversClass(Renderer::class)]
+#[CoversClass(SitemapRenderer::class)]
 #[CoversClass(SponsorsRenderer::class)]
 #[CoversClass(StaticPageRenderer::class)]
 #[CoversClass(SupportedVersionsRenderer::class)]
@@ -60,6 +62,11 @@ final class BuildTest extends TestCase
         file_put_contents($this->publicDirectory . '/announcements/phpunit-2.html', '');
         file_put_contents($this->publicDirectory . '/announcements/notice.html', '');
         file_put_contents($this->publicDirectory . '/announcements/later.html', '');
+        file_put_contents($this->publicDirectory . '/excluded.html', '');
+
+        mkdir($this->publicDirectory . '/excluded');
+
+        file_put_contents($this->publicDirectory . '/excluded/page.html', '');
         file_put_contents($this->publicDirectory . '/img/sponsors/acme.svg', '');
         file_put_contents($this->publicDirectory . '/img/sponsors/hoster.svg', '');
     }
@@ -227,6 +234,22 @@ final class BuildTest extends TestCase
         $this->assertStringContainsString('<li><a href="/sponsors.html" aria-current="page">Sponsors</a></li>', $html);
     }
 
+    public function testSitemapListsPagesThatAreNotExcluded(): void
+    {
+        $this->build('2022-05-01');
+
+        $sitemap = file_get_contents($this->publicDirectory . '/sitemap.xml');
+
+        $this->assertIsString($sitemap);
+        $this->assertStringStartsWith("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n    <url>\n        <loc>https://phpunit.de/</loc>\n        <lastmod>2022-04-01</lastmod>\n    </url>\n    <url>\n        <loc>https://phpunit.de/announcements/</loc>\n", $sitemap);
+        $this->assertStringEndsWith("    <url>\n        <loc>https://phpunit.de/verify.html</loc>\n        <lastmod>2022-04-01</lastmod>\n    </url>\n</urlset>\n", $sitemap);
+        $this->assertStringContainsString('<loc>https://phpunit.de/announcements/phpunit-2.html</loc>', $sitemap);
+        $this->assertStringContainsString('<loc>https://phpunit.de/impressum.html</loc>', $sitemap);
+        $this->assertStringNotContainsString('index.html', $sitemap);
+        $this->assertStringNotContainsString('excluded', $sitemap);
+        $this->assertSame(15, substr_count($sitemap, '<url>'));
+    }
+
     public function testSponsorNeedsLogoThatExists(): void
     {
         unlink($this->publicDirectory . '/img/sponsors/acme.svg');
@@ -384,11 +407,19 @@ final class BuildTest extends TestCase
      */
     private function build(string $today, string $configuration = 'valid'): void
     {
+        $pageHistory = $this->createStub(PageHistory::class);
+
+        $pageHistory
+            ->method('lastModified')
+            ->willReturn(new DateTimeImmutable('2022-04-01'))
+            ->seal();
+
         $factory = new Factory(
             new DateTimeImmutable($today),
             __DIR__ . '/../fixtures/configuration/' . $configuration . '.php',
             __DIR__ . '/../../templates',
             $this->publicDirectory,
+            $pageHistory,
         );
 
         $factory->renderer()->render();

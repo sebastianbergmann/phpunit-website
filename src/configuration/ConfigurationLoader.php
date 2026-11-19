@@ -52,7 +52,7 @@ final readonly class ConfigurationLoader
             );
         }
 
-        $this->ensureOnlyKnownKeys($configuration, ['majorVersions', 'announcements', 'articles', 'sponsors'], 'configuration');
+        $this->ensureOnlyKnownKeys($configuration, ['majorVersions', 'announcements', 'articles', 'sponsors', 'sitemap'], 'configuration');
 
         $sponsors = $this->map($configuration, 'sponsors', 'sponsors');
 
@@ -64,6 +64,7 @@ final readonly class ConfigurationLoader
             $this->articles($configuration),
             $this->sponsors($sponsors, 'business'),
             $this->sponsors($sponsors, 'infrastructure'),
+            $this->pagesExcludedFromSitemap($configuration),
         );
     }
 
@@ -304,6 +305,32 @@ final readonly class ConfigurationLoader
         }
 
         return $result;
+    }
+
+    /**
+     * @param array<mixed> $configuration
+     *
+     * @throws InvalidConfigurationException
+     *
+     * @return list<non-empty-string>
+     */
+    private function pagesExcludedFromSitemap(array $configuration): array
+    {
+        $sitemap = $this->map($configuration, 'sitemap', 'sitemap');
+
+        $this->ensureOnlyKnownKeys($sitemap, ['exclude'], 'sitemap');
+
+        $excluded = [];
+
+        foreach ($this->map($sitemap, 'exclude', 'sitemap.exclude') as $path) {
+            if (!is_string($path) || $path === '') {
+                throw new InvalidConfigurationException('sitemap.exclude must be a list of paths');
+            }
+
+            $excluded[] = $path;
+        }
+
+        return $excluded;
     }
 
     /**

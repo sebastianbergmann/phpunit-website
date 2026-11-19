@@ -17,6 +17,7 @@ final readonly class Factory
     private DateTimeImmutable $today;
     private TemplateRenderer $templates;
     private PublicDirectory $publicDirectory;
+    private PageHistory $pageHistory;
 
     /**
      * @param non-empty-string $configurationFile
@@ -25,12 +26,13 @@ final readonly class Factory
      *
      * @throws InvalidConfigurationException
      */
-    public function __construct(DateTimeImmutable $today, string $configurationFile, string $templateDirectory, string $publicDirectory)
+    public function __construct(DateTimeImmutable $today, string $configurationFile, string $templateDirectory, string $publicDirectory, PageHistory $pageHistory)
     {
         $this->site            = new ConfigurationLoader()->load($configurationFile);
         $this->today           = $today;
         $this->templates       = new TemplateRenderer($templateDirectory);
         $this->publicDirectory = new PublicDirectory($publicDirectory);
+        $this->pageHistory     = $pageHistory;
     }
 
     public function renderer(): Renderer
@@ -46,6 +48,7 @@ final readonly class Factory
                 new VerifyRenderer($this->site, $this->today, $this->templates, $this->publicDirectory),
                 new SponsorsRenderer($this->site, $this->templates, $this->publicDirectory),
                 new StaticPageRenderer($this->templates, $this->publicDirectory),
+                new SitemapRenderer($this->site, $this->today, $this->templates, $this->publicDirectory, $this->pageHistory),
             ],
         );
     }

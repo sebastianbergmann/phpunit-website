@@ -29,18 +29,25 @@ final readonly class Site
     private array $infrastructureSponsors;
 
     /**
-     * @param list<Announcement> $announcements
-     * @param list<Article>      $articles
-     * @param list<Sponsor>      $businessSponsors
-     * @param list<Sponsor>      $infrastructureSponsors
+     * @var list<non-empty-string>
      */
-    public function __construct(MajorVersionCollection $majorVersions, array $announcements, array $articles, array $businessSponsors, array $infrastructureSponsors)
+    private array $pagesExcludedFromSitemap;
+
+    /**
+     * @param list<Announcement>     $announcements
+     * @param list<Article>          $articles
+     * @param list<Sponsor>          $businessSponsors
+     * @param list<Sponsor>          $infrastructureSponsors
+     * @param list<non-empty-string> $pagesExcludedFromSitemap
+     */
+    public function __construct(MajorVersionCollection $majorVersions, array $announcements, array $articles, array $businessSponsors, array $infrastructureSponsors, array $pagesExcludedFromSitemap)
     {
-        $this->majorVersions          = $majorVersions;
-        $this->announcements          = $announcements;
-        $this->articles               = $articles;
-        $this->businessSponsors       = $businessSponsors;
-        $this->infrastructureSponsors = $infrastructureSponsors;
+        $this->majorVersions            = $majorVersions;
+        $this->announcements            = $announcements;
+        $this->articles                 = $articles;
+        $this->businessSponsors         = $businessSponsors;
+        $this->infrastructureSponsors   = $infrastructureSponsors;
+        $this->pagesExcludedFromSitemap = $pagesExcludedFromSitemap;
     }
 
     public function majorVersions(): MajorVersionCollection
@@ -80,5 +87,16 @@ final readonly class Site
     public function infrastructureSponsors(): array
     {
         return $this->infrastructureSponsors;
+    }
+
+    /**
+     * A page, or a directory when it ends with a slash, relative to the
+     * document root.
+     *
+     * @return list<non-empty-string>
+     */
+    public function pagesExcludedFromSitemap(): array
+    {
+        return $this->pagesExcludedFromSitemap;
     }
 }

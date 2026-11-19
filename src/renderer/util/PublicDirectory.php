@@ -3,7 +3,14 @@ namespace SebastianBergmann\PhpunitWebsite;
 
 use function file_put_contents;
 use function is_file;
+use function sort;
 use function sprintf;
+use function strlen;
+use function substr;
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
 
 /**
  * The document root: generated pages are written to it, and what is
@@ -30,6 +37,36 @@ final readonly class PublicDirectory
     public function has(string $path): bool
     {
         return is_file($this->directory . '/' . $path);
+    }
+
+    /**
+     * The HTML pages below the document root, relative to it.
+     *
+     * @return list<non-empty-string>
+     */
+    public function htmlPages(): array
+    {
+        $pages = [];
+
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($this->directory, FilesystemIterator::SKIP_DOTS),
+        );
+
+        foreach ($files as $file) {
+            if (!$file instanceof SplFileInfo || $file->getExtension() !== 'html') {
+                continue;
+            }
+
+            $page = substr($file->getPathname(), strlen($this->directory) + 1);
+
+            if ($page !== '') {
+                $pages[] = $page;
+            }
+        }
+
+        sort($pages);
+
+        return $pages;
     }
 
     /**

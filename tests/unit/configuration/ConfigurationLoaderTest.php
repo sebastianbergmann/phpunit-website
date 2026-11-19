@@ -26,7 +26,7 @@ final class ConfigurationLoaderTest extends TestCase
         return [
             'file does not exist'                  => ['does-not-exist', 'does-not-exist.php does not exist'],
             'file does not return an array'        => ['not-an-array', 'does not return an array'],
-            'unknown key'                          => ['unknown-key', 'configuration has the unknown key "sponsor" (known keys: majorVersions, announcements, articles, sponsors)'],
+            'unknown key'                          => ['unknown-key', 'configuration has the unknown key "sponsor" (known keys: majorVersions, announcements, articles, sponsors, sitemap)'],
             'no major versions'                    => ['no-major-versions', 'majorVersions must not be empty'],
             'unknown key in major version'         => ['unknown-key-in-major-version', 'majorVersions[0] has the unknown key "endOfLive"'],
             'invalid date'                         => ['invalid-date', 'majorVersions[0].released must be a date in the format YYYY-MM-DD, "2019-02-30" is not'],
@@ -37,6 +37,8 @@ final class ConfigurationLoaderTest extends TestCase
             'invalid PHP version'                  => ['invalid-php-version', 'majorVersions[0].minimumPhpVersion must be a version number such as "8.4", "7" is not'],
             'duplicate major version'              => ['duplicate-major-version', 'PHPUnit 1 is configured more than once'],
             'missing sponsors'                     => ['missing-sponsors', 'sponsors must be an array'],
+            'missing sitemap'                      => ['missing-sitemap', 'sitemap must be an array'],
+            'exclusion from sitemap is not a path' => ['invalid-sitemap-exclusion', 'sitemap.exclude must be a list of paths'],
             'announcement without page'            => ['announcement-without-page', 'announcements[0].page must be a non-empty string'],
             'article without title'                => ['article-without-title', 'articles[0].title must be a non-empty string'],
             'milestone is not an integer'          => ['milestone-is-not-an-integer', 'majorVersions[0].milestone must be a positive integer'],
@@ -148,6 +150,11 @@ final class ConfigurationLoaderTest extends TestCase
         $this->assertSame('acme.svg', $site->businessSponsors()[0]->logo());
         $this->assertCount(1, $site->infrastructureSponsors());
         $this->assertSame('Hoster', $site->infrastructureSponsors()[0]->name());
+    }
+
+    public function testLoadsPagesThatAreExcludedFromTheSitemap(): void
+    {
+        $this->assertSame(['excluded.html', 'excluded/'], $this->load('valid')->pagesExcludedFromSitemap());
     }
 
     /**

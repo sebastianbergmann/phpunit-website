@@ -34,6 +34,7 @@ try {
         __DIR__ . '/../config.php',
         __DIR__ . '/../templates',
         __DIR__ . '/../public',
+        new GitPageHistory(__DIR__ . '/../public'),
     );
 
     $factory->renderer()->render();
