@@ -404,7 +404,6 @@ return [
         'exclude' => [
             'googleee2ea42e74d868fa.html',
             'manual/',
-            'newsletter.html',
         ],
     ],
 ];

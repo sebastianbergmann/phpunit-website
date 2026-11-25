@@ -15,7 +15,6 @@ final readonly class StaticPageRenderer implements PageRenderer
     private const array PAGES = [
         'datenschutz.html',
         'impressum.html',
-        'newsletter.html',
         'sponsoring.html',
     ];
     private TemplateRenderer $templates;

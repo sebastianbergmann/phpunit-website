@@ -84,7 +84,7 @@ final class BuildTest extends TestCase
     {
         $this->build('2022-05-01');
 
-        foreach (['backward-compatibility', 'datenschutz', 'documentation', 'getting-started', 'impressum', 'index', 'newsletter', 'sponsoring', 'sponsors', 'supported-versions', 'verify', 'announcements/index', 'code-sprints/index', 'code-sprints/october-2022', 'code-sprints/may-2021', 'code-sprints/march-2017'] as $page) {
+        foreach (['backward-compatibility', 'datenschutz', 'documentation', 'getting-started', 'impressum', 'index', 'sponsoring', 'sponsors', 'supported-versions', 'verify', 'announcements/index', 'code-sprints/index', 'code-sprints/october-2022', 'code-sprints/may-2021', 'code-sprints/march-2017'] as $page) {
             $html = $this->page($page);
 
             $this->assertStringContainsString('<header class="site-header">', $html, $page);
@@ -317,7 +317,7 @@ final class BuildTest extends TestCase
         $this->assertStringNotContainsString('excluded', $sitemap);
         $this->assertStringContainsString('<loc>https://phpunit.de/code-sprints/</loc>', $sitemap);
         $this->assertStringContainsString('<loc>https://phpunit.de/code-sprints/may-2021.html</loc>', $sitemap);
-        $this->assertSame(19, substr_count($sitemap, '<url>'));
+        $this->assertSame(18, substr_count($sitemap, '<url>'));
     }
 
     public function testSponsorNeedsLogoThatExists(): void

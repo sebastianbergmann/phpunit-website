@@ -34,12 +34,9 @@ RewriteRule ^getting-started/phpunit-10\.html$ https://docs.phpunit.de/en/10.5/ 
 RewriteRule ^getting-started/phpunit-11\.html$ https://docs.phpunit.de/en/11.5/ [R=301,L]
 RewriteRule ^getting-started/phpunit-12\.html$ https://docs.phpunit.de/en/12.5/ [R=301,L]
 
-# The newsletter page keeps the extension-free URL that the former redirect to
-# the signup form had. Matching THE_REQUEST means the internal rewrite below
-# does not re-enter the redirect rule, so there is no redirect loop.
-RewriteCond %{THE_REQUEST} \s/+newsletter\.html[\s?] [NC]
-RewriteRule ^newsletter\.html$ /newsletter [R=301,L]
-RewriteRule ^newsletter$ newsletter.html [L]
+# The newsletter page is gone. Its URL, with and without the extension, leads
+# to the previous issues of the newsletter.
+RewriteRule ^newsletter(\.html)?$ https://phpunit.expert/articles/phpunit-update.html?ref=phpunit.de [R=301,L]
 
 # /index.html -> /, /announcements/index.html -> /announcements/, and so on.
 # Matching THE_REQUEST means the internal DirectoryIndex lookup for "/" does
